@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Restaurant AI automation workflow</title>
+  <desc id="desc">A QSR automation flow from customer request to agent triage, staff handoff, checkout, and follow-up.</desc>
+  <rect width="1200" height="675" fill="#f8faf7"/>
+  <rect x="72" y="72" width="1056" height="531" rx="22" fill="#ffffff" stroke="#d8ded6" stroke-width="2"/>
+  <text x="110" y="132" font-family="Arial, sans-serif" font-size="36" font-weight="700" fill="#13231a">Restaurant AI Ops Flow</text>
+  <text x="110" y="174" font-family="Arial, sans-serif" font-size="18" fill="#58645d">Find the leak, automate the handoff, measure the sale.</text>
+  <g font-family="Arial, sans-serif">
+    <g transform="translate(110 250)">
+      <rect width="190" height="112" rx="14" fill="#e8f4ff" stroke="#9dc7ef"/>
+      <text x="22" y="44" font-size="20" font-weight="700" fill="#16324f">Customer</text>
+      <text x="22" y="76" font-size="15" fill="#31516d">Call, form, DM,</text>
+      <text x="22" y="96" font-size="15" fill="#31516d">catering inquiry</text>
+    </g>
+    <path d="M314 306 H410" stroke="#6f7c73" stroke-width="4" fill="none" marker-end="url(#arrow)"/>
+    <g transform="translate(430 250)">
+      <rect width="190" height="112" rx="14" fill="#f2edff" stroke="#c3b4f5"/>
+      <text x="22" y="44" font-size="20" font-weight="700" fill="#33245f">AI Triage</text>
+      <text x="22" y="76" font-size="15" fill="#534878">Menu answers,</text>
+      <text x="22" y="96" font-size="15" fill="#534878">upsell prompts</text>
+    </g>
+    <path d="M634 306 H730" stroke="#6f7c73" stroke-width="4" fill="none" marker-end="url(#arrow)"/>
+    <g transform="translate(750 250)">
+      <rect width="190" height="112" rx="14" fill="#fff4dc" stroke="#efc36d"/>
+      <text x="22" y="44" font-size="20" font-weight="700" fill="#5a3d0c">Staff Handoff</text>
+      <text x="22" y="76" font-size="15" fill="#704f18">Clean summary,</text>
+      <text x="22" y="96" font-size="15" fill="#704f18">owner assigned</text>
+    </g>
+    <path d="M845 374 V430" stroke="#6f7c73" stroke-width="4" fill="none" marker-end="url(#arrow)"/>
+    <g transform="translate(750 450)">
+      <rect width="190" height="92" rx="14" fill="#eaf8ee" stroke="#91d2a2"/>
+      <text x="22" y="40" font-size="20" font-weight="700" fill="#184f26">Checkout</text>
+      <text x="22" y="68" font-size="15" fill="#2d6739">Order, quote, or audit</text>
+    </g>
+    <path d="M736 496 H640" stroke="#6f7c73" stroke-width="4" fill="none" marker-end="url(#arrow)"/>
+    <g transform="translate(430 450)">
+      <rect width="190" height="92" rx="14" fill="#ffecea" stroke="#eeaaa2"/>
+      <text x="22" y="40" font-size="20" font-weight="700" fill="#61201b">Follow-Up</text>
+      <text x="22" y="68" font-size="15" fill="#7d3731">No lead goes cold</text>
+    </g>
+  </g>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#6f7c73"/>
+    </marker>
+  </defs>
+</svg>

@@ -1,0 +1,34 @@
+{
+  "primary": [
+    {
+      "id": "qsr_n8n_starter_vault",
+      "name": "QSR n8n Starter Vault",
+      "price_usd": 99,
+      "stripe_product_id": "prod_UT5nQheIOxFN2Y",
+      "stripe_price_id": "price_1TU9beGGBpd520QYRwv3eGEL",
+      "payment_url": "https://buy.stripe.com/9B6fZhfCY6zc2dz21R3sI0S",
+      "audience": "QSR owners and operators who want starter automations without a custom build",
+      "promise": "Copyable restaurant automation workflows for missed-call capture, lead follow-up, and ops checklists"
+    },
+    {
+      "id": "qsr_ai_automation_diagnostic",
+      "name": "QSR AI Automation Diagnostic",
+      "price_usd": 499,
+      "stripe_product_id": "prod_UT5k23OY5wSiXy",
+      "stripe_price_id": "price_1TU9YkGGBpd520QYddceJdjQ",
+      "payment_url": "https://buy.stripe.com/5kQ9ATduQcXA5pL35V3sI0R",
+      "audience": "Restaurant teams with phone ordering, catering, drive-thru, or kitchen handoff friction",
+      "promise": "A focused teardown of order capture leaks, upsell gaps, and automation opportunities"
+    },
+    {
+      "id": "ai_phone_revenue_leak_diagnostic",
+      "name": "AI Phone Revenue Leak Diagnostic",
+      "price_usd": 499,
+      "stripe_product_id": "prod_UT5yMFB2sWqKIk",
+      "stripe_price_id": "price_1TU9mWGGBpd520QYSjzF45AH",
+      "payment_url": "https://buy.stripe.com/4gMfZhfCY3n0f0l6i73sI0T",
+      "audience": "Restaurants missing calls or inconsistent phone upsells",
+      "promise": "Find phone ordering revenue leaks and rank the highest-ROI automation fixes"
+    }
+  ]
+}
