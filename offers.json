@@ -1,6 +1,16 @@
 {
   "primary": [
     {
+      "id": "qsr_automation_scorecard",
+      "name": "QSR Automation Scorecard",
+      "price_usd": 29,
+      "stripe_product_id": "prod_UT7boni1hNy1i1",
+      "stripe_price_id": "price_1TUBMAGGBpd520QYaZVtbpkU",
+      "payment_url": "https://buy.stripe.com/bJefZh76se1EdWh8qf3sI1d",
+      "audience": "Restaurant owners and operators who want a cheap same-day automation priority list before buying a bigger setup",
+      "promise": "A one-page scorecard ranking missed-call, catering follow-up, staff handoff, and review automation opportunities"
+    },
+    {
       "id": "qsr_n8n_starter_vault",
       "name": "QSR n8n Starter Vault",
       "price_usd": 99,
