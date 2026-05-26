@@ -113,25 +113,11 @@
       data-domain="igorganapolsky.github.io"
       src="https://plausible.io/js/script.tagged-events.js"
     ></script>
-    <script>
-      window.plausible =
-        window.plausible ||
-        function () {
-          (window.plausible.q = window.plausible.q || []).push(arguments);
-        };
-    </script>
     <script
       async
       src="https://www.googletagmanager.com/gtag/js?id=G-SZR5039QN4"
     ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-      gtag("config", "G-SZR5039QN4");
-    </script>
+    <script defer src="../assets/revenue-analytics.js"></script>
   </head>
   <body>
     <header>
@@ -154,58 +140,31 @@
         <a
           class="button primary"
           href="https://buy.stripe.com/3cIaEX1M80aO9G1fSH3sI2N?client_reference_id=applyops_hero_snapshot"
-          onclick="
-            try {
-              plausible('applyops_cta_click', {
-                props: { tier: 'snapshot', price: 49, placement: 'hero' },
-              });
-            } catch (_) {}
-            try {
-              posthog.capture('applyops_cta_click', {
-                tier: 'snapshot',
-                price: 49,
-                placement: 'hero',
-              });
-            } catch (_) {}
-          "
+          data-track="checkout_click"
+          data-surface="applyops"
+          data-tier="snapshot"
+          data-price="49"
+          data-placement="hero"
           >Buy Truth Snapshot ($49)</a
         >
         <a
           class="button"
           href="https://buy.stripe.com/3cI3cvgH26zccSd7mb3sI2O?client_reference_id=applyops_hero_pro"
-          onclick="
-            try {
-              plausible('applyops_cta_click', {
-                props: { tier: 'pro', price: 149, placement: 'hero' },
-              });
-            } catch (_) {}
-            try {
-              posthog.capture('applyops_cta_click', {
-                tier: 'pro',
-                price: 149,
-                placement: 'hero',
-              });
-            } catch (_) {}
-          "
+          data-track="checkout_click"
+          data-surface="applyops"
+          data-tier="pro"
+          data-price="149"
+          data-placement="hero"
           >Resume OS Pro ($149)</a
         >
         <a
           class="button"
           href="https://buy.stripe.com/9B600j4YkcXAcSdayn3sI2P?client_reference_id=applyops_hero_dfy"
-          onclick="
-            try {
-              plausible('applyops_cta_click', {
-                props: { tier: 'dfy', price: 1500, placement: 'hero' },
-              });
-            } catch (_) {}
-            try {
-              posthog.capture('applyops_cta_click', {
-                tier: 'dfy',
-                price: 1500,
-                placement: 'hero',
-              });
-            } catch (_) {}
-          "
+          data-track="checkout_click"
+          data-surface="applyops"
+          data-tier="dfy"
+          data-price="1500"
+          data-placement="hero"
           >Done-For-You Sprint ($1,500)</a
         >
         <a class="button" href="./sample-truth-snapshot.html">View Sample</a>
@@ -232,20 +191,11 @@
               <a
                 class="button primary"
                 href="https://buy.stripe.com/3cIaEX1M80aO9G1fSH3sI2N?client_reference_id=applyops_card_snapshot"
-                onclick="
-                  try {
-                    plausible('applyops_cta_click', {
-                      props: { tier: 'snapshot', price: 49, placement: 'card' },
-                    });
-                  } catch (_) {}
-                  try {
-                    posthog.capture('applyops_cta_click', {
-                      tier: 'snapshot',
-                      price: 49,
-                      placement: 'card',
-                    });
-                  } catch (_) {}
-                "
+                data-track="checkout_click"
+                data-surface="applyops"
+                data-tier="snapshot"
+                data-price="49"
+                data-placement="card"
                 >Buy Truth Snapshot ($49)</a
               >
             </p>
@@ -267,20 +217,11 @@
               <a
                 class="button primary"
                 href="https://buy.stripe.com/3cI3cvgH26zccSd7mb3sI2O?client_reference_id=applyops_card_pro"
-                onclick="
-                  try {
-                    plausible('applyops_cta_click', {
-                      props: { tier: 'pro', price: 149, placement: 'card' },
-                    });
-                  } catch (_) {}
-                  try {
-                    posthog.capture('applyops_cta_click', {
-                      tier: 'pro',
-                      price: 149,
-                      placement: 'card',
-                    });
-                  } catch (_) {}
-                "
+                data-track="checkout_click"
+                data-surface="applyops"
+                data-tier="pro"
+                data-price="149"
+                data-placement="card"
                 >Buy Resume OS Pro ($149)</a
               >
             </p>
@@ -299,20 +240,11 @@
               <a
                 class="button primary"
                 href="https://buy.stripe.com/9B600j4YkcXAcSdayn3sI2P?client_reference_id=applyops_card_dfy"
-                onclick="
-                  try {
-                    plausible('applyops_cta_click', {
-                      props: { tier: 'dfy', price: 1500, placement: 'card' },
-                    });
-                  } catch (_) {}
-                  try {
-                    posthog.capture('applyops_cta_click', {
-                      tier: 'dfy',
-                      price: 1500,
-                      placement: 'card',
-                    });
-                  } catch (_) {}
-                "
+                data-track="checkout_click"
+                data-surface="applyops"
+                data-tier="dfy"
+                data-price="1500"
+                data-placement="card"
                 >Buy DFY Sprint ($1,500)</a
               >
             </p>

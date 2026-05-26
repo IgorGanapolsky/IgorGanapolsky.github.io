@@ -64,25 +64,11 @@
       data-domain="igorganapolsky.github.io"
       src="https://plausible.io/js/script.tagged-events.js"
     ></script>
-    <script>
-      window.plausible =
-        window.plausible ||
-        function () {
-          (window.plausible.q = window.plausible.q || []).push(arguments);
-        };
-    </script>
     <script
       async
       src="https://www.googletagmanager.com/gtag/js?id=G-SZR5039QN4"
     ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-      gtag("config", "G-SZR5039QN4");
-    </script>
+    <script defer src="../assets/revenue-analytics.js"></script>
   </head>
   <body>
     <h1>ApplyOps Intake Form</h1>
@@ -95,6 +81,9 @@
       action="mailto:iganapolsky@gmail.com"
       method="post"
       enctype="text/plain"
+      data-track-submit="intake_submit"
+      data-surface="applyops"
+      data-placement="intake_form"
     >
       <label for="name">Full Name</label>
       <input type="text" id="name" name="name" required />

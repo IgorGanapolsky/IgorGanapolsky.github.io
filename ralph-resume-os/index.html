@@ -394,25 +394,11 @@
       data-domain="igorganapolsky.github.io"
       src="https://plausible.io/js/script.tagged-events.js"
     ></script>
-    <script>
-      window.plausible =
-        window.plausible ||
-        function () {
-          (window.plausible.q = window.plausible.q || []).push(arguments);
-        };
-    </script>
     <script
       async
       src="https://www.googletagmanager.com/gtag/js?id=G-SZR5039QN4"
     ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-      gtag("config", "G-SZR5039QN4");
-    </script>
+    <script defer src="../assets/revenue-analytics.js"></script>
   </head>
   <body>
     <main class="shell">
@@ -420,6 +406,11 @@
         <div class="brand"><span class="mark">R</span> Ralph Resume OS</div>
         <a
           href="https://buy.stripe.com/3cI3cvgH26zccSd7mb3sI2O?client_reference_id=ralph_nav_pro"
+          data-track="checkout_click"
+          data-surface="ralph"
+          data-tier="pro"
+          data-price="149"
+          data-placement="nav"
           >Resume OS Pro ($149)</a
         >
       </nav>
@@ -444,16 +435,31 @@
             <a
               class="button primary"
               href="https://buy.stripe.com/3cI3cvgH26zccSd7mb3sI2O?client_reference_id=ralph_hero_pro"
+              data-track="checkout_click"
+              data-surface="ralph"
+              data-tier="pro"
+              data-price="149"
+              data-placement="hero"
               >Buy Resume OS Pro ($149)</a
             >
             <a
               class="button secondary"
               href="https://buy.stripe.com/3cIaEX1M80aO9G1fSH3sI2N?client_reference_id=ralph_hero_snapshot"
+              data-track="checkout_click"
+              data-surface="ralph"
+              data-tier="snapshot"
+              data-price="49"
+              data-placement="hero"
               >Truth Snapshot ($49)</a
             >
             <a
               class="button secondary"
               href="mailto:iganapolsky@gmail.com?subject=Ralph%20Resume%20OS%20-%20DFY%20Sprint"
+              data-track="lead_click"
+              data-surface="ralph"
+              data-tier="dfy"
+              data-price="1500"
+              data-placement="hero"
               >DFY Sprint ($1,500)</a
             >
           </div>
@@ -626,16 +632,31 @@
             <a
               class="button primary"
               href="https://buy.stripe.com/3cIaEX1M80aO9G1fSH3sI2N?client_reference_id=ralph_bottom_snapshot"
+              data-track="checkout_click"
+              data-surface="ralph"
+              data-tier="snapshot"
+              data-price="49"
+              data-placement="bottom"
               >Truth Snapshot ($49)</a
             >
             <a
               class="button primary"
               href="https://buy.stripe.com/3cI3cvgH26zccSd7mb3sI2O?client_reference_id=ralph_bottom_pro"
+              data-track="checkout_click"
+              data-surface="ralph"
+              data-tier="pro"
+              data-price="149"
+              data-placement="bottom"
               >Resume OS Pro ($149)</a
             >
             <a
               class="button secondary"
               href="https://buy.stripe.com/9B600j4YkcXAcSdayn3sI2P?client_reference_id=ralph_bottom_dfy"
+              data-track="checkout_click"
+              data-surface="ralph"
+              data-tier="dfy"
+              data-price="1500"
+              data-placement="bottom"
               >Done-For-You Sprint ($1,500)</a
             >
           </div>

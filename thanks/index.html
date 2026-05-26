@@ -104,22 +104,12 @@
       }
     </style>
     <script>
-      // Fire a Plausible custom event "Purchase" with the tier from the URL.
-      // This closes the funnel loop: pageview → button click → Stripe paid → Purchase event tagged by tier.
       window.addEventListener("DOMContentLoaded", function () {
         var params = new URLSearchParams(window.location.search);
         var tier = params.get("tier") || "unknown";
         var sid = params.get("session_id") || "";
-
-        // Plausible custom event
-        function fire() {
-          if (typeof window.plausible === "function") {
-            window.plausible("Purchase", { props: { tier: tier } });
-          } else {
-            setTimeout(fire, 200);
-          }
-        }
-        fire();
+        if (window.applyOpsAnalytics)
+          window.applyOpsAnalytics.trackSuccessFromUrl();
 
         // Render the session id for the buyer's record + my support
         var el = document.getElementById("sid");
@@ -153,25 +143,11 @@
       data-domain="igorganapolsky.github.io"
       src="https://plausible.io/js/script.tagged-events.js"
     ></script>
-    <script>
-      window.plausible =
-        window.plausible ||
-        function () {
-          (window.plausible.q = window.plausible.q || []).push(arguments);
-        };
-    </script>
     <script
       async
       src="https://www.googletagmanager.com/gtag/js?id=G-SZR5039QN4"
     ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-      gtag("config", "G-SZR5039QN4");
-    </script>
+    <script defer src="../assets/revenue-analytics.js"></script>
   </head>
   <body>
     <main>
