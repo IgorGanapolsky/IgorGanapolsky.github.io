@@ -1,0 +1,62 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "SoftwareApplication",
+  "name": "Ralph Resume OS",
+  "operatingSystem": "Darwin, Linux",
+  "applicationCategory": "BusinessApplication",
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "Resume Truth Snapshot",
+      "price": "49.00",
+      "priceCurrency": "USD",
+      "description": "ATS fit score, AI-tell detection, title match check, and bullet rewrites for one resume. Same-day delivery.",
+      "url": "https://buy.stripe.com/3cIaEX1M80aO9G1fSH3sI2N",
+      "category": "Resume audit"
+    },
+    {
+      "@type": "Offer",
+      "name": "Resume OS Pro",
+      "price": "149.00",
+      "priceCurrency": "USD",
+      "description": "Per-job resume tailoring, live application dashboard, Gmail reply loop, and Thompson Sampling RLHF over your application history.",
+      "url": "https://buy.stripe.com/3cI3cvgH26zccSd7mb3sI2O",
+      "category": "Career operations system"
+    },
+    {
+      "@type": "Offer",
+      "name": "Done-For-You Sprint",
+      "price": "1500.00",
+      "priceCurrency": "USD",
+      "description": "Fully managed pipeline. 50 verified submissions, weekly strategy call, white-glove review of every cover letter and resume variant.",
+      "url": "https://buy.stripe.com/9B600j4YkcXAcSdayn3sI2P",
+      "category": "Managed career service"
+    }
+  ],
+  "featureList": [
+    "ATS Fit Score + AI-tell Detection",
+    "Per-job Resume Tailoring",
+    "Autonomous Job Discovery",
+    "RAG-backed Targeting Intelligence",
+    "Guarded Browser Automation",
+    "Confirmation Screenshot Capture",
+    "PII Safety Scanning",
+    "Thompson Sampling RLHF Feedback Loop"
+  ],
+  "author": {
+    "@type": "Person",
+    "name": "Igor Ganapolsky",
+    "url": "https://github.com/IgorGanapolsky"
+  },
+  "agentLegibility": {
+    "intent_hooks": [
+      "resume_truth_audit",
+      "automated_job_apply",
+      "career_operations_system"
+    ],
+    "callable_endpoints": {
+      "products": "https://igorganapolsky.github.io/api/products.json",
+      "status": "https://igorganapolsky.github.io/api/status.json"
+    }
+  }
+}

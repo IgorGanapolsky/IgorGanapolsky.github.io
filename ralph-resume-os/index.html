@@ -1,0 +1,707 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ralph Resume OS</title>
+    <meta
+      name="description"
+      content="Compliant AI job-search operations: tailored resumes, application tracking, guarded workflows, and submission evidence."
+    />
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #17201b;
+        --muted: #51615a;
+        --line: #d8e0dc;
+        --paper: #fbfcfa;
+        --panel: #ffffff;
+        --green: #0f8f5f;
+        --green-dark: #0a5f42;
+        --blue: #22577a;
+        --yellow: #f5c542;
+        --red: #c43d32;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family:
+          Inter,
+          ui-sans-serif,
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          sans-serif;
+        background: var(--paper);
+        color: var(--ink);
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .shell {
+        min-height: 100vh;
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 22px 24px;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 760;
+        letter-spacing: 0;
+      }
+
+      .mark {
+        display: grid;
+        width: 32px;
+        height: 32px;
+        place-items: center;
+        border-radius: 8px;
+        background: var(--ink);
+        color: #fff;
+        font-size: 15px;
+      }
+
+      .nav a {
+        font-size: 14px;
+        color: var(--muted);
+        text-decoration: none;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 0.92fr) minmax(420px, 1.08fr);
+        align-items: center;
+        gap: 44px;
+        max-width: 1180px;
+        min-height: calc(100vh - 178px);
+        margin: 0 auto;
+        padding: 34px 24px 56px;
+      }
+
+      .hero h1 {
+        margin: 0;
+        max-width: 760px;
+        font-size: clamp(44px, 7vw, 82px);
+        line-height: 0.95;
+        letter-spacing: 0;
+      }
+
+      .hero p {
+        max-width: 650px;
+        margin: 24px 0 0;
+        color: var(--muted);
+        font-size: 19px;
+        line-height: 1.55;
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 30px;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 46px;
+        border-radius: 8px;
+        padding: 0 18px;
+        border: 1px solid var(--ink);
+        font-weight: 720;
+        text-decoration: none;
+      }
+
+      .button.primary {
+        background: var(--ink);
+        color: #fff;
+      }
+
+      .button.secondary {
+        background: transparent;
+      }
+
+      .proof {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+        margin-top: 34px;
+        max-width: 650px;
+      }
+
+      .metric {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 14px;
+        background: rgba(255, 255, 255, 0.72);
+      }
+
+      .metric strong {
+        display: block;
+        font-size: 22px;
+      }
+
+      .metric span {
+        display: block;
+        margin-top: 4px;
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.35;
+      }
+
+      .product {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--panel);
+        box-shadow: 0 18px 50px rgba(23, 32, 27, 0.12);
+        overflow: hidden;
+      }
+
+      .toolbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 14px;
+        padding: 14px 16px;
+        border-bottom: 1px solid var(--line);
+        background: #f4f7f5;
+      }
+
+      .lights {
+        display: flex;
+        gap: 7px;
+      }
+
+      .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+      }
+
+      .red {
+        background: var(--red);
+      }
+
+      .yellow {
+        background: var(--yellow);
+      }
+
+      .green {
+        background: var(--green);
+      }
+
+      .toolbar span {
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .dashboard {
+        display: grid;
+        gap: 16px;
+        padding: 18px;
+      }
+
+      .status-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .status {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 12px;
+        min-height: 86px;
+      }
+
+      .status b {
+        display: block;
+        font-size: 24px;
+      }
+
+      .status small {
+        color: var(--muted);
+      }
+
+      .pipeline {
+        display: grid;
+        gap: 10px;
+      }
+
+      .row {
+        display: grid;
+        grid-template-columns: 1.1fr 1fr 88px;
+        gap: 12px;
+        align-items: center;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 12px;
+      }
+
+      .row strong,
+      .row span {
+        min-width: 0;
+      }
+
+      .pill {
+        justify-self: end;
+        border-radius: 999px;
+        padding: 5px 9px;
+        background: #e9f6ef;
+        color: var(--green-dark);
+        font-size: 12px;
+        font-weight: 720;
+        white-space: nowrap;
+      }
+
+      .band {
+        border-top: 1px solid var(--line);
+        background: #ffffff;
+      }
+
+      .content {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 48px 24px;
+      }
+
+      .content h2 {
+        margin: 0 0 18px;
+        font-size: 32px;
+        letter-spacing: 0;
+      }
+
+      .features {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .feature {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 18px;
+        background: var(--panel);
+      }
+
+      .feature h3 {
+        margin: 0 0 8px;
+        font-size: 18px;
+      }
+
+      .feature p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.5;
+      }
+
+      .price {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 24px;
+        align-items: center;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 22px;
+        background: #f7faf8;
+      }
+
+      .price strong {
+        display: block;
+        font-size: 32px;
+      }
+
+      .price p {
+        margin: 8px 0 0;
+        color: var(--muted);
+      }
+
+      footer {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 26px 24px 40px;
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      @media (max-width: 900px) {
+        .hero {
+          grid-template-columns: 1fr;
+          min-height: auto;
+        }
+
+        .product {
+          min-width: 0;
+        }
+
+        .features,
+        .proof {
+          grid-template-columns: 1fr;
+        }
+
+        .status-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .row {
+          grid-template-columns: 1fr;
+        }
+
+        .pill {
+          justify-self: start;
+        }
+
+        .price {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 520px) {
+        .nav {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        .hero h1 {
+          font-size: 42px;
+        }
+
+        .status-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+    <script
+      defer
+      data-domain="igorganapolsky.github.io"
+      src="https://plausible.io/js/script.tagged-events.js"
+    ></script>
+    <script>
+      window.plausible =
+        window.plausible ||
+        function () {
+          (window.plausible.q = window.plausible.q || []).push(arguments);
+        };
+    </script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-SZR5039QN4"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-SZR5039QN4");
+    </script>
+    <script>
+      !(function (t, e) {
+        var o, n, p, r;
+        e.__SV ||
+          ((window.posthog = e),
+          (e._i = []),
+          (e.init = function (i, s, a) {
+            function g(t, e) {
+              var o = e.split(".");
+              (2 == o.length && ((t = t[o[0]]), (e = o[1])),
+                (t[e] = function () {
+                  t.push([e].concat(Array.prototype.slice.call(arguments, 0)));
+                }));
+            }
+            (((p = t.createElement("script")).type = "text/javascript"),
+              (p.async = !0),
+              (p.src = s.api_host + "/static/array.js"),
+              (r = t.getElementsByTagName("script")[0]).parentNode.insertBefore(
+                p,
+                r,
+              ));
+            var u = e;
+            for (
+              void 0 !== a ? (u = e[a] = []) : (a = "posthog"),
+                u.people = u.people || [],
+                u.toString = function (t) {
+                  var e = "posthog";
+                  return (
+                    "posthog" !== a && (e += "." + a),
+                    t || (e += " (stub)"),
+                    e
+                  );
+                },
+                u.people.toString = function () {
+                  return u.toString(1) + ".people (stub)";
+                },
+                o =
+                  "capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys".split(
+                    " ",
+                  ),
+                n = 0;
+              n < o.length;
+              n++
+            )
+              g(u, o[n]);
+            e._i.push([i, s, a]);
+          }),
+          (e.__SV = 1));
+      })(document, window.posthog || []);
+      posthog.init("phc_cpuhUFoXKeG15GoZBwwEZJToeRX07FRZI4Ty0WCW2da", {
+        api_host: "https://us.i.posthog.com",
+      });
+    </script>
+  </head>
+  <body>
+    <main class="shell">
+      <nav class="nav" aria-label="Primary">
+        <div class="brand"><span class="mark">R</span> Ralph Resume OS</div>
+        <a
+          href="https://buy.stripe.com/3cI3cvgH26zccSd7mb3sI2O?client_reference_id=ralph_nav_pro"
+          >Resume OS Pro ($149)</a
+        >
+      </nav>
+
+      <section class="hero">
+        <div>
+          <h1>Ralph Resume OS</h1>
+          <p>
+            <strong
+              >40% of CEOs plan to cut junior roles in the next 1-2
+              years</strong
+            >
+            (Oliver Wyman, May 2026 — via Fortune). Senior candidates have ~24
+            months of hiring leverage. Use it correctly.
+          </p>
+          <p>
+            A compliant AI job-search operating system for candidates who want
+            autonomous resume tailoring, tracker intelligence, cover letters,
+            guarded application workflows, and proof-backed submission records.
+          </p>
+          <div class="actions">
+            <a
+              class="button primary"
+              href="https://buy.stripe.com/3cI3cvgH26zccSd7mb3sI2O?client_reference_id=ralph_hero_pro"
+              >Buy Resume OS Pro ($149)</a
+            >
+            <a
+              class="button secondary"
+              href="https://buy.stripe.com/3cIaEX1M80aO9G1fSH3sI2N?client_reference_id=ralph_hero_snapshot"
+              >Truth Snapshot ($49)</a
+            >
+            <a
+              class="button secondary"
+              href="mailto:iganapolsky@gmail.com?subject=Ralph%20Resume%20OS%20-%20DFY%20Sprint"
+              >DFY Sprint ($1,500)</a
+            >
+          </div>
+          <div class="proof" aria-label="System metrics">
+            <div class="metric">
+              <strong>3,799</strong><span>tracked application records</span>
+            </div>
+            <div class="metric">
+              <strong>24/7</strong
+              ><span>scheduled discovery and prep loop</span>
+            </div>
+            <div class="metric">
+              <strong>0</strong><span>fabricated credentials policy</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="product" aria-label="Product dashboard preview">
+          <div class="toolbar">
+            <div class="lights" aria-hidden="true">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+            </div>
+            <span>Application Command Center</span>
+          </div>
+          <div class="dashboard">
+            <div class="status-grid">
+              <div class="status">
+                <b>8</b><small>Applied with evidence</small>
+              </div>
+              <div class="status">
+                <b>1,731</b><small>Ready to submit</small>
+              </div>
+              <div class="status"><b>75</b><small>Needs review</small></div>
+              <div class="status">
+                <b>30m</b><small>Automation cadence</small>
+              </div>
+            </div>
+            <div class="pipeline">
+              <div class="row">
+                <strong>Resume tailoring</strong>
+                <span>Role-specific HTML/PDF artifacts</span>
+                <span class="pill">ready</span>
+              </div>
+              <div class="row">
+                <strong>Submission guardrails</strong>
+                <span>Stop on ambiguity, save proof on confirmation</span>
+                <span class="pill">active</span>
+              </div>
+              <div class="row">
+                <strong>RAG + outcome learning</strong>
+                <span>Prioritizes channels that produce responses</span>
+                <span class="pill">live</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="band">
+        <div class="content">
+          <h2>
+            Built for candidates who want autonomous resume and application
+            operations.
+          </h2>
+          <div class="features">
+            <article class="feature">
+              <h3>Tailored materials</h3>
+              <p>
+                Generates role-specific resumes and cover letters from verified
+                source facts, while keeping every artifact auditable by company
+                and job.
+              </p>
+            </article>
+            <article class="feature">
+              <h3>Guarded applications</h3>
+              <p>
+                Uses browser workflows with strict blockers for unknown
+                compensation, work authorization, demographic, or final-submit
+                uncertainty.
+              </p>
+            </article>
+            <article class="feature">
+              <h3>Learning loop</h3>
+              <p>
+                Tracks responses, interviews, and rejections so the system can
+                prioritize channels and role categories that perform better over
+                time.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="content">
+        <h2>🤖 For Agent Consumers</h2>
+        <p>
+          Ralph Resume OS is the first <strong>Agent-Legible</strong> career
+          platform. We provide structured endpoints for other agents to query
+          our capabilities, SLAs, and prices.
+        </p>
+        <div class="features">
+          <article class="feature">
+            <h3>Machine-Readable</h3>
+            <p>
+              <a href="../api/schema.json">Schema.org Feed</a>: Structured data
+              for search agents and technical aggregators.
+            </p>
+          </article>
+          <article class="feature">
+            <h3>Callable Catalog</h3>
+            <p>
+              <a href="../api/products.json">Products API</a>: Machine-readable
+              prices, SLAs, and intent hooks.
+            </p>
+          </article>
+          <article class="feature">
+            <h3>MCP Ready</h3>
+            <p>
+              <a href="https://github.com/IgorGanapolsky/Resume"
+                >Model Context Protocol</a
+              >: Standardized connection for AI assistant decision loops.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="content highlight">
+        <h2>Verifiable Product Surface</h2>
+        <p>
+          Ralph Resume OS exposes public product, status, and schema endpoints
+          so buyers and agents can inspect the offer without relying on
+          unsupported marketing claims.
+        </p>
+        <div class="metrics">
+          <div class="metric">
+            <strong>API</strong>
+            <span>machine-readable product catalog</span>
+          </div>
+          <div class="metric">
+            <strong>$499</strong>
+            <span>AI transformation diagnostic offer</span>
+          </div>
+          <div class="metric">
+            <strong>No</strong>
+            <span>fabricated credentials or metrics</span>
+          </div>
+        </div>
+        <p><a href="../api/products.json">View Products API -></a></p>
+      </section>
+
+      <section class="content">
+        <div class="price">
+          <div>
+            <strong>Three ways to engage</strong>
+            <p>
+              <strong>Truth Snapshot ($49)</strong> — one-shot audit, 24h
+              turnaround. ATS fit score, AI-tell detection, title-match check,
+              rewrite of your four worst bullets.<br />
+              <strong>Resume OS Pro ($149)</strong> — autonomous pipeline for
+              one candidate, 30 days. Per-job tailoring, live dashboard, Gmail
+              reply loop, Thompson-Sampling RLHF.<br />
+              <strong>Done-For-You Sprint ($1,500)</strong> — two-week
+              engagement, we run discovery + tailoring + submission + reply
+              triage. Up to 50 verified submissions, weekly call.
+            </p>
+          </div>
+          <div class="actions">
+            <a
+              class="button primary"
+              href="https://buy.stripe.com/3cIaEX1M80aO9G1fSH3sI2N?client_reference_id=ralph_bottom_snapshot"
+              >Truth Snapshot ($49)</a
+            >
+            <a
+              class="button primary"
+              href="https://buy.stripe.com/3cI3cvgH26zccSd7mb3sI2O?client_reference_id=ralph_bottom_pro"
+              >Resume OS Pro ($149)</a
+            >
+            <a
+              class="button secondary"
+              href="https://buy.stripe.com/9B600j4YkcXAcSdayn3sI2P?client_reference_id=ralph_bottom_dfy"
+              >Done-For-You Sprint ($1,500)</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      Ralph Resume OS does not guarantee employment, fabricate credentials, or
+      submit applications when required facts are unknown. Final user
+      authorization and employer portal terms still apply.
+      <br /><br />
+      <a href="../api/schema.json">JSON-LD</a> |
+      <a href="../api/products.json">Products API</a>
+    </footer>
+  </body>
+</html>

@@ -1,57 +1,200 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ApplyOps - Buyer Intake</title>
     <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 2rem; }
-        h1 { color: #000; }
-        form { background: #f9f9f9; padding: 1.5rem; border-radius: 8px; border: 1px solid #ddd; }
-        label { display: block; margin-bottom: 0.5rem; font-weight: bold; }
-        input, textarea, select { width: 100%; padding: 0.5rem; margin-bottom: 1.5rem; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
-        button { background: #007aff; color: white; border: none; padding: 1rem 2rem; border-radius: 4px; cursor: pointer; font-size: 1rem; width: 100%; }
-        button:hover { background: #0056b3; }
-        .note { font-size: 0.8rem; color: #666; margin-top: -1rem; margin-bottom: 1rem; }
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+          Arial, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+      h1 {
+        color: #000;
+      }
+      form {
+        background: #f9f9f9;
+        padding: 1.5rem;
+        border-radius: 8px;
+        border: 1px solid #ddd;
+      }
+      label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: bold;
+      }
+      input,
+      textarea,
+      select {
+        width: 100%;
+        padding: 0.5rem;
+        margin-bottom: 1.5rem;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+      button {
+        background: #007aff;
+        color: white;
+        border: none;
+        padding: 1rem 2rem;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 1rem;
+        width: 100%;
+      }
+      button:hover {
+        background: #0056b3;
+      }
+      .note {
+        font-size: 0.8rem;
+        color: #666;
+        margin-top: -1rem;
+        margin-bottom: 1rem;
+      }
     </style>
-<script defer data-domain="igorganapolsky.github.io" src="https://plausible.io/js/script.tagged-events.js"></script>
-<script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)};</script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-SZR5039QN4"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","G-SZR5039QN4");</script>
-<script>!function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);posthog.init("phc_cpuhUFoXKeG15GoZBwwEZJToeRX07FRZI4Ty0WCW2da",{api_host:"https://us.i.posthog.com"})</script>
-</head>
-<body>
+    <script
+      defer
+      data-domain="igorganapolsky.github.io"
+      src="https://plausible.io/js/script.tagged-events.js"
+    ></script>
+    <script>
+      window.plausible =
+        window.plausible ||
+        function () {
+          (window.plausible.q = window.plausible.q || []).push(arguments);
+        };
+    </script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-SZR5039QN4"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-SZR5039QN4");
+    </script>
+    <script>
+      !(function (t, e) {
+        var o, n, p, r;
+        e.__SV ||
+          ((window.posthog = e),
+          (e._i = []),
+          (e.init = function (i, s, a) {
+            function g(t, e) {
+              var o = e.split(".");
+              (2 == o.length && ((t = t[o[0]]), (e = o[1])),
+                (t[e] = function () {
+                  t.push([e].concat(Array.prototype.slice.call(arguments, 0)));
+                }));
+            }
+            (((p = t.createElement("script")).type = "text/javascript"),
+              (p.async = !0),
+              (p.src = s.api_host + "/static/array.js"),
+              (r = t.getElementsByTagName("script")[0]).parentNode.insertBefore(
+                p,
+                r,
+              ));
+            var u = e;
+            for (
+              void 0 !== a ? (u = e[a] = []) : (a = "posthog"),
+                u.people = u.people || [],
+                u.toString = function (t) {
+                  var e = "posthog";
+                  return (
+                    "posthog" !== a && (e += "." + a),
+                    t || (e += " (stub)"),
+                    e
+                  );
+                },
+                u.people.toString = function () {
+                  return u.toString(1) + ".people (stub)";
+                },
+                o =
+                  "capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys".split(
+                    " ",
+                  ),
+                n = 0;
+              n < o.length;
+              n++
+            )
+              g(u, o[n]);
+            e._i.push([i, s, a]);
+          }),
+          (e.__SV = 1));
+      })(document, window.posthog || []);
+      posthog.init("phc_cpuhUFoXKeG15GoZBwwEZJToeRX07FRZI4Ty0WCW2da", {
+        api_host: "https://us.i.posthog.com",
+      });
+    </script>
+  </head>
+  <body>
     <h1>ApplyOps Intake Form</h1>
-    <p>Welcome! Please provide the details below to start your Resume Truth Audit.</p>
-    
-    <form action="mailto:iganapolsky@gmail.com" method="post" enctype="text/plain">
-        <label for="name">Full Name</label>
-        <input type="text" id="name" name="name" required>
+    <p>
+      Welcome! Please provide the details below to start your Resume Truth
+      Audit.
+    </p>
 
-        <label for="email">Email Address</label>
-        <input type="email" id="email" name="email" required>
+    <form
+      action="mailto:iganapolsky@gmail.com"
+      method="post"
+      enctype="text/plain"
+    >
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" required />
 
-        <label for="linkedin">LinkedIn URL</label>
-        <input type="url" id="linkedin" name="linkedin" required>
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" required />
 
-        <label for="roles">Target Role Titles</label>
-        <input type="text" id="roles" name="roles" placeholder="e.g. Senior AI Engineer, Product Manager" required>
+      <label for="linkedin">LinkedIn URL</label>
+      <input type="url" id="linkedin" name="linkedin" required />
 
-        <label for="resume">Link to Current Resume (Google Drive/Dropbox)</label>
-        <input type="url" id="resume" name="resume" required>
-        <p class="note">Ensure the link is viewable by anyone with the link.</p>
+      <label for="roles">Target Role Titles</label>
+      <input
+        type="text"
+        id="roles"
+        name="roles"
+        placeholder="e.g. Senior AI Engineer, Product Manager"
+        required
+      />
 
-        <label for="jobs">3-5 Job Postings You're Targeting</label>
-        <textarea id="jobs" name="jobs" rows="4" placeholder="Paste URLs here..." required></textarea>
+      <label for="resume">Link to Current Resume (Google Drive/Dropbox)</label>
+      <input type="url" id="resume" name="resume" required />
+      <p class="note">Ensure the link is viewable by anyone with the link.</p>
 
-        <label for="constraints">Any specific constraints? (Location, Salary, etc.)</label>
-        <textarea id="constraints" name="constraints" rows="2"></textarea>
+      <label for="jobs">3-5 Job Postings You're Targeting</label>
+      <textarea
+        id="jobs"
+        name="jobs"
+        rows="4"
+        placeholder="Paste URLs here..."
+        required
+      ></textarea>
 
-        <button type="submit">Submit Intake & Start Audit</button>
+      <label for="constraints"
+        >Any specific constraints? (Location, Salary, etc.)</label
+      >
+      <textarea id="constraints" name="constraints" rows="2"></textarea>
+
+      <button type="submit">Submit Intake & Start Audit</button>
     </form>
 
     <footer>
-        <p><small>Privacy Note: We do not store high-risk PII (SSN, DOB). Data is used only for fulfillment of your ApplyOps audit.</small></p>
+      <p>
+        <small
+          >Privacy Note: We do not store high-risk PII (SSN, DOB). Data is used
+          only for fulfillment of your ApplyOps audit.</small
+        >
+      </p>
     </footer>
-</body>
+  </body>
 </html>

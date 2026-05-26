@@ -14,7 +14,9 @@
         --accent-dark: #0a4f3a;
         --panel: #ffffff;
       }
-      * { box-sizing: border-box; }
+      * {
+        box-sizing: border-box;
+      }
       body {
         margin: 0;
         font-family: Arial, Helvetica, sans-serif;
@@ -22,7 +24,9 @@
         background: var(--bg);
         line-height: 1.5;
       }
-      header, main, footer {
+      header,
+      main,
+      footer {
         max-width: 920px;
         margin: 0 auto;
         padding: 28px 20px;
@@ -84,7 +88,8 @@
         border-radius: 8px;
         padding: 18px;
       }
-      .card h2, .card h3 {
+      .card h2,
+      .card h3 {
         margin-top: 0;
       }
       .price {
@@ -103,27 +108,159 @@
         font-size: 13px;
       }
     </style>
-  <script defer data-domain="igorganapolsky.github.io" src="https://plausible.io/js/script.tagged-events.js"></script>
-<script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)};</script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-SZR5039QN4"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","G-SZR5039QN4");</script>
-<script>!function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);posthog.init("phc_cpuhUFoXKeG15GoZBwwEZJToeRX07FRZI4Ty0WCW2da",{api_host:"https://us.i.posthog.com"})</script>
-</head>
+    <script
+      defer
+      data-domain="igorganapolsky.github.io"
+      src="https://plausible.io/js/script.tagged-events.js"
+    ></script>
+    <script>
+      window.plausible =
+        window.plausible ||
+        function () {
+          (window.plausible.q = window.plausible.q || []).push(arguments);
+        };
+    </script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-SZR5039QN4"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-SZR5039QN4");
+    </script>
+    <script>
+      !(function (t, e) {
+        var o, n, p, r;
+        e.__SV ||
+          ((window.posthog = e),
+          (e._i = []),
+          (e.init = function (i, s, a) {
+            function g(t, e) {
+              var o = e.split(".");
+              (2 == o.length && ((t = t[o[0]]), (e = o[1])),
+                (t[e] = function () {
+                  t.push([e].concat(Array.prototype.slice.call(arguments, 0)));
+                }));
+            }
+            (((p = t.createElement("script")).type = "text/javascript"),
+              (p.async = !0),
+              (p.src = s.api_host + "/static/array.js"),
+              (r = t.getElementsByTagName("script")[0]).parentNode.insertBefore(
+                p,
+                r,
+              ));
+            var u = e;
+            for (
+              void 0 !== a ? (u = e[a] = []) : (a = "posthog"),
+                u.people = u.people || [],
+                u.toString = function (t) {
+                  var e = "posthog";
+                  return (
+                    "posthog" !== a && (e += "." + a),
+                    t || (e += " (stub)"),
+                    e
+                  );
+                },
+                u.people.toString = function () {
+                  return u.toString(1) + ".people (stub)";
+                },
+                o =
+                  "capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys".split(
+                    " ",
+                  ),
+                n = 0;
+              n < o.length;
+              n++
+            )
+              g(u, o[n]);
+            e._i.push([i, s, a]);
+          }),
+          (e.__SV = 1));
+      })(document, window.posthog || []);
+      posthog.init("phc_cpuhUFoXKeG15GoZBwwEZJToeRX07FRZI4Ty0WCW2da", {
+        api_host: "https://us.i.posthog.com",
+      });
+    </script>
+  </head>
   <body>
     <header>
       <div class="eyebrow">Resume Truth Audit for AI-assisted job searches</div>
-      <h1>Find the risky claims and weak senior-role signals before you apply again.</h1>
+      <h1>
+        Find the risky claims and weak senior-role signals before you apply
+        again.
+      </h1>
       <p class="lede">
-        <strong>40% of CEOs plan to cut junior roles in the next 1-2 years</strong>
-        (Oliver Wyman, May 2026 — via Fortune). If you're senior with 10+ years and getting ghosted,
-        the bug is in your resume, not the market. ApplyOps reviews your resume against the roles
-        you want and returns a short, defensible snapshot: unsupported claims, parse/readability risks,
+        <strong
+          >40% of CEOs plan to cut junior roles in the next 1-2 years</strong
+        >
+        (Oliver Wyman, May 2026 — via Fortune). If you're senior with 10+ years
+        and getting ghosted, the bug is in your resume, not the market. ApplyOps
+        reviews your resume against the roles you want and returns a short,
+        defensible snapshot: unsupported claims, parse/readability risks,
         role-fit gaps, and one concrete rewrite.
       </p>
       <div class="actions">
-        <a class="button primary" href="https://buy.stripe.com/3cIaEX1M80aO9G1fSH3sI2N?client_reference_id=applyops_hero_snapshot" onclick="try{plausible('applyops_cta_click',{props:{tier:'snapshot',price:49,placement:'hero'}})}catch(_){};try{posthog.capture('applyops_cta_click',{tier:'snapshot',price:49,placement:'hero'})}catch(_){}">Buy Truth Snapshot ($49)</a>
-        <a class="button" href="https://buy.stripe.com/3cI3cvgH26zccSd7mb3sI2O?client_reference_id=applyops_hero_pro" onclick="try{plausible('applyops_cta_click',{props:{tier:'pro',price:149,placement:'hero'}})}catch(_){};try{posthog.capture('applyops_cta_click',{tier:'pro',price:149,placement:'hero'})}catch(_){}">Resume OS Pro ($149)</a>
-        <a class="button" href="https://buy.stripe.com/9B600j4YkcXAcSdayn3sI2P?client_reference_id=applyops_hero_dfy" onclick="try{plausible('applyops_cta_click',{props:{tier:'dfy',price:1500,placement:'hero'}})}catch(_){};try{posthog.capture('applyops_cta_click',{tier:'dfy',price:1500,placement:'hero'})}catch(_){}">Done-For-You Sprint ($1,500)</a>
+        <a
+          class="button primary"
+          href="https://buy.stripe.com/3cIaEX1M80aO9G1fSH3sI2N?client_reference_id=applyops_hero_snapshot"
+          onclick="
+            try {
+              plausible('applyops_cta_click', {
+                props: { tier: 'snapshot', price: 49, placement: 'hero' },
+              });
+            } catch (_) {}
+            try {
+              posthog.capture('applyops_cta_click', {
+                tier: 'snapshot',
+                price: 49,
+                placement: 'hero',
+              });
+            } catch (_) {}
+          "
+          >Buy Truth Snapshot ($49)</a
+        >
+        <a
+          class="button"
+          href="https://buy.stripe.com/3cI3cvgH26zccSd7mb3sI2O?client_reference_id=applyops_hero_pro"
+          onclick="
+            try {
+              plausible('applyops_cta_click', {
+                props: { tier: 'pro', price: 149, placement: 'hero' },
+              });
+            } catch (_) {}
+            try {
+              posthog.capture('applyops_cta_click', {
+                tier: 'pro',
+                price: 149,
+                placement: 'hero',
+              });
+            } catch (_) {}
+          "
+          >Resume OS Pro ($149)</a
+        >
+        <a
+          class="button"
+          href="https://buy.stripe.com/9B600j4YkcXAcSdayn3sI2P?client_reference_id=applyops_hero_dfy"
+          onclick="
+            try {
+              plausible('applyops_cta_click', {
+                props: { tier: 'dfy', price: 1500, placement: 'hero' },
+              });
+            } catch (_) {}
+            try {
+              posthog.capture('applyops_cta_click', {
+                tier: 'dfy',
+                price: 1500,
+                placement: 'hero',
+              });
+            } catch (_) {}
+          "
+          >Done-For-You Sprint ($1,500)</a
+        >
         <a class="button" href="./sample-truth-snapshot.html">View Sample</a>
       </div>
     </header>
@@ -137,11 +274,34 @@
             <p>One-shot resume audit. 24-hour turnaround.</p>
             <ul>
               <li>ATS fit score against the roles you target</li>
-              <li>AI-tell detection (em-dash overuse, "delve into", "leverage", etc.)</li>
+              <li>
+                AI-tell detection (em-dash overuse, "delve into", "leverage",
+                etc.)
+              </li>
               <li>Jobscan-style title-match check</li>
               <li>Rewrite of your four worst bullets</li>
             </ul>
-            <p><a class="button primary" href="https://buy.stripe.com/3cIaEX1M80aO9G1fSH3sI2N?client_reference_id=applyops_card_snapshot" onclick="try{plausible('applyops_cta_click',{props:{tier:'snapshot',price:49,placement:'card'}})}catch(_){};try{posthog.capture('applyops_cta_click',{tier:'snapshot',price:49,placement:'card'})}catch(_){}">Buy Truth Snapshot ($49)</a></p>
+            <p>
+              <a
+                class="button primary"
+                href="https://buy.stripe.com/3cIaEX1M80aO9G1fSH3sI2N?client_reference_id=applyops_card_snapshot"
+                onclick="
+                  try {
+                    plausible('applyops_cta_click', {
+                      props: { tier: 'snapshot', price: 49, placement: 'card' },
+                    });
+                  } catch (_) {}
+                  try {
+                    posthog.capture('applyops_cta_click', {
+                      tier: 'snapshot',
+                      price: 49,
+                      placement: 'card',
+                    });
+                  } catch (_) {}
+                "
+                >Buy Truth Snapshot ($49)</a
+              >
+            </p>
           </div>
           <div class="card">
             <h2>Resume OS Pro</h2>
@@ -149,11 +309,34 @@
             <p>Full autonomous application pipeline. One candidate, 30 days.</p>
             <ul>
               <li>Per-job tailored resume + cover letter</li>
-              <li>Live observability dashboard (funnel, replies, per-ATS conversion)</li>
+              <li>
+                Live observability dashboard (funnel, replies, per-ATS
+                conversion)
+              </li>
               <li>Gmail reply loop with rejection auto-classify</li>
               <li>Thompson-Sampling RLHF across ATS lanes</li>
             </ul>
-            <p><a class="button primary" href="https://buy.stripe.com/3cI3cvgH26zccSd7mb3sI2O?client_reference_id=applyops_card_pro" onclick="try{plausible('applyops_cta_click',{props:{tier:'pro',price:149,placement:'card'}})}catch(_){};try{posthog.capture('applyops_cta_click',{tier:'pro',price:149,placement:'card'})}catch(_){}">Buy Resume OS Pro ($149)</a></p>
+            <p>
+              <a
+                class="button primary"
+                href="https://buy.stripe.com/3cI3cvgH26zccSd7mb3sI2O?client_reference_id=applyops_card_pro"
+                onclick="
+                  try {
+                    plausible('applyops_cta_click', {
+                      props: { tier: 'pro', price: 149, placement: 'card' },
+                    });
+                  } catch (_) {}
+                  try {
+                    posthog.capture('applyops_cta_click', {
+                      tier: 'pro',
+                      price: 149,
+                      placement: 'card',
+                    });
+                  } catch (_) {}
+                "
+                >Buy Resume OS Pro ($149)</a
+              >
+            </p>
           </div>
           <div class="card">
             <h2>Done-For-You Sprint</h2>
@@ -165,7 +348,27 @@
               <li>Weekly strategy call</li>
               <li>White-glove resume + cover review</li>
             </ul>
-            <p><a class="button primary" href="https://buy.stripe.com/9B600j4YkcXAcSdayn3sI2P?client_reference_id=applyops_card_dfy" onclick="try{plausible('applyops_cta_click',{props:{tier:'dfy',price:1500,placement:'card'}})}catch(_){};try{posthog.capture('applyops_cta_click',{tier:'dfy',price:1500,placement:'card'})}catch(_){}">Buy DFY Sprint ($1,500)</a></p>
+            <p>
+              <a
+                class="button primary"
+                href="https://buy.stripe.com/9B600j4YkcXAcSdayn3sI2P?client_reference_id=applyops_card_dfy"
+                onclick="
+                  try {
+                    plausible('applyops_cta_click', {
+                      props: { tier: 'dfy', price: 1500, placement: 'card' },
+                    });
+                  } catch (_) {}
+                  try {
+                    posthog.capture('applyops_cta_click', {
+                      tier: 'dfy',
+                      price: 1500,
+                      placement: 'card',
+                    });
+                  } catch (_) {}
+                "
+                >Buy DFY Sprint ($1,500)</a
+              >
+            </p>
           </div>
         </div>
       </section>
@@ -174,9 +377,10 @@
         <div class="card proof">
           <h2>What this is not</h2>
           <p>
-            This is not a promise to beat ATS, a mass auto-apply bot, or a resume rewrite that invents
-            metrics. The audit is a defensibility pass: what looks risky, vague, unsupported, or weak
-            for the role you are targeting.
+            This is not a promise to beat ATS, a mass auto-apply bot, or a
+            resume rewrite that invents metrics. The audit is a defensibility
+            pass: what looks risky, vague, unsupported, or weak for the role you
+            are targeting.
           </p>
         </div>
       </section>
@@ -184,15 +388,19 @@
       <section>
         <h2>After purchase</h2>
         <p>
-          Submit your resume, target roles, and 3-5 job links through the intake form. Do not include
-          SSN, date of birth, passport numbers, or other high-risk personal data.
+          Submit your resume, target roles, and 3-5 job links through the intake
+          form. Do not include SSN, date of birth, passport numbers, or other
+          high-risk personal data.
         </p>
         <p><a href="./intake.html">Open intake form</a></p>
       </section>
     </main>
 
     <footer>
-      <p>ApplyOps is part of Ralph Resume OS. No fabricated credentials, employers, dates, degrees, titles, or metrics.</p>
+      <p>
+        ApplyOps is part of Ralph Resume OS. No fabricated credentials,
+        employers, dates, degrees, titles, or metrics.
+      </p>
     </footer>
   </body>
 </html>

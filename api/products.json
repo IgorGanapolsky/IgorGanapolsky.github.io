@@ -1,0 +1,50 @@
+{
+  "version": "2.0",
+  "provider": "Ralph Resume OS",
+  "sla": {
+    "discovery_cadence": "30m",
+    "tailoring_accuracy": "100% human-verified-facts",
+    "submission_evidence": "Mandatory"
+  },
+  "catalog": [
+    {
+      "id": "truth_snapshot",
+      "title": "Resume Truth Snapshot",
+      "price_cents": 4900,
+      "interval": "one-time",
+      "url": "https://buy.stripe.com/3cIaEX1M80aO9G1fSH3sI2N",
+      "capabilities": [
+        "ats_fit_score",
+        "ai_tell_detection",
+        "title_match_check",
+        "bullet_rewrite"
+      ]
+    },
+    {
+      "id": "resume_os_pro",
+      "title": "Resume OS Pro",
+      "price_cents": 14900,
+      "interval": "one-time",
+      "url": "https://buy.stripe.com/3cI3cvgH26zccSd7mb3sI2O",
+      "capabilities": [
+        "per_job_tailoring",
+        "live_dashboard",
+        "gmail_reply_loop",
+        "thompson_rlhf"
+      ]
+    },
+    {
+      "id": "done_for_you_sprint",
+      "title": "Done-For-You Sprint",
+      "price_cents": 150000,
+      "interval": "one-time",
+      "url": "https://buy.stripe.com/9B600j4YkcXAcSdayn3sI2P",
+      "capabilities": [
+        "full_pipeline_managed",
+        "50_verified_submissions",
+        "weekly_strategy_call",
+        "white_glove_review"
+      ]
+    }
+  ]
+}

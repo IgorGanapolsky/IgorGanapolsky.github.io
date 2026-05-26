@@ -1,0 +1,21 @@
+{
+  "status": "operational",
+  "provider": "Ralph Resume OS",
+  "metrics": {
+    "total_applications_tracked": 3858,
+    "drafts_in_queue": 3711,
+    "active_agents": 1,
+    "compliance_score": 1.0,
+    "agent_legibility_version": "2.1"
+  },
+  "capabilities": [
+    "automated_job_discovery",
+    "narrative_first_tailoring",
+    "pii_safe_scanning",
+    "mcp_governance"
+  ],
+  "sla": {
+    "uptime": "99.9%",
+    "evidence_latency": "under 5m"
+  }
+}
