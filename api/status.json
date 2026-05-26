@@ -1,21 +1,22 @@
 {
-  "status": "operational",
-  "provider": "Ralph Resume OS",
-  "metrics": {
-    "total_applications_tracked": 3858,
-    "drafts_in_queue": 3711,
-    "active_agents": 1,
-    "compliance_score": 1.0,
-    "agent_legibility_version": "2.1"
+  "status": "public_storefront_live",
+  "provider": "ApplyOps",
+  "as_of": "2026-05-26",
+  "public_surface": {
+    "storefront": "https://igorganapolsky.github.io/applyops/",
+    "primary_offer": "Resume Truth Snapshot",
+    "checkout_provider": "Stripe Payment Links"
   },
-  "capabilities": [
-    "automated_job_discovery",
-    "narrative_first_tailoring",
-    "pii_safe_scanning",
-    "mcp_governance"
-  ],
-  "sla": {
-    "uptime": "99.9%",
-    "evidence_latency": "under 5m"
+  "operational_claims": {
+    "employment_guarantee": false,
+    "fabricated_credentials": false,
+    "hidden_subscription": false,
+    "private_application_records_published": false
+  },
+  "observability": {
+    "plausible_pageviews": true,
+    "google_analytics_events": true,
+    "stripe_payment_truth": "Stripe dashboard or connector",
+    "server_side_purchase_ledger": false
   }
 }

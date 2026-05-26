@@ -11,6 +11,13 @@ window.applyOpsAnalytics = (function () {
     intakeSubmit: "intake_submit",
     purchaseSuccess: "purchase_success",
   };
+  var utmKeys = [
+    "utm_source",
+    "utm_medium",
+    "utm_campaign",
+    "utm_content",
+    "utm_term",
+  ];
 
   window.plausible =
     window.plausible ||
@@ -95,8 +102,24 @@ window.applyOpsAnalytics = (function () {
     return out;
   }
 
+  function attributionProps() {
+    var params = new URLSearchParams(window.location.search);
+    var props = {
+      page_path: location.pathname,
+      page_title: document.title,
+      referrer: document.referrer || undefined,
+    };
+    utmKeys.forEach(function (key) {
+      var value = params.get(key);
+      if (value) props[key] = value;
+    });
+    return props;
+  }
+
   function track(eventName, props) {
-    var payload = cleanProps(props);
+    var payload = cleanProps(
+      Object.assign({}, attributionProps(), props || {}),
+    );
     try {
       window.plausible(eventName, { props: payload });
     } catch (_) {}
@@ -110,22 +133,38 @@ window.applyOpsAnalytics = (function () {
     } catch (_) {}
   }
 
+  function shouldDelayNavigation(event, node) {
+    if (event.defaultPrevented) return false;
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey)
+      return false;
+    if (node.target && node.target !== "_self") return false;
+    var href = node.getAttribute("href") || "";
+    return /^https:\/\/buy\.stripe\.com\//.test(href) || /^mailto:/.test(href);
+  }
+
   function bindTrackedLinks() {
     document.querySelectorAll("[data-track]").forEach(function (node) {
       if (node.dataset.analyticsBound === "true") return;
       node.dataset.analyticsBound = "true";
-      node.addEventListener("click", function () {
+      node.addEventListener("click", function (event) {
+        var href = node.getAttribute("href");
         track(node.dataset.track, {
           tier: node.dataset.tier,
           price: node.dataset.price ? Number(node.dataset.price) : undefined,
           placement: node.dataset.placement,
           surface: node.dataset.surface || location.pathname,
-          href: node.getAttribute("href"),
+          href: href,
           client_reference_id: new URL(
             node.href,
             location.href,
           ).searchParams.get("client_reference_id"),
         });
+        if (href && shouldDelayNavigation(event, node)) {
+          event.preventDefault();
+          window.setTimeout(function () {
+            window.location.href = href;
+          }, 180);
+        }
       });
     });
   }
