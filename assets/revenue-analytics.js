@@ -1,7 +1,7 @@
 window.applyOpsAnalytics = (function () {
   var config = {
     plausibleDomain: "igorganapolsky.github.io",
-    gaMeasurementId: "G-SZR5039QN4",
+    gaMeasurementId: "G-2GEM6RYXZE",
     posthogKey: window.APPLYOPS_POSTHOG_KEY || "",
     posthogHost: "https://us.i.posthog.com",
   };
