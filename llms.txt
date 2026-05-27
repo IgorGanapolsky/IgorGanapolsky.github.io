@@ -8,6 +8,8 @@ ApplyOps is a same-day resume risk audit for senior software, AI, platform, Andr
 
 - Landing page: https://igorganapolsky.github.io/applyops/
 - Sample audit: https://igorganapolsky.github.io/applyops/sample-truth-snapshot.html
+- Senior engineer resume audit guide: https://igorganapolsky.github.io/topics/senior-engineer-resume-truth-audit.html
+- AI resume and ATS risk audit guide: https://igorganapolsky.github.io/topics/ai-resume-ats-risk-audit.html
 - Products API: https://igorganapolsky.github.io/api/products.json
 - Public offer feed: https://igorganapolsky.github.io/offers.json
 
