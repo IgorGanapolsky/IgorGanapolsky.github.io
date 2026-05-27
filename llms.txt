@@ -7,6 +7,7 @@ This site contains buyer-facing offers and public product pages from Igor Ganapo
 ApplyOps is a same-day resume risk audit for senior software, AI, platform, Android, and data candidates who are getting ignored or ghosted despite strong experience.
 
 - Landing page: https://igorganapolsky.github.io/applyops/
+- Partner / acquisition brief: https://igorganapolsky.github.io/applyops/partners.html
 - Sample audit: https://igorganapolsky.github.io/applyops/sample-truth-snapshot.html
 - Senior engineer resume audit guide: https://igorganapolsky.github.io/topics/senior-engineer-resume-truth-audit.html
 - AI resume and ATS risk audit guide: https://igorganapolsky.github.io/topics/ai-resume-ats-risk-audit.html
