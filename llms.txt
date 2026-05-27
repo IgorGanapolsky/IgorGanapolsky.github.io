@@ -30,6 +30,16 @@ ApplyOps is a same-day resume risk audit for senior software, AI, platform, Andr
 - ApplyOps Partner Pilot Deposit: $500 one-time deposit credited toward the partner paid pilot.
 - ApplyOps Partner Paid Pilot: $1,500 one-time 10-candidate resume-risk audit batch for resume-writing, staffing, career-coaching, or executive-search partners.
 
+### Partner And Reverse-Recruiting Use Cases
+
+ApplyOps can be used by reverse-recruiting, apply-for-you, resume-writing, staffing, executive-search, and career-platform teams as an intake checkpoint before candidate outreach or resume rewriting.
+
+- Partner pilot page: https://igorganapolsky.github.io/applyops/partners.html
+- Reverse-recruiting pilot deposit: $500, credited toward the $1,500 partner pilot.
+- Partner pilot output: up to 10 senior technical candidate resume-risk audits, an anonymized findings memo, and a 30-minute readout.
+- Best-fit buyers: teams that already help technical candidates with resume rewrites, job-search operations, reverse recruiting, application management, or candidate submission.
+- Invoice path: buyers who cannot use card checkout can request a Stripe invoice or scoping call from the partner page.
+
 ## Public Brand Page
 
 - Ralph Resume OS: https://igorganapolsky.github.io/ralph-resume-os/
