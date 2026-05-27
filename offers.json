@@ -31,7 +31,10 @@
       "id": "applyops_partner_paid_pilot",
       "name": "ApplyOps Partner Paid Pilot",
       "price_usd": 1500,
-      "payment_url": "https://buy.stripe.com/9B600j4YkcXAcSdayn3sI2P?client_reference_id=offers_partner_paid_pilot&utm_source=offers_json&utm_medium=json&utm_campaign=applyops_partner_pilot",
+      "stripe_product_id": "prod_UayZukvIY4kPsX",
+      "stripe_price_id": "price_1TbmcdGGBpd520QYjkmjkx8h",
+      "stripe_payment_link_id": "plink_1TbmciGGBpd520QYfal5XyDe",
+      "payment_url": "https://buy.stripe.com/8x2dR9aiE5v805rgWL3sI2X?client_reference_id=offers_partner_paid_pilot&utm_source=offers_json&utm_medium=json&utm_campaign=applyops_partner_pilot",
       "landing_url": "https://igorganapolsky.github.io/applyops/partners.html",
       "audience": "Resume-writing, staffing, career-coaching, and executive-search teams with recurring technical candidates",
       "promise": "A limited paid pilot batch of technical-candidate resume-risk audits with anonymized findings and conversion or quality recommendations"

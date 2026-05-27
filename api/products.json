@@ -54,7 +54,10 @@
       "title": "ApplyOps Partner Paid Pilot",
       "price_cents": 150000,
       "interval": "one-time",
-      "url": "https://buy.stripe.com/9B600j4YkcXAcSdayn3sI2P?client_reference_id=api_partner_paid_pilot&utm_source=public_catalog&utm_medium=json&utm_campaign=applyops_partner_pilot",
+      "stripe_product_id": "prod_UayZukvIY4kPsX",
+      "stripe_price_id": "price_1TbmcdGGBpd520QYjkmjkx8h",
+      "stripe_payment_link_id": "plink_1TbmciGGBpd520QYfal5XyDe",
+      "url": "https://buy.stripe.com/8x2dR9aiE5v805rgWL3sI2X?client_reference_id=api_partner_paid_pilot&utm_source=public_catalog&utm_medium=json&utm_campaign=applyops_partner_pilot",
       "buyer_outcome": "Limited technical-candidate audit batch for a resume-writing, staffing, career-coaching, or executive-search partner.",
       "deliverables": [
         "pilot_batch_scope",
