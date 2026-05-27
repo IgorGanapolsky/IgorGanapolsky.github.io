@@ -40,6 +40,18 @@
       "promise": "A limited paid pilot batch of technical-candidate resume-risk audits with anonymized findings and conversion or quality recommendations"
     },
     {
+      "id": "applyops_partner_pilot_deposit",
+      "name": "ApplyOps Partner Pilot Deposit",
+      "price_usd": 500,
+      "stripe_product_id": "prod_UazZnr2SJrl54e",
+      "stripe_price_id": "price_1TbnaNGGBpd520QYcYsxAQUy",
+      "stripe_payment_link_id": "plink_1TbnaTGGBpd520QYf45GqtOG",
+      "payment_url": "https://buy.stripe.com/28E9AT9eA7Dgg4p49Z3sI30?client_reference_id=offers_partner_pilot_deposit&utm_source=offers_json&utm_medium=json&utm_campaign=applyops_partner_pilot",
+      "landing_url": "https://igorganapolsky.github.io/applyops/partners.html",
+      "audience": "Resume-writing, staffing, career-coaching, and executive-search teams that want to reserve a partner pilot before paying the full $1,500",
+      "promise": "$500 deposit credited toward the ApplyOps $1,500 partner paid pilot"
+    },
+    {
       "id": "loom_atlassian_diagnostic",
       "name": "Loom to Atlassian Admin + Rovo Readiness Diagnostic",
       "price_usd": 499,

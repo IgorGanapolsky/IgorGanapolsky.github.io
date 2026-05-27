@@ -67,6 +67,23 @@
       ]
     },
     {
+      "id": "partner_pilot_deposit",
+      "title": "ApplyOps Partner Pilot Deposit",
+      "price_cents": 50000,
+      "interval": "one-time",
+      "stripe_product_id": "prod_UazZnr2SJrl54e",
+      "stripe_price_id": "price_1TbnaNGGBpd520QYcYsxAQUy",
+      "stripe_payment_link_id": "plink_1TbnaTGGBpd520QYf45GqtOG",
+      "url": "https://buy.stripe.com/28E9AT9eA7Dgg4p49Z3sI30?client_reference_id=api_partner_pilot_deposit&utm_source=public_catalog&utm_medium=json&utm_campaign=applyops_partner_pilot",
+      "buyer_outcome": "Deposit credited toward the ApplyOps $1,500 partner paid pilot.",
+      "deliverables": [
+        "pilot_slot_hold",
+        "scope_confirmation",
+        "credited_toward_full_partner_pilot",
+        "invoice_or_checkout_followup"
+      ]
+    },
+    {
       "id": "loom_atlassian_diagnostic",
       "title": "Loom to Atlassian Admin + Rovo Readiness Diagnostic",
       "price_cents": 49900,
