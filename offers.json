@@ -40,6 +40,30 @@
       "promise": "A limited paid pilot batch of technical-candidate resume-risk audits with anonymized findings and conversion or quality recommendations"
     },
     {
+      "id": "loom_atlassian_diagnostic",
+      "name": "Loom to Atlassian Admin + Rovo Readiness Diagnostic",
+      "price_usd": 499,
+      "stripe_product_id": "prod_UayjqUX06UWNRn",
+      "stripe_price_id": "price_1TbmlhGGBpd520QYNUhyZSHu",
+      "stripe_payment_link_id": "plink_1TbmlmGGBpd520QYF0C0P064",
+      "payment_url": "https://buy.stripe.com/7sY00j1M80aO05r9uj3sI2Y?client_reference_id=offers_loom_atlassian_diagnostic&utm_source=offers_json&utm_medium=json&utm_campaign=loom_atlassian",
+      "landing_url": "https://igorganapolsky.github.io/loom-atlassian/",
+      "audience": "Teams using Loom with Atlassian Administration, Jira, Confluence, Rovo, or Guard",
+      "promise": "A fixed-scope readiness review for Loom billing, seats, roles, Atlassian Admin, Rovo workflow opportunities, and AI/security guardrails"
+    },
+    {
+      "id": "loom_atlassian_sprint",
+      "name": "Loom to Atlassian Admin + Rovo Implementation Sprint",
+      "price_usd": 1500,
+      "stripe_product_id": "prod_UayjiQrN6Aphy2",
+      "stripe_price_id": "price_1TbmlwGGBpd520QYveAGfG9J",
+      "stripe_payment_link_id": "plink_1Tbmm4GGBpd520QY9f02qxBX",
+      "payment_url": "https://buy.stripe.com/eVqcN5gH24r4bO9eOD3sI2Z?client_reference_id=offers_loom_atlassian_sprint&utm_source=offers_json&utm_medium=json&utm_campaign=loom_atlassian",
+      "landing_url": "https://igorganapolsky.github.io/loom-atlassian/",
+      "audience": "Small teams, agencies, founders, RevOps, CS, and software teams affected by Loom's Atlassian migration",
+      "promise": "A fixed-scope implementation sprint for seat cleanup recommendations, Atlassian Admin checklist, Loom/Jira/Confluence workflow templates, Rovo guardrails, and rollout memo"
+    },
+    {
       "id": "qsr_automation_scorecard",
       "name": "QSR Automation Scorecard",
       "price_usd": 29,

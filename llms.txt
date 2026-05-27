@@ -33,6 +33,14 @@ ApplyOps is a same-day resume risk audit for senior software, AI, platform, Andr
 
 Ralph Resume OS is the private workflow layer behind ApplyOps. Public pages intentionally avoid publishing private application data, implementation details, source artifacts, secrets, or operational runbooks.
 
+## Timed Consulting Offer: Loom to Atlassian Admin + Rovo Readiness
+
+For teams receiving Loom-to-Atlassian integration notices, this offer helps review user roles, billing exposure, Atlassian Administration readiness, Loom/Jira/Confluence workflows, Rovo opportunities, and AI/security guardrails.
+
+- Landing page: https://igorganapolsky.github.io/loom-atlassian/
+- Diagnostic: $499 one-time readiness review.
+- Implementation sprint: $1,500 one-time migration-readiness sprint.
+
 ## Safety And Integrity
 
 ApplyOps does not guarantee employment, fabricate credentials, invent metrics, or submit applications when required facts are unknown.

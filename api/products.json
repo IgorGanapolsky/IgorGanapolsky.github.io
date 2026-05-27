@@ -65,6 +65,42 @@
         "anonymized_findings_summary",
         "conversion_or_quality_recommendations"
       ]
+    },
+    {
+      "id": "loom_atlassian_diagnostic",
+      "title": "Loom to Atlassian Admin + Rovo Readiness Diagnostic",
+      "price_cents": 49900,
+      "interval": "one-time",
+      "stripe_product_id": "prod_UayjqUX06UWNRn",
+      "stripe_price_id": "price_1TbmlhGGBpd520QYNUhyZSHu",
+      "stripe_payment_link_id": "plink_1TbmlmGGBpd520QYF0C0P064",
+      "url": "https://buy.stripe.com/7sY00j1M80aO05r9uj3sI2Y?client_reference_id=api_loom_atlassian_diagnostic&utm_source=public_catalog&utm_medium=json&utm_campaign=loom_atlassian",
+      "buyer_outcome": "Fixed-scope Loom to Atlassian readiness review for billing, seats, Atlassian Admin, Rovo, and AI/security guardrails.",
+      "deliverables": [
+        "loom_user_billing_role_review",
+        "atlassian_admin_readiness_checklist",
+        "rovo_jira_confluence_workflow_map",
+        "ai_security_guardrail_notes",
+        "one_page_action_plan"
+      ]
+    },
+    {
+      "id": "loom_atlassian_sprint",
+      "title": "Loom to Atlassian Admin + Rovo Implementation Sprint",
+      "price_cents": 150000,
+      "interval": "one-time",
+      "stripe_product_id": "prod_UayjiQrN6Aphy2",
+      "stripe_price_id": "price_1TbmlwGGBpd520QYveAGfG9J",
+      "stripe_payment_link_id": "plink_1Tbmm4GGBpd520QY9f02qxBX",
+      "url": "https://buy.stripe.com/eVqcN5gH24r4bO9eOD3sI2Z?client_reference_id=api_loom_atlassian_sprint&utm_source=public_catalog&utm_medium=json&utm_campaign=loom_atlassian",
+      "buyer_outcome": "Implementation sprint for Loom-to-Atlassian admin readiness, workflow templates, and Rovo/AI guardrails.",
+      "deliverables": [
+        "seat_cleanup_recommendations",
+        "admin_configuration_checklist",
+        "jira_confluence_loom_workflow_templates",
+        "rovo_ai_guardrails",
+        "rollout_memo"
+      ]
     }
   ]
 }
