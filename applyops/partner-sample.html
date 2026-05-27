@@ -66,6 +66,12 @@
               >Request invoice or quick call</a
             >
           </div>
+          <p class="note">
+            If card checkout is blocked by company purchasing policy, use the
+            invoice path and include a billing email plus candidate volume. A
+            Stripe invoice can be sent for the $500 deposit or the full $1,500
+            pilot.
+          </p>
         </div>
         <div class="card">
           <h2>Batch result</h2>
@@ -195,13 +201,17 @@
             <a
               class="button secondary"
               href="mailto:iganapolsky@gmail.com?subject=ApplyOps%20pilot%20invoice%20request&body=Company%3A%0AContact%20owner%3A%0ACandidate%20volume%3A%0ABilling%20email%3A%0AInvoice%20or%20call%3A"
-              data-track="partner_invoice_click"
+              data-track="checkout_fallback_click"
               data-surface="applyops_partner_sample"
               data-tier="partner_pilot"
               data-price="1500"
               data-placement="card"
               >Request invoice</a
             >
+            <p class="note">
+              Use this if procurement needs an invoice, vendor record, or
+              purchasing approval before payment.
+            </p>
           </article>
         </div>
       </section>
