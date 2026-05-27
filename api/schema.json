@@ -17,7 +17,7 @@
       "price": "49.00",
       "priceCurrency": "USD",
       "description": "Same-day resume risk audit for one resume and one target role family.",
-      "url": "https://buy.stripe.com/3cIaEX1M80aO9G1fSH3sI2N",
+      "url": "https://buy.stripe.com/3cIaEX1M80aO9G1fSH3sI2N?client_reference_id=schema_truth_snapshot&utm_source=structured_data&utm_medium=json&utm_campaign=applyops",
       "category": "Resume audit"
     },
     {
@@ -26,7 +26,7 @@
       "price": "149.00",
       "priceCurrency": "USD",
       "description": "30-day resume and application workspace for one candidate.",
-      "url": "https://buy.stripe.com/3cI3cvgH26zccSd7mb3sI2O",
+      "url": "https://buy.stripe.com/3cI3cvgH26zccSd7mb3sI2O?client_reference_id=schema_resume_os_pro&utm_source=structured_data&utm_medium=json&utm_campaign=applyops",
       "category": "Career operations workspace"
     },
     {
@@ -35,7 +35,7 @@
       "price": "1500.00",
       "priceCurrency": "USD",
       "description": "Two-week managed job-search operations sprint.",
-      "url": "https://buy.stripe.com/9B600j4YkcXAcSdayn3sI2P",
+      "url": "https://buy.stripe.com/9B600j4YkcXAcSdayn3sI2P?client_reference_id=schema_done_for_you_sprint&utm_source=structured_data&utm_medium=json&utm_campaign=applyops",
       "category": "Managed career service"
     }
   ],

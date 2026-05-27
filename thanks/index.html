@@ -108,8 +108,16 @@
         var params = new URLSearchParams(window.location.search);
         var tier = params.get("tier") || "unknown";
         var sid = params.get("session_id") || "";
-        if (window.applyOpsAnalytics)
-          window.applyOpsAnalytics.trackSuccessFromUrl();
+        if (window.applyOpsAnalytics) {
+          if (sid) {
+            window.applyOpsAnalytics.trackSuccessFromUrl();
+          } else {
+            window.applyOpsAnalytics.track("thank_you_view_unverified", {
+              tier: tier,
+              surface: location.pathname,
+            });
+          }
+        }
 
         // Render the session id for the buyer's record + my support
         var el = document.getElementById("sid");
@@ -122,7 +130,9 @@
           pro: 'You bought Resume OS Pro. Reply to the Stripe receipt with your current resume + target role list and I will set up the 30-day pipeline within one business day. <a href="mailto:iganapolsky@gmail.com?subject=Resume%20OS%20Pro%20intake">iganapolsky@gmail.com</a>.',
           dfy: 'You bought the Done-For-You Sprint. I will send a Calendly link within 2 business hours to schedule the kickoff call. Reply to the Stripe receipt or email <a href="mailto:iganapolsky@gmail.com?subject=DFY%20Sprint%20kickoff">iganapolsky@gmail.com</a>.',
           unknown:
-            'Reply to the Stripe receipt email or contact <a href="mailto:iganapolsky@gmail.com">iganapolsky@gmail.com</a> with your intake details.',
+            sid
+              ? 'Reply to the Stripe receipt email or contact <a href="mailto:iganapolsky@gmail.com">iganapolsky@gmail.com</a> with your intake details.'
+              : 'No Stripe session reference is present in this page URL. If you purchased, reply to the Stripe receipt. If you have not purchased yet, return to ApplyOps and choose a paid tier.',
         };
         var nextEl = document.getElementById("next-step");
         if (nextEl) nextEl.innerHTML = nextStep[tier] || nextStep.unknown;
@@ -132,7 +142,9 @@
           snapshot: "Thanks — Truth Snapshot purchased.",
           pro: "Thanks — Resume OS Pro purchased.",
           dfy: "Thanks — DFY Sprint purchased.",
-          unknown: "Thanks — your purchase is confirmed.",
+          unknown: sid
+            ? "Thanks — your purchase is confirmed."
+            : "Payment reference not detected.",
         };
         var titleEl = document.getElementById("title");
         if (titleEl) titleEl.textContent = titles[tier] || titles.unknown;
@@ -151,7 +163,7 @@
   </head>
   <body>
     <main>
-      <span class="badge">Payment confirmed</span>
+      <span class="badge">Payment handoff</span>
       <h1 id="title">Thanks — your purchase is confirmed.</h1>
       <p class="lede">
         Your Stripe receipt will land in your inbox within a minute. Here's what

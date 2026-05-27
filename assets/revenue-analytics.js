@@ -116,7 +116,7 @@ window.applyOpsAnalytics = (function () {
     return props;
   }
 
-  function track(eventName, props) {
+  function track(eventName, props, options) {
     var payload = cleanProps(
       Object.assign({}, attributionProps(), props || {}),
     );
@@ -124,7 +124,11 @@ window.applyOpsAnalytics = (function () {
       window.plausible(eventName, { props: payload });
     } catch (_) {}
     try {
-      window.gtag("event", eventName, payload);
+      window.gtag(
+        "event",
+        eventName,
+        Object.assign({}, payload, (options && options.gtag) || {}),
+      );
     } catch (_) {}
     try {
       if (window.posthog && typeof window.posthog.capture === "function") {
@@ -142,13 +146,24 @@ window.applyOpsAnalytics = (function () {
     return /^https:\/\/buy\.stripe\.com\//.test(href) || /^mailto:/.test(href);
   }
 
+  function navigateAfterAnalytics(href) {
+    var navigated = false;
+    function go() {
+      if (navigated) return;
+      navigated = true;
+      window.location.href = href;
+    }
+    window.setTimeout(go, 700);
+    return go;
+  }
+
   function bindTrackedLinks() {
     document.querySelectorAll("[data-track]").forEach(function (node) {
       if (node.dataset.analyticsBound === "true") return;
       node.dataset.analyticsBound = "true";
       node.addEventListener("click", function (event) {
         var href = node.getAttribute("href");
-        track(node.dataset.track, {
+        var props = {
           tier: node.dataset.tier,
           price: node.dataset.price ? Number(node.dataset.price) : undefined,
           placement: node.dataset.placement,
@@ -158,12 +173,18 @@ window.applyOpsAnalytics = (function () {
             node.href,
             location.href,
           ).searchParams.get("client_reference_id"),
-        });
+        };
         if (href && shouldDelayNavigation(event, node)) {
           event.preventDefault();
-          window.setTimeout(function () {
-            window.location.href = href;
-          }, 180);
+          track(node.dataset.track, props, {
+            gtag: {
+              event_callback: navigateAfterAnalytics(href),
+              event_timeout: 650,
+              transport_type: "beacon",
+            },
+          });
+        } else {
+          track(node.dataset.track, props);
         }
       });
     });

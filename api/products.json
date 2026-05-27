@@ -10,7 +10,7 @@
       "price_cents": 4900,
       "interval": "one-time",
       "recommended_first_step": true,
-      "url": "https://buy.stripe.com/3cIaEX1M80aO9G1fSH3sI2N",
+      "url": "https://buy.stripe.com/3cIaEX1M80aO9G1fSH3sI2N?client_reference_id=api_truth_snapshot&utm_source=public_catalog&utm_medium=json&utm_campaign=applyops",
       "buyer_outcome": "Same-day resume risk audit for one resume and one target role family.",
       "deliverables": [
         "unsupported_claim_flags",
@@ -25,7 +25,7 @@
       "title": "Resume OS Pro",
       "price_cents": 14900,
       "interval": "one-time",
-      "url": "https://buy.stripe.com/3cI3cvgH26zccSd7mb3sI2O",
+      "url": "https://buy.stripe.com/3cI3cvgH26zccSd7mb3sI2O?client_reference_id=api_resume_os_pro&utm_source=public_catalog&utm_medium=json&utm_campaign=applyops",
       "buyer_outcome": "30-day resume and application workspace for one candidate.",
       "deliverables": [
         "resume_and_cover_letter_drafts",
@@ -39,7 +39,7 @@
       "title": "Done-For-You Sprint",
       "price_cents": 150000,
       "interval": "one-time",
-      "url": "https://buy.stripe.com/9B600j4YkcXAcSdayn3sI2P",
+      "url": "https://buy.stripe.com/9B600j4YkcXAcSdayn3sI2P?client_reference_id=api_done_for_you_sprint&utm_source=public_catalog&utm_medium=json&utm_campaign=applyops",
       "buyer_outcome": "Two-week managed job-search operations sprint.",
       "deliverables": [
         "targeting_review",

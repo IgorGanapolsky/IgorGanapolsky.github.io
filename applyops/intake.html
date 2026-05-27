@@ -123,7 +123,7 @@
       <p>
         <a
           class="button"
-          href="mailto:iganapolsky@gmail.com?subject=ApplyOps%20intake&body=Name%3A%0AEmail%3A%0ALinkedIn%3A%0AResume%20link%3A%0ATarget%20role%20family%3A%0AJob%20links%3A%0AConstraints%3A%0AStripe%20receipt%20email%3A"
+          href="mailto:iganapolsky@gmail.com?subject=ApplyOps%20intake&body=Name%3A%0AEmail%3A%0AStripe%20receipt%20email%20or%20session%20id%20(required)%3A%0ALinkedIn%3A%0AResume%20link%3A%0ATarget%20role%20family%3A%0AJob%20links%3A%0AConstraints%3A"
           data-track="intake_email_click"
           data-surface="applyops"
           data-tier="snapshot"
@@ -146,7 +146,8 @@
       <h2>Optional local form</h2>
       <p class="note">
         This opens your email client. It is a convenience path, not the payment
-        confirmation system.
+        confirmation system. Work starts only after a Stripe receipt or session
+        id is verified.
       </p>
 
       <label for="name">Full Name</label>
@@ -154,6 +155,14 @@
 
       <label for="email">Email Address</label>
       <input type="email" id="email" name="email" required />
+
+      <label for="receipt">Stripe Receipt Email or Session ID</label>
+      <input
+        type="text"
+        id="receipt"
+        name="stripe_receipt_or_session_id"
+        required
+      />
 
       <label for="linkedin">LinkedIn URL</label>
       <input type="url" id="linkedin" name="linkedin" required />
