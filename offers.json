@@ -28,6 +28,15 @@
       "promise": "Targeting review, tailored materials, submission prep, weekly strategy call, and evidence record"
     },
     {
+      "id": "applyops_partner_paid_pilot",
+      "name": "ApplyOps Partner Paid Pilot",
+      "price_usd": 1500,
+      "payment_url": "https://buy.stripe.com/9B600j4YkcXAcSdayn3sI2P?client_reference_id=offers_partner_paid_pilot&utm_source=offers_json&utm_medium=json&utm_campaign=applyops_partner_pilot",
+      "landing_url": "https://igorganapolsky.github.io/applyops/partners.html",
+      "audience": "Resume-writing, staffing, career-coaching, and executive-search teams with recurring technical candidates",
+      "promise": "A limited paid pilot batch of technical-candidate resume-risk audits with anonymized findings and conversion or quality recommendations"
+    },
+    {
       "id": "qsr_automation_scorecard",
       "name": "QSR Automation Scorecard",
       "price_usd": 29,

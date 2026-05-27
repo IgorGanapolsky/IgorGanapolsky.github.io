@@ -48,6 +48,20 @@
         "weekly_strategy_call",
         "evidence_record"
       ]
+    },
+    {
+      "id": "partner_paid_pilot",
+      "title": "ApplyOps Partner Paid Pilot",
+      "price_cents": 150000,
+      "interval": "one-time",
+      "url": "https://buy.stripe.com/9B600j4YkcXAcSdayn3sI2P?client_reference_id=api_partner_paid_pilot&utm_source=public_catalog&utm_medium=json&utm_campaign=applyops_partner_pilot",
+      "buyer_outcome": "Limited technical-candidate audit batch for a resume-writing, staffing, career-coaching, or executive-search partner.",
+      "deliverables": [
+        "pilot_batch_scope",
+        "technical_candidate_audits",
+        "anonymized_findings_summary",
+        "conversion_or_quality_recommendations"
+      ]
     }
   ]
 }
