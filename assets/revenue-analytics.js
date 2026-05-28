@@ -117,6 +117,31 @@ window.applyOpsAnalytics = (function () {
     return props;
   }
 
+  function inboundUtmParams() {
+    var params = new URLSearchParams(window.location.search);
+    var out = {};
+    utmKeys.forEach(function (key) {
+      var value = params.get(key);
+      if (value) out[key] = value;
+    });
+    return out;
+  }
+
+  function isStripeCheckoutUrl(href) {
+    return /^https:\/\/buy\.stripe\.com\//.test(href || "");
+  }
+
+  function checkoutUrlWithAttribution(rawHref) {
+    if (!isStripeCheckoutUrl(rawHref)) return rawHref;
+    var url = new URL(rawHref, location.href);
+    var inbound = inboundUtmParams();
+    Object.keys(inbound).forEach(function (key) {
+      url.searchParams.set(key, inbound[key]);
+    });
+    url.searchParams.set("landing_path", location.pathname);
+    return url.toString();
+  }
+
   function track(eventName, props, options) {
     var payload = cleanProps(
       Object.assign({}, attributionProps(), props || {}),
@@ -162,6 +187,9 @@ window.applyOpsAnalytics = (function () {
     document.querySelectorAll("[data-track]").forEach(function (node) {
       if (node.dataset.analyticsBound === "true") return;
       node.dataset.analyticsBound = "true";
+      if (isStripeCheckoutUrl(node.getAttribute("href") || "")) {
+        node.href = checkoutUrlWithAttribution(node.getAttribute("href"));
+      }
       node.addEventListener("click", function (event) {
         var href = node.getAttribute("href");
         var props = {
@@ -231,6 +259,7 @@ window.applyOpsAnalytics = (function () {
 
   return {
     config: config,
+    checkoutUrlWithAttribution: checkoutUrlWithAttribution,
     track: track,
     trackSuccessFromUrl: trackSuccessFromUrl,
   };
