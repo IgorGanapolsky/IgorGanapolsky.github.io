@@ -1,33 +1,6 @@
 {
   "primary": [
     {
-      "id": "applyops_truth_snapshot",
-      "name": "ApplyOps Resume Truth Snapshot",
-      "price_usd": 49,
-      "payment_url": "https://buy.stripe.com/3cIaEX1M80aO9G1fSH3sI2N?client_reference_id=offers_truth_snapshot&utm_source=offers_json&utm_medium=json&utm_campaign=applyops",
-      "landing_url": "https://igorganapolsky.github.io/applyops/",
-      "audience": "Senior software, AI, and platform candidates getting ignored or ghosted despite strong experience",
-      "promise": "A same-day resume risk audit that flags unsupported claims, ATS readability issues, title-fit gaps, and the four weakest bullets"
-    },
-    {
-      "id": "applyops_resume_os_pro",
-      "name": "Resume OS Pro",
-      "price_usd": 149,
-      "payment_url": "https://buy.stripe.com/3cI3cvgH26zccSd7mb3sI2O?client_reference_id=offers_resume_os_pro&utm_source=offers_json&utm_medium=json&utm_campaign=applyops",
-      "landing_url": "https://igorganapolsky.github.io/applyops/",
-      "audience": "One candidate who wants a 30-day resume and application workspace after the audit",
-      "promise": "Role-specific resume and cover-letter drafts, application tracker cleanup, response triage, and evidence-first workflow"
-    },
-    {
-      "id": "applyops_done_for_you_sprint",
-      "name": "ApplyOps Done-For-You Sprint",
-      "price_usd": 1500,
-      "payment_url": "https://buy.stripe.com/9B600j4YkcXAcSdayn3sI2P?client_reference_id=offers_done_for_you_sprint&utm_source=offers_json&utm_medium=json&utm_campaign=applyops",
-      "landing_url": "https://igorganapolsky.github.io/applyops/",
-      "audience": "Candidates who want a two-week managed job-search operations sprint",
-      "promise": "Targeting review, tailored materials, submission prep, weekly strategy call, and evidence record"
-    },
-    {
       "id": "applyops_ai_staffing_3_candidate_audit",
       "name": "ApplyOps AI Staffing 3-Candidate Audit",
       "price_usd": 500,
@@ -62,6 +35,33 @@
       "landing_url": "https://igorganapolsky.github.io/applyops/partners.html",
       "audience": "Resume-writing, staffing, career-coaching, and executive-search teams that want to reserve a partner pilot before paying the full $1,500",
       "promise": "$500 deposit credited toward the ApplyOps $1,500 partner paid pilot"
+    },
+    {
+      "id": "applyops_done_for_you_sprint",
+      "name": "ApplyOps Done-For-You Sprint",
+      "price_usd": 1500,
+      "payment_url": "https://buy.stripe.com/9B600j4YkcXAcSdayn3sI2P?client_reference_id=offers_done_for_you_sprint&utm_source=offers_json&utm_medium=json&utm_campaign=applyops",
+      "landing_url": "https://igorganapolsky.github.io/applyops/",
+      "audience": "Candidates who want a two-week managed job-search operations sprint",
+      "promise": "Targeting review, tailored materials, submission prep, weekly strategy call, and evidence record"
+    },
+    {
+      "id": "applyops_truth_snapshot",
+      "name": "ApplyOps Resume Truth Snapshot",
+      "price_usd": 49,
+      "payment_url": "https://buy.stripe.com/3cIaEX1M80aO9G1fSH3sI2N?client_reference_id=offers_truth_snapshot&utm_source=offers_json&utm_medium=json&utm_campaign=applyops",
+      "landing_url": "https://igorganapolsky.github.io/applyops/",
+      "audience": "Senior software, AI, and platform candidates getting ignored or ghosted despite strong experience",
+      "promise": "A same-day resume risk audit that flags unsupported claims, ATS readability issues, title-fit gaps, and the four weakest bullets"
+    },
+    {
+      "id": "applyops_resume_os_pro",
+      "name": "Resume OS Pro",
+      "price_usd": 149,
+      "payment_url": "https://buy.stripe.com/3cI3cvgH26zccSd7mb3sI2O?client_reference_id=offers_resume_os_pro&utm_source=offers_json&utm_medium=json&utm_campaign=applyops",
+      "landing_url": "https://igorganapolsky.github.io/applyops/",
+      "audience": "One candidate who wants a 30-day resume and application workspace after the audit",
+      "promise": "Role-specific resume and cover-letter drafts, application tracker cleanup, response triage, and evidence-first workflow"
     },
     {
       "id": "loom_atlassian_diagnostic",

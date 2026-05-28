@@ -2,9 +2,9 @@
 
 This site contains buyer-facing offers and public product pages from Igor Ganapolsky.
 
-## Primary Offer: ApplyOps Resume Truth Snapshot
+## Primary Offer: ApplyOps AI Staffing 3-Candidate Audit
 
-ApplyOps is a same-day resume risk audit for senior software, AI, platform, Android, and data candidates who are getting ignored or ghosted despite strong experience.
+ApplyOps is a paid candidate proof audit for AI staffing, technical recruiting, executive-search, career-services, and senior technical resume workflows. The primary commercial offer is a $500 three-candidate audit for senior AI, cloud, data, or software profiles before staffing teams submit them to clients.
 
 - Landing page: https://igorganapolsky.github.io/applyops/
 - Partner / acquisition brief: https://igorganapolsky.github.io/applyops/partners.html
@@ -18,19 +18,19 @@ ApplyOps is a same-day resume risk audit for senior software, AI, platform, Andr
 
 ### What ApplyOps Does
 
-- Flags unsupported or inflated resume claims.
-- Checks ATS readability and target-title fit.
-- Identifies bullets that create recruiter doubt.
-- Rewrites the four weakest bullets without fabricating credentials, employers, dates, degrees, titles, or metrics.
+- Flags unsupported or inflated AI, cloud, platform, leadership, and impact claims.
+- Checks ATS readability, target-title fit, and role positioning.
+- Identifies candidate proof gaps that create recruiter, hiring-manager, or client doubt.
+- Returns a send, rewrite, verify, or hold recommendation without fabricating credentials, employers, dates, degrees, titles, or metrics.
 
 ### Paid Offers
 
+- ApplyOps AI Staffing 3-Candidate Audit Deposit: $500 one-time audit for three senior AI, cloud, data, or software candidate profiles before client submission.
+- ApplyOps Partner Paid Pilot: $1,500 one-time 10-candidate resume-risk audit batch for resume-writing, staffing, career-coaching, or executive-search partners.
 - Resume Truth Snapshot: $49 one-time audit.
 - Resume OS Pro: $149 one-time 30-day resume and application workspace.
 - Done-For-You Sprint: $1,500 two-week managed job-search operations sprint.
-- ApplyOps AI Staffing 3-Candidate Audit Deposit: $500 one-time audit for three senior AI, cloud, data, or software candidate profiles before client submission.
 - ApplyOps Partner Pilot Deposit: $500 one-time deposit credited toward the partner paid pilot.
-- ApplyOps Partner Paid Pilot: $1,500 one-time 10-candidate resume-risk audit batch for resume-writing, staffing, career-coaching, or executive-search partners.
 
 ### Partner And Reverse-Recruiting Use Cases
 
