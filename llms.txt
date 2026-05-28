@@ -8,6 +8,7 @@ ApplyOps is a same-day resume risk audit for senior software, AI, platform, Andr
 
 - Landing page: https://igorganapolsky.github.io/applyops/
 - Partner / acquisition brief: https://igorganapolsky.github.io/applyops/partners.html
+- AI staffing candidate audit: https://igorganapolsky.github.io/applyops/ai-staffing.html
 - Partner pilot sample output: https://igorganapolsky.github.io/applyops/partner-sample.html
 - Sample audit: https://igorganapolsky.github.io/applyops/sample-truth-snapshot.html
 - Senior engineer resume audit guide: https://igorganapolsky.github.io/topics/senior-engineer-resume-truth-audit.html
@@ -27,6 +28,7 @@ ApplyOps is a same-day resume risk audit for senior software, AI, platform, Andr
 - Resume Truth Snapshot: $49 one-time audit.
 - Resume OS Pro: $149 one-time 30-day resume and application workspace.
 - Done-For-You Sprint: $1,500 two-week managed job-search operations sprint.
+- ApplyOps AI Staffing 3-Candidate Audit Deposit: $500 one-time audit for three senior AI, cloud, data, or software candidate profiles before client submission.
 - ApplyOps Partner Pilot Deposit: $500 one-time deposit credited toward the partner paid pilot.
 - ApplyOps Partner Paid Pilot: $1,500 one-time 10-candidate resume-risk audit batch for resume-writing, staffing, career-coaching, or executive-search partners.
 
@@ -35,6 +37,7 @@ ApplyOps is a same-day resume risk audit for senior software, AI, platform, Andr
 ApplyOps can be used by reverse-recruiting, apply-for-you, resume-writing, staffing, executive-search, and career-platform teams as an intake checkpoint before candidate outreach or resume rewriting.
 
 - Partner pilot page: https://igorganapolsky.github.io/applyops/partners.html
+- AI staffing audit page: https://igorganapolsky.github.io/applyops/ai-staffing.html
 - Reverse-recruiting pilot deposit: $500, credited toward the $1,500 partner pilot.
 - Partner pilot output: up to 10 senior technical candidate resume-risk audits, an anonymized findings memo, and a 30-minute readout.
 - Best-fit buyers: teams that already help technical candidates with resume rewrites, job-search operations, reverse recruiting, application management, or candidate submission.

@@ -28,6 +28,18 @@
       "promise": "Targeting review, tailored materials, submission prep, weekly strategy call, and evidence record"
     },
     {
+      "id": "applyops_ai_staffing_3_candidate_audit",
+      "name": "ApplyOps AI Staffing 3-Candidate Audit",
+      "price_usd": 500,
+      "stripe_product_id": "prod_UazZnr2SJrl54e",
+      "stripe_price_id": "price_1TbnaNGGBpd520QYcYsxAQUy",
+      "stripe_payment_link_id": "plink_1TbnaTGGBpd520QYf45GqtOG",
+      "payment_url": "https://buy.stripe.com/28E9AT9eA7Dgg4p49Z3sI30?client_reference_id=offers_ai_staffing_3_candidate_audit&utm_source=offers_json&utm_medium=json&utm_campaign=applyops_ai_staffing_3resume",
+      "landing_url": "https://igorganapolsky.github.io/applyops/ai-staffing.html",
+      "audience": "AI staffing, technical recruiting, executive-search, and career services teams that submit senior technical candidates",
+      "promise": "Three senior AI, cloud, data, or software candidate profiles audited for unsupported claims, ATS/title-fit gaps, proof gaps, and submission risk before client submission"
+    },
+    {
       "id": "applyops_partner_paid_pilot",
       "name": "ApplyOps Partner Paid Pilot",
       "price_usd": 1500,
