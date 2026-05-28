@@ -9,6 +9,7 @@ ApplyOps is a paid candidate proof audit for AI staffing, technical recruiting, 
 - Landing page: https://igorganapolsky.github.io/applyops/
 - Partner / acquisition brief: https://igorganapolsky.github.io/applyops/partners.html
 - AI staffing candidate audit: https://igorganapolsky.github.io/applyops/ai-staffing.html
+- AI staffing 3-candidate sample output: https://igorganapolsky.github.io/applyops/ai-staffing-sample.html
 - Partner pilot sample output: https://igorganapolsky.github.io/applyops/partner-sample.html
 - Sample audit: https://igorganapolsky.github.io/applyops/sample-truth-snapshot.html
 - Senior engineer resume audit guide: https://igorganapolsky.github.io/topics/senior-engineer-resume-truth-audit.html
@@ -38,6 +39,7 @@ ApplyOps can be used by reverse-recruiting, apply-for-you, resume-writing, staff
 
 - Partner pilot page: https://igorganapolsky.github.io/applyops/partners.html
 - AI staffing audit page: https://igorganapolsky.github.io/applyops/ai-staffing.html
+- AI staffing sample output: https://igorganapolsky.github.io/applyops/ai-staffing-sample.html
 - Reverse-recruiting pilot deposit: $500, credited toward the $1,500 partner pilot.
 - Partner pilot output: up to 10 senior technical candidate resume-risk audits, an anonymized findings memo, and a 30-minute readout.
 - Best-fit buyers: teams that already help technical candidates with resume rewrites, job-search operations, reverse recruiting, application management, or candidate submission.
