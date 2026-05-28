@@ -39,11 +39,31 @@
       <nav>
         <a href="/applyops/">Candidate offer</a>
         <a href="/applyops/partner-sample.html">Partner sample</a>
+        <a href="#pilot-paths">Buy pilot</a>
         <a href="/llms.txt">LLM file</a>
       </nav>
     </header>
 
     <main>
+      <section class="decision-strip">
+        <div class="decision-strip-inner">
+          <p>
+            Two purchase paths: pay a $500 pilot deposit now, or request a
+            Stripe invoice/scoping call for procurement.
+          </p>
+          <a
+            class="button small"
+            href="https://buy.stripe.com/28E9AT9eA7Dgg4p49Z3sI30?client_reference_id=applyops_partner_top_strip_deposit&utm_source=partner_page&utm_medium=checkout&utm_campaign=applyops_partner_pilot"
+            data-track="checkout_click"
+            data-surface="applyops_partner"
+            data-tier="partner_pilot_deposit"
+            data-price="500"
+            data-placement="top_strip"
+            >Pay $500 deposit</a
+          >
+        </div>
+      </section>
+
       <section class="hero">
         <div>
           <p class="eyebrow">Partner paid pilot</p>
@@ -98,6 +118,54 @@
             <li>One 30-minute kickoff and one 30-minute readout.</li>
             <li>Five-business-day delivery after materials are received.</li>
           </ul>
+        </div>
+      </section>
+
+      <section class="section" id="pilot-paths">
+        <div class="section-head">
+          <h2>Choose the buying path that matches your team.</h2>
+          <p>
+            Card checkout is fastest. Invoice/scoping is for teams that need a
+            billing contact, purchase approval, or procurement trail.
+          </p>
+        </div>
+        <div class="grid pilot-paths">
+          <article class="card priority">
+            <p class="eyebrow">Fastest path</p>
+            <h3>$500 deposit by card</h3>
+            <p>
+              Reserve one partner pilot slot tonight. The deposit is credited
+              toward the $1,500 pilot after scope confirmation.
+            </p>
+            <a
+              class="button"
+              href="https://buy.stripe.com/28E9AT9eA7Dgg4p49Z3sI30?client_reference_id=applyops_partner_path_deposit&utm_source=partner_page&utm_medium=checkout&utm_campaign=applyops_partner_pilot"
+              data-track="checkout_click"
+              data-surface="applyops_partner"
+              data-tier="partner_pilot_deposit"
+              data-price="500"
+              data-placement="buying_path"
+              >Pay $500 deposit</a
+            >
+          </article>
+          <article class="card">
+            <p class="eyebrow">Procurement path</p>
+            <h3>Invoice or scoping call</h3>
+            <p>
+              Send billing owner, candidate volume, and timeline. Payment still
+              runs through Stripe before fulfillment begins.
+            </p>
+            <a
+              class="button secondary"
+              href="mailto:iganapolsky@gmail.com?subject=ApplyOps%20partner%20pilot%20invoice%20or%20scope&body=Company%3A%0ABilling%20email%3A%0ACandidate%20volume%3A%0ATimeline%3A%0AInvoice%20or%20call%3A"
+              data-track="partner_invoice_click"
+              data-surface="applyops_partner"
+              data-tier="partner_pilot"
+              data-price="1500"
+              data-placement="buying_path"
+              >Request invoice or scope</a
+            >
+          </article>
         </div>
       </section>
 
