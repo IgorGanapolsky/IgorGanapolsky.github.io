@@ -84,6 +84,25 @@
       ]
     },
     {
+      "id": "ai_staffing_3_resume_deposit",
+      "title": "ApplyOps AI Staffing 3-Candidate Audit Deposit",
+      "price_cents": 50000,
+      "interval": "one-time",
+      "stripe_product_id": "prod_UazZnr2SJrl54e",
+      "stripe_price_id": "price_1TbnaNGGBpd520QYcYsxAQUy",
+      "stripe_payment_link_id": "plink_1TbnaTGGBpd520QYf45GqtOG",
+      "url": "https://buy.stripe.com/28E9AT9eA7Dgg4p49Z3sI30?client_reference_id=api_ai_staffing_3_resume_deposit&utm_source=public_catalog&utm_medium=json&utm_campaign=applyops_ai_staffing_3resume",
+      "landing_page": "https://igorganapolsky.github.io/applyops/ai-staffing.html",
+      "buyer_outcome": "Three senior AI, cloud, data, or software candidate profiles audited for unsupported claims, ATS/title-fit gaps, proof gaps, and submission risk.",
+      "deliverables": [
+        "three_candidate_risk_snapshots",
+        "unsupported_ai_cloud_claim_flags",
+        "ats_and_title_fit_notes",
+        "submission_recommendation",
+        "credited_toward_full_partner_pilot"
+      ]
+    },
+    {
       "id": "loom_atlassian_diagnostic",
       "title": "Loom to Atlassian Admin + Rovo Readiness Diagnostic",
       "price_cents": 49900,
