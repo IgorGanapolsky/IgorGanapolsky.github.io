@@ -1,7 +1,7 @@
 {
   "version": "3.0",
   "provider": "ApplyOps",
-  "primary_offer": "truth_snapshot",
+  "primary_offer": "partner_pilot_deposit",
   "checkout_provider": "Stripe Payment Links",
   "catalog": [
     {
