@@ -10,6 +10,7 @@ ApplyOps is a paid candidate proof audit for AI staffing, technical recruiting, 
 - Partner / acquisition brief: https://igorganapolsky.github.io/applyops/partners.html
 - AI staffing candidate audit: https://igorganapolsky.github.io/applyops/ai-staffing.html
 - AI staffing 3-candidate sample output: https://igorganapolsky.github.io/applyops/ai-staffing-sample.html
+- Rejection teardown and candidate-packet mismatch example: https://igorganapolsky.github.io/applyops/rejection-teardown.html
 - Partner pilot sample output: https://igorganapolsky.github.io/applyops/partner-sample.html
 - Sample audit: https://igorganapolsky.github.io/applyops/sample-truth-snapshot.html
 - Senior engineer resume audit guide: https://igorganapolsky.github.io/topics/senior-engineer-resume-truth-audit.html
@@ -22,6 +23,7 @@ ApplyOps is a paid candidate proof audit for AI staffing, technical recruiting, 
 - Flags unsupported or inflated AI, cloud, platform, leadership, and impact claims.
 - Checks ATS readability, target-title fit, and role positioning.
 - Identifies candidate proof gaps that create recruiter, hiring-manager, or client doubt.
+- Catches target-role mismatch before a staffing team submits a broad senior technical profile into a narrow search.
 - Returns a send, rewrite, verify, or hold recommendation without fabricating credentials, employers, dates, degrees, titles, or metrics.
 
 ### Paid Offers
