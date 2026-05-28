@@ -9,6 +9,7 @@ ApplyOps is a paid candidate proof audit for AI staffing, technical recruiting, 
 - Landing page: https://igorganapolsky.github.io/applyops/
 - Partner / acquisition brief: https://igorganapolsky.github.io/applyops/partners.html
 - AI staffing candidate audit: https://igorganapolsky.github.io/applyops/ai-staffing.html
+- STR Claude Ops diagnostic for vacation-rental operators: https://igorganapolsky.github.io/applyops/str-claude-ops.html
 - AI staffing 3-candidate sample output: https://igorganapolsky.github.io/applyops/ai-staffing-sample.html
 - Rejection teardown and candidate-packet mismatch example: https://igorganapolsky.github.io/applyops/rejection-teardown.html
 - Partner pilot sample output: https://igorganapolsky.github.io/applyops/partner-sample.html
@@ -34,6 +35,8 @@ ApplyOps is a paid candidate proof audit for AI staffing, technical recruiting, 
 - Resume OS Pro: $149 one-time 30-day resume and application workspace.
 - Done-For-You Sprint: $1,500 two-week managed job-search operations sprint.
 - ApplyOps Partner Pilot Deposit: $500 one-time deposit credited toward the partner paid pilot.
+- STR Claude Ops Diagnostic: $500 fixed-scope audit for short-term rental guest messaging, maintenance triage, escalation rules, and Claude guardrails.
+- STR Claude Ops Pilot Sprint: $1,500 implementation slice for one Guesty-style data path, human approval workflow, logging, and guardrail test cases.
 
 ### Partner And Reverse-Recruiting Use Cases
 

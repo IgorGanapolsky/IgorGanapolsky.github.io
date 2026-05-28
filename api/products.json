@@ -103,6 +103,44 @@
       ]
     },
     {
+      "id": "str_claude_ops_diagnostic",
+      "title": "STR Claude Ops Diagnostic",
+      "price_cents": 50000,
+      "interval": "one-time",
+      "stripe_product_id": "prod_UazZnr2SJrl54e",
+      "stripe_price_id": "price_1TbnaNGGBpd520QYcYsxAQUy",
+      "stripe_payment_link_id": "plink_1TbnaTGGBpd520QYf45GqtOG",
+      "url": "https://buy.stripe.com/28E9AT9eA7Dgg4p49Z3sI30?client_reference_id=api_str_claude_ops_diagnostic&utm_source=public_catalog&utm_medium=json&utm_campaign=str_claude_ops",
+      "landing_page": "https://igorganapolsky.github.io/applyops/str-claude-ops.html",
+      "buyer_outcome": "Short-term rental guest, maintenance, and escalation workflows mapped into automate, approve, and escalate rules before a Claude or Guesty workflow build.",
+      "deliverables": [
+        "guest_message_scenario_map",
+        "maintenance_triage_rules",
+        "claude_guardrail_prompt_draft",
+        "two_am_failure_plan",
+        "pilot_implementation_roadmap"
+      ]
+    },
+    {
+      "id": "str_claude_ops_pilot",
+      "title": "STR Claude Ops Pilot Sprint",
+      "price_cents": 150000,
+      "interval": "one-time",
+      "stripe_product_id": "prod_UayZukvIY4kPsX",
+      "stripe_price_id": "price_1TbmcdGGBpd520QYjkmjkx8h",
+      "stripe_payment_link_id": "plink_1TbmciGGBpd520QYfal5XyDe",
+      "url": "https://buy.stripe.com/8x2dR9aiE5v805rgWL3sI2X?client_reference_id=api_str_claude_ops_pilot&utm_source=public_catalog&utm_medium=json&utm_campaign=str_claude_ops",
+      "landing_page": "https://igorganapolsky.github.io/applyops/str-claude-ops.html",
+      "buyer_outcome": "One limited Guesty-style data path plus Claude approval workflow, logging, and rollout checklist for a short-term rental operator.",
+      "deliverables": [
+        "limited_pms_data_path",
+        "human_approval_workflow",
+        "guest_ops_logging",
+        "guardrail_test_cases",
+        "production_readiness_checklist"
+      ]
+    },
+    {
       "id": "loom_atlassian_diagnostic",
       "title": "Loom to Atlassian Admin + Rovo Readiness Diagnostic",
       "price_cents": 49900,
