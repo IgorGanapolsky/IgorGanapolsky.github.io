@@ -2,9 +2,9 @@
 
 This site contains buyer-facing offers and public product pages from Igor Ganapolsky.
 
-## Primary Offer: ApplyOps AI Staffing 3-Candidate Audit
+## Primary Offer: ApplyOps Resume Truth Snapshot
 
-ApplyOps is a paid candidate proof audit for AI staffing, technical recruiting, executive-search, career-services, and senior technical resume workflows. The primary commercial offer is a $500 three-candidate audit for senior AI, cloud, data, or software profiles before staffing teams submit them to clients.
+ApplyOps is a paid resume proof audit for senior technical candidates and teams that support them. The primary commercial offer is the $49 Resume Truth Snapshot: a same-day audit for one senior software, AI, cloud, or data resume against one target role family.
 
 - Landing page: https://igorganapolsky.github.io/applyops/
 - Partner / acquisition brief: https://igorganapolsky.github.io/applyops/partners.html
@@ -29,9 +29,9 @@ ApplyOps is a paid candidate proof audit for AI staffing, technical recruiting, 
 
 ### Paid Offers
 
+- Resume Truth Snapshot: $49 one-time same-day audit for one senior technical resume and one target role family. This is the primary front-door offer.
 - ApplyOps AI Staffing 3-Candidate Audit Deposit: $500 one-time audit for three senior AI, cloud, data, or software candidate profiles before client submission.
 - ApplyOps Partner Paid Pilot: $1,500 one-time 10-candidate resume-risk audit batch for resume-writing, staffing, career-coaching, or executive-search partners.
-- Resume Truth Snapshot: $49 one-time audit.
 - Resume OS Pro: $149 one-time 30-day resume and application workspace.
 - Done-For-You Sprint: $1,500 two-week managed job-search operations sprint.
 - ApplyOps Partner Pilot Deposit: $500 one-time deposit credited toward the partner paid pilot.

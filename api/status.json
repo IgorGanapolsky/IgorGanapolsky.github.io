@@ -1,10 +1,10 @@
 {
   "status": "public_storefront_live",
   "provider": "ApplyOps",
-  "as_of": "2026-05-27",
+  "as_of": "2026-06-02",
   "public_surface": {
     "storefront": "https://igorganapolsky.github.io/",
-    "primary_offer": "ApplyOps Partner Pilot Deposit",
+    "primary_offer": "Resume Truth Snapshot",
     "checkout_provider": "Stripe Payment Links"
   },
   "operational_claims": {

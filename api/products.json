@@ -1,7 +1,7 @@
 {
   "version": "3.0",
   "provider": "ApplyOps",
-  "primary_offer": "partner_pilot_deposit",
+  "primary_offer": "truth_snapshot",
   "checkout_provider": "Stripe Payment Links",
   "catalog": [
     {
@@ -10,7 +10,7 @@
       "price_cents": 4900,
       "interval": "one-time",
       "recommended_first_step": true,
-      "url": "https://buy.stripe.com/3cIaEX1M80aO9G1fSH3sI2N?client_reference_id=api_truth_snapshot&utm_source=public_catalog&utm_medium=json&utm_campaign=applyops",
+      "url": "https://buy.stripe.com/3cIaEX1M80aO9G1fSH3sI2N?client_reference_id=api_truth_snapshot&utm_source=public_catalog&utm_medium=json&utm_campaign=applyops_truth_snapshot",
       "buyer_outcome": "Same-day resume risk audit for one resume and one target role family.",
       "deliverables": [
         "unsupported_claim_flags",
@@ -100,80 +100,6 @@
         "ats_and_title_fit_notes",
         "submission_recommendation",
         "credited_toward_full_partner_pilot"
-      ]
-    },
-    {
-      "id": "str_claude_ops_diagnostic",
-      "title": "STR Claude Ops Diagnostic",
-      "price_cents": 50000,
-      "interval": "one-time",
-      "stripe_product_id": "prod_UazZnr2SJrl54e",
-      "stripe_price_id": "price_1TbnaNGGBpd520QYcYsxAQUy",
-      "stripe_payment_link_id": "plink_1TbnaTGGBpd520QYf45GqtOG",
-      "url": "https://buy.stripe.com/28E9AT9eA7Dgg4p49Z3sI30?client_reference_id=api_str_claude_ops_diagnostic&utm_source=public_catalog&utm_medium=json&utm_campaign=str_claude_ops",
-      "landing_page": "https://igorganapolsky.github.io/applyops/str-claude-ops.html",
-      "buyer_outcome": "Short-term rental guest, maintenance, and escalation workflows mapped into automate, approve, and escalate rules before a Claude or Guesty workflow build.",
-      "deliverables": [
-        "guest_message_scenario_map",
-        "maintenance_triage_rules",
-        "claude_guardrail_prompt_draft",
-        "two_am_failure_plan",
-        "pilot_implementation_roadmap"
-      ]
-    },
-    {
-      "id": "str_claude_ops_pilot",
-      "title": "STR Claude Ops Pilot Sprint",
-      "price_cents": 150000,
-      "interval": "one-time",
-      "stripe_product_id": "prod_UayZukvIY4kPsX",
-      "stripe_price_id": "price_1TbmcdGGBpd520QYjkmjkx8h",
-      "stripe_payment_link_id": "plink_1TbmciGGBpd520QYfal5XyDe",
-      "url": "https://buy.stripe.com/8x2dR9aiE5v805rgWL3sI2X?client_reference_id=api_str_claude_ops_pilot&utm_source=public_catalog&utm_medium=json&utm_campaign=str_claude_ops",
-      "landing_page": "https://igorganapolsky.github.io/applyops/str-claude-ops.html",
-      "buyer_outcome": "One limited Guesty-style data path plus Claude approval workflow, logging, and rollout checklist for a short-term rental operator.",
-      "deliverables": [
-        "limited_pms_data_path",
-        "human_approval_workflow",
-        "guest_ops_logging",
-        "guardrail_test_cases",
-        "production_readiness_checklist"
-      ]
-    },
-    {
-      "id": "loom_atlassian_diagnostic",
-      "title": "Loom to Atlassian Admin + Rovo Readiness Diagnostic",
-      "price_cents": 49900,
-      "interval": "one-time",
-      "stripe_product_id": "prod_UayjqUX06UWNRn",
-      "stripe_price_id": "price_1TbmlhGGBpd520QYNUhyZSHu",
-      "stripe_payment_link_id": "plink_1TbmlmGGBpd520QYF0C0P064",
-      "url": "https://buy.stripe.com/7sY00j1M80aO05r9uj3sI2Y?client_reference_id=api_loom_atlassian_diagnostic&utm_source=public_catalog&utm_medium=json&utm_campaign=loom_atlassian",
-      "buyer_outcome": "Fixed-scope Loom to Atlassian readiness review for billing, seats, Atlassian Admin, Rovo, and AI/security guardrails.",
-      "deliverables": [
-        "loom_user_billing_role_review",
-        "atlassian_admin_readiness_checklist",
-        "rovo_jira_confluence_workflow_map",
-        "ai_security_guardrail_notes",
-        "one_page_action_plan"
-      ]
-    },
-    {
-      "id": "loom_atlassian_sprint",
-      "title": "Loom to Atlassian Admin + Rovo Implementation Sprint",
-      "price_cents": 150000,
-      "interval": "one-time",
-      "stripe_product_id": "prod_UayjiQrN6Aphy2",
-      "stripe_price_id": "price_1TbmlwGGBpd520QYveAGfG9J",
-      "stripe_payment_link_id": "plink_1Tbmm4GGBpd520QY9f02qxBX",
-      "url": "https://buy.stripe.com/eVqcN5gH24r4bO9eOD3sI2Z?client_reference_id=api_loom_atlassian_sprint&utm_source=public_catalog&utm_medium=json&utm_campaign=loom_atlassian",
-      "buyer_outcome": "Implementation sprint for Loom-to-Atlassian admin readiness, workflow templates, and Rovo/AI guardrails.",
-      "deliverables": [
-        "seat_cleanup_recommendations",
-        "admin_configuration_checklist",
-        "jira_confluence_loom_workflow_templates",
-        "rovo_ai_guardrails",
-        "rollout_memo"
       ]
     }
   ]
