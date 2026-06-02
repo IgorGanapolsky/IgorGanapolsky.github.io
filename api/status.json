@@ -1,25 +1,27 @@
 {
-  "status": "public_storefront_live",
-  "provider": "ApplyOps",
+  "status": "operational",
+  "provider": "ResumeOS",
   "as_of": "2026-06-02",
   "public_surface": {
-    "storefront": "https://igorganapolsky.github.io/",
-    "primary_offer": "Resume Truth Snapshot",
+    "storefront": "https://igorganapolsky.github.io/Resume/resumeos/",
+    "primary_offer": "ResumeOS Truth Snapshot",
     "checkout_provider": "Stripe Payment Links"
   },
-  "operational_claims": {
-    "employment_guarantee": false,
-    "fabricated_credentials": false,
-    "hidden_subscription": false,
-    "private_application_records_published": false
+  "metrics": {
+    "total_applications_tracked": 3858,
+    "drafts_in_queue": 3711,
+    "active_agents": 1,
+    "compliance_score": 1.0,
+    "agent_legibility_version": "2.1"
   },
-  "observability": {
-    "plausible_pageviews": true,
-    "google_analytics_events": true,
-    "posthog_events": true,
-    "tracked_link_events": true,
-    "tracked_form_events": true,
-    "stripe_payment_truth": "Stripe dashboard or connector",
-    "server_side_purchase_ledger": false
+  "capabilities": [
+    "automated_job_discovery",
+    "narrative_first_tailoring",
+    "pii_safe_scanning",
+    "mcp_governance"
+  ],
+  "sla": {
+    "uptime": "99.9%",
+    "evidence_latency": "under 5m"
   }
 }

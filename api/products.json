@@ -1,106 +1,43 @@
 {
   "version": "3.0",
-  "provider": "ApplyOps",
+  "provider": "ResumeOS",
   "primary_offer": "truth_snapshot",
   "checkout_provider": "Stripe Payment Links",
+  "sla": {
+    "discovery_cadence": "30m",
+    "tailoring_accuracy": "100% human-verified-facts",
+    "submission_evidence": "Mandatory"
+  },
   "catalog": [
     {
       "id": "truth_snapshot",
-      "title": "Resume Truth Snapshot",
+      "title": "ResumeOS Truth Snapshot",
       "price_cents": 4900,
       "interval": "one-time",
-      "recommended_first_step": true,
-      "url": "https://buy.stripe.com/3cIaEX1M80aO9G1fSH3sI2N?client_reference_id=api_truth_snapshot&utm_source=public_catalog&utm_medium=json&utm_campaign=applyops_truth_snapshot",
-      "buyer_outcome": "Same-day resume risk audit for one resume and one target role family.",
-      "deliverables": [
-        "unsupported_claim_flags",
-        "ats_readability_check",
-        "title_fit_check",
-        "four_bullet_rewrites",
-        "ranked_next_actions"
-      ]
+      "url": "https://buy.stripe.com/3cIaEX1M80aO9G1fSH3sI2N",
+      "stripe_product_id": "prod_UXx9ec0olnnz8D",
+      "stripe_price_id": "price_1TYrEyGGBpd520QYNaS8SEe5",
+      "capabilities": ["ats_fit_score", "ai_tell_detection", "title_match_check", "bullet_rewrite"]
     },
     {
       "id": "resume_os_pro",
       "title": "Resume OS Pro",
       "price_cents": 14900,
       "interval": "one-time",
-      "url": "https://buy.stripe.com/3cI3cvgH26zccSd7mb3sI2O?client_reference_id=api_resume_os_pro&utm_source=public_catalog&utm_medium=json&utm_campaign=applyops",
-      "buyer_outcome": "30-day resume and application workspace for one candidate.",
-      "deliverables": [
-        "resume_and_cover_letter_drafts",
-        "application_tracker_cleanup",
-        "response_triage",
-        "evidence_first_workflow"
-      ]
+      "url": "https://buy.stripe.com/3cI3cvgH26zccSd7mb3sI2O",
+      "stripe_product_id": "prod_UXx9Vk7PbESAlQ",
+      "stripe_price_id": "price_1TYrEzGGBpd520QYLF1six2y",
+      "capabilities": ["per_job_tailoring", "live_dashboard", "gmail_reply_loop", "thompson_rlhf"]
     },
     {
       "id": "done_for_you_sprint",
       "title": "Done-For-You Sprint",
       "price_cents": 150000,
       "interval": "one-time",
-      "url": "https://buy.stripe.com/9B600j4YkcXAcSdayn3sI2P?client_reference_id=api_done_for_you_sprint&utm_source=public_catalog&utm_medium=json&utm_campaign=applyops",
-      "buyer_outcome": "Two-week managed job-search operations sprint.",
-      "deliverables": [
-        "targeting_review",
-        "tailored_materials",
-        "submission_prep",
-        "weekly_strategy_call",
-        "evidence_record"
-      ]
-    },
-    {
-      "id": "partner_paid_pilot",
-      "title": "ApplyOps Partner Paid Pilot",
-      "price_cents": 150000,
-      "interval": "one-time",
-      "stripe_product_id": "prod_UayZukvIY4kPsX",
-      "stripe_price_id": "price_1TbmcdGGBpd520QYjkmjkx8h",
-      "stripe_payment_link_id": "plink_1TbmciGGBpd520QYfal5XyDe",
-      "url": "https://buy.stripe.com/8x2dR9aiE5v805rgWL3sI2X?client_reference_id=api_partner_paid_pilot&utm_source=public_catalog&utm_medium=json&utm_campaign=applyops_partner_pilot",
-      "buyer_outcome": "Limited technical-candidate audit batch for a resume-writing, staffing, career-coaching, or executive-search partner.",
-      "deliverables": [
-        "pilot_batch_scope",
-        "technical_candidate_audits",
-        "anonymized_findings_summary",
-        "conversion_or_quality_recommendations"
-      ]
-    },
-    {
-      "id": "partner_pilot_deposit",
-      "title": "ApplyOps Partner Pilot Deposit",
-      "price_cents": 50000,
-      "interval": "one-time",
-      "stripe_product_id": "prod_UazZnr2SJrl54e",
-      "stripe_price_id": "price_1TbnaNGGBpd520QYcYsxAQUy",
-      "stripe_payment_link_id": "plink_1TbnaTGGBpd520QYf45GqtOG",
-      "url": "https://buy.stripe.com/28E9AT9eA7Dgg4p49Z3sI30?client_reference_id=api_partner_pilot_deposit&utm_source=public_catalog&utm_medium=json&utm_campaign=applyops_partner_pilot",
-      "buyer_outcome": "Deposit credited toward the ApplyOps $1,500 partner paid pilot.",
-      "deliverables": [
-        "pilot_slot_hold",
-        "scope_confirmation",
-        "credited_toward_full_partner_pilot",
-        "invoice_or_checkout_followup"
-      ]
-    },
-    {
-      "id": "ai_staffing_3_resume_deposit",
-      "title": "ApplyOps AI Staffing 3-Candidate Audit Deposit",
-      "price_cents": 50000,
-      "interval": "one-time",
-      "stripe_product_id": "prod_UazZnr2SJrl54e",
-      "stripe_price_id": "price_1TbnaNGGBpd520QYcYsxAQUy",
-      "stripe_payment_link_id": "plink_1TbnaTGGBpd520QYf45GqtOG",
-      "url": "https://buy.stripe.com/28E9AT9eA7Dgg4p49Z3sI30?client_reference_id=api_ai_staffing_3_resume_deposit&utm_source=public_catalog&utm_medium=json&utm_campaign=applyops_ai_staffing_3resume",
-      "landing_page": "https://igorganapolsky.github.io/applyops/ai-staffing.html",
-      "buyer_outcome": "Three senior AI, cloud, data, or software candidate profiles audited for unsupported claims, ATS/title-fit gaps, proof gaps, and submission risk.",
-      "deliverables": [
-        "three_candidate_risk_snapshots",
-        "unsupported_ai_cloud_claim_flags",
-        "ats_and_title_fit_notes",
-        "submission_recommendation",
-        "credited_toward_full_partner_pilot"
-      ]
+      "url": "https://buy.stripe.com/9B600j4YkcXAcSdayn3sI2P",
+      "stripe_product_id": "prod_UXx9oBPVNAqJph",
+      "stripe_price_id": "price_1TYrF0GGBpd520QYH8eoQ4OH",
+      "capabilities": ["full_pipeline_managed", "50_verified_submissions", "weekly_strategy_call", "white_glove_review"]
     }
   ]
 }

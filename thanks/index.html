@@ -108,16 +108,8 @@
         var params = new URLSearchParams(window.location.search);
         var tier = params.get("tier") || "unknown";
         var sid = params.get("session_id") || "";
-        if (window.applyOpsAnalytics) {
-          if (sid) {
-            window.applyOpsAnalytics.trackSuccessFromUrl();
-          } else {
-            window.applyOpsAnalytics.track("thank_you_view_unverified", {
-              tier: tier,
-              surface: location.pathname,
-            });
-          }
-        }
+        if (window.resumeOSAnalytics)
+          window.resumeOSAnalytics.trackSuccessFromUrl();
 
         // Render the session id for the buyer's record + my support
         var el = document.getElementById("sid");
@@ -129,18 +121,8 @@
             'You bought the Truth Snapshot. Within 24 hours I will return a one-page risk audit. Send your current resume PDF and the role title you are targeting to <a href="mailto:iganapolsky@gmail.com?subject=Truth%20Snapshot%20intake">iganapolsky@gmail.com</a>.',
           pro: 'You bought Resume OS Pro. Reply to the Stripe receipt with your current resume + target role list and I will set up the 30-day pipeline within one business day. <a href="mailto:iganapolsky@gmail.com?subject=Resume%20OS%20Pro%20intake">iganapolsky@gmail.com</a>.',
           dfy: 'You bought the Done-For-You Sprint. I will send a Calendly link within 2 business hours to schedule the kickoff call. Reply to the Stripe receipt or email <a href="mailto:iganapolsky@gmail.com?subject=DFY%20Sprint%20kickoff">iganapolsky@gmail.com</a>.',
-          partner_pilot:
-            'You bought the ApplyOps Partner Paid Pilot. Reply to the Stripe receipt with company name, contact owner, candidate volume, pilot use case, timeline, and receipt/session reference. I will schedule the kickoff and confirm the batch scope before any candidate materials are shared.',
-          partner_pilot_deposit:
-            'You paid the ApplyOps Partner Pilot deposit. Reply to the Stripe receipt with company name, contact owner, candidate volume, pilot use case, timeline, and whether you want the remaining balance by Stripe invoice or checkout link. The deposit is credited toward the full $1,500 pilot.',
-          loom_diagnostic:
-            'You bought the Loom to Atlassian readiness diagnostic. Reply to the Stripe receipt with workspace size, Loom plan, admin owner, target Atlassian site, and any Loom integration notice you received. I will return the readiness review within 2 business days after receiving materials.',
-          loom_sprint:
-            'You bought the Loom to Atlassian implementation sprint. Reply to the Stripe receipt with workspace size, Loom plan, admin owner, Jira/Confluence/Rovo usage notes, and your preferred kickoff times. I will confirm scope before any admin changes are made.',
           unknown:
-            sid
-              ? 'Reply to the Stripe receipt email or contact <a href="mailto:iganapolsky@gmail.com">iganapolsky@gmail.com</a> with your intake details.'
-              : 'No Stripe session reference is present in this page URL. If you purchased, reply to the Stripe receipt. If you have not purchased yet, return to ApplyOps and choose a paid tier.',
+            'Reply to the Stripe receipt email or contact <a href="mailto:iganapolsky@gmail.com">iganapolsky@gmail.com</a> with your intake details.',
         };
         var nextEl = document.getElementById("next-step");
         if (nextEl) nextEl.innerHTML = nextStep[tier] || nextStep.unknown;
@@ -150,13 +132,7 @@
           snapshot: "Thanks — Truth Snapshot purchased.",
           pro: "Thanks — Resume OS Pro purchased.",
           dfy: "Thanks — DFY Sprint purchased.",
-          partner_pilot: "Thanks — Partner Paid Pilot purchased.",
-          partner_pilot_deposit: "Thanks — Partner Pilot deposit received.",
-          loom_diagnostic: "Thanks — Loom readiness diagnostic purchased.",
-          loom_sprint: "Thanks — Loom implementation sprint purchased.",
-          unknown: sid
-            ? "Thanks — your purchase is confirmed."
-            : "Payment reference not detected.",
+          unknown: "Thanks — your purchase is confirmed.",
         };
         var titleEl = document.getElementById("title");
         if (titleEl) titleEl.textContent = titles[tier] || titles.unknown;
@@ -175,7 +151,7 @@
   </head>
   <body>
     <main>
-      <span class="badge">Payment handoff</span>
+      <span class="badge">Payment confirmed</span>
       <h1 id="title">Thanks — your purchase is confirmed.</h1>
       <p class="lede">
         Your Stripe receipt will land in your inbox within a minute. Here's what
@@ -217,7 +193,7 @@
         Ralph Resume OS — no fabricated credentials, no inflated metrics, no
         off-platform spam.
         <br /><br />
-        <a href="../applyops/">← Back to ApplyOps</a> ·
+        <a href="../resumeos/">← Back to ResumeOS</a> ·
         <a href="../ralph-resume-os/">Ralph Resume OS</a>
       </footer>
     </main>

@@ -1,9 +1,8 @@
-window.applyOpsAnalytics = (function () {
+window.resumeOSAnalytics = (function () {
   var config = {
     plausibleDomain: "igorganapolsky.github.io",
     gaMeasurementId: "G-2GEM6RYXZE",
-    posthogKey:
-      window.APPLYOPS_POSTHOG_KEY || "phc_cpuhUFoXKeG15GoZBwwEZJToeRX07FRZI4Ty0WCW2da",
+    posthogKey: window.RESUMEOS_POSTHOG_KEY || window.APPLYOPS_POSTHOG_KEY || "",
     posthogHost: "https://us.i.posthog.com",
   };
   var eventNames = {
@@ -36,8 +35,8 @@ window.applyOpsAnalytics = (function () {
   window.gtag("config", config.gaMeasurementId);
 
   function initPostHog() {
-    if (window.__applyOpsPostHogLoaded || !config.posthogKey) return;
-    window.__applyOpsPostHogLoaded = true;
+    if (window.__resumeOSPostHogLoaded || !config.posthogKey) return;
+    window.__resumeOSPostHogLoaded = true;
     !(function (t, e) {
       var o, n, p, r;
       e.__SV ||
@@ -117,32 +116,7 @@ window.applyOpsAnalytics = (function () {
     return props;
   }
 
-  function inboundUtmParams() {
-    var params = new URLSearchParams(window.location.search);
-    var out = {};
-    utmKeys.forEach(function (key) {
-      var value = params.get(key);
-      if (value) out[key] = value;
-    });
-    return out;
-  }
-
-  function isStripeCheckoutUrl(href) {
-    return /^https:\/\/buy\.stripe\.com\//.test(href || "");
-  }
-
-  function checkoutUrlWithAttribution(rawHref) {
-    if (!isStripeCheckoutUrl(rawHref)) return rawHref;
-    var url = new URL(rawHref, location.href);
-    var inbound = inboundUtmParams();
-    Object.keys(inbound).forEach(function (key) {
-      url.searchParams.set(key, inbound[key]);
-    });
-    url.searchParams.set("landing_path", location.pathname);
-    return url.toString();
-  }
-
-  function track(eventName, props, options) {
+  function track(eventName, props) {
     var payload = cleanProps(
       Object.assign({}, attributionProps(), props || {}),
     );
@@ -150,11 +124,7 @@ window.applyOpsAnalytics = (function () {
       window.plausible(eventName, { props: payload });
     } catch (_) {}
     try {
-      window.gtag(
-        "event",
-        eventName,
-        Object.assign({}, payload, (options && options.gtag) || {}),
-      );
+      window.gtag("event", eventName, payload);
     } catch (_) {}
     try {
       if (window.posthog && typeof window.posthog.capture === "function") {
@@ -172,27 +142,13 @@ window.applyOpsAnalytics = (function () {
     return /^https:\/\/buy\.stripe\.com\//.test(href) || /^mailto:/.test(href);
   }
 
-  function navigateAfterAnalytics(href) {
-    var navigated = false;
-    function go() {
-      if (navigated) return;
-      navigated = true;
-      window.location.href = href;
-    }
-    window.setTimeout(go, 700);
-    return go;
-  }
-
   function bindTrackedLinks() {
     document.querySelectorAll("[data-track]").forEach(function (node) {
       if (node.dataset.analyticsBound === "true") return;
       node.dataset.analyticsBound = "true";
-      if (isStripeCheckoutUrl(node.getAttribute("href") || "")) {
-        node.href = checkoutUrlWithAttribution(node.getAttribute("href"));
-      }
       node.addEventListener("click", function (event) {
         var href = node.getAttribute("href");
-        var props = {
+        track(node.dataset.track, {
           tier: node.dataset.tier,
           price: node.dataset.price ? Number(node.dataset.price) : undefined,
           placement: node.dataset.placement,
@@ -202,18 +158,12 @@ window.applyOpsAnalytics = (function () {
             node.href,
             location.href,
           ).searchParams.get("client_reference_id"),
-        };
+        });
         if (href && shouldDelayNavigation(event, node)) {
           event.preventDefault();
-          track(node.dataset.track, props, {
-            gtag: {
-              event_callback: navigateAfterAnalytics(href),
-              event_timeout: 650,
-              transport_type: "beacon",
-            },
-          });
-        } else {
-          track(node.dataset.track, props);
+          window.setTimeout(function () {
+            window.location.href = href;
+          }, 180);
         }
       });
     });
@@ -259,7 +209,6 @@ window.applyOpsAnalytics = (function () {
 
   return {
     config: config,
-    checkoutUrlWithAttribution: checkoutUrlWithAttribution,
     track: track,
     trackSuccessFromUrl: trackSuccessFromUrl,
   };
