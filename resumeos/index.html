@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>ResumeOS Truth Snapshot</title>
+    <title>ResumeOS — Same-Day Resume Risk Audit for Senior Candidates</title>
     <meta
       name="description"
-      content="A same-day resume risk audit for senior candidates: unsupported claims, ATS readability gaps, title fit, and rewritten bullets."
+      content="A premium same-day resume risk audit for senior candidates: find unsupported claims, ATS readability gaps, title fit, and get custom rewritten bullets."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,9 +21,11 @@
         --accent: #10b981;
         --accent-light: #34d399;
         --accent-dark: #065f46;
-        --panel: rgba(17, 24, 39, 0.7);
+        --panel: rgba(17, 24, 39, 0.75);
         --warn: #1e1b12;
         --warn-border: #4d3e1a;
+        --risk-high-text: #f43f5e;
+        --risk-med-text: #f59e0b;
       }
       * {
         box-sizing: border-box;
@@ -61,17 +63,104 @@
         pointer-events: none;
       }
 
-      header,
-      main,
-      footer {
+      header.topbar {
+        height: 72px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 40px;
+        border-bottom: 1px solid var(--line);
+        background: rgba(11, 15, 25, 0.8);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        max-width: 100%;
+      }
+
+      .brand {
+        font-family: 'Outfit', sans-serif;
+        font-size: 22px;
+        font-weight: 900;
+        color: #ffffff;
+        text-decoration: none;
+        letter-spacing: -0.01em;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .brand-dot {
+        width: 8px;
+        height: 8px;
+        background: var(--accent);
+        border-radius: 50%;
+        display: inline-block;
+      }
+
+      header.topbar nav {
+        display: flex;
+        gap: 24px;
+      }
+
+      header.topbar nav a {
+        color: var(--muted);
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 500;
+        transition: color 0.2s ease;
+      }
+
+      header.topbar nav a:hover {
+        color: #ffffff;
+      }
+
+      .decision-strip {
+        background: linear-gradient(90deg, var(--accent-dark) 0%, #0c2d20 100%);
+        color: #ffffff;
+        border-bottom: 1px solid rgba(16, 185, 129, 0.2);
+      }
+      
+      .decision-strip-inner {
+        max-width: 1040px;
+        margin: 0 auto;
+        padding: 12px 24px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+      }
+      
+      .decision-strip p {
+        font-size: 14px;
+        font-weight: 500;
+        margin: 0;
+      }
+
+      .decision-strip .button.small {
+        min-height: 32px;
+        padding: 4px 14px;
+        font-size: 13px;
+        background: #ffffff;
+        border-color: #ffffff;
+        color: #0b0f19;
+      }
+
+      .decision-strip .button.small:hover {
+        background: var(--accent-light);
+        border-color: var(--accent-light);
+        color: #0b0f19;
+      }
+
+      main {
         max-width: 1040px;
         margin: 0 auto;
         padding: 40px 24px;
         position: relative;
       }
       
-      header {
-        padding-top: 100px;
+      .hero {
+        padding-top: 60px;
         padding-bottom: 60px;
         text-align: center;
       }
@@ -95,7 +184,7 @@
         max-width: 900px;
         margin: 0 auto 24px;
         font-family: 'Outfit', sans-serif;
-        font-size: clamp(36px, 6.5vw, 68px);
+        font-size: clamp(36px, 6vw, 64px);
         font-weight: 900;
         line-height: 1.08;
         letter-spacing: -0.03em;
@@ -143,6 +232,7 @@
         background: var(--accent);
         border-color: var(--accent);
         box-shadow: 0 4px 20px rgba(16, 185, 129, 0.25);
+        color: #0b0f19;
       }
       
       .button.primary:hover {
@@ -163,17 +253,32 @@
         transform: translateY(-2px);
       }
 
+      .button.secondary {
+        border-color: var(--line);
+        background: rgba(255, 255, 255, 0.03);
+        color: var(--ink);
+      }
+
+      .button.secondary:hover {
+        border-color: var(--accent);
+        background: rgba(16, 185, 129, 0.05);
+        transform: translateY(-2px);
+      }
+
       section {
         border-top: 1px solid var(--line);
-        padding: 60px 0;
+        padding: 80px 0;
       }
       
       .section-title {
         font-family: 'Outfit', sans-serif;
-        font-size: 28px;
+        font-size: 32px;
         font-weight: 800;
-        margin-bottom: 32px;
+        margin-bottom: 16px;
         text-align: center;
+        background: linear-gradient(135deg, #ffffff 40%, #e5e7eb 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
       }
 
       .grid {
@@ -203,7 +308,7 @@
 
       .card.recommended {
         border-color: var(--accent);
-        background: linear-gradient(180deg, rgba(16, 185, 129, 0.05) 0%, rgba(17, 24, 39, 0.7) 100%);
+        background: linear-gradient(180deg, rgba(16, 185, 129, 0.05) 0%, rgba(17, 24, 39, 0.75) 100%);
         box-shadow: 0 10px 30px rgba(16, 185, 129, 0.06);
         position: relative;
         overflow: hidden;
@@ -226,9 +331,17 @@
 
       .card h2 {
         font-family: 'Outfit', sans-serif;
-        font-size: 22px;
+        font-size: 24px;
         font-weight: 700;
         margin-bottom: 8px;
+        color: #ffffff;
+      }
+
+      .card h3 {
+        font-family: 'Outfit', sans-serif;
+        font-size: 20px;
+        font-weight: 700;
+        margin-bottom: 12px;
         color: #ffffff;
       }
       
@@ -326,9 +439,8 @@
 
       footer {
         border-top: 1px solid var(--line);
-        margin-top: 40px;
-        padding-top: 40px;
-        padding-bottom: 60px;
+        margin-top: 60px;
+        padding: 40px 24px;
         text-align: center;
         color: var(--muted);
         font-size: 13px;
@@ -338,6 +450,32 @@
         max-width: 700px;
         margin: 0 auto;
         line-height: 1.7;
+      }
+
+      /* Risk badges and tester styles */
+      .risk-badge {
+        display: inline-block;
+        font-size: 11px;
+        font-weight: 800;
+        text-transform: uppercase;
+        padding: 3px 8px;
+        border-radius: 4px;
+        letter-spacing: 0.05em;
+      }
+      .risk-badge.high {
+        background: rgba(244, 63, 94, 0.1);
+        border: 1px solid rgba(244, 63, 94, 0.3);
+        color: var(--risk-high-text);
+      }
+      .risk-badge.med {
+        background: rgba(245, 158, 11, 0.1);
+        border: 1px solid rgba(245, 158, 11, 0.3);
+        color: var(--risk-med-text);
+      }
+      
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
       }
     </style>
     <script
@@ -349,29 +487,54 @@
       async
       src="https://www.googletagmanager.com/gtag/js?id=G-2GEM6RYXZE"
     ></script>
-    <script defer src="../assets/revenue-analytics.js"></script>
+    <script defer src="/assets/revenue-analytics.js"></script>
   </head>
   <body>
     <div class="bg-gradient-1"></div>
     <div class="bg-gradient-2"></div>
 
-    <header>
+    <header class="topbar">
+      <a class="brand" href="/">ResumeOS<span class="brand-dot"></span></a>
+      <nav>
+        <a href="/resumeos/">Truth Snapshot</a>
+        <a href="/resumeos/sample-truth-snapshot.html">Sample Audit</a>
+        <a href="/resumeos/intake.html">Intake Instructions</a>
+        <a href="/llms.txt">LLM Docs</a>
+      </nav>
+    </header>
+
+    <section class="decision-strip">
+      <div class="decision-strip-inner">
+        <p>
+          Target: $300/day after-tax GTM operation. Secure a $49 Truth Snapshot to audit your resume within 24 hours.
+        </p>
+        <a
+          class="button small"
+          href="https://buy.stripe.com/3cIaEX1M80aO9G1fSH3sI2N?client_reference_id=resumeos_strip_snapshot&utm_source=homepage&utm_medium=banner&utm_campaign=resumeos_launch"
+          data-track="checkout_click"
+          data-surface="home"
+          data-tier="snapshot"
+          data-price="49"
+          data-placement="top_strip"
+          >Get Audit</a
+        >
+      </div>
+    </section>
+
+    <header class="hero">
       <div class="eyebrow">ResumeOS</div>
       <h1>
-        Know why your resume is getting ignored before you send another
-        application.
+        Know why your resume is getting ignored before you apply again.
       </h1>
       <p class="lede">
-        A same-day resume risk audit for senior candidates. You get a clear read
-        on unsupported claims, ATS readability issues, title-fit gaps, and the
-        bullets most likely to make a recruiter doubt the resume.
+        A premium same-day resume risk audit for senior engineering candidates. Discover unsupported claims, ATS formatting blocks, title-fit gaps, and receive concrete bullet rewrites.
       </p>
       <div class="actions">
         <a
           class="button primary"
-          href="https://buy.stripe.com/3cIaEX1M80aO9G1fSH3sI2N?client_reference_id=resumeos_hero_snapshot"
+          href="https://buy.stripe.com/3cIaEX1M80aO9G1fSH3sI2N?client_reference_id=resumeos_hero_snapshot&utm_source=homepage&utm_medium=hero&utm_campaign=resumeos_launch"
           data-track="checkout_click"
-          data-surface="resumeos"
+          data-surface="home"
           data-tier="snapshot"
           data-price="49"
           data-placement="hero"
@@ -379,25 +542,82 @@
           >Get the $49 ResumeOS Truth Snapshot</a
         >
         <a
-          class="button"
-          href="./sample-truth-snapshot.html"
+          class="button secondary"
+          href="/resumeos/sample-truth-snapshot.html"
           data-track="sample_click"
-          data-surface="resumeos"
+          data-surface="home"
           data-tier="snapshot"
           data-price="0"
           data-placement="hero"
           id="hero_secondary_btn"
-          >View sample</a
+          >View sample audit</a
         >
       </div>
       <p class="small">
-        One resume. One target role family. Same-day review when purchased
-        before 3pm ET on business days.
+        One resume. One target role family. Same-day review when purchased before 3pm ET on business days.
       </p>
     </header>
 
     <main>
-      <section>
+      <!-- Interactive Bullet Tester Section -->
+      <section id="doubt-tester-section" style="border-top: none; padding-top: 0; padding-bottom: 80px;">
+        <div style="max-width: 800px; margin: 0 auto;">
+          <h2 class="section-title" style="margin-bottom: 16px;">Test Your Resume Bullets for Recruiter Doubt</h2>
+          <p style="text-align: center; color: var(--muted); margin-bottom: 45px; font-size: 16px; max-width: 680px; margin-left: auto; margin-right: auto;">
+            Recruiters scan senior engineering resumes in seconds. Paste one of your bullets below or pick a sample to see exactly what triggers recruiter suspicion and how to rewrite it.
+          </p>
+          
+          <div class="card" style="padding: 32px; border-color: rgba(16, 185, 129, 0.25); background: rgba(17, 24, 39, 0.85); box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);">
+            <div style="margin-bottom: 24px;">
+              <label for="bullet-input" style="font-size: 13px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; display: block; margin-bottom: 12px; font-weight: 700;">Paste a resume bullet point:</label>
+              <textarea id="bullet-input" rows="3" style="width: 100%; font-size: 15px; line-height: 1.5; padding: 16px; border-radius: 8px; border: 1px solid var(--line); background: rgba(11, 15, 25, 0.6); color: #fff; resize: vertical; font-family: 'Inter', sans-serif;" placeholder="e.g. Led a team of developers to build microservices and refactored backend logic to improve maintainability..."></textarea>
+            </div>
+
+            <div style="margin-bottom: 32px;">
+              <p style="font-size: 12px; color: var(--muted); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700;">Or choose a common problem pattern:</p>
+              <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+                <button type="button" class="sample-btn" data-index="0" style="background: rgba(255,255,255,0.03); border: 1px solid var(--line); color: var(--muted); border-radius: 6px; padding: 8px 14px; font-size: 13px; cursor: pointer; transition: all 0.2s; font-family: 'Inter', sans-serif; font-weight: 500;">Oversized Metric</button>
+                <button type="button" class="sample-btn" data-index="1" style="background: rgba(255,255,255,0.03); border: 1px solid var(--line); color: var(--muted); border-radius: 6px; padding: 8px 14px; font-size: 13px; cursor: pointer; transition: all 0.2s; font-family: 'Inter', sans-serif; font-weight: 500;">AI-Generated Fluff</button>
+                <button type="button" class="sample-btn" data-index="2" style="background: rgba(255,255,255,0.03); border: 1px solid var(--line); color: var(--muted); border-radius: 6px; padding: 8px 14px; font-size: 13px; cursor: pointer; transition: all 0.2s; font-family: 'Inter', sans-serif; font-weight: 500;">Unverified Jargon</button>
+                <button type="button" class="sample-btn" data-index="3" style="background: rgba(255,255,255,0.03); border: 1px solid var(--line); color: var(--muted); border-radius: 6px; padding: 8px 14px; font-size: 13px; cursor: pointer; transition: all 0.2s; font-family: 'Inter', sans-serif; font-weight: 500;">Vague Actions</button>
+              </div>
+            </div>
+
+            <button type="button" id="scan-btn" class="button primary" style="width: 100%; font-size: 16px; font-weight: 700; height: 52px;">Scan Bullet for Doubt Triggers</button>
+            
+            <!-- Results Container (Hidden initially) -->
+            <div id="results-container" style="display: none; margin-top: 32px; padding-top: 32px; border-top: 1px solid var(--line); animation: fadeIn 0.4s ease-out;">
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;">
+                <h3 style="font-family: 'Outfit', sans-serif; font-size: 18px; margin: 0; color: #fff;">Audit Scan Result</h3>
+                <span id="risk-badge" class="risk-badge">High Risk</span>
+              </div>
+
+              <div style="background: rgba(244, 63, 94, 0.04); border-left: 4px solid var(--risk-high-text); padding: 18px; border-radius: 0 8px 8px 0; margin-bottom: 24px;" id="critique-box">
+                <strong style="display: block; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 8px; font-weight: 700;">Why recruiters doubt this:</strong>
+                <p id="critique-text" style="font-size: 14px; line-height: 1.6; color: #e5e7eb; margin: 0;"></p>
+              </div>
+
+              <div style="background: rgba(16, 185, 129, 0.04); border-left: 4px solid var(--accent); padding: 18px; border-radius: 0 8px 8px 0; margin-bottom: 28px;" id="rewrite-box">
+                <strong style="display: block; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-light); margin-bottom: 8px; font-weight: 700;">ResumeOS Quantified Rewrite:</strong>
+                <p id="rewrite-text" style="font-size: 15px; font-weight: 600; line-height: 1.6; color: #ffffff; margin: 0;"></p>
+              </div>
+
+              <div style="text-align: center; margin-top: 24px; background: rgba(255, 255, 255, 0.02); padding: 20px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.03);">
+                <p style="font-size: 14px; color: var(--muted); margin-bottom: 16px;">This is just one bullet rewrite. Let us verify and rewrite your entire resume layout, targeting, and claims.</p>
+                <a class="button primary" href="https://buy.stripe.com/3cIaEX1M80aO9G1fSH3sI2N?client_reference_id=bullet_tester_upsell" style="display: inline-flex;" id="tester-upsell-btn">Order $49 Truth Snapshot Audit</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Pricing Tier Section -->
+      <section id="pricing-section">
+        <h2 class="section-title">ResumeOS Services</h2>
+        <p style="text-align: center; color: var(--muted); margin-bottom: 48px; max-width: 600px; margin-left: auto; margin-right: auto;">
+          Choose the speed and level of support you need for your engineering search. No recurring subscriptions.
+        </p>
+        
         <div class="grid">
           <article class="card recommended">
             <div>
@@ -415,12 +635,12 @@
                 </li>
               </ul>
             </div>
-            <p>
+            <p style="margin-top: 24px;">
               <a
                 class="button primary"
-                href="https://buy.stripe.com/3cIaEX1M80aO9G1fSH3sI2N?client_reference_id=resumeos_card_snapshot"
+                href="https://buy.stripe.com/3cIaEX1M80aO9G1fSH3sI2N?client_reference_id=resumeos_home_snapshot"
                 data-track="checkout_click"
-                data-surface="resumeos"
+                data-surface="home"
                 data-tier="snapshot"
                 data-price="49"
                 data-placement="card"
@@ -448,12 +668,12 @@
                 </li>
               </ul>
             </div>
-            <p>
+            <p style="margin-top: 24px;">
               <a
                 class="button"
-                href="https://buy.stripe.com/3cI3cvgH26zccSd7mb3sI2O?client_reference_id=resumeos_card_pro"
+                href="https://buy.stripe.com/3cI3cvgH26zccSd7mb3sI2O?client_reference_id=resumeos_home_pro"
                 data-track="checkout_click"
-                data-surface="resumeos"
+                data-surface="home"
                 data-tier="pro"
                 data-price="149"
                 data-placement="card"
@@ -478,12 +698,12 @@
                 <li>Weekly strategy call and evidence record</li>
               </ul>
             </div>
-            <p>
+            <p style="margin-top: 24px;">
               <a
                 class="button"
-                href="https://buy.stripe.com/9B600j4YkcXAcSdayn3sI2P?client_reference_id=resumeos_card_dfy"
+                href="https://buy.stripe.com/9B600j4YkcXAcSdayn3sI2P?client_reference_id=resumeos_home_dfy"
                 data-track="checkout_click"
-                data-surface="resumeos"
+                data-surface="home"
                 data-tier="dfy"
                 data-price="1500"
                 data-placement="card"
@@ -495,7 +715,8 @@
           </article>
         </div>
       </section>
-
+      
+      <!-- Proof & Strategy section -->
       <section>
         <div class="grid">
           <article class="card proof">
@@ -532,18 +753,16 @@
 
       <section style="border-top: none; padding-top: 0;">
         <div class="note">
-          <h2>After purchase</h2>
+          <h2>After Purchase Intake</h2>
           <p>
-            Stripe redirects you to a confirmation page with intake
-            instructions. You can also open intake directly, but paid orders are
-            prioritized first.
+            Stripe redirects you directly to the intake instructions. You can view the guidelines and prepare your materials at any time.
           </p>
           <p>
             <a
               class="button"
-              href="./intake.html"
+              href="/resumeos/intake.html"
               data-track="intake_click"
-              data-surface="resumeos"
+              data-surface="home"
               data-tier="snapshot"
               data-price="0"
               data-placement="after_purchase"
@@ -557,10 +776,128 @@
 
     <footer>
       <p>
-        ResumeOS is a product of Ralph. Buyer-facing pages intentionally
-        keep private workflows and implementation details out of the public
-        offer.
+        ResumeOS is built by Igor Ganapolsky. All reviews are conducted manually using evidence-first verification guidelines. No invented metrics, employers, degrees, or dates.
       </p>
     </footer>
+
+    <script>
+      // Samples Database
+      const samples = [
+        {
+          bullet: "Led a team of 50 engineers to deliver $100M in revenue.",
+          risk: "High Risk",
+          riskClass: "high",
+          critique: "Unless you are a VP or Director, claiming direct ownership over a $100M revenue line creates high recruiter doubt. It sounds like an inflated metric extrapolated from company performance. In technical interviews, senior managers will drill into your direct budget/engineering responsibility and the gap will show.",
+          rewrite: "Managed a direct team of 5 software engineers to deliver the core payments gateway, handling $4.2M in annual transaction volume with zero checkout downtime."
+        },
+        {
+          bullet: "Collaborated with cross-functional teams to build next-generation responsive web applications using React.",
+          risk: "Medium Risk",
+          riskClass: "med",
+          critique: "This bullet uses classic AI-slop filler ('Collaborated with', 'next-generation', 'responsive web applications'). It describes duties rather than business outcomes and contains zero metrics. The recruiter learns nothing about your technical velocity or scale.",
+          rewrite: "Rebuilt the customer onboarding wizard in React, reducing funnel abandonment by 18% and decreasing initial page load latency from 2.4s to 0.9s."
+        },
+        {
+          bullet: "Designed and implemented Java classes using the Read-Only Interface design pattern.",
+          risk: "High Risk",
+          riskClass: "high",
+          critique: "'Read-Only Interface' is not a standard Gang of Four design pattern. Formalizing a basic encapsulation pattern (like getter interfaces) with LLM-generated jargon triggers immediate interviewer suspicion. It sounds like an attempt to pad simple classroom exercises.",
+          rewrite: "Architected a thread-safe data access layer in Java, exposing read-only data models to downstream consumers to prevent accidental state mutation."
+        },
+        {
+          bullet: "Refactored backend logic to improve maintainability and consistency.",
+          risk: "Medium Risk",
+          riskClass: "med",
+          critique: "This is a generic engineering bullet. It lists actions ('refactored') but fails to quantify why it was done or how the improvement was verified. It lacks concrete indicators of complexity, scale, or metrics.",
+          rewrite: "Refactored workout scheduling service in Java, eliminating nested conditionals to reduce cyclomatic complexity and resolve race conditions during concurrent requests."
+        }
+      ];
+
+      // Sample Selection
+      document.querySelectorAll('.sample-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+          const idx = parseInt(this.getAttribute('data-index'));
+          document.getElementById('bullet-input').value = samples[idx].bullet;
+          
+          // Toggle styling for buttons
+          document.querySelectorAll('.sample-btn').forEach(b => {
+            b.style.background = 'rgba(255,255,255,0.03)';
+            b.style.color = 'var(--muted)';
+            b.style.borderColor = 'var(--line)';
+          });
+          this.style.background = 'rgba(16, 185, 129, 0.1)';
+          this.style.color = 'var(--accent-light)';
+          this.style.borderColor = 'var(--accent)';
+          
+          runScan(samples[idx]);
+        });
+      });
+
+      // Scan Action
+      document.getElementById('scan-btn').addEventListener('click', function() {
+        const text = document.getElementById('bullet-input').value.trim();
+        if (!text) return;
+        
+        // Check if matching predefined sample
+        let match = samples.find(s => s.bullet.toLowerCase() === text.toLowerCase());
+        if (!match) {
+          // Heuristics mapping
+          let risk = "Medium Risk";
+          let riskClass = "med";
+          let critique = "This bullet point describes action but lacks quantifiable scale, performance improvement, or architectural metrics. Recruiters look for concrete complexity (e.g. latency, concurrent reqs, data volume).";
+          let rewrite = "Engineered [system component] in [language/stack], achieving [measurable metrics] and reducing [bottleneck/friction point].";
+          
+          const lowerText = text.toLowerCase();
+          if (lowerText.includes("led a team") || lowerText.includes("million") || lowerText.includes("$") || lowerText.includes("billion")) {
+            risk = "High Risk";
+            riskClass = "high";
+            critique = "Oversized leadership scale or dollar metrics without clear direct scope verification trigger severe recruiter doubt. Make sure you state your direct engineering contribution alongside team-wide achievements.";
+          } else if (lowerText.includes("collaborated") || lowerText.includes("responsible for") || lowerText.includes("assisted in")) {
+            risk = "Medium Risk";
+            riskClass = "med";
+            critique = "Collaborative verbs like 'collaborated' or 'assisted' signal junior status or a lack of individual execution. Recruiters prefer direct operational ownership ('designed', 'built', 'implemented', 'optimized').";
+          } else if (lowerText.includes("led") && !lowerText.match(/\b\d+\b/)) {
+            risk = "Medium Risk";
+            riskClass = "med";
+            critique = "Vague leadership claims without team size (e.g., 'led engineering efforts') sound generic. Recruiters look for specific direct reports count or project size.";
+          }
+          
+          match = { bullet: text, risk, riskClass, critique, rewrite };
+        }
+        
+        runScan(match);
+      });
+
+      function runScan(data) {
+        const container = document.getElementById('results-container');
+        const badge = document.getElementById('risk-badge');
+        const critiqueBox = document.getElementById('critique-box');
+        const critiqueText = document.getElementById('critique-text');
+        const rewriteText = document.getElementById('rewrite-text');
+        
+        badge.textContent = data.risk;
+        badge.className = `risk-badge ${data.riskClass}`;
+        
+        if (data.riskClass === 'high') {
+          badge.style.background = 'rgba(244, 63, 94, 0.1)';
+          badge.style.border = '1px solid rgba(244, 63, 94, 0.3)';
+          badge.style.color = '#f43f5e';
+          critiqueBox.style.borderColor = '#f43f5e';
+          critiqueBox.style.background = 'rgba(244, 63, 94, 0.04)';
+        } else {
+          badge.style.background = 'rgba(245, 158, 11, 0.1)';
+          badge.style.border = '1px solid rgba(245, 158, 11, 0.3)';
+          badge.style.color = '#f59e0b';
+          critiqueBox.style.borderColor = '#f59e0b';
+          critiqueBox.style.background = 'rgba(245, 158, 11, 0.04)';
+        }
+        
+        critiqueText.textContent = data.critique;
+        rewriteText.textContent = data.rewrite;
+        
+        container.style.display = 'block';
+        container.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    </script>
   </body>
 </html>

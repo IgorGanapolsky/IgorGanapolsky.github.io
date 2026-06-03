@@ -2,24 +2,24 @@
 
 This site contains buyer-facing offers and public product pages from Igor Ganapolsky.
 
-## Primary Offer: ApplyOps Resume Truth Snapshot
+## Primary Offer: ResumeOS Resume Truth Snapshot
 
-ApplyOps is a paid resume proof audit for senior technical candidates and teams that support them. The primary commercial offer is the $49 Resume Truth Snapshot: a same-day audit for one senior software, AI, cloud, or data resume against one target role family.
+ResumeOS is a paid resume proof audit for senior technical candidates and teams that support them. The primary commercial offer is the $49 Resume Truth Snapshot: a same-day audit for one senior software, AI, cloud, or data resume against one target role family.
 
-- Landing page: https://igorganapolsky.github.io/applyops/
-- Partner / acquisition brief: https://igorganapolsky.github.io/applyops/partners.html
-- AI staffing candidate audit: https://igorganapolsky.github.io/applyops/ai-staffing.html
-- STR Claude Ops diagnostic for vacation-rental operators: https://igorganapolsky.github.io/applyops/str-claude-ops.html
-- AI staffing 3-candidate sample output: https://igorganapolsky.github.io/applyops/ai-staffing-sample.html
-- Rejection teardown and candidate-packet mismatch example: https://igorganapolsky.github.io/applyops/rejection-teardown.html
-- Partner pilot sample output: https://igorganapolsky.github.io/applyops/partner-sample.html
-- Sample audit: https://igorganapolsky.github.io/applyops/sample-truth-snapshot.html
+- Landing page: https://igorganapolsky.github.io/resumeos/
+- Partner / acquisition brief: https://igorganapolsky.github.io/resumeos/partners.html
+- AI staffing candidate audit: https://igorganapolsky.github.io/resumeos/ai-staffing.html
+- STR Claude Ops diagnostic for vacation-rental operators: https://igorganapolsky.github.io/resumeos/str-claude-ops.html
+- AI staffing 3-candidate sample output: https://igorganapolsky.github.io/resumeos/ai-staffing-sample.html
+- Rejection teardown and candidate-packet mismatch example: https://igorganapolsky.github.io/resumeos/rejection-teardown.html
+- Partner pilot sample output: https://igorganapolsky.github.io/resumeos/partner-sample.html
+- Sample audit: https://igorganapolsky.github.io/resumeos/sample-truth-snapshot.html
 - Senior engineer resume audit guide: https://igorganapolsky.github.io/topics/senior-engineer-resume-truth-audit.html
 - AI resume and ATS risk audit guide: https://igorganapolsky.github.io/topics/ai-resume-ats-risk-audit.html
 - Products API: https://igorganapolsky.github.io/api/products.json
 - Public offer feed: https://igorganapolsky.github.io/offers.json
 
-### What ApplyOps Does
+### What ResumeOS Does
 
 - Flags unsupported or inflated AI, cloud, platform, leadership, and impact claims.
 - Checks ATS readability, target-title fit, and role positioning.
@@ -30,21 +30,21 @@ ApplyOps is a paid resume proof audit for senior technical candidates and teams 
 ### Paid Offers
 
 - Resume Truth Snapshot: $49 one-time same-day audit for one senior technical resume and one target role family. This is the primary front-door offer.
-- ApplyOps AI Staffing 3-Candidate Audit Deposit: $500 one-time audit for three senior AI, cloud, data, or software candidate profiles before client submission.
-- ApplyOps Partner Paid Pilot: $1,500 one-time 10-candidate resume-risk audit batch for resume-writing, staffing, career-coaching, or executive-search partners.
+- ResumeOS AI Staffing 3-Candidate Audit Deposit: $500 one-time audit for three senior AI, cloud, data, or software candidate profiles before client submission.
+- ResumeOS Partner Paid Pilot: $1,500 one-time 10-candidate resume-risk audit batch for resume-writing, staffing, career-coaching, or executive-search partners.
 - Resume OS Pro: $149 one-time 30-day resume and application workspace.
 - Done-For-You Sprint: $1,500 two-week managed job-search operations sprint.
-- ApplyOps Partner Pilot Deposit: $500 one-time deposit credited toward the partner paid pilot.
+- ResumeOS Partner Pilot Deposit: $500 one-time deposit credited toward the partner paid pilot.
 - STR Claude Ops Diagnostic: $500 fixed-scope audit for short-term rental guest messaging, maintenance triage, escalation rules, and Claude guardrails.
 - STR Claude Ops Pilot Sprint: $1,500 implementation slice for one Guesty-style data path, human approval workflow, logging, and guardrail test cases.
 
 ### Partner And Reverse-Recruiting Use Cases
 
-ApplyOps can be used by reverse-recruiting, apply-for-you, resume-writing, staffing, executive-search, and career-platform teams as an intake checkpoint before candidate outreach or resume rewriting.
+ResumeOS can be used by reverse-recruiting, apply-for-you, resume-writing, staffing, executive-search, and career-platform teams as an intake checkpoint before candidate outreach or resume rewriting.
 
-- Partner pilot page: https://igorganapolsky.github.io/applyops/partners.html
-- AI staffing audit page: https://igorganapolsky.github.io/applyops/ai-staffing.html
-- AI staffing sample output: https://igorganapolsky.github.io/applyops/ai-staffing-sample.html
+- Partner pilot page: https://igorganapolsky.github.io/resumeos/partners.html
+- AI staffing audit page: https://igorganapolsky.github.io/resumeos/ai-staffing.html
+- AI staffing sample output: https://igorganapolsky.github.io/resumeos/ai-staffing-sample.html
 - Reverse-recruiting pilot deposit: $500, credited toward the $1,500 partner pilot.
 - Partner pilot output: up to 10 senior technical candidate resume-risk audits, an anonymized findings memo, and a 30-minute readout.
 - Best-fit buyers: teams that already help technical candidates with resume rewrites, job-search operations, reverse recruiting, application management, or candidate submission.
@@ -54,7 +54,7 @@ ApplyOps can be used by reverse-recruiting, apply-for-you, resume-writing, staff
 
 - Ralph Resume OS: https://igorganapolsky.github.io/ralph-resume-os/
 
-Ralph Resume OS is the private workflow layer behind ApplyOps. Public pages intentionally avoid publishing private application data, implementation details, source artifacts, secrets, or operational runbooks.
+Ralph Resume OS is the private workflow layer behind ResumeOS. Public pages intentionally avoid publishing private application data, implementation details, source artifacts, secrets, or operational runbooks.
 
 ## Timed Consulting Offer: Loom to Atlassian Admin + Rovo Readiness
 
@@ -66,7 +66,7 @@ For teams receiving Loom-to-Atlassian integration notices, this offer helps revi
 
 ## Safety And Integrity
 
-ApplyOps does not guarantee employment, fabricate credentials, invent metrics, or submit applications when required facts are unknown.
+ResumeOS does not guarantee employment, fabricate credentials, invent metrics, or submit applications when required facts are unknown.
 
 ## Discovery Files
 
