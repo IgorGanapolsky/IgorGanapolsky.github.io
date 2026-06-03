@@ -1,22 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://igorganapolsky.github.io/</loc></url>
-  <url><loc>https://igorganapolsky.github.io/resumeos/</loc></url>
-  <url><loc>https://igorganapolsky.github.io/resumeos/partners.html</loc></url>
-  <url><loc>https://igorganapolsky.github.io/resumeos/ai-staffing.html</loc></url>
-  <url><loc>https://igorganapolsky.github.io/resumeos/str-claude-ops.html</loc></url>
-  <url><loc>https://igorganapolsky.github.io/resumeos/ai-staffing-sample.html</loc></url>
-  <url><loc>https://igorganapolsky.github.io/resumeos/rejection-teardown.html</loc></url>
-  <url><loc>https://igorganapolsky.github.io/resumeos/partner-sample.html</loc></url>
-  <url><loc>https://igorganapolsky.github.io/resumeos/sample-truth-snapshot.html</loc></url>
-  <url><loc>https://igorganapolsky.github.io/loom-atlassian/</loc></url>
-  <url><loc>https://igorganapolsky.github.io/ralph-resume-os/</loc></url>
-  <url><loc>https://igorganapolsky.github.io/llms.txt</loc></url>
-  <url><loc>https://igorganapolsky.github.io/topics/senior-engineer-resume-truth-audit.html</loc></url>
-  <url><loc>https://igorganapolsky.github.io/topics/ai-resume-ats-risk-audit.html</loc></url>
-  <url><loc>https://restaurant-ai-ops.web.app/lead-magnets/qsr-ai-automation-checklist.html</loc></url>
-  <url><loc>https://restaurant-ai-ops.web.app/topics/best-ai-phone-ordering-tools-restaurants.html</loc></url>
-  <url><loc>https://restaurant-ai-ops.web.app/topics/n8n-restaurant-automation-workflows.html</loc></url>
-  <url><loc>https://restaurant-ai-ops.web.app/topics/restaurant-catering-follow-up-automation.html</loc></url>
-  <url><loc>https://restaurant-ai-ops.web.app/topics/qsr-ai-automation-audit-checklist.html</loc></url>
-  <url><loc>https://restaurant-ai-ops.web.app/topics/restaurant-ai-agent-safety-thumbgate.html</loc></url>
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://igorganapolsky.github.io/</loc><lastmod>2026-06-03</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://igorganapolsky.github.io/resumeos/</loc><lastmod>2026-06-03</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://igorganapolsky.github.io/resumeos/intake.html</loc><lastmod>2026-06-03</lastmod><priority>0.7</priority></url>
+  <url><loc>https://igorganapolsky.github.io/resumeos/sample-truth-snapshot.html</loc><lastmod>2026-06-03</lastmod><priority>0.7</priority></url>
+  <url><loc>https://igorganapolsky.github.io/ralph-resume-os/</loc><lastmod>2026-06-03</lastmod><priority>0.8</priority></url>
+  <url><loc>https://igorganapolsky.github.io/applyops/</loc><lastmod>2026-06-03</lastmod><priority>0.8</priority></url>
+  <url><loc>https://igorganapolsky.github.io/applyops/intake.html</loc><lastmod>2026-06-03</lastmod><priority>0.6</priority></url>
+  <url><loc>https://igorganapolsky.github.io/applyops/sample-truth-snapshot.html</loc><lastmod>2026-06-03</lastmod><priority>0.6</priority></url>
+  <url><loc>https://igorganapolsky.github.io/who-is-igor-ganapolsky/</loc><lastmod>2026-06-03</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://igorganapolsky.github.io/tools/ralph-loop-by-igor/</loc><lastmod>2026-06-03</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://igorganapolsky.github.io/apps/applyops-by-igor/</loc><lastmod>2026-06-03</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
 </urlset>
