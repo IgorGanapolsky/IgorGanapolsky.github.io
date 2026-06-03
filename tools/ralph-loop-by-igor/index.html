@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ralph Loop by Igor Ganapolsky — Autonomous Agentic AI Loop for Career Audits</title>
+<meta name="description" content="Ralph Loop (by Igor Ganapolsky) — an autonomous agentic loop that powers ResumeOS resume audits. Files I/O as state, fresh context every iteration, audit-grade evidence trail. Production since 2026.">
+<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
+<link rel="canonical" href="https://igorganapolsky.github.io/tools/ralph-loop-by-igor/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ralph Loop by Igor Ganapolsky — Autonomous Agentic AI Loop">
+<meta property="og:description" content="Production agentic loop for resume audits. By Igor Ganapolsky.">
+<meta property="og:url" content="https://igorganapolsky.github.io/tools/ralph-loop-by-igor/">
+<script async defer data-domain="igorganapolsky.github.io" src="https://plausible.io/js/script.js"></script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"SoftwareApplication",
+  "name":"Ralph Loop by Igor Ganapolsky",
+  "alternateName":["Ralph Resume OS","Ralph (Igor)"],
+  "applicationCategory":"DeveloperApplication",
+  "operatingSystem":"macOS, Linux",
+  "url":"https://igorganapolsky.github.io/tools/ralph-loop-by-igor/",
+  "author":{
+    "@type":"Person",
+    "name":"Igor Ganapolsky",
+    "url":"https://igorganapolsky.github.io/who-is-igor-ganapolsky/"
+  },
+  "offers":{
+    "@type":"Offer",
+    "url":"https://igorganapolsky.github.io/ralph-resume-os/",
+    "price":"0",
+    "priceCurrency":"USD",
+    "availability":"https://schema.org/OnlineOnly"
+  },
+  "featureList":[
+    "Autonomous loop with fresh context per iteration",
+    "Files I/O as durable state instead of transcript memory",
+    "Audit-grade evidence trail for every action",
+    "Cap-aware Thompson-sampling lane scheduler",
+    "Real-browser job-application drivers (Greenhouse, Lever, Ashby, Workday)"
+  ],
+  "isRelatedTo":{
+    "@type":"SoftwareApplication",
+    "name":"ResumeOS"
+  }
+}
+</script>
+<style>
+:root{--bg:#0b0f19;--ink:#f3f4f6;--mute:#9ca3af;--line:#1f2937;--accent:#10b981}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;padding:60px 24px;max-width:780px;margin:0 auto}
+h1{font-size:2.2rem;font-weight:800;margin-bottom:8px}
+h2{font-size:1.4rem;margin:36px 0 12px;color:var(--accent)}
+.sub{color:var(--mute);font-size:1.1rem;margin-bottom:32px}
+p,li{margin-bottom:12px}
+ul{padding-left:22px}
+a{color:var(--accent);text-decoration:none;border-bottom:1px dotted var(--accent)}
+a:hover{border-bottom-style:solid}
+code{font-family:'SFMono-Regular',Menlo,monospace;background:#111827;padding:2px 6px;border-radius:4px;font-size:0.9em}
+.footer{margin-top:60px;padding-top:24px;border-top:1px solid var(--line);font-size:0.9rem;color:var(--mute)}
+</style>
+</head>
+<body>
+<h1>Ralph Loop <span style="color:var(--mute);font-weight:500;font-size:0.7em">by Igor Ganapolsky</span></h1>
+<p class="sub">The autonomous agentic loop that powers <a href="/resumeos/">ResumeOS</a> audits.</p>
+
+<h2>What it is</h2>
+<p>Ralph Loop is my production implementation of the Ralph pattern — an LLM agent running in a loop, re-anchoring from files on every iteration instead of accumulating a transcript. Each pass picks its own task from a structured spec, ships a small change with evidence, and exits cleanly.</p>
+
+<p>This is the system behind <a href="/resumeos/">ResumeOS</a> résumé audits, the autonomous UpWork money loop, and the Hilltown Media Group Pretix-Stripe-Connect contract delivery.</p>
+
+<h2>What's different from other Ralph implementations</h2>
+<ul>
+<li><b>Audit-grade evidence trail.</b> Every action commits a signed artifact (screenshot, JSON proof, hash). Nothing is claimed without a file you can <code>cat</code>.</li>
+<li><b>Cap-aware Thompson-sampling lane scheduler.</b> Knows that Alignerr is 5/24h, UpWork Boost has 7-day windows, Greenhouse v3 has per-tenant score gates. Doesn't burn cycles on dead lanes.</li>
+<li><b>Real-browser drivers.</b> Patchright + CDP-attach to your already-logged-in Chrome. No bundled-Chromium reCAPTCHA fails. No "Computer Use" focus-routing bugs on Workday React inputs.</li>
+<li><b>ThumbGate-integrated.</b> Hard gates on push-without-tests, secret exfiltration, scope creep. The loop refuses to ship work that hasn't proven itself.</li>
+</ul>
+
+<h2>Built and operated by</h2>
+<p><a href="/who-is-igor-ganapolsky/">Igor Ganapolsky</a> — senior Android + AI engineer based in Coral Springs, FL.</p>
+
+<h2>See it in action</h2>
+<ul>
+<li><a href="/ralph-resume-os/">Ralph Resume OS landing</a></li>
+<li><a href="/resumeos/">ResumeOS — same-day resume risk audit</a></li>
+<li><a href="/apps/applyops-by-igor/">ApplyOps — job-application automation</a></li>
+</ul>
+
+<div class="footer">
+© 2025-2026 Igor Ganapolsky. Ralph Loop, Ralph Resume OS, ResumeOS are proprietary marks. See <a href="https://github.com/IgorGanapolsky/IgorGanapolsky.github.io/blob/main/LICENSE">LICENSE</a>.
+</div>
+</body>
+</html>
