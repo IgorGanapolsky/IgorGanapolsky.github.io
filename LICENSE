@@ -1,0 +1,34 @@
+Copyright (c) 2025-2026 Igor Ganapolsky. All Rights Reserved.
+
+This repository and its contents — including but not limited to source code,
+HTML, CSS, documentation, copy, design, schema, configuration, runbooks,
+trade names ("ResumeOS", "Ralph Resume OS", "Truth Snapshot", "ApplyOps"),
+and any associated product materials — are proprietary and confidential.
+
+No part of this work may be reproduced, distributed, transmitted, adapted,
+sold, sublicensed, or used to train any machine learning model, in any form
+or by any means, without the prior written permission of the copyright
+holder. Public visibility on GitHub Pages or any CDN does not constitute a
+license under this work.
+
+Permitted uses without prior permission:
+  1. Viewing the published pages in a personal web browser as an end user.
+  2. Following the standard checkout / purchase flow to acquire commercial
+     access to a specific product as priced on the site.
+  3. Quoting short excerpts (under 90 words) with attribution for the
+     purpose of review, commentary, or news reporting (fair use).
+
+Prohibited uses without prior written permission:
+  1. Republishing, mirroring, or rehosting any page, asset, or document.
+  2. Scraping for use in commercial datasets or AI training corpora.
+  3. Reverse-engineering automated workflows, runbooks, or scripts visible
+     in the repository for the purpose of building a competing product.
+  4. Using the names "ResumeOS", "Ralph Resume OS", "Truth Snapshot",
+     "ApplyOps", or "Igor Ganapolsky" in a manner likely to cause confusion
+     about source or endorsement.
+
+For licensing inquiries, partnership, or commercial use: iganapolsky@gmail.com
+
+This notice supersedes any prior absence of a license file. Default U.S.
+copyright law applies. Nothing in this notice waives any other right or
+remedy available under copyright, trademark, or unfair-competition law.
