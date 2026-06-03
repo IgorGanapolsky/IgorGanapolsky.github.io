@@ -8,131 +8,336 @@
       name="description"
       content="A same-day resume risk audit for senior candidates: unsupported claims, ATS readability gaps, title fit, and rewritten bullets."
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet">
     <style>
       :root {
-        color-scheme: light;
-        --bg: #f7f7f4;
-        --ink: #191919;
-        --muted: #5d625c;
-        --line: #d9d7cf;
-        --accent: #0f6b4f;
-        --accent-dark: #0a4f3a;
-        --panel: #ffffff;
-        --warn: #fbf0d3;
+        color-scheme: dark;
+        --bg: #0b0f19;
+        --ink: #f3f4f6;
+        --muted: #9ca3af;
+        --line: #1f2937;
+        --accent: #10b981;
+        --accent-light: #34d399;
+        --accent-dark: #065f46;
+        --panel: rgba(17, 24, 39, 0.7);
+        --warn: #1e1b12;
+        --warn-border: #4d3e1a;
       }
       * {
         box-sizing: border-box;
+        margin: 0;
+        padding: 0;
       }
       body {
-        margin: 0;
-        font-family: Arial, Helvetica, sans-serif;
+        font-family: 'Inter', sans-serif;
         color: var(--ink);
         background: var(--bg);
-        line-height: 1.5;
+        line-height: 1.6;
+        overflow-x: hidden;
+        position: relative;
       }
+      
+      /* Glowing Background Gradients */
+      .bg-gradient-1 {
+        position: absolute;
+        top: -10%;
+        left: -10%;
+        width: 60%;
+        height: 60%;
+        background: radial-gradient(circle, rgba(16, 185, 129, 0.08) 0%, rgba(11, 15, 25, 0) 70%);
+        z-index: -1;
+        pointer-events: none;
+      }
+      .bg-gradient-2 {
+        position: absolute;
+        bottom: 10%;
+        right: -10%;
+        width: 50%;
+        height: 50%;
+        background: radial-gradient(circle, rgba(52, 211, 153, 0.05) 0%, rgba(11, 15, 25, 0) 70%);
+        z-index: -1;
+        pointer-events: none;
+      }
+
       header,
       main,
       footer {
-        max-width: 980px;
+        max-width: 1040px;
         margin: 0 auto;
-        padding: 28px 20px;
+        padding: 40px 24px;
+        position: relative;
       }
+      
+      header {
+        padding-top: 100px;
+        padding-bottom: 60px;
+        text-align: center;
+      }
+
       .eyebrow {
-        color: var(--accent-dark);
-        font-size: 12px;
-        font-weight: 700;
-        letter-spacing: 0;
+        color: var(--accent);
+        font-family: 'Outfit', sans-serif;
+        font-size: 14px;
+        font-weight: 800;
+        letter-spacing: 0.15em;
         text-transform: uppercase;
+        margin-bottom: 16px;
+        display: inline-block;
+        padding: 6px 16px;
+        background: rgba(16, 185, 129, 0.1);
+        border: 1px solid rgba(16, 185, 129, 0.2);
+        border-radius: 99px;
       }
+      
       h1 {
-        max-width: 820px;
-        margin: 10px 0 14px;
-        font-size: clamp(38px, 8vw, 74px);
-        line-height: 0.96;
-        letter-spacing: 0;
+        max-width: 900px;
+        margin: 0 auto 24px;
+        font-family: 'Outfit', sans-serif;
+        font-size: clamp(36px, 6.5vw, 68px);
+        font-weight: 900;
+        line-height: 1.08;
+        letter-spacing: -0.03em;
+        background: linear-gradient(135deg, #ffffff 30%, #a7f3d0 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
       }
-      h2,
-      h3 {
-        line-height: 1.15;
-      }
+
       .lede {
         max-width: 760px;
+        margin: 0 auto 36px;
         color: var(--muted);
-        font-size: 20px;
+        font-size: clamp(17px, 2.5vw, 21px);
+        font-weight: 400;
+        line-height: 1.6;
       }
+
       .actions {
         display: flex;
         flex-wrap: wrap;
-        gap: 12px;
-        margin: 24px 0;
+        justify-content: center;
+        gap: 16px;
+        margin: 32px 0 20px;
       }
+
       .button {
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        min-height: 46px;
-        padding: 10px 16px;
+        min-height: 52px;
+        padding: 12px 28px;
         border: 1px solid var(--accent);
-        border-radius: 6px;
-        color: var(--accent-dark);
+        border-radius: 8px;
+        color: #ffffff;
         background: transparent;
+        font-family: 'Outfit', sans-serif;
+        font-size: 16px;
         font-weight: 700;
         text-decoration: none;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        cursor: pointer;
       }
+      
       .button.primary {
         background: var(--accent);
-        color: #fff;
+        border-color: var(--accent);
+        box-shadow: 0 4px 20px rgba(16, 185, 129, 0.25);
       }
+      
+      .button.primary:hover {
+        background: var(--accent-light);
+        border-color: var(--accent-light);
+        box-shadow: 0 4px 30px rgba(52, 211, 153, 0.45);
+        transform: translateY(-2px);
+      }
+
+      .button:not(.primary) {
+        border-color: var(--line);
+        background: rgba(255, 255, 255, 0.03);
+      }
+      
+      .button:not(.primary):hover {
+        border-color: var(--accent-light);
+        background: rgba(16, 185, 129, 0.05);
+        transform: translateY(-2px);
+      }
+
       section {
         border-top: 1px solid var(--line);
-        padding: 30px 0;
+        padding: 60px 0;
       }
+      
+      .section-title {
+        font-family: 'Outfit', sans-serif;
+        font-size: 28px;
+        font-weight: 800;
+        margin-bottom: 32px;
+        text-align: center;
+      }
+
       .grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 14px;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 24px;
       }
+
       .card {
-        min-width: 0;
-        padding: 18px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 32px;
         border: 1px solid var(--line);
-        border-radius: 8px;
+        border-radius: 12px;
         background: var(--panel);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        transition: all 0.3s ease;
       }
+      
+      .card:hover {
+        border-color: rgba(16, 185, 129, 0.3);
+        box-shadow: 0 10px 30px -10px rgba(16, 185, 129, 0.15);
+        transform: translateY(-3px);
+      }
+
       .card.recommended {
         border-color: var(--accent);
-        box-shadow: 0 10px 30px rgba(15, 107, 79, 0.12);
+        background: linear-gradient(180deg, rgba(16, 185, 129, 0.05) 0%, rgba(17, 24, 39, 0.7) 100%);
+        box-shadow: 0 10px 30px rgba(16, 185, 129, 0.06);
+        position: relative;
+        overflow: hidden;
       }
-      .card h2,
-      .card h3 {
-        margin-top: 0;
-      }
-      .price {
-        margin: 8px 0;
-        font-size: 32px;
+      
+      .card.recommended::before {
+        content: "Recommended First Step";
+        position: absolute;
+        top: 16px;
+        right: -32px;
+        background: var(--accent);
+        color: #0b0f19;
+        font-size: 10px;
         font-weight: 800;
+        text-transform: uppercase;
+        padding: 4px 32px;
+        transform: rotate(45deg);
+        letter-spacing: 0.05em;
       }
+
+      .card h2 {
+        font-family: 'Outfit', sans-serif;
+        font-size: 22px;
+        font-weight: 700;
+        margin-bottom: 8px;
+        color: #ffffff;
+      }
+      
+      .card .sub-title {
+        color: var(--accent-light);
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 16px;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+
+      .price {
+        font-family: 'Outfit', sans-serif;
+        margin: 12px 0 20px;
+        font-size: 44px;
+        font-weight: 900;
+        color: #ffffff;
+        display: flex;
+        align-items: baseline;
+      }
+      
+      .price::after {
+        content: " one-time";
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--muted);
+        margin-left: 8px;
+      }
+
       ul {
-        padding-left: 20px;
+        list-style-type: none;
+        margin-bottom: 28px;
       }
+
       li {
-        margin: 7px 0;
+        margin: 12px 0;
+        position: relative;
+        padding-left: 24px;
+        color: var(--ink);
+        font-size: 15px;
       }
+      
+      li::before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: var(--accent);
+        font-weight: bold;
+      }
+
+      .card.proof li::before {
+        content: "→";
+        color: var(--accent-light);
+      }
+      
+      .card.proof {
+        border-color: rgba(255, 255, 255, 0.03);
+        background: rgba(255, 255, 255, 0.01);
+      }
+
       .note {
-        border-color: #e1c56f;
+        border: 1px solid var(--warn-border);
         background: var(--warn);
+        padding: 32px;
+        border-radius: 12px;
+        margin-top: 40px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
       }
-      .proof {
-        border-color: #bfd3c5;
-        background: #eef4ef;
+      
+      .note h2 {
+        font-family: 'Outfit', sans-serif;
+        color: #ffdd6b;
+        margin-bottom: 12px;
       }
+      
+      .note p {
+        max-width: 600px;
+        margin: 0 auto 20px;
+        color: var(--muted);
+      }
+      
+      .note .button {
+        display: inline-flex;
+        width: auto;
+      }
+
       .small {
         color: var(--muted);
         font-size: 13px;
+        margin-top: 8px;
       }
+
       footer {
+        border-top: 1px solid var(--line);
+        margin-top: 40px;
+        padding-top: 40px;
+        padding-bottom: 60px;
+        text-align: center;
         color: var(--muted);
         font-size: 13px;
+      }
+      
+      footer p {
+        max-width: 700px;
+        margin: 0 auto;
+        line-height: 1.7;
       }
     </style>
     <script
@@ -147,6 +352,9 @@
     <script defer src="../assets/revenue-analytics.js"></script>
   </head>
   <body>
+    <div class="bg-gradient-1"></div>
+    <div class="bg-gradient-2"></div>
+
     <header>
       <div class="eyebrow">ResumeOS</div>
       <h1>
@@ -167,6 +375,7 @@
           data-tier="snapshot"
           data-price="49"
           data-placement="hero"
+          id="hero_primary_btn"
           >Get the $49 ResumeOS Truth Snapshot</a
         >
         <a
@@ -177,6 +386,7 @@
           data-tier="snapshot"
           data-price="0"
           data-placement="hero"
+          id="hero_secondary_btn"
           >View sample</a
         >
       </div>
@@ -190,19 +400,21 @@
       <section>
         <div class="grid">
           <article class="card recommended">
-            <h2>Recommended first step</h2>
-            <div class="price">$49</div>
-            <p><strong>Resume Truth Snapshot</strong></p>
-            <ul>
-              <li>One-page risk audit against your target role family</li>
-              <li>Unsupported or inflated claim flags</li>
-              <li>ATS readability and title-match check</li>
-              <li>Rewrite of the four weakest bullets</li>
-              <li>
-                Clear next action: fix resume, change targeting, or escalate to
-                managed help
-              </li>
-            </ul>
+            <div>
+              <h2>Resume Truth Snapshot</h2>
+              <div class="sub-title">Audit First</div>
+              <div class="price">$49</div>
+              <ul>
+                <li>One-page risk audit against your target role family</li>
+                <li>Unsupported or inflated claim flags</li>
+                <li>ATS readability and title-match check</li>
+                <li>Rewrite of the four weakest bullets</li>
+                <li>
+                  Clear next action: fix resume, change targeting, or escalate to
+                  managed help
+                </li>
+              </ul>
+            </div>
             <p>
               <a
                 class="button primary"
@@ -212,25 +424,30 @@
                 data-tier="snapshot"
                 data-price="49"
                 data-placement="card"
+                id="card_snapshot_btn"
+                style="width: 100%;"
                 >Buy Truth Snapshot</a
               >
             </p>
           </article>
+          
           <article class="card">
-            <h2>Need implementation after the audit?</h2>
-            <div class="price">$149</div>
-            <p><strong>Resume OS Pro</strong></p>
-            <ul>
-              <li>30-day resume and application workspace for one candidate</li>
-              <li>
-                Role-specific resume and cover-letter drafts from verified facts
-              </li>
-              <li>Application tracker cleanup and response triage</li>
-              <li>
-                Evidence-first workflow: no fabricated credentials, dates,
-                titles, or metrics
-              </li>
-            </ul>
+            <div>
+              <h2>Resume OS Pro</h2>
+              <div class="sub-title">Implementation Workspace</div>
+              <div class="price">$149</div>
+              <ul>
+                <li>30-day resume and application workspace for one candidate</li>
+                <li>
+                  Role-specific resume and cover-letter drafts from verified facts
+                </li>
+                <li>Application tracker cleanup and response triage</li>
+                <li>
+                  Evidence-first workflow: no fabricated credentials, dates,
+                  titles, or metrics
+                </li>
+              </ul>
+            </div>
             <p>
               <a
                 class="button"
@@ -240,22 +457,27 @@
                 data-tier="pro"
                 data-price="149"
                 data-placement="card"
+                id="card_pro_btn"
+                style="width: 100%;"
                 >Buy Resume OS Pro</a
               >
             </p>
           </article>
+          
           <article class="card">
-            <h2>Want it handled for you?</h2>
-            <div class="price">$1,500</div>
-            <p><strong>Done-For-You Sprint</strong></p>
-            <ul>
-              <li>Two-week managed job-search operations sprint</li>
-              <li>Targeting review, tailored materials, and submission prep</li>
-              <li>
-                Up to 50 verified submissions where portal facts are known
-              </li>
-              <li>Weekly strategy call and evidence record</li>
-            </ul>
+            <div>
+              <h2>Done-For-You Sprint</h2>
+              <div class="sub-title">White-Glove Ops</div>
+              <div class="price">$1,500</div>
+              <ul>
+                <li>Two-week managed job-search operations sprint</li>
+                <li>Targeting review, tailored materials, and submission prep</li>
+                <li>
+                  Up to 50 verified submissions where portal facts are known
+                </li>
+                <li>Weekly strategy call and evidence record</li>
+              </ul>
+            </div>
             <p>
               <a
                 class="button"
@@ -265,6 +487,8 @@
                 data-tier="dfy"
                 data-price="1500"
                 data-placement="card"
+                id="card_dfy_btn"
+                style="width: 100%;"
                 >Buy DFY Sprint</a
               >
             </p>
@@ -279,8 +503,8 @@
             <ul>
               <li>Your current resume as a PDF or share link</li>
               <li>
-                One target role family, for example Staff Android Engineer or AI
-                Platform Engineer
+                One target role family (e.g. Staff Android Engineer or AI
+                Platform Engineer)
               </li>
               <li>Three job links that represent the roles you want</li>
             </ul>
@@ -306,8 +530,8 @@
         </div>
       </section>
 
-      <section>
-        <div class="card note">
+      <section style="border-top: none; padding-top: 0;">
+        <div class="note">
           <h2>After purchase</h2>
           <p>
             Stripe redirects you to a confirmation page with intake
@@ -323,6 +547,7 @@
               data-tier="snapshot"
               data-price="0"
               data-placement="after_purchase"
+              id="intake_instructions_btn"
               >Open intake instructions</a
             >
           </p>

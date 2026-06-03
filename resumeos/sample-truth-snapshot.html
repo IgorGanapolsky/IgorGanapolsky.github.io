@@ -4,50 +4,250 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Resume Truth Audit - Sample Snapshot</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet">
     <style>
+      :root {
+        color-scheme: dark;
+        --bg: #0b0f19;
+        --ink: #f3f4f6;
+        --muted: #9ca3af;
+        --line: #1f2937;
+        --accent: #10b981;
+        --accent-light: #34d399;
+        --accent-dark: #065f46;
+        --panel: rgba(17, 24, 39, 0.7);
+        
+        --risk-high-bg: rgba(244, 63, 94, 0.1);
+        --risk-high-border: rgba(244, 63, 94, 0.3);
+        --risk-high-text: #f43f5e;
+        
+        --risk-med-bg: rgba(245, 158, 11, 0.1);
+        --risk-med-border: rgba(245, 158, 11, 0.3);
+        --risk-med-text: #f59e0b;
+
+        --info-blue: #3b82f6;
+        --info-blue-bg: rgba(59, 130, 246, 0.08);
+        --info-blue-border: rgba(59, 130, 246, 0.2);
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
       body {
-        font-family:
-          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
-          Arial, sans-serif;
+        font-family: 'Inter', sans-serif;
         line-height: 1.6;
-        color: #333;
+        color: var(--ink);
+        background: var(--bg);
         max-width: 800px;
         margin: 0 auto;
-        padding: 2rem;
+        padding: 60px 24px;
+        overflow-x: hidden;
+        position: relative;
       }
-      h1,
-      h2 {
-        color: #000;
+      
+      /* Glowing Background Gradients */
+      .bg-gradient-1 {
+        position: absolute;
+        top: -10%;
+        left: -10%;
+        width: 80%;
+        height: 60%;
+        background: radial-gradient(circle, rgba(16, 185, 129, 0.06) 0%, rgba(11, 15, 25, 0) 75%);
+        z-index: -1;
+        pointer-events: none;
       }
+
+      header {
+        margin-bottom: 40px;
+        border-bottom: 1px solid var(--line);
+        padding-bottom: 24px;
+      }
+
+      h1 {
+        font-family: 'Outfit', sans-serif;
+        font-size: clamp(32px, 5vw, 44px);
+        font-weight: 900;
+        margin-bottom: 12px;
+        background: linear-gradient(135deg, #ffffff 40%, #a7f3d0 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      
+      header p {
+        font-size: 15px;
+        color: var(--muted);
+        margin: 6px 0;
+      }
+
       .risk-high {
-        color: #d73a49;
-        font-weight: bold;
+        color: var(--risk-high-text);
+        font-weight: 700;
       }
+      
       .risk-med {
-        color: #e36209;
+        color: var(--risk-med-text);
+        font-weight: 700;
+      }
+
+      .audit-card {
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 32px;
+        margin-bottom: 28px;
+        background: var(--panel);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+      }
+      
+      .audit-card h2 {
+        font-family: 'Outfit', sans-serif;
+        font-size: 22px;
+        font-weight: 800;
+        margin-bottom: 20px;
+        color: #ffffff;
+      }
+
+      .risk-item {
+        margin-bottom: 24px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      }
+      
+      .risk-item:last-child {
+        margin-bottom: 0;
+        padding-bottom: 0;
+        border-bottom: none;
+      }
+      
+      .risk-title {
+        font-size: 15px;
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: #ffffff;
+      }
+      
+      .risk-badge {
+        display: inline-block;
+        font-size: 11px;
+        font-weight: 800;
+        text-transform: uppercase;
+        padding: 3px 8px;
+        border-radius: 4px;
+        margin-right: 8px;
+        letter-spacing: 0.05em;
+      }
+      
+      .risk-badge.high {
+        background: var(--risk-high-bg);
+        border: 1px solid var(--risk-high-border);
+        color: var(--risk-high-text);
+      }
+      
+      .risk-badge.med {
+        background: var(--risk-med-bg);
+        border: 1px solid var(--risk-med-border);
+        color: var(--risk-med-text);
+      }
+
+      .evidence {
+        background: var(--info-blue-bg);
+        border: 1px solid var(--info-blue-border);
+        border-left: 4px solid var(--info-blue);
+        padding: 16px;
+        margin-top: 10px;
+        border-radius: 0 8px 8px 0;
+        font-size: 14px;
+        color: #e5e7eb;
+        line-height: 1.5;
+      }
+      
+      .evidence strong {
+        color: #ffffff;
+        font-family: 'Outfit', sans-serif;
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-right: 6px;
+      }
+
+      ul {
+        list-style-type: none;
+      }
+
+      ul li {
+        margin: 12px 0;
+        position: relative;
+        padding-left: 24px;
+        font-size: 15px;
+        color: var(--ink);
+      }
+      
+      ul li::before {
+        content: "•";
+        position: absolute;
+        left: 8px;
+        color: var(--accent);
         font-weight: bold;
       }
-      .audit-card {
-        border: 1px solid #ddd;
+      
+      ul li strong {
+        color: #ffffff;
+      }
+
+      button,
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 48px;
+        padding: 12px 24px;
+        border: 1px solid var(--accent);
         border-radius: 8px;
-        padding: 1.5rem;
-        margin-bottom: 2rem;
-        background: #f9f9f9;
+        background: var(--accent);
+        color: #0b0f19;
+        font-family: 'Outfit', sans-serif;
+        font-size: 16px;
+        font-weight: 700;
+        text-decoration: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(16, 185, 129, 0.25);
+        margin-top: 12px;
       }
-      .evidence {
-        background: #fff;
-        border-left: 4px solid #007aff;
-        padding: 1rem;
-        margin: 1rem 0;
-        font-style: italic;
+      
+      button:hover,
+      .button:hover {
+        background: var(--accent-light);
+        border-color: var(--accent-light);
+        box-shadow: 0 4px 25px rgba(52, 211, 153, 0.4);
+        transform: translateY(-1px);
       }
-      .tag {
-        display: inline-block;
-        background: #eee;
-        padding: 0.2rem 0.5rem;
-        border-radius: 4px;
-        font-size: 0.8rem;
-        margin-right: 0.5rem;
+
+      footer {
+        margin-top: 40px;
+        padding-top: 24px;
+        border-top: 1px solid var(--line);
+        font-size: 13px;
+        color: var(--muted);
+        text-align: center;
+      }
+      
+      footer strong {
+        color: var(--ink);
+      }
+      
+      footer a {
+        color: var(--accent-light);
+        text-decoration: none;
+        font-weight: 600;
+      }
+      
+      footer a:hover {
+        text-decoration: underline;
       }
     </style>
     <script
@@ -62,6 +262,8 @@
     <script defer src="../assets/revenue-analytics.js"></script>
   </head>
   <body>
+    <div class="bg-gradient-1"></div>
+    
     <header>
       <h1>ResumeOS Truth Snapshot</h1>
       <p><strong>Target:</strong> Senior Software Engineer (AI/ML)</p>
@@ -74,22 +276,20 @@
       <h2>🚨 Top 3 Risky Claims</h2>
 
       <div class="risk-item">
-        <p>
-          <span class="risk-high">[HIGH RISK]</span> "Led a team of 50 engineers
-          to deliver 00M in revenue."
-        </p>
+        <div class="risk-title">
+          <span class="risk-badge high">High Risk</span> "Led a team of 50 engineers to deliver $100M in revenue."
+        </div>
         <div class="evidence">
           <strong>Truth Scan:</strong> Candidate facts only verify leading a
-          team of 5. 00M revenue claim is an extrapolation from company-wide
+          team of 5. $100M revenue claim is an extrapolation from company-wide
           data, not direct ownership.
         </div>
       </div>
 
       <div class="risk-item">
-        <p>
-          <span class="risk-med">[MEDIUM RISK]</span> "Expert in LangGraph and
-          retrieval-augmented AI systems."
-        </p>
+        <div class="risk-title">
+          <span class="risk-badge med">Medium Risk</span> "Expert in LangGraph and retrieval-augmented AI systems."
+        </div>
         <div class="evidence">
           <strong>Truth Scan:</strong> No production commits or specific project
           artifacts were provided for these technologies. Claim appears to be
@@ -98,10 +298,9 @@
       </div>
 
       <div class="risk-item">
-        <p>
-          <span class="risk-med">[MEDIUM RISK]</span> "Reduced latency by 90%
-          across all services."
-        </p>
+        <div class="risk-title">
+          <span class="risk-badge med">Medium Risk</span> "Reduced latency by 90% across all services."
+        </div>
         <div class="evidence">
           <strong>Truth Scan:</strong> 90% reduction verified only for one
           specific image-processing function, not "all services."
@@ -125,7 +324,7 @@
 
     <div class="audit-card">
       <h2>🛠 Recommended Next Action</h2>
-      <p>
+      <p style="font-size: 15px; line-height: 1.6;">
         Revert the "Team of 50" claim to "Directly mentored 5 senior engineers"
         to preserve credibility. Specify the GCP Cloud Functions used in the
         latency project.
@@ -133,9 +332,8 @@
     </div>
 
     <footer>
-      <hr />
       <p>
-        Generated by <strong>ResumeOS</strong>.
+        Generated by <strong>ResumeOS</strong>. 
         <a
           href="https://buy.stripe.com/3cIaEX1M80aO9G1fSH3sI2N?client_reference_id=resumeos_sample_footer"
           data-track="checkout_click"
@@ -143,6 +341,7 @@
           data-tier="snapshot"
           data-price="49"
           data-placement="footer"
+          id="sample_checkout_btn"
           >Get your own snapshot for $49</a
         >.
       </p>

@@ -4,78 +4,195 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ResumeOS Intake Instructions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet">
     <style>
       :root {
-        --ink: #191919;
-        --muted: #5d625c;
-        --line: #d9d7cf;
-        --accent: #0f6b4f;
-        --accent-dark: #0a4f3a;
-        --bg: #f7f7f4;
-        --panel: #fff;
+        color-scheme: dark;
+        --bg: #0b0f19;
+        --ink: #f3f4f6;
+        --muted: #9ca3af;
+        --line: #1f2937;
+        --accent: #10b981;
+        --accent-light: #34d399;
+        --accent-dark: #065f46;
+        --panel: rgba(17, 24, 39, 0.7);
+        --input-bg: rgba(31, 41, 55, 0.5);
       }
       * {
         box-sizing: border-box;
+        margin: 0;
+        padding: 0;
       }
       body {
         max-width: 760px;
         margin: 0 auto;
-        padding: 2rem;
+        padding: 60px 24px;
         color: var(--ink);
         background: var(--bg);
-        font-family:
-          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
-          Arial, sans-serif;
+        font-family: 'Inter', sans-serif;
         line-height: 1.6;
+        overflow-x: hidden;
+        position: relative;
       }
+      
+      /* Glowing Background Gradients */
+      .bg-gradient-1 {
+        position: absolute;
+        top: -10%;
+        left: -10%;
+        width: 80%;
+        height: 60%;
+        background: radial-gradient(circle, rgba(16, 185, 129, 0.06) 0%, rgba(11, 15, 25, 0) 75%);
+        z-index: -1;
+        pointer-events: none;
+      }
+
       h1 {
+        font-family: 'Outfit', sans-serif;
+        font-size: clamp(32px, 5vw, 48px);
+        font-weight: 900;
+        margin-bottom: 12px;
         line-height: 1.1;
+        background: linear-gradient(135deg, #ffffff 40%, #a7f3d0 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
       }
+      
+      p.intro {
+        color: var(--muted);
+        font-size: 16px;
+        margin-bottom: 32px;
+      }
+      
+      h2 {
+        font-family: 'Outfit', sans-serif;
+        font-size: 20px;
+        font-weight: 700;
+        margin-bottom: 16px;
+        color: #ffffff;
+      }
+
       .panel {
-        padding: 1.4rem;
-        margin: 1.2rem 0;
+        padding: 32px;
+        margin: 24px 0;
         border: 1px solid var(--line);
-        border-radius: 8px;
+        border-radius: 12px;
         background: var(--panel);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
       }
+      
+      ul {
+        list-style-type: none;
+        margin-bottom: 24px;
+      }
+      
+      ul li {
+        margin: 10px 0;
+        position: relative;
+        padding-left: 24px;
+        font-size: 15px;
+      }
+      
+      ul li::before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: var(--accent);
+        font-weight: bold;
+      }
+      
       label {
         display: block;
-        margin-bottom: 0.4rem;
-        font-weight: 700;
+        margin-bottom: 8px;
+        font-family: 'Outfit', sans-serif;
+        font-size: 14px;
+        font-weight: 600;
+        color: #ffffff;
       }
+      
       input,
-      textarea,
-      select {
+      textarea {
         width: 100%;
-        padding: 0.65rem;
-        margin-bottom: 1rem;
-        border: 1px solid #c9c9c9;
-        border-radius: 4px;
+        padding: 12px 16px;
+        margin-bottom: 20px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--input-bg);
+        color: #ffffff;
+        font-family: 'Inter', sans-serif;
+        font-size: 15px;
+        transition: all 0.3s ease;
       }
+      
+      input:focus,
+      textarea:focus {
+        outline: none;
+        border-color: var(--accent);
+        background: rgba(31, 41, 55, 0.8);
+        box-shadow: 0 0 10px rgba(16, 185, 129, 0.2);
+      }
+      
       button,
       .button {
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        min-height: 44px;
+        min-height: 48px;
         width: 100%;
-        padding: 0.8rem 1rem;
+        padding: 12px 24px;
         border: 1px solid var(--accent);
-        border-radius: 6px;
+        border-radius: 8px;
         background: var(--accent);
-        color: #fff;
-        font-size: 1rem;
+        color: #0b0f19;
+        font-family: 'Outfit', sans-serif;
+        font-size: 16px;
         font-weight: 700;
         text-decoration: none;
         cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(16, 185, 129, 0.2);
       }
+      
+      button:hover,
+      .button:hover {
+        background: var(--accent-light);
+        border-color: var(--accent-light);
+        box-shadow: 0 4px 25px rgba(52, 211, 153, 0.4);
+        transform: translateY(-1px);
+      }
+      
       .secondary {
+        display: inline-flex;
         background: transparent;
-        color: var(--accent-dark);
+        color: var(--accent-light);
+        border-color: var(--line);
+        box-shadow: none;
+        margin-top: 20px;
       }
+      
+      .secondary:hover {
+        background: rgba(16, 185, 129, 0.05);
+        border-color: var(--accent-light);
+        box-shadow: none;
+        transform: translateY(-1px);
+      }
+      
       .note {
         color: var(--muted);
-        font-size: 0.9rem;
+        font-size: 13px;
+        margin-top: 8px;
+        line-height: 1.5;
+      }
+      
+      .note-alert {
+        color: #ffb74d;
+        border-left: 3px solid #ffb74d;
+        padding-left: 12px;
+        margin-bottom: 24px;
       }
     </style>
     <script
@@ -90,8 +207,10 @@
     <script defer src="../assets/revenue-analytics.js"></script>
   </head>
   <body>
+    <div class="bg-gradient-1"></div>
+
     <h1>ResumeOS Intake</h1>
-    <p>
+    <p class="intro">
       Paid Stripe orders are prioritized first. Use this page to prepare the
       exact information needed for the Resume Truth Snapshot or a managed
       ResumeOS Engagement.
@@ -103,20 +222,19 @@
         <li>Your full name and best email address.</li>
         <li>Your LinkedIn URL.</li>
         <li>
-          Your current resume link. Use a Google Drive or Dropbox link that is
-          viewable.
+          Your current resume link (Dropbox, Google Drive, or similar). Make sure link permissions are set to public view.
         </li>
         <li>
-          One target role family, for example Staff Android Engineer or AI
-          Platform Engineer.
+          One target role family (e.g. Staff Android Engineer or AI
+          Platform Engineer).
         </li>
         <li>Three to five job links that represent the roles you want.</li>
         <li>
-          Constraints: location, remote/hybrid, compensation floor, sponsorship,
+          Constraints: location, remote/hybrid preference, compensation floor, visa sponsorship,
           and availability.
         </li>
       </ul>
-      <p class="note">
+      <p class="note note-alert">
         Do not send SSN, date of birth, passport numbers, bank details, or other
         high-risk personal data.
       </p>
@@ -129,6 +247,7 @@
           data-tier="snapshot"
           data-price="0"
           data-placement="intake_email"
+          id="intake_email_btn"
           >Email intake packet</a
         >
       </p>
@@ -142,9 +261,10 @@
       data-track-submit="intake_submit"
       data-surface="resumeos"
       data-placement="intake_form"
+      id="intake_form"
     >
       <h2>Optional local form</h2>
-      <p class="note">
+      <p class="note" style="margin-bottom: 24px;">
         This opens your email client. It is a convenience path, not the payment
         confirmation system.
       </p>
@@ -163,7 +283,7 @@
         type="text"
         id="roles"
         name="roles"
-        placeholder="Senior AI Engineer, Staff Android Engineer"
+        placeholder="e.g. Senior AI Engineer, Staff Android Engineer"
         required
       />
 
@@ -171,10 +291,10 @@
       <input type="url" id="resume" name="resume" required />
 
       <label for="jobs">3-5 Job Links</label>
-      <textarea id="jobs" name="jobs" rows="4" required></textarea>
+      <textarea id="jobs" name="jobs" rows="4" required placeholder="Paste job links here..."></textarea>
 
       <label for="constraints">Constraints</label>
-      <textarea id="constraints" name="constraints" rows="3"></textarea>
+      <textarea id="constraints" name="constraints" rows="3" placeholder="e.g. Remote only, no sponsorship needed, salary floor..."></textarea>
 
       <button type="submit">Open email with intake</button>
     </form>
@@ -188,6 +308,7 @@
         data-tier="snapshot"
         data-price="49"
         data-placement="intake_footer"
+        id="back_to_offer_btn"
         >Back to offer</a
       >
     </p>
