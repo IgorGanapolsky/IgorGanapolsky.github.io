@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ApplyOps by Igor Ganapolsky — Real-Browser Job Application Automation</title>
+<meta name="description" content="ApplyOps (by Igor Ganapolsky) — autonomous job-application automation across Greenhouse, Lever, Ashby, Workday, LinkedIn Easy Apply, Dice, and Alignerr. Real Chrome via CDP, evidence-verified submissions, not headless mocks.">
+<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
+<link rel="canonical" href="https://igorganapolsky.github.io/apps/applyops-by-igor/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ApplyOps by Igor Ganapolsky — Real-Browser Job Application Automation">
+<meta property="og:description" content="Job-app automation across Greenhouse, Lever, Ashby, Workday. Real Chrome, evidence-verified. By Igor Ganapolsky.">
+<meta property="og:url" content="https://igorganapolsky.github.io/apps/applyops-by-igor/">
+<script async defer data-domain="igorganapolsky.github.io" src="https://plausible.io/js/script.js"></script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"SoftwareApplication",
+  "name":"ApplyOps by Igor Ganapolsky",
+  "alternateName":["ApplyOps","ApplyOps (Igor)"],
+  "applicationCategory":"BusinessApplication",
+  "operatingSystem":"macOS",
+  "url":"https://igorganapolsky.github.io/apps/applyops-by-igor/",
+  "author":{"@type":"Person","name":"Igor Ganapolsky","url":"https://igorganapolsky.github.io/who-is-igor-ganapolsky/"},
+  "offers":{"@type":"Offer","url":"https://igorganapolsky.github.io/applyops/","priceCurrency":"USD","availability":"https://schema.org/OnlineOnly"},
+  "featureList":[
+    "Greenhouse driver (job-boards.greenhouse.io)",
+    "Lever driver (jobs.lever.co)",
+    "Ashby driver (jobs.ashbyhq.com)",
+    "Workday driver (*.myworkdayjobs.com)",
+    "LinkedIn Easy Apply (Patchright persistent profile)",
+    "Dice unified driver",
+    "Alignerr daily-cap-aware quota spending",
+    "Tiered confirmation: element → URL → text"
+  ]
+}
+</script>
+<style>
+:root{--bg:#0b0f19;--ink:#f3f4f6;--mute:#9ca3af;--line:#1f2937;--accent:#10b981}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;padding:60px 24px;max-width:780px;margin:0 auto}
+h1{font-size:2.2rem;font-weight:800;margin-bottom:8px}
+h2{font-size:1.4rem;margin:36px 0 12px;color:var(--accent)}
+.sub{color:var(--mute);font-size:1.1rem;margin-bottom:32px}
+p,li{margin-bottom:12px}
+ul{padding-left:22px}
+a{color:var(--accent);text-decoration:none;border-bottom:1px dotted var(--accent)}
+a:hover{border-bottom-style:solid}
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.95rem}
+th,td{text-align:left;padding:8px 12px;border-bottom:1px solid var(--line)}
+.footer{margin-top:60px;padding-top:24px;border-top:1px solid var(--line);font-size:0.9rem;color:var(--mute)}
+</style>
+</head>
+<body>
+<h1>ApplyOps <span style="color:var(--mute);font-weight:500;font-size:0.7em">by Igor Ganapolsky</span></h1>
+<p class="sub">Real-browser job-application automation. Evidence-verified, not headless mocks.</p>
+
+<h2>What it is</h2>
+<p>ApplyOps is the application-submission layer I built and operate at production scale. It drives a real Google Chrome session (via Patchright CDP-attach) through Greenhouse, Lever, Ashby, Workday, LinkedIn Easy Apply, Dice, and Alignerr — each with its own driver that knows the gotchas of that ATS.</p>
+
+<p>Why real Chrome? Because reCAPTCHA Enterprise v3 score-rejects bundled Chromium. Because Workday's React inputs hate cua-driver's CGEvent focus routing. Because Greenhouse silently rejects the bundled-browser fingerprint at the gate. Real Chrome with my cf_clearance + JA3 passes those gates.</p>
+
+<h2>What it ships per submission</h2>
+<table>
+<tr><th>Lane</th><th>What it confirms</th></tr>
+<tr><td>Greenhouse</td><td>"Application submitted" element or 200 on confirmation URL</td></tr>
+<tr><td>Lever</td><td><code>data-qa='btn-submit'</code> click + redirect to /thanks page</td></tr>
+<tr><td>Ashby</td><td>React form submit ack + new application_id</td></tr>
+<tr><td>Workday</td><td>"Submit" → "Application Sent" screen capture</td></tr>
+<tr><td>LinkedIn EA</td><td>"Your application was sent" toast — never claimed without it</td></tr>
+<tr><td>Dice</td><td>"Excellent! Your application is on its way!" + Jobs-Recommended redirect</td></tr>
+</table>
+
+<h2>Built and operated by</h2>
+<p><a href="/who-is-igor-ganapolsky/">Igor Ganapolsky</a>. Powered by the <a href="/tools/ralph-loop-by-igor/">Ralph Loop</a>. Part of the <a href="/resumeos/">ResumeOS</a> career stack.</p>
+
+<h2>Try it</h2>
+<ul>
+<li><a href="/applyops/">ApplyOps landing</a></li>
+<li><a href="/applyops/sample-truth-snapshot.html">Sample truth-snapshot output</a></li>
+</ul>
+
+<div class="footer">
+© 2025-2026 Igor Ganapolsky. ApplyOps is a proprietary mark. See <a href="https://github.com/IgorGanapolsky/IgorGanapolsky.github.io/blob/main/LICENSE">LICENSE</a>.
+</div>
+</body>
+</html>
