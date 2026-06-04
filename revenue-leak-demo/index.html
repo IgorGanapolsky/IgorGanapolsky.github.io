@@ -1,0 +1,650 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Revenue Leak Scanner Demo</title>
+    <meta
+      name="description"
+      content="Interactive demo of an autonomous revenue leak scanner for local service businesses."
+    />
+    <link
+      rel="canonical"
+      href="https://igorganapolsky.github.io/revenue-leak-demo/"
+    />
+    <script
+      defer
+      data-domain="igorganapolsky.github.io"
+      src="https://plausible.io/js/script.tagged-events.js"
+    ></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-2GEM6RYXZE"
+    ></script>
+    <script defer src="../assets/revenue-analytics.js"></script>
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #0b1014;
+        --panel: #121a20;
+        --panel-2: #17222a;
+        --line: #263640;
+        --ink: #f4f7f8;
+        --muted: #9fb0b8;
+        --accent: #36d399;
+        --accent-2: #38bdf8;
+        --warn: #f59e0b;
+        --danger: #fb7185;
+        --good: #7dd3fc;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background:
+          linear-gradient(120deg, rgba(54, 211, 153, 0.12), transparent 28%),
+          linear-gradient(240deg, rgba(56, 189, 248, 0.1), transparent 30%),
+          var(--bg);
+        color: var(--ink);
+        font-family:
+          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+          "Segoe UI", sans-serif;
+      }
+
+      header {
+        border-bottom: 1px solid var(--line);
+        background: rgba(11, 16, 20, 0.86);
+        position: sticky;
+        top: 0;
+        z-index: 3;
+        backdrop-filter: blur(12px);
+      }
+
+      .bar,
+      main {
+        width: min(1180px, calc(100% - 32px));
+        margin: 0 auto;
+      }
+
+      .bar {
+        min-height: 64px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 800;
+      }
+
+      .mark {
+        width: 34px;
+        height: 34px;
+        border-radius: 8px;
+        background: linear-gradient(135deg, var(--accent), var(--accent-2));
+        color: #061014;
+        display: grid;
+        place-items: center;
+        font-weight: 900;
+      }
+
+      .bar a,
+      .btn {
+        color: var(--ink);
+        text-decoration: none;
+      }
+
+      .btn {
+        border: 1px solid var(--line);
+        background: var(--panel-2);
+        min-height: 40px;
+        padding: 0 14px;
+        border-radius: 8px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        cursor: pointer;
+      }
+
+      .btn.primary {
+        border-color: var(--accent);
+        background: var(--accent);
+        color: #061014;
+      }
+
+      main {
+        padding: 28px 0 56px;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 0.95fr) minmax(340px, 1.05fr);
+        gap: 22px;
+        align-items: stretch;
+      }
+
+      .intro,
+      .scanner,
+      .panel {
+        border: 1px solid var(--line);
+        background: rgba(18, 26, 32, 0.88);
+        border-radius: 8px;
+      }
+
+      .intro {
+        padding: 28px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 430px;
+      }
+
+      .eyebrow {
+        color: var(--accent);
+        font-weight: 800;
+        text-transform: uppercase;
+        font-size: 12px;
+        letter-spacing: 0.08em;
+      }
+
+      h1 {
+        margin: 14px 0 14px;
+        font-size: clamp(36px, 6vw, 68px);
+        line-height: 0.95;
+        letter-spacing: 0;
+      }
+
+      .lead {
+        color: #d6dee2;
+        font-size: 18px;
+        max-width: 58ch;
+      }
+
+      .metrics {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        margin-top: 28px;
+      }
+
+      .metric {
+        border: 1px solid var(--line);
+        background: var(--panel-2);
+        padding: 14px;
+        border-radius: 8px;
+      }
+
+      .metric strong {
+        display: block;
+        font-size: 24px;
+      }
+
+      .metric span {
+        color: var(--muted);
+        font-size: 12px;
+      }
+
+      .scanner {
+        padding: 20px;
+      }
+
+      .screen {
+        border: 1px solid var(--line);
+        background: #071015;
+        border-radius: 8px;
+        min-height: 390px;
+        overflow: hidden;
+      }
+
+      .screen-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        border-bottom: 1px solid var(--line);
+        padding: 12px;
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .dots {
+        display: flex;
+        gap: 6px;
+      }
+
+      .dots span {
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background: var(--danger);
+      }
+
+      .dots span:nth-child(2) {
+        background: var(--warn);
+      }
+
+      .dots span:nth-child(3) {
+        background: var(--accent);
+      }
+
+      .scan-body {
+        padding: 16px;
+      }
+
+      .business-row {
+        display: grid;
+        grid-template-columns: 48px 1fr auto;
+        gap: 12px;
+        align-items: center;
+      }
+
+      .avatar {
+        width: 48px;
+        height: 48px;
+        border-radius: 8px;
+        background:
+          linear-gradient(rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.28)),
+          url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Crect width='160' height='160' fill='%2322362f'/%3E%3Cpath d='M18 112c22-40 40-58 62-58s40 18 62 58' fill='%2336d399' opacity='.72'/%3E%3Ccircle cx='80' cy='58' r='22' fill='%23f4f7f8' opacity='.8'/%3E%3C/svg%3E");
+        background-size: cover;
+      }
+
+      .business-row h2 {
+        margin: 0 0 4px;
+        font-size: 18px;
+      }
+
+      .business-row p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .status {
+        color: var(--accent);
+        border: 1px solid rgba(54, 211, 153, 0.4);
+        border-radius: 999px;
+        padding: 6px 10px;
+        font-size: 12px;
+        font-weight: 800;
+      }
+
+      .route-map {
+        margin: 18px 0;
+        display: grid;
+        gap: 10px;
+      }
+
+      .route {
+        border: 1px solid var(--line);
+        background: var(--panel);
+        border-radius: 8px;
+        padding: 12px;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 12px;
+      }
+
+      .route b {
+        display: block;
+        margin-bottom: 3px;
+      }
+
+      .route small {
+        color: var(--muted);
+      }
+
+      .pill {
+        align-self: start;
+        border-radius: 999px;
+        padding: 5px 8px;
+        font-size: 12px;
+        font-weight: 800;
+      }
+
+      .bad {
+        background: rgba(251, 113, 133, 0.16);
+        color: var(--danger);
+      }
+
+      .ok {
+        background: rgba(54, 211, 153, 0.14);
+        color: var(--accent);
+      }
+
+      .warn {
+        background: rgba(245, 158, 11, 0.14);
+        color: var(--warn);
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 18px;
+        margin-top: 18px;
+      }
+
+      .panel {
+        padding: 18px;
+      }
+
+      .panel h2 {
+        margin: 0 0 12px;
+        font-size: 20px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      th,
+      td {
+        text-align: left;
+        border-bottom: 1px solid var(--line);
+        padding: 12px 8px;
+        vertical-align: top;
+      }
+
+      th {
+        color: var(--muted);
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+      }
+
+      td {
+        color: #e7edf0;
+        font-size: 14px;
+      }
+
+      .loss {
+        color: var(--danger);
+        font-weight: 800;
+      }
+
+      .queue {
+        display: grid;
+        gap: 10px;
+      }
+
+      .task {
+        display: grid;
+        grid-template-columns: 28px 1fr;
+        gap: 10px;
+        border: 1px solid var(--line);
+        background: var(--panel-2);
+        padding: 12px;
+        border-radius: 8px;
+      }
+
+      .rank {
+        width: 28px;
+        height: 28px;
+        border-radius: 8px;
+        background: #22323a;
+        display: grid;
+        place-items: center;
+        color: var(--accent);
+        font-weight: 900;
+      }
+
+      .task b {
+        display: block;
+        margin-bottom: 3px;
+      }
+
+      .task span {
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .controls {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 16px;
+      }
+
+      .note {
+        color: var(--muted);
+        font-size: 13px;
+        margin-top: 12px;
+      }
+
+      @media (max-width: 900px) {
+        .hero,
+        .grid {
+          grid-template-columns: 1fr;
+        }
+
+        .metrics {
+          grid-template-columns: 1fr;
+        }
+
+        .business-row {
+          grid-template-columns: 48px 1fr;
+        }
+
+        .status {
+          grid-column: 1 / -1;
+          justify-self: start;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="bar">
+        <a class="brand" href="./" data-track="lead_click" data-surface="revenue_leak_demo" data-placement="brand">
+          <span class="mark">RL</span>
+          <span>Revenue Leak Scanner</span>
+        </a>
+        <a
+          class="btn primary"
+          href="mailto:iganapolsky@gmail.com?subject=Revenue%20Leak%20Scanner%20Pilot&body=I%20want%20a%20revenue%20leak%20scan%20for%20my%20business."
+          data-track="lead_click"
+          data-surface="revenue_leak_demo"
+          data-placement="topbar"
+          >Request pilot</a
+        >
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="title">
+        <div class="intro">
+          <div>
+            <div class="eyebrow">Interactive demo</div>
+            <h1 id="title">Find the booking paths quietly leaking revenue.</h1>
+            <p class="lead">
+              A focused agent crawls the buyer journey, tests booking/contact
+              routes, estimates lost monthly revenue, and turns failures into a
+              fix queue a business owner can understand.
+            </p>
+          </div>
+          <div class="metrics" aria-label="Demo metrics">
+            <div class="metric">
+              <strong id="lossMetric">$2,700</strong>
+              <span>estimated monthly leak</span>
+            </div>
+            <div class="metric">
+              <strong>4</strong>
+              <span>buyer paths scanned</span>
+            </div>
+            <div class="metric">
+              <strong>27 min</strong>
+              <span>first-pass audit time</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="scanner" aria-label="Scanner preview">
+          <div class="screen">
+            <div class="screen-head">
+              <div class="dots"><span></span><span></span><span></span></div>
+              <span>scan id: demo-miami-restaurant-042</span>
+            </div>
+            <div class="scan-body">
+              <div class="business-row">
+                <div class="avatar" aria-hidden="true"></div>
+                <div>
+                  <h2>Kitsune House Miami</h2>
+                  <p>Restaurant booking and local discovery path</p>
+                </div>
+                <span class="status">Scan complete</span>
+              </div>
+
+              <div class="route-map">
+                <div class="route">
+                  <div>
+                    <b>Google profile to reservation</b>
+                    <small>Reservation link returned a dead route during test.</small>
+                  </div>
+                  <span class="pill bad">404 leak</span>
+                </div>
+                <div class="route">
+                  <div>
+                    <b>Mobile website to booking</b>
+                    <small>CTA is visible, but load time delays tap path.</small>
+                  </div>
+                  <span class="pill warn">slow</span>
+                </div>
+                <div class="route">
+                  <div>
+                    <b>Instagram bio to menu</b>
+                    <small>Menu opens cleanly, but no reservation fallback.</small>
+                  </div>
+                  <span class="pill warn">missing fallback</span>
+                </div>
+                <div class="route">
+                  <div>
+                    <b>Phone/contact path</b>
+                    <small>Call path resolves on desktop and mobile.</small>
+                  </div>
+                  <span class="pill ok">ok</span>
+                </div>
+              </div>
+
+              <div class="controls">
+                <button class="btn primary" id="toggleCase" type="button">
+                  Swap sample business
+                </button>
+                <a
+                  class="btn"
+                  href="mailto:iganapolsky@gmail.com?subject=Run%20a%20leak%20scan&body=Run%20a%20leak%20scan%20for%20this%20business%3A%20"
+                  data-track="lead_click"
+                  data-surface="revenue_leak_demo"
+                  data-placement="scanner"
+                  >Send a target</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="grid" aria-label="Leak evidence and fix queue">
+        <div class="panel">
+          <h2>Evidence table</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Signal</th>
+                <th>Observed failure</th>
+                <th>Monthly impact</th>
+              </tr>
+            </thead>
+            <tbody id="evidenceRows"></tbody>
+          </table>
+          <p class="note">
+            Demo numbers are modeled estimates, not claims about any specific
+            business unless a live scan is run and evidence is captured.
+          </p>
+        </div>
+
+        <div class="panel">
+          <h2>Fix queue</h2>
+          <div class="queue" id="taskRows"></div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      const cases = [
+        {
+          name: "Kitsune House Miami",
+          type: "Restaurant booking and local discovery path",
+          loss: "$2,700",
+          evidence: [
+            ["Reservation CTA", "Dead reservation route during scan", "$1,650"],
+            ["Mobile buyer path", "Booking CTA loads after visible delay", "$620"],
+            ["Social profile", "Menu works but no reservation fallback", "$430"],
+          ],
+          tasks: [
+            ["Replace dead booking URL", "Update Google, website, and social bio to the same working reservation endpoint."],
+            ["Add fallback CTA", "If booking widget fails, expose phone/SMS/reservation form immediately."],
+            ["Monitor weekly", "Run a scheduled crawl and alert when a buyer route breaks."],
+          ],
+        },
+        {
+          name: "Brickell Medspa",
+          type: "Lead form, booking widget, and call path",
+          loss: "$4,180",
+          evidence: [
+            ["Consultation form", "Thank-you page fires but no confirmation email observed", "$1,900"],
+            ["Paid-search landing page", "Calendly embed hidden below mobile fold", "$1,240"],
+            ["Review profile", "High-intent service query has no direct booking link", "$1,040"],
+          ],
+          tasks: [
+            ["Repair lead confirmation", "Make form submission create a CRM record and client confirmation."],
+            ["Move booking above fold", "Expose calendar before testimonials on mobile traffic."],
+            ["Add service-level links", "Map top services to direct booking URLs in local profiles."],
+          ],
+        },
+      ];
+
+      let active = 0;
+
+      function renderCase() {
+        const item = cases[active];
+        document.querySelector(".business-row h2").textContent = item.name;
+        document.querySelector(".business-row p").textContent = item.type;
+        document.getElementById("lossMetric").textContent = item.loss;
+        document.getElementById("evidenceRows").innerHTML = item.evidence
+          .map(
+            (row) =>
+              `<tr><td>${row[0]}</td><td>${row[1]}</td><td class="loss">${row[2]}</td></tr>`,
+          )
+          .join("");
+        document.getElementById("taskRows").innerHTML = item.tasks
+          .map(
+            (row, index) =>
+              `<div class="task"><div class="rank">${index + 1}</div><div><b>${row[0]}</b><span>${row[1]}</span></div></div>`,
+          )
+          .join("");
+        if (window.resumeOSAnalytics) {
+          window.resumeOSAnalytics.track("demo_case_view", {
+            surface: "revenue_leak_demo",
+            business: item.name,
+          });
+        }
+      }
+
+      document.getElementById("toggleCase").addEventListener("click", () => {
+        active = (active + 1) % cases.length;
+        renderCase();
+      });
+
+      renderCase();
+    </script>
+  </body>
+</html>
