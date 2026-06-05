@@ -28,6 +28,7 @@
       data-domain="igorganapolsky.github.io"
       src="https://plausible.io/js/script.tagged-events.js"
     ></script>
+    <script defer src="/assets/revenue-analytics.js"></script>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -150,6 +151,17 @@
         text-decoration: none;
         white-space: nowrap;
       }
+      .button.secondary {
+        border-color: var(--line);
+        background: transparent;
+        color: var(--accent);
+      }
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: flex-end;
+      }
       .note {
         color: var(--muted);
         font-size: 0.94rem;
@@ -163,6 +175,7 @@
       }
       @media (max-width: 720px) {
         .cta { grid-template-columns: 1fr; }
+        .actions { justify-content: flex-start; }
         nav { flex-direction: column; }
       }
     </style>
@@ -242,17 +255,41 @@
           <p class="note">
             Send the payment flow, Checkout link, webhook issue, refund bug, or
             marketplace payout question. I will scope the smallest funded
-            milestone that can prove or fix the issue.
+            milestone that can prove or fix the issue. Use checkout for a
+            direct paid diagnostic, or use Upwork if you need escrow and
+            milestone acceptance.
           </p>
         </div>
-        <a
-          class="button"
-          href="mailto:iganapolsky@gmail.com?subject=Stripe%20Connect%20Audit%20Request"
-          data-track="lead_click"
-          data-source="hilltown_case_study"
-          data-placement="bottom_cta"
-          >Request audit</a
-        >
+        <div class="actions">
+          <a
+            class="button"
+            href="https://buy.stripe.com/5kQ9ATduQcXA5pL35V3sI0R?client_reference_id=hilltown_case_study_stripe_connect_diagnostic&amp;utm_source=hilltown_case_study&amp;utm_medium=case_study_cta&amp;utm_campaign=stripe_connect_audit"
+            data-track="checkout_click"
+            data-surface="hilltown_case_study"
+            data-tier="stripe_connect_diagnostic"
+            data-price="499"
+            data-placement="bottom_primary"
+            >Buy $499 diagnostic</a
+          >
+          <a
+            class="button secondary"
+            href="https://www.upwork.com/freelancers/igorganapolsky?utm_source=hilltown_case_study&amp;utm_medium=case_study_cta&amp;utm_campaign=stripe_connect_audit"
+            data-track="lead_click"
+            data-surface="hilltown_case_study"
+            data-tier="upwork_escrow"
+            data-placement="bottom_secondary"
+            >Hire on Upwork</a
+          >
+          <a
+            class="button secondary"
+            href="mailto:iganapolsky@gmail.com?subject=Stripe%20Connect%20Audit%20Request"
+            data-track="lead_click"
+            data-surface="hilltown_case_study"
+            data-tier="email"
+            data-placement="bottom_email"
+            >Email brief</a
+          >
+        </div>
       </div>
 
       <footer>
@@ -260,16 +297,5 @@
         evidence-limited.
       </footer>
     </main>
-    <script>
-      document.addEventListener("click", function (event) {
-        var target = event.target.closest("[data-track]");
-        if (!target || !window.plausible) return;
-        var props = {};
-        Object.keys(target.dataset).forEach(function (key) {
-          if (key !== "track") props[key] = target.dataset[key];
-        });
-        window.plausible(target.dataset.track, { props: props });
-      });
-    </script>
   </body>
 </html>
