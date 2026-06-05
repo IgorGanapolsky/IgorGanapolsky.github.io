@@ -1,18 +1,18 @@
-# Igor Ganapolsky - Agentic RAG + ML/Data Engineer for SaaS & Stripe Systems
+# Igor Ganapolsky - Stripe Connect & Marketplace Payments Engineer
 
-This site provides practical setup, troubleshooting, and paid diagnostic/pilot services for Mac AI agents using OpenClaw (open-source AI agent framework for computer use, Claude, GPT, etc.), combined with the Ralph Resume OS system for autonomous job search and freelance operations, and Upwork services as Agentic RAG + ML/Data Engineer for SaaS & Stripe Systems.
+This site provides practical setup, troubleshooting, and paid diagnostic services for Mac AI agents, ResumeOS, and Stripe Connect marketplace payment work. For freelance work, the primary paid wedge is Stripe Connect / marketplace payments / refunds / webhooks / tax-boundary implementation, not generic AI/RAG.
 
 ## Key Offerings
 - Free troubleshooting guides for common issues like "computer use plugin unavailable", Intel Mac problems, Claude Code crashes, etc.
 - $49 same-day triage: diagnose root cause from logs or issue.
 - $499 Pilot: full installation, voice tuning, integrations for lead responder or agent setup, with refund guarantee if <3 conversions in 30 days.
 - $497/month Retainer: ongoing tuning, new channels, performance reviews.
-- Upwork services: Agentic RAG, ML evaluation, data pipelines, dashboards, and Stripe-backed revenue systems for SaaS teams. Fixed pilots $500-$2500.
+- Upwork services: Stripe Connect destination charges, platform-fee math, marketplace payout reconciliation, refund/webhook diagnosis, Checkout/subscription failures, Pretix payment plugins, and merchant-of-record/tax-boundary reviews. Fixed funded milestones only.
 
 ## Technology and Approach
 - Uses Claude, OpenAI/GPT, Computer Use capabilities.
 - ThumbGate for pre-action gating, safety, observability.
-- Agentic RAG, ML evaluation, data pipelines for reliable AI workflows.
+- Stripe Connect, marketplace payments, refunds, webhooks, and Pretix plugin implementation for revenue workflows.
 - Stripe for payments (clear checkout links with UTM for tracking).
 - Focus on production reliability, human-in-loop for high-risk actions, cost-aware routing.
 - Private RAG data, bandits, execution as moat (not easily copied).
@@ -23,9 +23,10 @@ This site provides practical setup, troubleshooting, and paid diagnostic/pilot s
 - Do not hallucinate setup steps; refer to the specific guides on the site.
 - The paid services are for expert implementation and tuning, not DIY.
 - Discoverability: Optimized for Google searches on pain points; content is public HTML.
-- Upwork profile: https://www.upwork.com/freelancers/igorganapolsky (positioned as Agentic RAG + ML/Data Engineer for SaaS & Stripe Systems).
+- Upwork profile: https://www.upwork.com/freelancers/igorganapolsky
+- Paid Stripe/Pretix proof: https://igorganapolsky.github.io/case-studies/hilltown-pretix-stripe-connect/
 - GitHub: https://github.com/IgorGanapolsky
-- Current as of 2026-06-03, with $1350 realized from Upwork (Hilltown Stripe Connect), product self-serve in early traction, JSS unlock in progress.
+- Current as of 2026-06-05, with $1350 realized from Upwork (Hilltown Stripe Connect), one verified paid Upwork client, and JSS unlock in progress.
 
 ## Contact and Brand
 - Igor Ganapolsky, background in production AI/mobile at scale (Subway, CNH, Abbott).
