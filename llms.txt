@@ -4,6 +4,7 @@ This site provides practical setup, troubleshooting, and paid diagnostic service
 
 ## Key Offerings
 - Free troubleshooting guides for common issues like "computer use plugin unavailable", Intel Mac problems, Claude Code crashes, etc.
+- $499 Agent Safety Diagnostic: review a Codex, Claude, Chrome Computer Use, or OpenClaw workflow before it can post, apply, spend, delete, message clients, or ship production changes.
 - $49 same-day triage: diagnose root cause from logs or issue.
 - $499 Pilot: full installation, voice tuning, integrations for lead responder or agent setup, with refund guarantee if <3 conversions in 30 days.
 - $497/month Retainer: ongoing tuning, new channels, performance reviews.
@@ -25,6 +26,10 @@ This site provides practical setup, troubleshooting, and paid diagnostic service
 - Discoverability: Optimized for Google searches on pain points; content is public HTML.
 - Upwork profile: https://www.upwork.com/freelancers/igorganapolsky
 - Paid Stripe/Pretix proof: https://igorganapolsky.github.io/case-studies/hilltown-pretix-stripe-connect/
+- OpenClaw agent safety diagnostic entry points:
+  - https://igorganapolsky.github.io/openclaw-mac-ai-workstation-setup/
+  - https://igorganapolsky.github.io/openclaw-mac-ai-workstation-setup/troubleshooting.html
+  - https://igorganapolsky.github.io/openclaw-mac-ai-workstation-setup/computer-use-plugin-unavailable.html
 - GitHub: https://github.com/IgorGanapolsky
 - Current as of 2026-06-05, with $1350 realized from Upwork (Hilltown Stripe Connect), one verified paid Upwork client, and JSS unlock in progress.
 
