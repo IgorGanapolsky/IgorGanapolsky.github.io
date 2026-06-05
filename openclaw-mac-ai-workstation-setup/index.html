@@ -1,275 +1,304 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta
-      name="description"
-      content="OpenClaw Mac AI workstation setup moved to ThumbGate, the paid safety and workflow check for autonomous coding agents."
-    />
-    <title>OpenClaw Setup Moved to ThumbGate</title>
-    <link rel="canonical" href="https://thumbgate.ai/" />
-    <script
-      defer
-      data-domain="igorganapolsky.github.io"
-      src="https://plausible.io/js/script.tagged-events.js"
-    ></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>OpenClaw Mac AI Workstation Setup</title>
+    <meta name="description" content="Done-for-you OpenClaw, Codex, Computer Use, model routing, auth, and macOS permission setup for founders and developers.">
+    <link rel="canonical" href="https://igorganapolsky.github.io/openclaw-mac-ai-workstation-setup/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="OpenClaw Mac AI Workstation Setup">
+    <meta property="og:description" content="Done-for-you OpenClaw, Codex, Computer Use, model routing, auth, and macOS permission setup. $19 quick read to $497 done-for-you setup.">
+    <meta property="og:url" content="https://igorganapolsky.github.io/openclaw-mac-ai-workstation-setup/">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "OpenClaw Mac AI Workstation Setup",
+      "description": "Done-for-you OpenClaw, Codex, Computer Use, model routing, auth, and macOS permission setup. Diagnostic reads, async triage, and full setup for Mac AI-agent stacks.",
+      "url": "https://igorganapolsky.github.io/openclaw-mac-ai-workstation-setup/",
+      "areaServed": "Worldwide",
+      "serviceType": "AI agent setup, Codex / Claude Code / OpenClaw configuration, Computer Use diagnosis",
+      "provider": { "@type": "Person", "name": "Igor Ganapolsky" },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Mac AI workstation services",
+        "itemListElement": [
+          { "@type": "Offer", "name": "Quick Read", "price": "19.00", "priceCurrency": "USD", "description": "One root-cause note plus next-command recommendation from a single transcript or log excerpt.", "url": "./speed-to-lead.html" },
+          { "@type": "Offer", "name": "Same-Day Triage", "price": "49.00", "priceCurrency": "USD", "description": "Async root-cause direction within 24 hours for one specific failure.", "url": "./speed-to-lead.html" },
+          { "@type": "Offer", "name": "Diagnostic", "price": "99.00", "priceCurrency": "USD", "description": "Concise diagnostic note with exact next steps and patch direction for multiple failures.", "url": "./speed-to-lead.html" },
+          { "@type": "Offer", "name": "Done-For-You Setup", "price": "497.00", "priceCurrency": "USD", "description": "Full configuration of routing, sessions, Computer Use, smoke tests, and a runbook.", "url": "./speed-to-lead.html" },
+          { "@type": "Offer", "name": "Monthly Maintenance", "price": "250.00", "priceCurrency": "USD", "description": "Monthly checkup, provider cleanup, route refresh, and one priority rescue per month.", "url": "./speed-to-lead.html" }
+        ]
+      }
+    }
+    </script>
     <style>
       :root {
-        color-scheme: dark;
-        --bg: #0b1117;
-        --panel: #101922;
-        --text: #eef6ff;
-        --muted: #9fb1c1;
-        --accent: #34d399;
-        --line: #243140;
+        color-scheme: light;
+        --ink: #111318;
+        --muted: #5c6470;
+        --line: #d8dde5;
+        --panel: #f6f8fb;
+        --accent: #0f766e;
+        --accent-dark: #0b5f59;
       }
-
-      * {
-        box-sizing: border-box;
-      }
-
+      * { box-sizing: border-box; }
       body {
         margin: 0;
-        min-height: 100vh;
-        background: var(--bg);
-        color: var(--text);
-        font-family:
-          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
-          "Segoe UI", sans-serif;
-        line-height: 1.55;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        color: var(--ink);
+        background: #ffffff;
+        line-height: 1.5;
       }
-
-      main {
-        width: min(860px, calc(100vw - 32px));
+      .wrap {
+        max-width: 960px;
         margin: 0 auto;
-        padding: 72px 0 48px;
+        padding: 48px 20px 64px;
       }
-
+      header {
+        display: grid;
+        gap: 22px;
+        padding-bottom: 34px;
+        border-bottom: 1px solid var(--line);
+      }
       .eyebrow {
+        margin: 0;
         color: var(--accent);
-        font-size: 0.82rem;
         font-weight: 700;
-        letter-spacing: 0.08em;
+        font-size: 14px;
         text-transform: uppercase;
-      }
-
-      h1 {
-        max-width: 760px;
-        margin: 14px 0 18px;
-        font-size: clamp(2.1rem, 6vw, 4.4rem);
-        line-height: 1;
         letter-spacing: 0;
       }
-
-      .lead {
-        max-width: 700px;
-        color: var(--muted);
-        font-size: 1.15rem;
+      h1 {
+        margin: 0;
+        font-size: clamp(38px, 7vw, 72px);
+        line-height: 0.96;
+        letter-spacing: 0;
+        max-width: 900px;
       }
-
-      .actions {
+      .sub {
+        margin: 0;
+        color: var(--muted);
+        font-size: 20px;
+        max-width: 760px;
+      }
+      .cta-row {
         display: flex;
         flex-wrap: wrap;
-        gap: 12px;
-        margin: 30px 0;
+        gap: 14px;
+        align-items: center;
       }
-
-      a.button,
-      button {
-        min-height: 46px;
-        border: 1px solid var(--line);
-        border-radius: 8px;
-        padding: 12px 16px;
-        background: transparent;
-        color: var(--text);
-        font: inherit;
-        font-weight: 700;
-        text-decoration: none;
-        cursor: pointer;
-      }
-
-      a.primary {
-        border-color: var(--accent);
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 48px;
+        padding: 0 18px;
+        border-radius: 6px;
         background: var(--accent);
-        color: #052016;
+        color: white;
+        text-decoration: none;
+        font-weight: 700;
       }
-
-      section {
-        border-top: 1px solid var(--line);
-        margin-top: 36px;
-        padding-top: 28px;
+      .button:hover { background: var(--accent-dark); }
+      .button.secondary {
+        background: #111318;
       }
-
-      .grid {
+      .button.secondary:hover { background: #252a33; }
+      .price {
+        color: var(--muted);
+        font-weight: 700;
+      }
+      .notice {
+        border: 1px solid #b8d7d3;
+        border-radius: 8px;
+        background: #eef8f6;
+        padding: 18px;
+        max-width: 820px;
+      }
+      .notice p {
+        margin: 0;
+        color: #233b39;
+      }
+      .offer-strip {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 14px;
       }
-
-      .reason {
-        text-align: left;
-        background: var(--panel);
+      .offer {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 16px;
+        background: #ffffff;
       }
-
-      small {
+      .offer h3 {
+        margin: 0 0 8px;
+        font-size: 18px;
+      }
+      .offer p {
+        margin: 0 0 12px;
         color: var(--muted);
       }
+      section {
+        padding: 34px 0;
+        border-bottom: 1px solid var(--line);
+      }
+      h2 {
+        margin: 0 0 16px;
+        font-size: 26px;
+        letter-spacing: 0;
+      }
+      ul {
+        padding-left: 20px;
+        margin: 0;
+      }
+      li + li { margin-top: 8px; }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+      }
+      .item {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 18px;
+        background: var(--panel);
+      }
+      .item strong { display: block; margin-bottom: 6px; }
+      .proof {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        background: #111318;
+        color: #e8eef5;
+        padding: 16px;
+        border-radius: 8px;
+        overflow-wrap: anywhere;
+      }
+      footer {
+        padding-top: 28px;
+        color: var(--muted);
+        font-size: 14px;
+      }
+      @media (max-width: 700px) {
+        .wrap { padding-top: 32px; }
+        .grid, .offer-strip { grid-template-columns: 1fr; }
+        .sub { font-size: 18px; }
+      }
     </style>
+  <script defer data-domain="igorganapolsky.github.io" src="https://plausible.io/js/script.outbound-links.js"></script>
   </head>
   <body>
-    <main>
-      <p class="eyebrow">OpenClaw setup is now ThumbGate</p>
-      <h1>Stop autonomous coding agents before they ship bad actions.</h1>
-      <p class="lead">
-        The old OpenClaw Mac setup guide is deprecated. The paid path is now
-        ThumbGate: agent safety checks, workflow guardrails, and production
-        verification for Codex, Claude, Chrome Computer Use, and browser-driven
-        automation.
-      </p>
-
-      <div class="actions">
-        <a
-          class="button primary"
-          href="https://thumbgate.ai/checkout/pro?utm_source=openclaw_index&utm_medium=bridge_cta&utm_campaign=openclaw_setup"
-          data-track="checkout_click"
-          data-source="openclaw_index"
-          data-tier="thumbgate_pro"
-          data-placement="hero"
-          >Start ThumbGate Pro</a
-        >
-        <a
-          class="button"
-          href="https://thumbgate.ai/?utm_source=openclaw_index&utm_medium=bridge_cta&utm_campaign=openclaw_setup"
-          data-track="offer_route_click"
-          data-source="openclaw_index"
-          data-placement="hero_secondary"
-          >View the offer first</a
-        >
-      </div>
+    <main class="wrap">
+      <header>
+        <p class="eyebrow">Done-for-you Mac AI-agent setup · by the author of <a href="https://igorganapolsky.github.io/openclaw-console/" style="color:inherit;">OpenClaw Console</a> (free, open source) · <a href="https://www.kdnuggets.com/how-to-set-up-claude-code-channels-locally" style="color:inherit;">referenced by KDnuggets</a></p>
+        <h1>Fix broken agent routing, fallback, and Computer Use on your Mac.</h1>
+        <p class="sub">Same-day async triage for AI-agent stacks that are blocked by stale auth, broken model routing, provider fallback loops, token bloat, reused sessions, macOS permission gaps, or Computer Use refusing simple tasks.</p>
+        <div class="notice">
+          <p><strong>Came from a GitHub issue?</strong> Buy triage, send the issue URL plus the failing logs/transcript, and I will reply with the likely root cause and the next patch or setup move.</p>
+        </div>
+        <div class="cta-row">
+          <a class="button" href="./speed-to-lead.html">Same-day triage for $49 →</a>
+          <a class="button secondary" href="#offers">See all options ($19, $99, $497, $250/mo)</a>
+          <span class="price">Send the failing GitHub issue, transcript, or log. Same-day root-cause direction in your inbox. Full refund if I can't name a likely root cause from your bundle.</span>
+        </div>
+      </header>
 
       <section>
-        <h2>Why this changed</h2>
-        <p>
-          The setup guide solved environment issues. The paid problem is bigger:
-          preventing agents from posting, applying, spending, deleting, or
-          messaging without the right checks. ThumbGate is the focused product
-          for that.
-        </p>
+        <h2>Agent Apps Sell Better Than Setup</h2>
+        <div class="grid">
+          <div class="item"><strong>WhatsApp Lead Responder</strong>Qualify inbound leads, draft replies, and create the next action.</div>
+          <div class="item"><strong>Daily Owner Briefing</strong>Summarize leads, urgent messages, open tasks, and today's priorities.</div>
+          <div class="item"><strong>CRM Follow-Up Agent</strong>Keep pipeline stages, owners, and stale follow-ups visible.</div>
+          <div class="item"><strong>Lead Monitor</strong>Find Reddit/GitHub posts where people ask for what you sell and draft helpful replies.</div>
+          <div class="item"><strong>Upwork Proposal Assistant</strong>Score jobs, avoid bad fits, and draft focused proposals.</div>
+          <div class="item"><strong>AI Agent Security Auditor</strong>Score authorized agent endpoints for auth, TLS, CORS, model, prompt, and tool exposure.</div>
+          <div class="item"><strong>Durable Agent Workflow</strong>Turn fragile scripts into logged, retryable, approval-gated workflows.</div>
+          <div class="item"><strong>Cost-Aware LLM Router</strong>Route cheap tasks to cheap models and escalate only when risk or complexity requires it.</div>
+          <div class="item"><strong>Hermes VPS Assistant</strong>Set up Telegram, private backup, crons, scoped env files, and weekly security checks.</div>
+          <div class="item"><strong>Agent Consent Layer</strong>Define granular, expiring, revocable action permissions checked before every sensitive tool call.</div>
+        </div>
+      </section>
+
+            <section id="offers">
+        <h2>How To Start</h2>
+        <div class="offer-strip">
+          <div class="offer" style="grid-column: 1 / -1; text-align: center;">
+            <h3>$49 Same-Day Triage</h3>
+            <p>Send one GitHub issue, failing transcript, or log excerpt. I will diagnose the root cause and provide the exact next steps or patch direction within 24 hours.</p>
+            <a class="button" href="./speed-to-lead.html">Buy same-day triage for $49 →</a>
+          </div>
+        </div>
       </section>
 
       <section>
-        <h2>Need this checked before the next agent run?</h2>
-        <p>
-          Buy the $499 agent safety diagnostic if your Codex, Claude, Chrome
-          Computer Use, or OpenClaw workflow can touch money, public replies,
-          client accounts, or production deploys. I review the workflow, identify
-          unsafe autonomous actions, and return a concise guardrail plan you can
-          implement before the next run.
-        </p>
-        <div class="actions">
+        <h2>What You Get</h2>
+        <div class="grid">
+          <div class="item"><strong>Model routing</strong>Provider-aware route design for coding, fallbacks, context, and compaction.</div>
+          <div class="item"><strong>Fallback diagnosis</strong>Clear separation of quota, auth, model-not-found, rate-limit, timeout, and provider outage paths.</div>
+          <div class="item"><strong>Computer Use</strong>macOS permissions and real smoke tests for desktop automation.</div>
+          <div class="item"><strong>Project isolation</strong>Per-directory sessions so one project does not pollute another.</div>
+          <div class="item"><strong>Runbook</strong>A concise operating note showing what changed and how to use it.</div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Good Fit</h2>
+        <ul>
+          <li>Your AI agent freezes, refuses simple actions, or gives irrelevant verbose answers.</li>
+          <li>OpenClaw/Codex uses the wrong model or stale OAuth profile.</li>
+          <li>Computer Use cannot inspect, click, type, or list apps reliably.</li>
+          <li>You want a practical local workstation for coding and business automation.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Proof From My Own Setup</h2>
+        <div class="proof">Gateway OK. Main agent: Claude Sonnet via OpenRouter. Dedicated Computer Use agent: openai/gpt-5.5 via Codex runtime. Permissions: Screen Recording=true, Accessibility=true. Smoke: ACTIVE_APP=WezTerm; APP_COUNT=8 using computer-use.list_apps.</div>
+      </section>
+
+      <section>
+        <h2>Free Fix Guides</h2>
+        <ul>
+          <li><a href="./quick-read.html">$19 Mac AI Agent Quick Read</a></li>
+          <li><a href="./computer-use-plugin-unavailable.html">"Computer Use plugin unavailable" on macOS: the four real causes</a></li>
+          <li><a href="./codex-computer-use-intel-mac.html">Codex Computer Use unavailable on Intel Mac: audit offer</a></li>
+          <li><a href="./troubleshooting.html">Codex Computer Use not working on macOS: practical checklist</a></li>
+          <li><a href="./claude-code-computer-use.html">Claude Code Computer Use crashes with checkAccessibility/registerEscape</a></li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Boundaries</h2>
+        <ul>
+          <li>No guaranteed revenue outcomes.</li>
+          <li>No macOS security bypasses.</li>
+          <li>No secret exposure. Keys are entered locally or stored in your own manager.</li>
+          <li>No sending, publishing, or spending without approval.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Start</h2>
+        <p>Buy the quick read, triage, or diagnostic. I will follow up through the email attached to your Stripe checkout, then ask for the GitHub issue URL, your current agent stack, and the failure logs or transcript.</p>
+        <div class="cta-row">
           <a
-            class="button primary"
+            class="button"
             href="https://buy.stripe.com/00w14neyUcXA5pL5e33sI0e?client_reference_id=openclaw_index_agent_safety_diagnostic&utm_source=openclaw_index&utm_medium=diagnostic_cta&utm_campaign=openclaw_agent_safety"
             data-track="checkout_click"
             data-source="openclaw_index"
             data-tier="agent_safety_diagnostic"
             data-price="499"
-            data-placement="diagnostic_section"
-            >Buy $499 diagnostic</a
+            data-placement="start_section"
+            >Agent safety diagnostic $499</a
           >
-          <a
-            class="button"
-            href="/case-studies/hilltown-pretix-stripe-connect/?utm_source=openclaw_index&utm_medium=proof_link&utm_campaign=openclaw_agent_safety"
-            data-track="offer_route_click"
-            data-source="openclaw_index"
-            data-placement="diagnostic_proof"
-            >See paid delivery proof</a
-          >
+          <a class="button" href="./speed-to-lead.html">Same-day triage for $49 →</a>
+          <a class="button secondary" href="#offers">See all options</a>
         </div>
       </section>
 
-      <section>
-        <h2>Hardened OpenClaw Governance Kits</h2>
-        <p>Get copy-ready prevention rules and specs designed specifically for OpenClaw-style agents:</p>
-        <div class="grid" style="margin-top: 16px;">
-          <div class="reason" style="padding: 16px; border: 1px solid var(--line); border-radius: 8px; display: flex; flex-direction: column; justify-content: space-between;">
-            <div>
-              <h3 style="margin-top: 0; color: var(--accent);">Prevention Rule Library</h3>
-              <p style="font-size: 14px; margin: 8px 0 16px; color: var(--muted);">40 copy-ready rules for unsafe writes, credentials, payments, and client-facing agent replies.</p>
-            </div>
-            <a class="button primary" style="text-align: center; display: block;" href="https://buy.stripe.com/eVq5kDfCY7Dg4lH49Z3sI13" data-track="kit_checkout_click" data-kit="prevention-rule-library">$49 — Get the Library</a>
-          </div>
-          <div class="reason" style="padding: 16px; border: 1px solid var(--line); border-radius: 8px; display: flex; flex-direction: column; justify-content: space-between;">
-            <div>
-              <h3 style="margin-top: 0; color: var(--accent);">Reliable Governance Kit</h3>
-              <p style="font-size: 14px; margin: 8px 0 16px; color: var(--muted);">Complete self-serve kit: rule library, agent registry worksheet, launch checklist, and proof template.</p>
-            </div>
-            <a class="button primary" style="text-align: center; display: block;" href="https://buy.stripe.com/bJe14naiE9Lo7xT49Z3sI12" data-track="kit_checkout_click" data-kit="reliable-governance-kit">$97 — Get the Kit</a>
-          </div>
-        </div>
-      </section>
-
-      <section aria-labelledby="reason-title">
-        <h2 id="reason-title">Not buying right now?</h2>
-        <p><small>Tell us what's missing, or tap a reason below to record your feedback.</small></p>
-        <div style="margin-bottom: 16px;">
-          <textarea id="custom-reason-input" style="width: 100%; min-height: 80px; padding: 10px; border-radius: 6px; border: 1px solid var(--line); background: var(--panel); color: var(--text); font-family: inherit; font-size: 14px; resize: vertical;" placeholder="Optional: What is your primary blocker? (e.g., 'Need support for Python', 'Only want offline use')"></textarea>
-          <button id="submit-custom-reason" style="margin-top: 8px; min-height: 38px; padding: 8px 16px; font-size: 14px;" class="button">Submit Feedback</button>
-        </div>
-        <div class="grid">
-          <button class="reason" data-track="checkout_abandon_reason" data-reason="price" data-source="openclaw_index">
-            Too expensive
-          </button>
-          <button class="reason" data-track="checkout_abandon_reason" data-reason="unclear" data-source="openclaw_index">
-            Offer is unclear
-          </button>
-          <button class="reason" data-track="checkout_abandon_reason" data-reason="proof" data-source="openclaw_index">
-            Need more proof
-          </button>
-          <button class="reason" data-track="checkout_abandon_reason" data-reason="research" data-source="openclaw_index">
-            Just researching
-          </button>
-        </div>
-      </section>
+      <footer>
+        OpenClaw Mac AI Workstation Setup. Built for founders and developers who need agents to do real work, not burn time.
+      </footer>
     </main>
-    <script>
-      document.addEventListener("click", function (event) {
-        var target = event.target.closest("[data-track]");
-        if (!target) return;
-        var eventName = target.getAttribute("data-track");
-        var href = target.getAttribute("href");
-        var props = {};
-        Object.keys(target.dataset).forEach(function (key) {
-          if (key !== "track") props[key] = target.dataset[key];
-        });
-        if (window.plausible) window.plausible(eventName, { props: props });
-        if (target.tagName === "BUTTON") target.textContent = "Recorded";
-        if (href && !event.metaKey && !event.ctrlKey && !event.shiftKey) {
-          event.preventDefault();
-          window.setTimeout(function () {
-            window.location.href = href;
-          }, 160);
-        }
-      });
-
-      document.getElementById("submit-custom-reason").addEventListener("click", function () {
-        var input = document.getElementById("custom-reason-input");
-        var val = input.value.trim();
-        if (!val) return;
-        if (window.plausible) {
-          window.plausible("checkout_abandon_custom_reason", {
-            props: {
-              reason: val,
-              source: "openclaw_index"
-            }
-          });
-        }
-        input.value = "";
-        input.placeholder = "Thank you for your feedback!";
-        this.textContent = "Submitted";
-        this.disabled = true;
-      });
-    </script>
   </body>
 </html>

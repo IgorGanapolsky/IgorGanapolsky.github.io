@@ -1,176 +1,229 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta
-      name="description"
-      content="The OpenClaw troubleshooting guide moved to ThumbGate, a paid agent governance and safety-check product for autonomous coding workflows."
-    />
-    <title>OpenClaw Troubleshooting Moved to ThumbGate</title>
-    <link rel="canonical" href="https://thumbgate.ai/" />
-    <script defer data-domain="igorganapolsky.github.io" src="https://plausible.io/js/script.tagged-events.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Codex Computer Use Not Working on macOS: Real Diagnostic Checklist (2026)</title>
+    <meta name="description" content="Why Codex Computer Use, OpenClaw, and Claude Code agents silently fail on macOS — and the exact commands to find the real cause. Covers permissions, plugin cache, OAuth, model routing, OpenRouter fallback, TCC, and session isolation.">
+    <link rel="canonical" href="https://igorganapolsky.github.io/openclaw-mac-ai-workstation-setup/troubleshooting.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Codex Computer Use Not Working on macOS: Real Diagnostic Checklist (2026)">
+    <meta property="og:description" content="The six real causes for Codex Computer Use silently failing on macOS — plugin cache, TCC bundle ID, OpenRouter fallback, Apple Events posture, multiple CODEX_HOMEs, session reuse — with exact commands per cause.">
+    <meta property="og:url" content="https://igorganapolsky.github.io/openclaw-mac-ai-workstation-setup/troubleshooting.html">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "Codex Computer Use Not Working on macOS: Real Diagnostic Checklist",
+      "description": "Six real causes for Codex / OpenClaw / Claude Code Computer Use failures on macOS, with the exact diagnostic commands per cause.",
+      "author": { "@type": "Person", "name": "Igor Ganapolsky" },
+      "datePublished": "2026-05-05",
+      "dateModified": "2026-05-14",
+      "inLanguage": "en",
+      "url": "https://igorganapolsky.github.io/openclaw-mac-ai-workstation-setup/troubleshooting.html",
+      "about": ["Codex", "Computer Use", "macOS", "OpenClaw", "Claude Code", "MCP", "TCC"],
+      "mainEntityOfPage": "https://igorganapolsky.github.io/openclaw-mac-ai-workstation-setup/troubleshooting.html"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Why does Codex say 'Computer Use plugin unavailable' on macOS even after reinstalling?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The bundled plugin exists in /Applications/Codex.app/Contents/Resources/plugins/openai-bundled but the active Codex home isn't pointed at it. Reinstalling doesn't fix this; the plugin cache lives in your user directory at ~/.codex/plugins/cache/openai-bundled/computer-use/ and the install path didn't hydrate it. Fix: run codex plugin marketplace add /Applications/Codex.app/Contents/Resources/plugins/openai-bundled, then codex mcp list to confirm computer-use appears."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why does macOS deny Screen Recording approval for Codex even after granting it in System Settings?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "macOS TCC tracks permission by bundle identifier, not by app name. If you ran Codex from a different bundle path (DMG copy vs App Store vs helper signed differently), permissions are recorded for one bundle and the running process has a different bundle ID. Verify with codesign -dv --verbose=2 /Applications/Codex.app and compare to the TCC.db entry. Fix: remove the unsigned/old copy and re-grant permissions to the canonical bundle."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why does OpenRouter fallback route silently back to the broken primary model?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Gateway fallback config keeps the primary model's threshold values when escalating to the fallback, so the fallback hits the same compression or context limit and fails identically. The agent looks like it tried two providers; it actually tried one provider twice. Fix: define separate threshold/context configs per route, or split into a dedicated agent variant — e.g., main agent on Claude Sonnet via OpenRouter, dedicated computer-use agent on Codex runtime."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why does Computer Use work in Zed terminal but break when launched from cmux, Warp, or another host app?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Apple Events from a child process inherit the parent's TCC posture, not their own. A tool running inside cmux has cmux's permissions, not Codex's. This produces AppleScript error -1743 ('Not allowed to send Apple events') with no other diagnostic. Fix: grant Automation permission to the actual parent (cmux/Warp/iTerm) in System Settings > Privacy & Security > Automation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why does Codex Computer Use fail when I have multiple CODEX_HOME values or shells?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Codex stores auth and plugin caches under $CODEX_HOME. If you have an old shell that exports a different CODEX_HOME, or an installer that wrote to a per-user home while you're running as a different user, the runtime answering you is not the same runtime that owns the Computer Use plugin. Fix: printenv | grep -i codex, pick one canonical CODEX_HOME, remove the others from every shell rc."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why does the same OpenClaw / otui session leak state across unrelated project directories?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "OpenClaw and otui reuse a session pool keyed by terminal, not by working directory. Open the same agent in two project dirs and it inherits the other project's compaction state, plan, and memory — producing answers that reference files from the wrong project. Fix: use a per-directory wrapper that hashes $PWD into the session id, e.g., openclaw --session-key \"$(pwd | shasum | cut -c1-12)\"."
+          }
+        }
+      ]
+    }
+    </script>
     <style>
-      :root { color-scheme: dark; --bg: #0b1117; --panel: #101922; --text: #eef6ff; --muted: #9fb1c1; --accent: #34d399; --line: #243140; }
-      * { box-sizing: border-box; }
-      body { margin: 0; min-height: 100vh; background: var(--bg); color: var(--text); font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height: 1.55; }
-      main { width: min(860px, calc(100vw - 32px)); margin: 0 auto; padding: 72px 0 48px; }
-      .eyebrow { color: var(--accent); font-size: 0.82rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
-      h1 { max-width: 760px; margin: 14px 0 18px; font-size: clamp(2.1rem, 6vw, 4.4rem); line-height: 1; letter-spacing: 0; }
-      .lead { max-width: 700px; color: var(--muted); font-size: 1.15rem; }
-      .actions { display: flex; flex-wrap: wrap; gap: 12px; margin: 30px 0; }
-      a.button, button { min-height: 46px; border: 1px solid var(--line); border-radius: 8px; padding: 12px 16px; background: transparent; color: var(--text); font: inherit; font-weight: 700; text-decoration: none; cursor: pointer; }
-      a.primary { border-color: var(--accent); background: var(--accent); color: #052016; }
-      section { border-top: 1px solid var(--line); margin-top: 36px; padding-top: 28px; }
-      .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
-      .reason { text-align: left; background: var(--panel); }
-      small { color: var(--muted); }
+      body { margin: 0; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #111318; background: #fff; line-height: 1.6; }
+      main { max-width: 860px; margin: 0 auto; padding: 44px 20px 72px; }
+      h1 { font-size: clamp(34px, 6vw, 56px); line-height: 1.05; margin: 0 0 18px; letter-spacing: -0.01em; }
+      h2 { margin-top: 40px; font-size: 26px; letter-spacing: 0; }
+      h3 { margin-top: 28px; font-size: 19px; }
+      p, li { font-size: 18px; }
+      .lead { color: #5c6470; font-size: 21px; max-width: 760px; }
+      code, pre { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 15px; }
+      pre { background: #111318; color: #e8eef5; padding: 16px; border-radius: 8px; overflow-x: auto; }
+      code { background: #f1f3f6; padding: 1px 5px; border-radius: 3px; }
+      pre code { background: transparent; padding: 0; }
+      a.button { display: inline-flex; min-height: 48px; align-items: center; justify-content: center; padding: 0 18px; border-radius: 6px; background: #0f766e; color: white; text-decoration: none; font-weight: 700; margin: 4px 6px 4px 0; }
+      a.button.secondary { background: #1f2937; }
+      a.button.tertiary { background: transparent; color: #0f766e; border: 1px solid #0f766e; }
+      .note { border: 1px solid #d8dde5; border-radius: 8px; background: #f6f8fb; padding: 16px; margin: 16px 0; }
+      .ladder { border: 1px solid #d8dde5; border-radius: 10px; padding: 22px; margin: 28px 0; background: #fafbfd; }
+      .ladder h3 { margin-top: 0; }
+      .ladder ul { padding-left: 20px; }
+      .symptom { border-left: 4px solid #0f766e; padding: 4px 14px; margin: 18px 0; background: #f6fbfa; }
+      .symptom strong { display: block; margin-bottom: 4px; }
     </style>
+  <script defer data-domain="igorganapolsky.github.io" src="https://plausible.io/js/script.outbound-links.js"></script>
   </head>
   <body>
     <main>
-      <p class="eyebrow">Troubleshooting moved</p>
-      <h1>The real blocker is no longer setup. It is agent control.</h1>
-      <p class="lead">
-        This OpenClaw troubleshooting URL used to attract Mac/Codex setup traffic.
-        It now routes to ThumbGate because the higher-value problem is preventing
-        autonomous agents from taking unsafe actions in production workflows.
+      <h1>Codex Computer Use not working on macOS? The real cause is almost never what the error says.</h1>
+      <p class="lead">If OpenClaw, Codex, or Claude Code refuses to inspect apps, falls back to text answers, or denies Screen Recording approval after every reinstall, the actual failure is one of six things — and none of them are "reinstall the app again." This page walks through each, with the exact commands to run.</p>
+
+      <p>
+        <a class="button" href="./speed-to-lead.html">Send one log, get root cause — $19 quick read</a>
+        <a class="button tertiary" href="#checklist">Or read the free checklist below</a>
+        <br>
+        <span style="color:#5c6470;font-size:14px;display:inline-block;margin-top:8px;">$19 = one root-cause note + next command. Same-day reply during US business hours. Full refund if I can't name a likely root cause from your bundle.</span>
       </p>
 
-      <div class="actions">
-        <a
-          class="button primary"
-          href="https://thumbgate.ai/checkout/pro?utm_source=openclaw_troubleshooting&utm_medium=bridge_cta&utm_campaign=openclaw_setup"
-          data-track="checkout_click"
-          data-source="openclaw_troubleshooting"
-          data-tier="thumbgate_pro"
-          data-placement="hero"
-          >Start ThumbGate Pro</a
-        >
-        <a
-          class="button"
-          href="https://thumbgate.ai/?utm_source=openclaw_troubleshooting&utm_medium=bridge_cta&utm_campaign=openclaw_setup"
-          data-track="offer_route_click"
-          data-source="openclaw_troubleshooting"
-          data-placement="hero_secondary"
-          >View the offer first</a
-        >
+      <div class="note" id="self-serve">
+        <strong>Free self-serve bundle — one command.</strong>
+        <pre><code>curl -fsSL https://igorganapolsky.github.io/openclaw-mac-ai-workstation-setup/scripts/self-diagnose.mjs | node</code></pre>
+        Read-only: runs the diagnostic commands for all six symptoms, redacts common secrets (GitHub/Stripe/OpenAI/Resend/Bearer/email patterns), and writes a single bundle to <code>~/Desktop/openclaw-diagnostic-&lt;timestamp&gt;.txt</code>. Review it yourself, or paste it into the $19 quick read for a confirmed root cause.
+        <br><br>
+        <span style="color:#5c6470;font-size:15px;">Note for Claude Max 5x subscribers: starting <strong>June 15, 2026</strong> your plan includes a $100/month Agent SDK credit for <code>claude -p</code> and SDK usage. A future <code>--analyze</code> flag will synthesize the bundle on that credit; today the script bundles only.</span>
       </div>
 
-      <section>
-        <h2>What ThumbGate checks</h2>
-        <p>
-          ThumbGate adds pre-action review around agentic browser work, public
-          replies, paid actions, destructive commands, and production releases.
-          It is built for teams using Codex, Claude, Chrome Computer Use, and
-          browser automation where one bad autonomous step can cost money or trust.
-        </p>
-      </section>
+      <h2 id="checklist">The six real causes (in order of how often they actually break things)</h2>
 
-      <section>
-        <h2>Need this checked before the next agent run?</h2>
-        <p>
-          Buy the $499 agent safety diagnostic if your Codex, Claude, Chrome
-          Computer Use, or OpenClaw workflow can touch money, public replies,
-          client accounts, or production deploys. I review the workflow, identify
-          unsafe autonomous actions, and return a concise guardrail plan you can
-          implement before the next run.
-        </p>
-        <div class="actions">
-          <a
-            class="button primary"
-            href="https://buy.stripe.com/00w14neyUcXA5pL5e33sI0e?client_reference_id=openclaw_troubleshooting_agent_safety_diagnostic&utm_source=openclaw_troubleshooting&utm_medium=diagnostic_cta&utm_campaign=openclaw_agent_safety"
-            data-track="checkout_click"
-            data-source="openclaw_troubleshooting"
-            data-tier="agent_safety_diagnostic"
-            data-price="499"
-            data-placement="diagnostic_section"
-            >Buy $499 diagnostic</a
-          >
-          <a
-            class="button"
-            href="/case-studies/hilltown-pretix-stripe-connect/?utm_source=openclaw_troubleshooting&utm_medium=proof_link&utm_campaign=openclaw_agent_safety"
-            data-track="offer_route_click"
-            data-source="openclaw_troubleshooting"
-            data-placement="diagnostic_proof"
-            >See paid delivery proof</a
-          >
-        </div>
-      </section>
+      <div class="symptom">
+        <strong>Symptom 1 — "Computer Use plugin unavailable" even after reinstall</strong>
+        The bundled plugin exists in <code>/Applications/Codex.app/Contents/Resources/plugins/openai-bundled</code> but the active Codex home isn't pointed at it. Reinstalling doesn't fix this; the plugin cache lives in your user directory and the install path didn't touch it.
+      </div>
+      <pre><code>codex mcp list
+ls -la ~/.codex/plugins/cache/openai-bundled/computer-use/*/.codex-plugin/plugin.json
+ls -la ~/.codex/plugins/cache/openai-bundled/computer-use/*/.mcp.json
+codex plugin marketplace add /Applications/Codex.app/Contents/Resources/plugins/openai-bundled
+codex mcp list</code></pre>
+      <p>If the second <code>codex mcp list</code> still doesn't show <code>computer-use</code>, you have a stale Codex home or isolated profile — see Symptom 5.</p>
 
-      <section>
-        <h2>Hardened OpenClaw Governance Kits</h2>
-        <p>Get copy-ready prevention rules and specs designed specifically for OpenClaw-style agents:</p>
-        <div class="grid" style="margin-top: 16px;">
-          <div class="reason" style="padding: 16px; border: 1px solid var(--line); border-radius: 8px; display: flex; flex-direction: column; justify-content: space-between;">
-            <div>
-              <h3 style="margin-top: 0; color: var(--accent);">Prevention Rule Library</h3>
-              <p style="font-size: 14px; margin: 8px 0 16px; color: var(--muted);">40 copy-ready rules for unsafe writes, credentials, payments, and client-facing agent replies.</p>
-            </div>
-            <a class="button primary" style="text-align: center; display: block;" href="https://buy.stripe.com/eVq5kDfCY7Dg4lH49Z3sI13" data-track="kit_checkout_click" data-kit="prevention-rule-library">$49 — Get the Library</a>
-          </div>
-          <div class="reason" style="padding: 16px; border: 1px solid var(--line); border-radius: 8px; display: flex; flex-direction: column; justify-content: space-between;">
-            <div>
-              <h3 style="margin-top: 0; color: var(--accent);">Reliable Governance Kit</h3>
-              <p style="font-size: 14px; margin: 8px 0 16px; color: var(--muted);">Complete self-serve kit: rule library, agent registry worksheet, launch checklist, and proof template.</p>
-            </div>
-            <a class="button primary" style="text-align: center; display: block;" href="https://buy.stripe.com/bJe14naiE9Lo7xT49Z3sI12" data-track="kit_checkout_click" data-kit="reliable-governance-kit">$97 — Get the Kit</a>
-          </div>
-        </div>
-      </section>
+      <div class="symptom">
+        <strong>Symptom 2 — Screen Recording and Accessibility both granted, app still denies approval</strong>
+        macOS TCC tracks permission by bundle identifier, not by app name. If you ran Codex from a different bundle path (DMG copy vs. App Store vs. helper signed differently), permissions are recorded for one bundle and the running process has a different one.
+      </div>
+      <pre><code># Confirm which bundle is actually running
+ps aux | grep -i codex | grep -v grep
+codesign -dv --verbose=2 /Applications/Codex.app 2>&1 | grep -E "Identifier|TeamIdentifier"
+# Compare to what TCC has approved (will prompt for Full Disk Access)
+sqlite3 ~/Library/Application\ Support/com.apple.TCC/TCC.db \
+  "SELECT client, auth_value FROM access WHERE service IN ('kTCCServiceScreenCapture','kTCCServiceAccessibility');"</code></pre>
+      <p>Mismatch between the running bundle ID and the TCC-approved bundle ID is the actual cause. The fix is to fully remove the unsigned/old copy and re-grant permissions to the canonical bundle.</p>
 
-      <section aria-labelledby="reason-title">
-        <h2 id="reason-title">Not buying right now?</h2>
-        <p><small>Tell us what's missing, or tap a reason below to record your feedback.</small></p>
-        <div style="margin-bottom: 16px;">
-          <textarea id="custom-reason-input" style="width: 100%; min-height: 80px; padding: 10px; border-radius: 6px; border: 1px solid var(--line); background: var(--panel); color: var(--text); font-family: inherit; font-size: 14px; resize: vertical;" placeholder="Optional: What is your primary blocker? (e.g., 'Need support for Python', 'Only want offline use')"></textarea>
-          <button id="submit-custom-reason" style="margin-top: 8px; min-height: 38px; padding: 8px 16px; font-size: 14px;" class="button">Submit Feedback</button>
-        </div>
-        <div class="grid">
-          <button class="reason" data-track="checkout_abandon_reason" data-reason="price" data-source="openclaw_troubleshooting">Too expensive</button>
-          <button class="reason" data-track="checkout_abandon_reason" data-reason="unclear" data-source="openclaw_troubleshooting">Offer is unclear</button>
-          <button class="reason" data-track="checkout_abandon_reason" data-reason="proof" data-source="openclaw_troubleshooting">Need more proof</button>
-          <button class="reason" data-track="checkout_abandon_reason" data-reason="research" data-source="openclaw_troubleshooting">Just researching</button>
-        </div>
-      </section>
+      <div class="symptom">
+        <strong>Symptom 3 — OpenRouter "fallback" silently routes you back to the broken primary</strong>
+        Gateway fallback config keeps the primary model's threshold values when escalating to the fallback, so the fallback hits the same compression or context limit and fails identically. The agent looks like it tried two providers; it actually tried one provider twice.
+      </div>
+      <pre><code># Inspect the active route used for your last failing call
+openclaw route show --last
+openclaw route show --agent computer-use
+# Look for "threshold_inherited_from_primary": true</code></pre>
+      <p>Fix: define separate threshold/context configs per route, or split into a dedicated agent variant (this is what the working setup here does — main agent on Claude Sonnet via OpenRouter, dedicated <code>computer-use</code> agent on Codex runtime).</p>
+
+      <div class="symptom">
+        <strong>Symptom 4 — Agent works in Zed terminal, breaks the moment you launch it from cmux / Warp / a host app</strong>
+        Apple Events from a child process inherit the parent's TCC posture, not their own. A tool running inside cmux has cmux's permissions, not Codex's, even though Codex started the tool. This produces <code>AppleScript error -1743</code> ("Not allowed to send Apple events") with no other diagnostic.
+      </div>
+      <pre><code># Verify which parent is granting events
+ps -o ppid,command -p $$
+# Grant Automation permission to the actual parent (cmux/Warp/iTerm) in:
+# System Settings > Privacy & Security > Automation</code></pre>
+
+      <div class="symptom">
+        <strong>Symptom 5 — Stale OAuth tokens or multiple Codex homes blocking the runtime</strong>
+        Codex stores auth under one <code>$CODEX_HOME</code>; if you have an old shell that exported a different one, or an installer that wrote to a per-user home while you're running as a different user (think of the macOS "Codex updated under a different user" class of bug), the runtime that's answering text is not the same runtime that owns the Computer Use plugin.
+      </div>
+      <pre><code>printenv | grep -i codex
+ls -la ~/.codex ~/Library/Application\ Support/Codex 2>/dev/null
+# Pick one canonical CODEX_HOME and remove the others from your shell rc</code></pre>
+
+      <div class="symptom">
+        <strong>Symptom 6 — Same OpenClaw TUI session reused across unrelated projects</strong>
+        OpenClaw and otui reuse a session pool keyed by terminal, not by working directory. Open the same agent in two project dirs and it inherits the other project's compaction state, plan, and memory — producing answers that reference files from the wrong project.
+      </div>
+      <pre><code># Confirm session reuse
+openclaw session ls
+# Use a per-directory wrapper that hashes $PWD into the session id
+# (or run with `openclaw --session-key "$(pwd | shasum | cut -c1-12)"`)</code></pre>
+
+      <h2>Verified working configuration</h2>
+      <div class="note">
+        Local smoke (2026-05-05): OpenClaw gateway healthy. Main agent on Claude Sonnet via OpenRouter for coding/business. Dedicated <code>computer-use</code> agent on Codex runtime. macOS Screen Recording and Accessibility granted. Real Computer Use call <code>computer-use.list_apps</code> returned <code>ACTIVE_APP=WezTerm; APP_COUNT=8</code>.
+      </div>
+
+      <h2>Still stuck after the checklist?</h2>
+
+      <div class="ladder">
+        <h3>Pick the cheapest path that fits</h3>
+        <ul>
+          <li><strong>$19 Quick Read</strong> — send one failing transcript or log excerpt, get back the likely root cause (which of the six above), the next command to run, and whether you actually need the $49 / $99 / $497 path. Same day. <em>Full refund if I can't name a likely root cause.</em><br>
+            <a class="button" href="./speed-to-lead.html">Buy quick read $19</a>
+          </li>
+          <li><strong>$49 Same-Day Triage</strong> — for buyers with multiple failures or who came in from a specific GitHub issue. Triage credit applies against full setup.<br>
+            <a class="button secondary" href="./speed-to-lead.html">Buy triage $49</a>
+          </li>
+          <li><strong>$99 Diagnostic</strong> — async, concise diagnostic note with exact next steps and patch direction.<br>
+            <a class="button secondary" href="./speed-to-lead.html">Buy diagnostic $99</a>
+          </li>
+          <li><strong>$499 Agent Safety Diagnostic</strong> — review a Codex, Claude, Chrome Computer Use, or OpenClaw workflow before it can post, apply, spend, delete, message clients, or ship production changes.<br>
+            <a
+              class="button"
+              href="https://buy.stripe.com/00w14neyUcXA5pL5e33sI0e?client_reference_id=openclaw_troubleshooting_agent_safety_diagnostic&utm_source=openclaw_troubleshooting&utm_medium=diagnostic_cta&utm_campaign=openclaw_agent_safety"
+              data-track="checkout_click"
+              data-source="openclaw_troubleshooting"
+              data-tier="agent_safety_diagnostic"
+              data-price="499"
+              data-placement="offer_ladder"
+              >Buy agent safety diagnostic $499</a
+            >
+          </li>
+          <li><strong>$497 Done-For-You Setup</strong> — I configure routing, sessions, Computer Use, smoke tests, and a runbook end-to-end.<br>
+            <a class="button secondary" href="./speed-to-lead.html">Book setup $497</a>
+          </li>
+        </ul>
+      </div>
+
+      <p style="color:#5c6470;font-size:15px;margin-top:32px;">Boundaries: no revenue guarantees, no macOS security bypasses, no secret exposure. Redact API keys and tokens before sending logs.</p>
     </main>
-    <script>
-      document.addEventListener("click", function (event) {
-        var target = event.target.closest("[data-track]");
-        if (!target) return;
-        var eventName = target.getAttribute("data-track");
-        var href = target.getAttribute("href");
-        var props = {};
-        Object.keys(target.dataset).forEach(function (key) {
-          if (key !== "track") props[key] = target.dataset[key];
-        });
-        if (window.plausible) window.plausible(eventName, { props: props });
-        if (target.tagName === "BUTTON") target.textContent = "Recorded";
-        if (href && !event.metaKey && !event.ctrlKey && !event.shiftKey) {
-          event.preventDefault();
-          window.setTimeout(function () {
-            window.location.href = href;
-          }, 160);
-        }
-      });
-
-      document.getElementById("submit-custom-reason").addEventListener("click", function () {
-        var input = document.getElementById("custom-reason-input");
-        var val = input.value.trim();
-        if (!val) return;
-        if (window.plausible) {
-          window.plausible("checkout_abandon_custom_reason", {
-            props: {
-              reason: val,
-              source: "openclaw_troubleshooting"
-            }
-          });
-        }
-        input.value = "";
-        input.placeholder = "Thank you for your feedback!";
-        this.textContent = "Submitted";
-        this.disabled = true;
-      });
-    </script>
   </body>
 </html>
