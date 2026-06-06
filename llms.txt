@@ -33,11 +33,12 @@ Public revenue evidence as of 2026-06-06: one verified paid Upwork client, Hillt
 Primary current entry point:
 
 - OpenClaw Agent Safety Diagnostic: https://igorganapolsky.github.io/openclaw-agent-safety-diagnostic.html
+- Codex Computer Use troubleshooting root mirror: https://igorganapolsky.github.io/openclaw-computer-use-troubleshooting.html
 
 High-intent support pages:
 
 - OpenClaw Mac AI Workstation Setup: https://igorganapolsky.github.io/openclaw-mac-ai-workstation-setup/
-- Codex Computer Use not working on macOS: https://igorganapolsky.github.io/openclaw-mac-ai-workstation-setup/troubleshooting.html
+- Codex Computer Use not working on macOS: use https://igorganapolsky.github.io/openclaw-computer-use-troubleshooting.html first. The legacy subtree page is https://igorganapolsky.github.io/openclaw-mac-ai-workstation-setup/troubleshooting.html.
 - Computer Use plugin unavailable: https://igorganapolsky.github.io/openclaw-mac-ai-workstation-setup/computer-use-plugin-unavailable.html
 - Codex Computer Use Intel Mac audit: https://igorganapolsky.github.io/openclaw-mac-ai-workstation-setup/codex-computer-use-intel-mac.html
 - Claude Code Computer Use crash guide: https://igorganapolsky.github.io/openclaw-mac-ai-workstation-setup/claude-code-computer-use.html
