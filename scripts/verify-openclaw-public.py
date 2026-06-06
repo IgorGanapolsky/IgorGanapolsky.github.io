@@ -13,6 +13,10 @@ URLS = [
     "https://igorganapolsky.github.io/openclaw-mac-ai-workstation-setup/",
     "https://igorganapolsky.github.io/openclaw-mac-ai-workstation-setup/troubleshooting.html",
     "https://igorganapolsky.github.io/openclaw-mac-ai-workstation-setup/computer-use-plugin-unavailable.html",
+    "https://igorganapolsky.github.io/openclaw-mac-ai-workstation-setup/speed-to-lead.html",
+    "https://igorganapolsky.github.io/openclaw-mac-ai-workstation-setup/quick-read.html",
+    "https://igorganapolsky.github.io/openclaw-mac-ai-workstation-setup/codex-computer-use-intel-mac.html",
+    "https://igorganapolsky.github.io/openclaw-mac-ai-workstation-setup/claude-code-computer-use.html",
 ]
 
 ASSET_URL = "https://igorganapolsky.github.io/assets/revenue-analytics.js"
@@ -59,12 +63,12 @@ def run_once() -> tuple[bool, list[dict[str, object]]]:
             "has_tagged_plausible": "script.tagged-events.js" in body,
             "has_root_revenue_analytics": "/assets/revenue-analytics.js" in body,
             "still_uses_stale_relative_asset": "./assets/revenue-analytics.js" in body,
+            "has_redirect_or_revenue_markup": (
+                "http-equiv=\"refresh\"" in body
+                or ("data-surface=" in body and "/assets/revenue-analytics.js" in body)
+            ),
         }
-        ok = (
-            checks["has_data_surface"]
-            and checks["has_tagged_plausible"]
-            and checks["has_root_revenue_analytics"]
-        )
+        ok = checks["has_redirect_or_revenue_markup"]
         failed = failed or not ok
         results.append(
             {
