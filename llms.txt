@@ -30,14 +30,16 @@ This site provides practical setup, troubleshooting, and paid diagnostic service
   - https://igorganapolsky.github.io/openclaw-mac-ai-workstation-setup/
   - https://igorganapolsky.github.io/openclaw-mac-ai-workstation-setup/troubleshooting.html
   - https://igorganapolsky.github.io/openclaw-mac-ai-workstation-setup/computer-use-plugin-unavailable.html
+  - https://igorganapolsky.github.io/openclaw-mac-ai-workstation-setup/codex-computer-use-intel-mac.html
+  - https://igorganapolsky.github.io/openclaw-mac-ai-workstation-setup/claude-code-computer-use.html
 - GitHub: https://github.com/IgorGanapolsky
-- Current as of 2026-06-05, with $1350 realized from Upwork (Hilltown Stripe Connect), one verified paid Upwork client, and JSS unlock in progress.
+- Current as of 2026-06-06, with $1350 realized from Upwork (Hilltown Stripe Connect), one verified paid Upwork client, and JSS unlock in progress.
 
 ## Contact and Brand
 - Igor Ganapolsky, background in production AI/mobile at scale (Subway, CNH, Abbott).
 - GitHub: https://github.com/IgorGanapolsky
 - Upwork profile for related services: https://www.upwork.com/freelancers/igorganapolsky
 
-Last updated: 2026-06-03
+Last updated: 2026-06-06
 
 For more, see the main pages and the V2 system narrative in the source repo.
