@@ -6,6 +6,7 @@ from __future__ import annotations
 import json
 import sys
 import time
+import urllib.error
 import urllib.request
 
 
@@ -32,13 +33,24 @@ def fetch(url: str) -> tuple[str, dict[str, str | None]]:
             "Pragma": "no-cache",
         },
     )
-    with urllib.request.urlopen(req, timeout=20) as resp:
-        return resp.read().decode("utf-8", "replace"), {
-            "status": str(resp.status),
-            "last_modified": resp.headers.get("Last-Modified"),
-            "etag": resp.headers.get("ETag"),
-            "age": resp.headers.get("Age"),
-            "x_cache": resp.headers.get("X-Cache"),
+    try:
+        with urllib.request.urlopen(req, timeout=20) as resp:
+            return resp.read().decode("utf-8", "replace"), {
+                "status": str(resp.status),
+                "last_modified": resp.headers.get("Last-Modified"),
+                "etag": resp.headers.get("ETag"),
+                "age": resp.headers.get("Age"),
+                "x_cache": resp.headers.get("X-Cache"),
+                "error": None,
+            }
+    except urllib.error.HTTPError as exc:
+        return exc.read().decode("utf-8", "replace"), {
+            "status": str(exc.code),
+            "last_modified": exc.headers.get("Last-Modified"),
+            "etag": exc.headers.get("ETag"),
+            "age": exc.headers.get("Age"),
+            "x_cache": exc.headers.get("X-Cache"),
+            "error": exc.reason,
         }
 
 
