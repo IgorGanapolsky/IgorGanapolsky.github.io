@@ -162,6 +162,27 @@
         gap: 10px;
         justify-content: flex-end;
       }
+      .reason-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+        gap: 10px;
+        margin-top: 14px;
+      }
+      .reason-button {
+        min-height: 40px;
+        padding: 9px 11px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.03);
+        color: var(--muted);
+        font: inherit;
+        font-size: 0.92rem;
+        cursor: pointer;
+      }
+      .reason-button:hover {
+        color: var(--ink);
+        border-color: var(--accent-2);
+      }
       .note {
         color: var(--muted);
         font-size: 0.94rem;
@@ -259,6 +280,41 @@
             direct paid diagnostic, or use Upwork if you need escrow and
             milestone acceptance.
           </p>
+          <div class="reason-grid" aria-label="Not ready reason">
+            <button
+              class="reason-button"
+              type="button"
+              data-track="checkout_reason_click"
+              data-surface="hilltown_case_study"
+              data-tier="stripe_connect_diagnostic"
+              data-reason="need_upwork_escrow"
+              data-placement="bottom_reason"
+            >
+              Need Upwork escrow first
+            </button>
+            <button
+              class="reason-button"
+              type="button"
+              data-track="checkout_reason_click"
+              data-surface="hilltown_case_study"
+              data-tier="stripe_connect_diagnostic"
+              data-reason="need_scope_first"
+              data-placement="bottom_reason"
+            >
+              Need scope first
+            </button>
+            <button
+              class="reason-button"
+              type="button"
+              data-track="checkout_reason_click"
+              data-surface="hilltown_case_study"
+              data-tier="stripe_connect_diagnostic"
+              data-reason="budget_not_ready"
+              data-placement="bottom_reason"
+            >
+              Budget not ready
+            </button>
+          </div>
         </div>
         <div class="actions">
           <a
