@@ -16,4 +16,4 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Verify public OpenClaw telemetry
-        run: python3 scripts/verify-openclaw-public.py
+        run: python3 scripts/verify-openclaw-public.py --attempts 3 --delay 20

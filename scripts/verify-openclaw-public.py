@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import json
 import sys
+import time
 import urllib.request
 
 
@@ -36,7 +37,18 @@ def fetch(url: str) -> tuple[str, dict[str, str | None]]:
         }
 
 
-def main() -> int:
+def parse_args(argv: list[str]) -> tuple[int, float]:
+    attempts = 1
+    delay = 15.0
+    for i, arg in enumerate(argv):
+        if arg == "--attempts" and i + 1 < len(argv):
+            attempts = int(argv[i + 1])
+        if arg == "--delay" and i + 1 < len(argv):
+            delay = float(argv[i + 1])
+    return max(1, attempts), max(0.0, delay)
+
+
+def run_once() -> tuple[bool, list[dict[str, object]]]:
     results: list[dict[str, object]] = []
     failed = False
 
@@ -80,9 +92,33 @@ def main() -> int:
         }
     )
 
-    print(json.dumps({"ok": not failed, "results": results}, indent=2))
-    return 1 if failed else 0
+    return not failed, results
+
+
+def main(argv: list[str]) -> int:
+    attempts, delay = parse_args(argv)
+    last_results: list[dict[str, object]] = []
+    for attempt in range(1, attempts + 1):
+        ok, results = run_once()
+        last_results = results
+        print(json.dumps({"attempt": attempt, "ok": ok, "results": results}, indent=2))
+        if ok:
+            return 0
+        if attempt < attempts:
+            time.sleep(delay)
+    print(
+        json.dumps(
+            {
+                "ok": False,
+                "attempts": attempts,
+                "failure": "public_openclaw_telemetry_stale_after_retries",
+                "last_results": last_results,
+            },
+            indent=2,
+        )
+    )
+    return 1
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    raise SystemExit(main(sys.argv[1:]))
