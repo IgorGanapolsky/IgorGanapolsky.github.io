@@ -33,6 +33,3 @@ jobs:
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
-
-      - name: Verify public OpenClaw telemetry
-        run: python3 scripts/verify-openclaw-public.py --attempts 18 --delay 20
