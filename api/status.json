@@ -1,10 +1,10 @@
 {
   "status": "operational",
-  "provider": "ResumeOS",
-  "as_of": "2026-06-02",
+  "provider": "ResumeOS + OpenClaw",
+  "as_of": "2026-06-06",
   "public_surface": {
-    "storefront": "https://igorganapolsky.github.io/Resume/resumeos/",
-    "primary_offer": "ResumeOS Truth Snapshot",
+    "storefront": "https://igorganapolsky.github.io/openclaw-agent-safety-diagnostic.html",
+    "primary_offer": "Agent Safety Diagnostic",
     "checkout_provider": "Stripe Payment Links"
   },
   "metrics": {
@@ -18,7 +18,9 @@
     "automated_job_discovery",
     "narrative_first_tailoring",
     "pii_safe_scanning",
-    "mcp_governance"
+    "mcp_governance",
+    "agent_side_effect_safety_review",
+    "codex_computer_use_guardrails"
   ],
   "sla": {
     "uptime": "99.9%",

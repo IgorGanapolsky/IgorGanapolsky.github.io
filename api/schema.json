@@ -1,11 +1,24 @@
 {
   "@context": "https://schema.org/",
   "@type": "SoftwareApplication",
-  "name": "ResumeOS",
+  "name": "ResumeOS + OpenClaw Agent Safety",
   "operatingSystem": "Web, macOS, Windows, Linux",
   "applicationCategory": "BusinessApplication",
-  "url": "https://igorganapolsky.github.io/Resume/resumeos/",
+  "url": "https://igorganapolsky.github.io/openclaw-agent-safety-diagnostic.html",
+  "sameAs": [
+    "https://igorganapolsky.github.io/resumeos/",
+    "https://igorganapolsky.github.io/openclaw-computer-use-troubleshooting.html"
+  ],
   "offers": [
+    {
+      "@type": "Offer",
+      "name": "Agent Safety Diagnostic",
+      "price": "499.00",
+      "priceCurrency": "USD",
+      "description": "Async safety diagnostic for Codex, Claude, Chrome Computer Use, or OpenClaw workflows that can post, apply, spend, delete, message clients, or ship production changes.",
+      "url": "https://buy.stripe.com/00w14neyUcXA5pL5e33sI0e",
+      "category": "Agent workflow safety"
+    },
     {
       "@type": "Offer",
       "name": "Resume Truth Snapshot",
@@ -35,6 +48,9 @@
     }
   ],
   "featureList": [
+    "Agent Side-Effect Mapping",
+    "Evidence-Gated Approval Boundaries",
+    "Rollback and Audit Trail Planning",
     "ATS Fit Score + AI-tell Detection",
     "Per-job Resume Tailoring",
     "Autonomous Job Discovery",
@@ -52,12 +68,15 @@
   "agentLegibility": {
     "intent_hooks": [
       "resume_truth_audit",
+      "agent_safety_diagnostic",
+      "codex_computer_use_guardrails",
       "automated_job_apply",
       "career_operations_system"
     ],
     "callable_endpoints": {
-      "products": "https://igorganapolsky.github.io/Resume/api/products.json",
-      "status": "https://igorganapolsky.github.io/Resume/api/status.json"
+      "agentSafetyDiagnostic": "https://igorganapolsky.github.io/openclaw-agent-safety-diagnostic.html",
+      "products": "https://igorganapolsky.github.io/api/products.json",
+      "status": "https://igorganapolsky.github.io/api/status.json"
     }
   }
 }

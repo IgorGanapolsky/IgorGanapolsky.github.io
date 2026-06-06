@@ -1,7 +1,7 @@
 {
   "version": "3.0",
-  "provider": "ResumeOS",
-  "primary_offer": "truth_snapshot",
+  "provider": "ResumeOS + OpenClaw",
+  "primary_offer": "agent_safety_diagnostic",
   "checkout_provider": "Stripe Payment Links",
   "sla": {
     "discovery_cadence": "30m",
@@ -9,6 +9,16 @@
     "submission_evidence": "Mandatory"
   },
   "catalog": [
+    {
+      "id": "agent_safety_diagnostic",
+      "title": "Agent Safety Diagnostic",
+      "price_cents": 49900,
+      "interval": "one-time",
+      "url": "https://buy.stripe.com/00w14neyUcXA5pL5e33sI0e",
+      "stripe_product_id": null,
+      "stripe_price_id": null,
+      "capabilities": ["side_effect_map", "evidence_gates", "approval_boundaries", "rollback_plan", "agent_workflow_patch_plan"]
+    },
     {
       "id": "truth_snapshot",
       "title": "ResumeOS Truth Snapshot",
