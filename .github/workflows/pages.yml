@@ -13,7 +13,7 @@ permissions:
 
 concurrency:
   group: pages
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   deploy:
@@ -21,9 +21,20 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Assert OpenClaw paid funnel artifact
+        run: |
+          test -f openclaw-mac-ai-workstation-setup/agent-safety-diagnostic.html
+          grep -F "OpenClaw Agent Safety Diagnostic" openclaw-mac-ai-workstation-setup/agent-safety-diagnostic.html
+          grep -F "data-track=\"checkout_click\"" openclaw-mac-ai-workstation-setup/agent-safety-diagnostic.html
+          grep -F "agent-safety-diagnostic.html" openclaw-mac-ai-workstation-setup/index.html
+          grep -F "agent-safety-diagnostic.html" openclaw-mac-ai-workstation-setup/troubleshooting.html
+          grep -F "agent-safety-diagnostic.html" openclaw-mac-ai-workstation-setup/quick-read.html
 
       - name: Upload static site
         uses: actions/upload-pages-artifact@v3
