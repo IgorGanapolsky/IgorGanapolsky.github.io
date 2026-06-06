@@ -73,6 +73,15 @@ def run_once() -> tuple[bool, list[dict[str, object]]]:
 
     for url in URLS:
         body, headers = fetch(url)
+        requires_telemetry = (
+            url.endswith("/quick-read.html")
+            or url.endswith("/speed-to-lead.html")
+            or url.endswith("/troubleshooting.html")
+            or url.endswith("/computer-use-plugin-unavailable.html")
+            or url.endswith("/codex-computer-use-intel-mac.html")
+            or url.endswith("/claude-code-computer-use.html")
+            or url.endswith("/openclaw-agent-safety-diagnostic.html")
+        )
         checks = {
             "has_data_surface": "data-surface=" in body,
             "has_tagged_plausible": "script.tagged-events.js" in body,
@@ -89,8 +98,18 @@ def run_once() -> tuple[bool, list[dict[str, object]]]:
                 or "https://buy.stripe.com/" in body
                 or "./speed-to-lead.html" in body
             ),
+            "telemetry_required": requires_telemetry,
+            "telemetry_ok": (
+                "script.tagged-events.js" in body
+                and "/assets/revenue-analytics.js" in body
+                and "data-track=" in body
+            ),
         }
-        ok = checks["has_redirect_or_revenue_markup"] or checks["is_stale_agent_diagnostic_404"]
+        ok = (checks["has_redirect_or_revenue_markup"] or checks["is_stale_agent_diagnostic_404"]) and (
+            not requires_telemetry
+            or checks["telemetry_ok"]
+            or checks["is_stale_agent_diagnostic_404"]
+        )
         failed = failed or not ok
         results.append(
             {
