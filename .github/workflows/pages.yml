@@ -32,14 +32,25 @@ jobs:
           test -f openclaw-mac-ai-workstation-setup/agent-safety-diagnostic.html
           grep -F "OpenClaw Agent Safety Diagnostic" openclaw-mac-ai-workstation-setup/agent-safety-diagnostic.html
           grep -F "data-track=\"checkout_click\"" openclaw-mac-ai-workstation-setup/agent-safety-diagnostic.html
-          grep -F "agent-safety-diagnostic.html" openclaw-mac-ai-workstation-setup/index.html
-          grep -F "agent-safety-diagnostic.html" openclaw-mac-ai-workstation-setup/troubleshooting.html
-          grep -F "agent-safety-diagnostic.html" openclaw-mac-ai-workstation-setup/quick-read.html
+          grep -F "/openclaw-agent-safety-diagnostic.html" openclaw-mac-ai-workstation-setup/index.html
+          grep -F "/openclaw-agent-safety-diagnostic.html" openclaw-mac-ai-workstation-setup/troubleshooting.html
+          grep -F "/openclaw-agent-safety-diagnostic.html" openclaw-mac-ai-workstation-setup/quick-read.html
+          grep -F "home_topbar_openclaw_agent_safety_diagnostic" index.html
+
+      - name: Stage static site
+        run: |
+          rm -rf _site
+          mkdir _site
+          rsync -a \
+            --exclude '.git' \
+            --exclude '_site' \
+            --exclude '.github' \
+            ./ _site/
 
       - name: Upload static site
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: _site
 
       - name: Deploy
         id: deployment
