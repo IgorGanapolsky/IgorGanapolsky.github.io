@@ -41,6 +41,20 @@ jobs:
           grep -F "/openclaw-agent-safety-diagnostic.html" openclaw-mac-ai-workstation-setup/quick-read.html
           grep -F "home_topbar_openclaw_agent_safety_diagnostic" index.html
 
+      - name: Assert Stripe Connect primary offer artifact
+        run: |
+          grep -F "Stripe Connect Marketplace Diagnostic" index.html
+          grep -F "root_stripe_connect_diagnostic_hero" index.html
+          grep -F "data-tier=\"stripe_connect_diagnostic\"" index.html
+          grep -F "\"primary_offer\": \"stripe_connect_diagnostic\"" api/products.json
+          grep -F "\"id\": \"stripe_connect_diagnostic\"" api/products.json
+          grep -F "\"name\": \"Stripe Connect Marketplace Diagnostic\"" api/schema.json
+          grep -F "hilltownStripeConnectCaseStudy" api/schema.json
+          grep -F "Stripe Connect Marketplace Diagnostic" llms.txt
+          grep -F "stripe_connect_diagnostic" llms.txt
+          grep -F "Stripe Connect Marketplace Diagnostic" .well-known/llms.txt
+          grep -F "stripe_connect_diagnostic" .well-known/llms.txt
+
       - name: Stage static site
         run: |
           rm -rf _site
