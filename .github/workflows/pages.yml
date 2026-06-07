@@ -45,6 +45,10 @@ jobs:
         run: |
           grep -F "Stripe Connect Marketplace Diagnostic" index.html
           grep -F "root_stripe_connect_diagnostic_hero" index.html
+          grep -F "stripe_connect_scope_panel" index.html
+          grep -F "payment-flow map" index.html
+          grep -F "refund/webhook reconciliation" index.html
+          grep -F "merchant-of-record boundary" index.html
           grep -F "data-tier=\"stripe_connect_diagnostic\"" index.html
           grep -F "\"primary_offer\": \"stripe_connect_diagnostic\"" api/products.json
           grep -F "\"id\": \"stripe_connect_diagnostic\"" api/products.json
