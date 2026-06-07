@@ -16,7 +16,7 @@
       "price": "499.00",
       "priceCurrency": "USD",
       "description": "Async safety diagnostic for Codex, Claude, Chrome Computer Use, or OpenClaw workflows that can post, apply, spend, delete, message clients, or ship production changes.",
-      "url": "https://buy.stripe.com/00w14neyUcXA5pL5e33sI0e",
+      "url": "https://buy.stripe.com/00w14neyUcXA5pL5e33sI0e?client_reference_id=schema_agent_safety_diagnostic&utm_source=schema_json&utm_medium=llm_discovery&utm_campaign=openclaw_agent_safety",
       "category": "Agent workflow safety"
     },
     {
@@ -25,7 +25,7 @@
       "price": "49.00",
       "priceCurrency": "USD",
       "description": "ATS fit score, AI-tell detection, title match check, and bullet rewrites for one resume. Same-day delivery.",
-      "url": "https://buy.stripe.com/3cIaEX1M80aO9G1fSH3sI2N",
+      "url": "https://buy.stripe.com/3cIaEX1M80aO9G1fSH3sI2N?client_reference_id=schema_truth_snapshot&utm_source=schema_json&utm_medium=llm_discovery&utm_campaign=resumeos_launch",
       "category": "Resume audit"
     },
     {
@@ -34,7 +34,7 @@
       "price": "149.00",
       "priceCurrency": "USD",
       "description": "Per-job resume tailoring, live application dashboard, Gmail reply loop, and Thompson Sampling RLHF over your application history.",
-      "url": "https://buy.stripe.com/3cI3cvgH26zccSd7mb3sI2O",
+      "url": "https://buy.stripe.com/3cI3cvgH26zccSd7mb3sI2O?client_reference_id=schema_resume_os_pro&utm_source=schema_json&utm_medium=llm_discovery&utm_campaign=resumeos_launch",
       "category": "Career operations system"
     },
     {
@@ -43,7 +43,7 @@
       "price": "1500.00",
       "priceCurrency": "USD",
       "description": "Fully managed pipeline. 50 verified submissions, weekly strategy call, white-glove review of every cover letter and resume variant.",
-      "url": "https://buy.stripe.com/9B600j4YkcXAcSdayn3sI2P",
+      "url": "https://buy.stripe.com/9B600j4YkcXAcSdayn3sI2P?client_reference_id=schema_done_for_you_sprint&utm_source=schema_json&utm_medium=llm_discovery&utm_campaign=resumeos_launch",
       "category": "Managed career service"
     }
   ],

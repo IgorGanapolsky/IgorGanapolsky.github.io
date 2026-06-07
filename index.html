@@ -3,481 +3,15 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>ResumeOS — Same-Day Resume Risk Audit for Senior Candidates</title>
+    <title>Agent Safety Diagnostic by Igor Ganapolsky</title>
     <meta
       name="description"
-      content="A premium same-day resume risk audit for senior candidates: find unsupported claims, ATS readability gaps, title fit, and get custom rewritten bullets."
+      content="Agent safety diagnostic for Codex, Claude, Chrome Computer Use, OpenClaw, and Ralph Loop workflows that can post, apply, spend, message clients, or ship production changes."
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet">
-    <style>
-      :root {
-        color-scheme: dark;
-        --bg: #0b0f19;
-        --ink: #f3f4f6;
-        --muted: #9ca3af;
-        --line: #1f2937;
-        --accent: #10b981;
-        --accent-light: #34d399;
-        --accent-dark: #065f46;
-        --panel: rgba(17, 24, 39, 0.75);
-        --warn: #1e1b12;
-        --warn-border: #4d3e1a;
-        --risk-high-text: #f43f5e;
-        --risk-med-text: #f59e0b;
-      }
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
-      body {
-        font-family: 'Inter', sans-serif;
-        color: var(--ink);
-        background: var(--bg);
-        line-height: 1.6;
-        overflow-x: hidden;
-        position: relative;
-      }
-      
-      /* Glowing Background Gradients */
-      .bg-gradient-1 {
-        position: absolute;
-        top: -10%;
-        left: -10%;
-        width: 60%;
-        height: 60%;
-        background: radial-gradient(circle, rgba(16, 185, 129, 0.08) 0%, rgba(11, 15, 25, 0) 70%);
-        z-index: -1;
-        pointer-events: none;
-      }
-      .bg-gradient-2 {
-        position: absolute;
-        bottom: 10%;
-        right: -10%;
-        width: 50%;
-        height: 50%;
-        background: radial-gradient(circle, rgba(52, 211, 153, 0.05) 0%, rgba(11, 15, 25, 0) 70%);
-        z-index: -1;
-        pointer-events: none;
-      }
-
-      header.topbar {
-        height: 72px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0 40px;
-        border-bottom: 1px solid var(--line);
-        background: rgba(11, 15, 25, 0.8);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        position: sticky;
-        top: 0;
-        z-index: 100;
-        max-width: 100%;
-      }
-
-      .brand {
-        font-family: 'Outfit', sans-serif;
-        font-size: 22px;
-        font-weight: 900;
-        color: #ffffff;
-        text-decoration: none;
-        letter-spacing: -0.01em;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-      }
-      .brand-dot {
-        width: 8px;
-        height: 8px;
-        background: var(--accent);
-        border-radius: 50%;
-        display: inline-block;
-      }
-
-      header.topbar nav {
-        display: flex;
-        gap: 24px;
-      }
-
-      header.topbar nav a {
-        color: var(--muted);
-        text-decoration: none;
-        font-size: 14px;
-        font-weight: 500;
-        transition: color 0.2s ease;
-      }
-
-      header.topbar nav a:hover {
-        color: #ffffff;
-      }
-
-      .decision-strip {
-        background: linear-gradient(90deg, var(--accent-dark) 0%, #0c2d20 100%);
-        color: #ffffff;
-        border-bottom: 1px solid rgba(16, 185, 129, 0.2);
-      }
-      
-      .decision-strip-inner {
-        max-width: 1040px;
-        margin: 0 auto;
-        padding: 12px 24px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 16px;
-      }
-      
-      .decision-strip p {
-        font-size: 14px;
-        font-weight: 500;
-        margin: 0;
-      }
-
-      .decision-strip .button.small {
-        min-height: 32px;
-        padding: 4px 14px;
-        font-size: 13px;
-        background: #ffffff;
-        border-color: #ffffff;
-        color: #0b0f19;
-      }
-
-      .decision-strip .button.small:hover {
-        background: var(--accent-light);
-        border-color: var(--accent-light);
-        color: #0b0f19;
-      }
-
-      main {
-        max-width: 1040px;
-        margin: 0 auto;
-        padding: 40px 24px;
-        position: relative;
-      }
-      
-      .hero {
-        padding-top: 60px;
-        padding-bottom: 60px;
-        text-align: center;
-      }
-
-      .eyebrow {
-        color: var(--accent);
-        font-family: 'Outfit', sans-serif;
-        font-size: 14px;
-        font-weight: 800;
-        letter-spacing: 0.15em;
-        text-transform: uppercase;
-        margin-bottom: 16px;
-        display: inline-block;
-        padding: 6px 16px;
-        background: rgba(16, 185, 129, 0.1);
-        border: 1px solid rgba(16, 185, 129, 0.2);
-        border-radius: 99px;
-      }
-      
-      h1 {
-        max-width: 900px;
-        margin: 0 auto 24px;
-        font-family: 'Outfit', sans-serif;
-        font-size: clamp(36px, 6vw, 64px);
-        font-weight: 900;
-        line-height: 1.08;
-        letter-spacing: -0.03em;
-        background: linear-gradient(135deg, #ffffff 30%, #a7f3d0 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-      }
-
-      .lede {
-        max-width: 760px;
-        margin: 0 auto 36px;
-        color: var(--muted);
-        font-size: clamp(17px, 2.5vw, 21px);
-        font-weight: 400;
-        line-height: 1.6;
-      }
-
-      .actions {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 16px;
-        margin: 32px 0 20px;
-      }
-
-      .button {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        min-height: 52px;
-        padding: 12px 28px;
-        border: 1px solid var(--accent);
-        border-radius: 8px;
-        color: #ffffff;
-        background: transparent;
-        font-family: 'Outfit', sans-serif;
-        font-size: 16px;
-        font-weight: 700;
-        text-decoration: none;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        cursor: pointer;
-      }
-      
-      .button.primary {
-        background: var(--accent);
-        border-color: var(--accent);
-        box-shadow: 0 4px 20px rgba(16, 185, 129, 0.25);
-        color: #0b0f19;
-      }
-      
-      .button.primary:hover {
-        background: var(--accent-light);
-        border-color: var(--accent-light);
-        box-shadow: 0 4px 30px rgba(52, 211, 153, 0.45);
-        transform: translateY(-2px);
-      }
-
-      .button:not(.primary) {
-        border-color: var(--line);
-        background: rgba(255, 255, 255, 0.03);
-      }
-      
-      .button:not(.primary):hover {
-        border-color: var(--accent-light);
-        background: rgba(16, 185, 129, 0.05);
-        transform: translateY(-2px);
-      }
-
-      .button.secondary {
-        border-color: var(--line);
-        background: rgba(255, 255, 255, 0.03);
-        color: var(--ink);
-      }
-
-      .button.secondary:hover {
-        border-color: var(--accent);
-        background: rgba(16, 185, 129, 0.05);
-        transform: translateY(-2px);
-      }
-
-      section {
-        border-top: 1px solid var(--line);
-        padding: 80px 0;
-      }
-      
-      .section-title {
-        font-family: 'Outfit', sans-serif;
-        font-size: 32px;
-        font-weight: 800;
-        margin-bottom: 16px;
-        text-align: center;
-        background: linear-gradient(135deg, #ffffff 40%, #e5e7eb 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-      }
-
-      .grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 24px;
-      }
-
-      .card {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        padding: 32px;
-        border: 1px solid var(--line);
-        border-radius: 12px;
-        background: var(--panel);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        transition: all 0.3s ease;
-      }
-      
-      .card:hover {
-        border-color: rgba(16, 185, 129, 0.3);
-        box-shadow: 0 10px 30px -10px rgba(16, 185, 129, 0.15);
-        transform: translateY(-3px);
-      }
-
-      .card.recommended {
-        border-color: var(--accent);
-        background: linear-gradient(180deg, rgba(16, 185, 129, 0.05) 0%, rgba(17, 24, 39, 0.75) 100%);
-        box-shadow: 0 10px 30px rgba(16, 185, 129, 0.06);
-        position: relative;
-        overflow: hidden;
-      }
-      
-      .card.recommended::before {
-        content: "Recommended First Step";
-        position: absolute;
-        top: 16px;
-        right: -32px;
-        background: var(--accent);
-        color: #0b0f19;
-        font-size: 10px;
-        font-weight: 800;
-        text-transform: uppercase;
-        padding: 4px 32px;
-        transform: rotate(45deg);
-        letter-spacing: 0.05em;
-      }
-
-      .card h2 {
-        font-family: 'Outfit', sans-serif;
-        font-size: 24px;
-        font-weight: 700;
-        margin-bottom: 8px;
-        color: #ffffff;
-      }
-
-      .card h3 {
-        font-family: 'Outfit', sans-serif;
-        font-size: 20px;
-        font-weight: 700;
-        margin-bottom: 12px;
-        color: #ffffff;
-      }
-      
-      .card .sub-title {
-        color: var(--accent-light);
-        font-size: 14px;
-        font-weight: 600;
-        margin-bottom: 16px;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-      }
-
-      .price {
-        font-family: 'Outfit', sans-serif;
-        margin: 12px 0 20px;
-        font-size: 44px;
-        font-weight: 900;
-        color: #ffffff;
-        display: flex;
-        align-items: baseline;
-      }
-      
-      .price::after {
-        content: " one-time";
-        font-size: 14px;
-        font-weight: 500;
-        color: var(--muted);
-        margin-left: 8px;
-      }
-
-      ul {
-        list-style-type: none;
-        margin-bottom: 28px;
-      }
-
-      li {
-        margin: 12px 0;
-        position: relative;
-        padding-left: 24px;
-        color: var(--ink);
-        font-size: 15px;
-      }
-      
-      li::before {
-        content: "✓";
-        position: absolute;
-        left: 0;
-        color: var(--accent);
-        font-weight: bold;
-      }
-
-      .card.proof li::before {
-        content: "→";
-        color: var(--accent-light);
-      }
-      
-      .card.proof {
-        border-color: rgba(255, 255, 255, 0.03);
-        background: rgba(255, 255, 255, 0.01);
-      }
-
-      .note {
-        border: 1px solid var(--warn-border);
-        background: var(--warn);
-        padding: 32px;
-        border-radius: 12px;
-        margin-top: 40px;
-        text-align: center;
-        position: relative;
-        overflow: hidden;
-      }
-      
-      .note h2 {
-        font-family: 'Outfit', sans-serif;
-        color: #ffdd6b;
-        margin-bottom: 12px;
-      }
-      
-      .note p {
-        max-width: 600px;
-        margin: 0 auto 20px;
-        color: var(--muted);
-      }
-      
-      .note .button {
-        display: inline-flex;
-        width: auto;
-      }
-
-      .small {
-        color: var(--muted);
-        font-size: 13px;
-        margin-top: 8px;
-      }
-
-      footer {
-        border-top: 1px solid var(--line);
-        margin-top: 60px;
-        padding: 40px 24px;
-        text-align: center;
-        color: var(--muted);
-        font-size: 13px;
-      }
-      
-      footer p {
-        max-width: 700px;
-        margin: 0 auto;
-        line-height: 1.7;
-      }
-
-      /* Risk badges and tester styles */
-      .risk-badge {
-        display: inline-block;
-        font-size: 11px;
-        font-weight: 800;
-        text-transform: uppercase;
-        padding: 3px 8px;
-        border-radius: 4px;
-        letter-spacing: 0.05em;
-      }
-      .risk-badge.high {
-        background: rgba(244, 63, 94, 0.1);
-        border: 1px solid rgba(244, 63, 94, 0.3);
-        color: var(--risk-high-text);
-      }
-      .risk-badge.med {
-        background: rgba(245, 158, 11, 0.1);
-        border: 1px solid rgba(245, 158, 11, 0.3);
-        color: var(--risk-med-text);
-      }
-      
-      @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(10px); }
-        to { opacity: 1; transform: translateY(0); }
-      }
-    </style>
+    <link
+      rel="canonical"
+      href="https://igorganapolsky.github.io/openclaw-agent-safety-diagnostic.html"
+    />
     <script
       defer
       data-domain="igorganapolsky.github.io"
@@ -487,494 +21,212 @@
       async
       src="https://www.googletagmanager.com/gtag/js?id=G-2GEM6RYXZE"
     ></script>
-    <script>
-      window.RESUMEOS_POSTHOG_KEY = "phc_cpuhUFoXKeG15GoZBwwEZJToeRX07FRZI4Ty0WCW2da";
-    </script>
-    <script defer src="/assets/revenue-analytics.js"></script>
+    <script defer src="assets/revenue-analytics.js"></script>
+    <style>
+      body {
+        margin: 0;
+        font-family:
+          Inter,
+          ui-sans-serif,
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          sans-serif;
+        color: #111318;
+        background: #fff;
+        line-height: 1.55;
+      }
+      main {
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 48px 20px 72px;
+      }
+      h1 {
+        font-size: clamp(34px, 6vw, 58px);
+        line-height: 1.04;
+        margin: 0 0 18px;
+        letter-spacing: 0;
+      }
+      p {
+        font-size: 18px;
+      }
+      .lead {
+        color: #4b5563;
+        font-size: 21px;
+        max-width: 780px;
+      }
+      .button {
+        display: inline-flex;
+        min-height: 48px;
+        align-items: center;
+        justify-content: center;
+        padding: 0 18px;
+        border-radius: 6px;
+        background: #0f766e;
+        color: #fff;
+        text-decoration: none;
+        font-weight: 700;
+        margin: 4px 6px 4px 0;
+      }
+      .button.secondary {
+        background: transparent;
+        color: #0f766e;
+        border: 1px solid #0f766e;
+      }
+      .panel {
+        border: 1px solid #d8dde5;
+        border-radius: 8px;
+        background: #f6f8fb;
+        padding: 18px;
+        margin: 22px 0;
+      }
+      .reason-panel {
+        border: 1px solid #d8dde5;
+        border-radius: 8px;
+        padding: 18px;
+        margin: 22px 0;
+      }
+      .reason-panel h2 {
+        font-size: 22px;
+        margin: 0 0 8px;
+      }
+      .reason-panel p {
+        margin: 0 0 14px;
+        color: #4b5563;
+      }
+      .reason-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 10px;
+      }
+      .reason-button {
+        min-height: 44px;
+        border: 1px solid #d8dde5;
+        border-radius: 6px;
+        background: #fff;
+        color: #111318;
+        font: inherit;
+        font-weight: 650;
+        text-align: left;
+        padding: 10px 12px;
+        cursor: pointer;
+      }
+      .reason-button:hover {
+        border-color: #0f766e;
+        color: #0f766e;
+      }
+    </style>
   </head>
   <body>
-    <div class="bg-gradient-1"></div>
-    <div class="bg-gradient-2"></div>
-
-    <div class="agent-banner" style="background: #111827; border-bottom: 1px solid #1f2937; padding: 10px 16px; text-align: center; font-size: 13px; font-weight: 500; color: #9ca3af; display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap;">
-      <span>🤖 Looking for the <strong>OpenClaw Mac AI Workstation Setup</strong> or AI Agent safety guidelines?</span>
-      <a
-        href="/openclaw-agent-safety-diagnostic.html?utm_source=resumeos_topbar&amp;utm_medium=banner&amp;utm_campaign=openclaw_agent_safety"
-        data-track="lead_click"
-        data-surface="home"
-        data-tier="agent_safety_diagnostic"
-        data-price="499"
-        data-placement="top_banner"
-        style="color: #34d399; text-decoration: underline; font-weight: 600;"
-        >OpenClaw diagnostic →</a>
-      <a
-        href="/openclaw-agent-safety-sample.html?utm_source=resumeos_topbar&amp;utm_medium=banner_sample&amp;utm_campaign=openclaw_agent_safety"
-        data-track="sample_click"
-        data-surface="home"
-        data-tier="agent_safety_sample"
-        data-price="0"
-        data-placement="top_banner_sample"
-        style="color: #d1fae5; text-decoration: underline; font-weight: 600;"
-        >See sample</a>
-      <a
-        href="https://buy.stripe.com/00w14neyUcXA5pL5e33sI0e?client_reference_id=home_topbar_openclaw_agent_safety_diagnostic&amp;utm_source=resumeos_topbar&amp;utm_medium=banner_checkout&amp;utm_campaign=openclaw_agent_safety"
-        data-track="checkout_click"
-        data-surface="home"
-        data-tier="agent_safety_diagnostic"
-        data-price="499"
-        data-placement="top_banner_openclaw_checkout"
-        style="color: #ffffff; background: #047857; border: 1px solid #10b981; border-radius: 999px; padding: 4px 10px; text-decoration: none; font-weight: 700;"
-        >Buy audit $499</a>
-    </div>
-
-    <div class="agent-objection-panel" style="background: #0b0f19; border-bottom: 1px solid #1f2937; padding: 12px 16px; color: #d1d5db; display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap;">
-      <span style="font-size: 13px; font-weight: 600;">Not buying the OpenClaw audit yet?</span>
-      <button
-        type="button"
-        data-track="checkout_reason_click"
-        data-surface="home"
-        data-tier="agent_safety_diagnostic"
-        data-price="499"
-        data-placement="home_openclaw_objection_panel"
-        data-reason="price_unclear"
-        style="min-height: 32px; border: 1px solid #374151; border-radius: 999px; background: #111827; color: #d1d5db; padding: 4px 10px; font: inherit; font-size: 13px; cursor: pointer;"
-      >Price or scope unclear</button>
-      <button
-        type="button"
-        data-track="checkout_reason_click"
-        data-surface="home"
-        data-tier="agent_safety_diagnostic"
-        data-price="499"
-        data-placement="home_openclaw_objection_panel"
-        data-reason="need_sample"
-        style="min-height: 32px; border: 1px solid #374151; border-radius: 999px; background: #111827; color: #d1d5db; padding: 4px 10px; font: inherit; font-size: 13px; cursor: pointer;"
-      >Need a sample</button>
-      <a
-        href="/openclaw-agent-safety-sample.html?utm_source=home_objection_panel&amp;utm_medium=sample_link&amp;utm_campaign=openclaw_agent_safety"
-        data-track="sample_click"
-        data-surface="home"
-        data-tier="agent_safety_sample"
-        data-price="0"
-        data-placement="home_openclaw_objection_panel"
-        style="min-height: 32px; display: inline-flex; align-items: center; border: 1px solid #047857; border-radius: 999px; background: #064e3b; color: #d1fae5; padding: 4px 10px; font: inherit; font-size: 13px; text-decoration: none; font-weight: 700;"
-      >View sample diagnostic</a>
-      <button
-        type="button"
-        data-track="checkout_reason_click"
-        data-surface="home"
-        data-tier="agent_safety_diagnostic"
-        data-price="499"
-        data-placement="home_openclaw_objection_panel"
-        data-reason="trust_gap"
-        style="min-height: 32px; border: 1px solid #374151; border-radius: 999px; background: #111827; color: #d1d5db; padding: 4px 10px; font: inherit; font-size: 13px; cursor: pointer;"
-      >Need more proof</button>
-    </div>
-
-    <header class="topbar">
-      <a class="brand" href="/">ResumeOS<span class="brand-dot"></span></a>
-      <nav>
-        <a href="/resumeos/">Truth Snapshot</a>
-        <a href="/resumeos/sample-truth-snapshot.html">Sample Audit</a>
-        <a href="/resumeos/intake.html">Intake Instructions</a>
-        <a href="/llms.txt">LLM Docs</a>
-      </nav>
-    </header>
-
-    <section class="decision-strip">
-      <div class="decision-strip-inner">
-        <p>
-          Target: $300/day after-tax GTM operation. Secure a $49 Truth Snapshot to audit your resume within 24 hours.
-        </p>
-        <a
-          class="button small"
-          href="https://buy.stripe.com/3cIaEX1M80aO9G1fSH3sI2N?client_reference_id=resumeos_strip_snapshot&utm_source=homepage&utm_medium=banner&utm_campaign=resumeos_launch"
-          data-track="checkout_click"
-          data-surface="home"
-          data-tier="snapshot"
-          data-price="49"
-          data-placement="top_strip"
-          >Get Audit</a
-        >
-      </div>
-    </section>
-
-    <header class="hero">
-      <div class="eyebrow">ResumeOS</div>
+    <main>
       <h1>
-        Know why your resume is getting ignored before you apply again.
+        Before your agent can act in the real world, prove the guardrails.
       </h1>
-      <p class="lede">
-        A premium same-day resume risk audit for senior engineering candidates. Discover unsupported claims, ATS formatting blocks, title-fit gaps, and receive concrete bullet rewrites.
+      <p class="lead">
+        I audit Codex, Claude, Chrome Computer Use, OpenClaw, and Ralph Loop
+        workflows for side effects: spending, posting, applying, emailing,
+        deleting, deploying, and messaging clients.
       </p>
-      <div class="actions">
+      <p>
         <a
-          class="button primary"
-          href="https://buy.stripe.com/3cIaEX1M80aO9G1fSH3sI2N?client_reference_id=resumeos_hero_snapshot&utm_source=homepage&utm_medium=hero&utm_campaign=resumeos_launch"
+          class="button"
+          href="https://buy.stripe.com/00w14neyUcXA5pL5e33sI0e?client_reference_id=root_agent_safety_diagnostic&utm_source=root&utm_medium=hero_checkout&utm_campaign=openclaw_agent_safety"
           data-track="checkout_click"
-          data-surface="home"
-          data-tier="snapshot"
-          data-price="49"
-          data-placement="hero"
-          id="hero_primary_btn"
-          >Get the $49 ResumeOS Truth Snapshot</a
+          data-surface="root"
+          data-tier="agent_safety_diagnostic"
+          data-price="499"
+          data-placement="home_topbar_openclaw_agent_safety_diagnostic"
+          >Buy diagnostic $499</a
         >
         <a
           class="button secondary"
-          href="/resumeos/sample-truth-snapshot.html"
+          href="./openclaw-agent-safety-sample.html"
           data-track="sample_click"
-          data-surface="home"
-          data-tier="snapshot"
+          data-surface="root"
+          data-tier="agent_safety_sample"
           data-price="0"
           data-placement="hero"
-          id="hero_secondary_btn"
-          >View sample audit</a
+          >See a sample diagnostic</a
         >
+        <a
+          class="button secondary"
+          href="./openclaw-computer-use-troubleshooting.html"
+          data-track="lead_click"
+          data-surface="root"
+          data-tier="free_checklist"
+          data-price="0"
+          data-placement="hero"
+          >Read the free Computer Use checklist</a
+        >
+      </p>
+      <div class="panel">
+        ResumeOS still exists for career automation, but current buyer demand is
+        agent workflow safety and evidence-gated automation. Start here if your
+        agent can touch money, client messages, Upwork, Stripe, GitHub, Railway,
+        Gmail, Skool, or production code.
       </div>
-      <p class="small">
-        One resume. One target role family. Same-day review when purchased before 3pm ET on business days.
-      </p>
-    </header>
-
-    <main>
-      <!-- Interactive Bullet Tester Section -->
-      <section id="doubt-tester-section" style="border-top: none; padding-top: 0; padding-bottom: 80px;">
-        <div style="max-width: 800px; margin: 0 auto;">
-          <h2 class="section-title" style="margin-bottom: 16px;">Test Your Resume Bullets for Recruiter Doubt</h2>
-          <p style="text-align: center; color: var(--muted); margin-bottom: 45px; font-size: 16px; max-width: 680px; margin-left: auto; margin-right: auto;">
-            Recruiters scan senior engineering resumes in seconds. Paste one of your bullets below or pick a sample to see exactly what triggers recruiter suspicion and how to rewrite it.
-          </p>
-          
-          <div class="card" style="padding: 32px; border-color: rgba(16, 185, 129, 0.25); background: rgba(17, 24, 39, 0.85); box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);">
-            <div style="margin-bottom: 24px;">
-              <label for="bullet-input" style="font-size: 13px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; display: block; margin-bottom: 12px; font-weight: 700;">Paste a resume bullet point:</label>
-              <textarea id="bullet-input" rows="3" style="width: 100%; font-size: 15px; line-height: 1.5; padding: 16px; border-radius: 8px; border: 1px solid var(--line); background: rgba(11, 15, 25, 0.6); color: #fff; resize: vertical; font-family: 'Inter', sans-serif;" placeholder="e.g. Led a team of developers to build microservices and refactored backend logic to improve maintainability..."></textarea>
-            </div>
-
-            <div style="margin-bottom: 32px;">
-              <p style="font-size: 12px; color: var(--muted); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700;">Or choose a common problem pattern:</p>
-              <div style="display: flex; flex-wrap: wrap; gap: 10px;">
-                <button type="button" class="sample-btn" data-index="0" style="background: rgba(255,255,255,0.03); border: 1px solid var(--line); color: var(--muted); border-radius: 6px; padding: 8px 14px; font-size: 13px; cursor: pointer; transition: all 0.2s; font-family: 'Inter', sans-serif; font-weight: 500;">Oversized Metric</button>
-                <button type="button" class="sample-btn" data-index="1" style="background: rgba(255,255,255,0.03); border: 1px solid var(--line); color: var(--muted); border-radius: 6px; padding: 8px 14px; font-size: 13px; cursor: pointer; transition: all 0.2s; font-family: 'Inter', sans-serif; font-weight: 500;">AI-Generated Fluff</button>
-                <button type="button" class="sample-btn" data-index="2" style="background: rgba(255,255,255,0.03); border: 1px solid var(--line); color: var(--muted); border-radius: 6px; padding: 8px 14px; font-size: 13px; cursor: pointer; transition: all 0.2s; font-family: 'Inter', sans-serif; font-weight: 500;">Unverified Jargon</button>
-                <button type="button" class="sample-btn" data-index="3" style="background: rgba(255,255,255,0.03); border: 1px solid var(--line); color: var(--muted); border-radius: 6px; padding: 8px 14px; font-size: 13px; cursor: pointer; transition: all 0.2s; font-family: 'Inter', sans-serif; font-weight: 500;">Vague Actions</button>
-              </div>
-            </div>
-
-            <button type="button" id="scan-btn" class="button primary" style="width: 100%; font-size: 16px; font-weight: 700; height: 52px;">Scan Bullet for Doubt Triggers</button>
-            
-            <!-- Results Container (Hidden initially) -->
-            <div id="results-container" style="display: none; margin-top: 32px; padding-top: 32px; border-top: 1px solid var(--line); animation: fadeIn 0.4s ease-out;">
-              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;">
-                <h3 style="font-family: 'Outfit', sans-serif; font-size: 18px; margin: 0; color: #fff;">Audit Scan Result</h3>
-                <span id="risk-badge" class="risk-badge">High Risk</span>
-              </div>
-
-              <div style="background: rgba(244, 63, 94, 0.04); border-left: 4px solid var(--risk-high-text); padding: 18px; border-radius: 0 8px 8px 0; margin-bottom: 24px;" id="critique-box">
-                <strong style="display: block; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 8px; font-weight: 700;">Why recruiters doubt this:</strong>
-                <p id="critique-text" style="font-size: 14px; line-height: 1.6; color: #e5e7eb; margin: 0;"></p>
-              </div>
-
-              <div style="background: rgba(16, 185, 129, 0.04); border-left: 4px solid var(--accent); padding: 18px; border-radius: 0 8px 8px 0; margin-bottom: 28px;" id="rewrite-box">
-                <strong style="display: block; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-light); margin-bottom: 8px; font-weight: 700;">ResumeOS Quantified Rewrite:</strong>
-                <p id="rewrite-text" style="font-size: 15px; font-weight: 600; line-height: 1.6; color: #ffffff; margin: 0;"></p>
-              </div>
-
-              <div style="text-align: center; margin-top: 24px; background: rgba(255, 255, 255, 0.02); padding: 20px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.03);">
-                <p style="font-size: 14px; color: var(--muted); margin-bottom: 16px;">This is just one bullet rewrite. Let us verify and rewrite your entire resume layout, targeting, and claims.</p>
-                <a class="button primary" href="https://buy.stripe.com/3cIaEX1M80aO9G1fSH3sI2N?client_reference_id=bullet_tester_upsell&utm_source=homepage&utm_medium=inline_demo&utm_campaign=resumeos_launch" data-track="checkout_click" data-surface="home" data-tier="snapshot" data-price="49" data-placement="inline_demo" style="display: inline-flex;" id="tester-upsell-btn">Order $49 Truth Snapshot Audit</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Pricing Tier Section -->
-      <section id="pricing-section">
-        <h2 class="section-title">ResumeOS Services</h2>
-        <p style="text-align: center; color: var(--muted); margin-bottom: 48px; max-width: 600px; margin-left: auto; margin-right: auto;">
-          Choose the speed and level of support you need for your engineering search. No recurring subscriptions.
+      <div class="panel">
+        Buy this when the workflow already runs inside a logged-in production
+        browser or connected account. The failure is not a model answer; it is
+        an unapproved external side effect. The diagnostic returns a side-effect
+        map, approval gates for spend, submit, message, and deploy actions, plus
+        a rollback and evidence checklist.
+      </div>
+      <section class="reason-panel" aria-labelledby="not-buying-yet">
+        <h2 id="not-buying-yet">Not buying the diagnostic yet?</h2>
+        <p>
+          Pick the blocker. I use this signal to tighten the offer instead of
+          guessing from bounce rate.
         </p>
-        
-        <div class="grid">
-          <article class="card recommended">
-            <div>
-              <h2>Resume Truth Snapshot</h2>
-              <div class="sub-title">Audit First</div>
-              <div class="price">$49</div>
-              <ul>
-                <li>One-page risk audit against your target role family</li>
-                <li>Unsupported or inflated claim flags</li>
-                <li>ATS readability and title-match check</li>
-                <li>Rewrite of the four weakest bullets</li>
-                <li>
-                  Clear next action: fix resume, change targeting, or escalate to
-                  managed help
-                </li>
-              </ul>
-            </div>
-            <p style="margin-top: 24px;">
-              <a
-                class="button primary"
-                href="https://buy.stripe.com/3cIaEX1M80aO9G1fSH3sI2N?client_reference_id=resumeos_home_snapshot&utm_source=homepage&utm_medium=pricing_card&utm_campaign=resumeos_launch"
-                data-track="checkout_click"
-                data-surface="home"
-                data-tier="snapshot"
-                data-price="49"
-                data-placement="card"
-                id="card_snapshot_btn"
-                style="width: 100%;"
-                >Buy Truth Snapshot</a
-              >
-            </p>
-          </article>
-          
-          <article class="card">
-            <div>
-              <h2>Resume OS Pro</h2>
-              <div class="sub-title">Implementation Workspace</div>
-              <div class="price">$149</div>
-              <ul>
-                <li>30-day resume and application workspace for one candidate</li>
-                <li>
-                  Role-specific resume and cover-letter drafts from verified facts
-                </li>
-                <li>Application tracker cleanup and response triage</li>
-                <li>
-                  Evidence-first workflow: no fabricated credentials, dates,
-                  titles, or metrics
-                </li>
-              </ul>
-            </div>
-            <p style="margin-top: 24px;">
-              <a
-                class="button"
-                href="https://buy.stripe.com/3cI3cvgH26zccSd7mb3sI2O?client_reference_id=resumeos_home_pro&utm_source=homepage&utm_medium=pricing_card&utm_campaign=resumeos_launch"
-                data-track="checkout_click"
-                data-surface="home"
-                data-tier="pro"
-                data-price="149"
-                data-placement="card"
-                id="card_pro_btn"
-                style="width: 100%;"
-                >Buy Resume OS Pro</a
-              >
-            </p>
-          </article>
-          
-          <article class="card">
-            <div>
-              <h2>Done-For-You Sprint</h2>
-              <div class="sub-title">White-Glove Ops</div>
-              <div class="price">$1,500</div>
-              <ul>
-                <li>Two-week managed job-search operations sprint</li>
-                <li>Targeting review, tailored materials, and submission prep</li>
-                <li>
-                  Up to 50 verified submissions where portal facts are known
-                </li>
-                <li>Weekly strategy call and evidence record</li>
-              </ul>
-            </div>
-            <p style="margin-top: 24px;">
-              <a
-                class="button"
-                href="https://buy.stripe.com/9B600j4YkcXAcSdayn3sI2P?client_reference_id=resumeos_home_dfy&utm_source=homepage&utm_medium=pricing_card&utm_campaign=resumeos_launch"
-                data-track="checkout_click"
-                data-surface="home"
-                data-tier="dfy"
-                data-price="1500"
-                data-placement="card"
-                id="card_dfy_btn"
-                style="width: 100%;"
-                >Buy DFY Sprint</a
-              >
-            </p>
-          </article>
+        <div class="reason-grid">
+          <button
+            type="button"
+            class="reason-button"
+            data-track="checkout_abandon_reason"
+            data-surface="root"
+            data-tier="agent_safety_diagnostic"
+            data-price="499"
+            data-placement="root_objection_panel"
+            data-reason="price_unclear"
+          >
+            Price or scope unclear
+          </button>
+          <button
+            type="button"
+            class="reason-button"
+            data-track="checkout_abandon_reason"
+            data-surface="root"
+            data-tier="agent_safety_diagnostic"
+            data-price="499"
+            data-placement="root_objection_panel"
+            data-reason="need_sample"
+          >
+            Need a sample first
+          </button>
+          <button
+            type="button"
+            class="reason-button"
+            data-track="checkout_abandon_reason"
+            data-surface="root"
+            data-tier="agent_safety_diagnostic"
+            data-price="499"
+            data-placement="root_objection_panel"
+            data-reason="trust_gap"
+          >
+            Need more proof
+          </button>
         </div>
       </section>
-      
-      <!-- Proof & Strategy section -->
-      <section>
-        <div class="grid">
-          <article class="card proof">
-            <h2>What you send</h2>
-            <ul>
-              <li>Your current resume as a PDF or share link</li>
-              <li>
-                One target role family (e.g. Staff Android Engineer or AI
-                Platform Engineer)
-              </li>
-              <li>Three job links that represent the roles you want</li>
-            </ul>
-          </article>
-          <article class="card proof">
-            <h2>What you get back</h2>
-            <ul>
-              <li>A concise audit you can act on immediately</li>
-              <li>Specific bullets marked keep, rewrite, remove, or verify</li>
-              <li>
-                A ranked list of the resume risks most likely to hurt conversion
-              </li>
-            </ul>
-          </article>
-          <article class="card proof">
-            <h2>What this is not</h2>
-            <ul>
-              <li>No promise of interviews or employment</li>
-              <li>No invented metrics, employers, degrees, titles, or dates</li>
-              <li>No mass auto-apply spam or hidden recurring subscription</li>
-            </ul>
-          </article>
-        </div>
-      </section>
-
-      <section style="border-top: none; padding-top: 0;">
-        <div class="note">
-          <h2>After Purchase Intake</h2>
-          <p>
-            Stripe redirects you directly to the intake instructions. You can view the guidelines and prepare your materials at any time.
-          </p>
-          <p>
-            <a
-              class="button"
-              href="/resumeos/intake.html"
-              data-track="intake_click"
-              data-surface="home"
-              data-tier="snapshot"
-              data-price="0"
-              data-placement="after_purchase"
-              id="intake_instructions_btn"
-              >Open intake instructions</a
-            >
-          </p>
-        </div>
-      </section>
+      <a
+        href="./resumeos/"
+        data-track="root_manual_click"
+        data-surface="root"
+        data-tier="snapshot"
+        data-price="49"
+        data-placement="secondary_resumeos"
+        >ResumeOS Truth Snapshot</a
+      >
     </main>
-
-    <footer>
-      <p>
-        ResumeOS is built by Igor Ganapolsky. All reviews are conducted manually using evidence-first verification guidelines. No invented metrics, employers, degrees, or dates.
-      </p>
-    </footer>
-
-    <script>
-      // Samples Database
-      const samples = [
-        {
-          bullet: "Led a team of 50 engineers to deliver $100M in revenue.",
-          risk: "High Risk",
-          riskClass: "high",
-          critique: "Unless you are a VP or Director, claiming direct ownership over a $100M revenue line creates high recruiter doubt. It sounds like an inflated metric extrapolated from company performance. In technical interviews, senior managers will drill into your direct budget/engineering responsibility and the gap will show.",
-          rewrite: "Managed a direct team of 5 software engineers to deliver the core payments gateway, handling $4.2M in annual transaction volume with zero checkout downtime."
-        },
-        {
-          bullet: "Collaborated with cross-functional teams to build next-generation responsive web applications using React.",
-          risk: "Medium Risk",
-          riskClass: "med",
-          critique: "This bullet uses classic AI-slop filler ('Collaborated with', 'next-generation', 'responsive web applications'). It describes duties rather than business outcomes and contains zero metrics. The recruiter learns nothing about your technical velocity or scale.",
-          rewrite: "Rebuilt the customer onboarding wizard in React, reducing funnel abandonment by 18% and decreasing initial page load latency from 2.4s to 0.9s."
-        },
-        {
-          bullet: "Designed and implemented Java classes using the Read-Only Interface design pattern.",
-          risk: "High Risk",
-          riskClass: "high",
-          critique: "'Read-Only Interface' is not a standard Gang of Four design pattern. Formalizing a basic encapsulation pattern (like getter interfaces) with LLM-generated jargon triggers immediate interviewer suspicion. It sounds like an attempt to pad simple classroom exercises.",
-          rewrite: "Architected a thread-safe data access layer in Java, exposing read-only data models to downstream consumers to prevent accidental state mutation."
-        },
-        {
-          bullet: "Refactored backend logic to improve maintainability and consistency.",
-          risk: "Medium Risk",
-          riskClass: "med",
-          critique: "This is a generic engineering bullet. It lists actions ('refactored') but fails to quantify why it was done or how the improvement was verified. It lacks concrete indicators of complexity, scale, or metrics.",
-          rewrite: "Refactored workout scheduling service in Java, eliminating nested conditionals to reduce cyclomatic complexity and resolve race conditions during concurrent requests."
-        }
-      ];
-
-      // Sample Selection
-      document.querySelectorAll('.sample-btn').forEach(btn => {
-        btn.addEventListener('click', function() {
-          const idx = parseInt(this.getAttribute('data-index'));
-          document.getElementById('bullet-input').value = samples[idx].bullet;
-          
-          // Toggle styling for buttons
-          document.querySelectorAll('.sample-btn').forEach(b => {
-            b.style.background = 'rgba(255,255,255,0.03)';
-            b.style.color = 'var(--muted)';
-            b.style.borderColor = 'var(--line)';
-          });
-          this.style.background = 'rgba(16, 185, 129, 0.1)';
-          this.style.color = 'var(--accent-light)';
-          this.style.borderColor = 'var(--accent)';
-          
-          runScan(samples[idx]);
-        });
-      });
-
-      // Scan Action
-      document.getElementById('scan-btn').addEventListener('click', function() {
-        const text = document.getElementById('bullet-input').value.trim();
-        if (!text) return;
-        
-        // Check if matching predefined sample
-        let match = samples.find(s => s.bullet.toLowerCase() === text.toLowerCase());
-        if (!match) {
-          // Heuristics mapping
-          let risk = "Medium Risk";
-          let riskClass = "med";
-          let critique = "This bullet point describes action but lacks quantifiable scale, performance improvement, or architectural metrics. Recruiters look for concrete complexity (e.g. latency, concurrent reqs, data volume).";
-          let rewrite = "Engineered [system component] in [language/stack], achieving [measurable metrics] and reducing [bottleneck/friction point].";
-          
-          const lowerText = text.toLowerCase();
-          if (lowerText.includes("led a team") || lowerText.includes("million") || lowerText.includes("$") || lowerText.includes("billion")) {
-            risk = "High Risk";
-            riskClass = "high";
-            critique = "Oversized leadership scale or dollar metrics without clear direct scope verification trigger severe recruiter doubt. Make sure you state your direct engineering contribution alongside team-wide achievements.";
-          } else if (lowerText.includes("collaborated") || lowerText.includes("responsible for") || lowerText.includes("assisted in")) {
-            risk = "Medium Risk";
-            riskClass = "med";
-            critique = "Collaborative verbs like 'collaborated' or 'assisted' signal junior status or a lack of individual execution. Recruiters prefer direct operational ownership ('designed', 'built', 'implemented', 'optimized').";
-          } else if (lowerText.includes("led") && !lowerText.match(/\b\d+\b/)) {
-            risk = "Medium Risk";
-            riskClass = "med";
-            critique = "Vague leadership claims without team size (e.g., 'led engineering efforts') sound generic. Recruiters look for specific direct reports count or project size.";
-          }
-          
-          match = { bullet: text, risk, riskClass, critique, rewrite };
-        }
-        
-        runScan(match);
-      });
-
-      function runScan(data) {
-        const container = document.getElementById('results-container');
-        const badge = document.getElementById('risk-badge');
-        const critiqueBox = document.getElementById('critique-box');
-        const critiqueText = document.getElementById('critique-text');
-        const rewriteText = document.getElementById('rewrite-text');
-        
-        badge.textContent = data.risk;
-        badge.className = `risk-badge ${data.riskClass}`;
-        
-        if (data.riskClass === 'high') {
-          badge.style.background = 'rgba(244, 63, 94, 0.1)';
-          badge.style.border = '1px solid rgba(244, 63, 94, 0.3)';
-          badge.style.color = '#f43f5e';
-          critiqueBox.style.borderColor = '#f43f5e';
-          critiqueBox.style.background = 'rgba(244, 63, 94, 0.04)';
-        } else {
-          badge.style.background = 'rgba(245, 158, 11, 0.1)';
-          badge.style.border = '1px solid rgba(245, 158, 11, 0.3)';
-          badge.style.color = '#f59e0b';
-          critiqueBox.style.borderColor = '#f59e0b';
-          critiqueBox.style.background = 'rgba(245, 158, 11, 0.04)';
-        }
-        
-        critiqueText.textContent = data.critique;
-        rewriteText.textContent = data.rewrite;
-        
-        container.style.display = 'block';
-        container.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      }
-    </script>
   </body>
 </html>

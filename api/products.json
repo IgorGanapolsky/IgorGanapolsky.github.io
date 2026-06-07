@@ -14,40 +14,61 @@
       "title": "Agent Safety Diagnostic",
       "price_cents": 49900,
       "interval": "one-time",
-      "url": "https://buy.stripe.com/00w14neyUcXA5pL5e33sI0e",
+      "url": "https://buy.stripe.com/00w14neyUcXA5pL5e33sI0e?client_reference_id=api_agent_safety_diagnostic&utm_source=products_api&utm_medium=catalog&utm_campaign=openclaw_agent_safety",
       "stripe_product_id": null,
       "stripe_price_id": null,
-      "capabilities": ["side_effect_map", "evidence_gates", "approval_boundaries", "rollback_plan", "agent_workflow_patch_plan"]
+      "capabilities": [
+        "side_effect_map",
+        "evidence_gates",
+        "approval_boundaries",
+        "rollback_plan",
+        "agent_workflow_patch_plan"
+      ]
     },
     {
       "id": "truth_snapshot",
       "title": "ResumeOS Truth Snapshot",
       "price_cents": 4900,
       "interval": "one-time",
-      "url": "https://buy.stripe.com/3cIaEX1M80aO9G1fSH3sI2N",
+      "url": "https://buy.stripe.com/3cIaEX1M80aO9G1fSH3sI2N?client_reference_id=api_truth_snapshot&utm_source=products_api&utm_medium=catalog&utm_campaign=resumeos_launch",
       "stripe_product_id": "prod_UXx9ec0olnnz8D",
       "stripe_price_id": "price_1TYrEyGGBpd520QYNaS8SEe5",
-      "capabilities": ["ats_fit_score", "ai_tell_detection", "title_match_check", "bullet_rewrite"]
+      "capabilities": [
+        "ats_fit_score",
+        "ai_tell_detection",
+        "title_match_check",
+        "bullet_rewrite"
+      ]
     },
     {
       "id": "resume_os_pro",
       "title": "Resume OS Pro",
       "price_cents": 14900,
       "interval": "one-time",
-      "url": "https://buy.stripe.com/3cI3cvgH26zccSd7mb3sI2O",
+      "url": "https://buy.stripe.com/3cI3cvgH26zccSd7mb3sI2O?client_reference_id=api_resume_os_pro&utm_source=products_api&utm_medium=catalog&utm_campaign=resumeos_launch",
       "stripe_product_id": "prod_UXx9Vk7PbESAlQ",
       "stripe_price_id": "price_1TYrEzGGBpd520QYLF1six2y",
-      "capabilities": ["per_job_tailoring", "live_dashboard", "gmail_reply_loop", "thompson_rlhf"]
+      "capabilities": [
+        "per_job_tailoring",
+        "live_dashboard",
+        "gmail_reply_loop",
+        "thompson_rlhf"
+      ]
     },
     {
       "id": "done_for_you_sprint",
       "title": "Done-For-You Sprint",
       "price_cents": 150000,
       "interval": "one-time",
-      "url": "https://buy.stripe.com/9B600j4YkcXAcSdayn3sI2P",
+      "url": "https://buy.stripe.com/9B600j4YkcXAcSdayn3sI2P?client_reference_id=api_done_for_you_sprint&utm_source=products_api&utm_medium=catalog&utm_campaign=resumeos_launch",
       "stripe_product_id": "prod_UXx9oBPVNAqJph",
       "stripe_price_id": "price_1TYrF0GGBpd520QYH8eoQ4OH",
-      "capabilities": ["full_pipeline_managed", "50_verified_submissions", "weekly_strategy_call", "white_glove_review"]
+      "capabilities": [
+        "full_pipeline_managed",
+        "50_verified_submissions",
+        "weekly_strategy_call",
+        "white_glove_review"
+      ]
     }
   ]
 }

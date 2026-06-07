@@ -2,7 +2,8 @@ window.resumeOSAnalytics = (function () {
   var config = {
     plausibleDomain: "igorganapolsky.github.io",
     gaMeasurementId: "G-2GEM6RYXZE",
-    posthogKey: window.RESUMEOS_POSTHOG_KEY || window.APPLYOPS_POSTHOG_KEY || "",
+    posthogKey:
+      window.RESUMEOS_POSTHOG_KEY || window.APPLYOPS_POSTHOG_KEY || "",
     posthogHost: "https://us.i.posthog.com",
   };
   var eventNames = {
@@ -203,7 +204,9 @@ window.resumeOSAnalytics = (function () {
     }
 
     function isEligiblePath() {
-      return /^(resumeos\/?|applyops\/?)$/.test(location.pathname.replace(/^\/+/, ""));
+      return /^(resumeos\/?|applyops\/?)$/.test(
+        location.pathname.replace(/^\/+/, ""),
+      );
     }
 
     function isEligibleForSurvey() {
@@ -213,9 +216,10 @@ window.resumeOSAnalytics = (function () {
     document.addEventListener(
       "click",
       function (event) {
-        var target = event.target && event.target.closest
-          ? event.target.closest("[data-track='checkout_click']")
-          : null;
+        var target =
+          event.target && event.target.closest
+            ? event.target.closest("[data-track='checkout_click']")
+            : null;
         if (target) {
           checkoutSeen = true;
           try {
@@ -240,31 +244,41 @@ window.resumeOSAnalytics = (function () {
         '<button type="button" data-reason="not_urgent">Not urgent right now</button>' +
         '<button type="button" data-reason="trust_gap">Need more proof first</button>' +
         "</div>";
-      Array.prototype.forEach.call(wrap.querySelectorAll("button[data-reason]"), function (btn) {
-        btn.style.cssText =
-          "text-align:left;border:1px solid #374151;background:#1f2937;color:#f9fafb;border-radius:6px;padding:8px 10px;cursor:pointer";
-        btn.addEventListener("click", function () {
-          track(eventNames.checkoutAbandonReason, {
-            reason: btn.getAttribute("data-reason"),
+      Array.prototype.forEach.call(
+        wrap.querySelectorAll("button[data-reason]"),
+        function (btn) {
+          btn.style.cssText =
+            "text-align:left;border:1px solid #374151;background:#1f2937;color:#f9fafb;border-radius:6px;padding:8px 10px;cursor:pointer";
+          btn.addEventListener("click", function () {
+            track(eventNames.checkoutAbandonReason, {
+              reason: btn.getAttribute("data-reason"),
+              checkout_seen: checkoutSeen ? "true" : "false",
+              surface: location.pathname,
+            });
+            wrap.remove();
+          });
+        },
+      );
+      wrap
+        .querySelector("[data-survey-close]")
+        .addEventListener("click", function () {
+          track(eventNames.offerObjectionClick, {
+            action: "dismiss",
             checkout_seen: checkoutSeen ? "true" : "false",
             surface: location.pathname,
           });
           wrap.remove();
         });
-      });
-      wrap.querySelector("[data-survey-close]").addEventListener("click", function () {
-        track(eventNames.offerObjectionClick, {
-          action: "dismiss",
-          checkout_seen: checkoutSeen ? "true" : "false",
-          surface: location.pathname,
-        });
-        wrap.remove();
-      });
       return wrap;
     }
 
     function showSurvey(trigger) {
-      if (!isEligibleForSurvey() || surveyShown || document.querySelector("[aria-label='Purchase feedback']")) return;
+      if (
+        !isEligibleForSurvey() ||
+        surveyShown ||
+        document.querySelector("[aria-label='Purchase feedback']")
+      )
+        return;
       surveyShown = true;
       track(eventNames.offerObjectionClick, {
         action: "shown",
@@ -284,7 +298,9 @@ window.resumeOSAnalytics = (function () {
     window.addEventListener("pagehide", function () {
       var sawCheckout = checkoutSeen;
       try {
-        sawCheckout = sawCheckout || sessionStorage.getItem("resumeos_checkout_seen") === "true";
+        sawCheckout =
+          sawCheckout ||
+          sessionStorage.getItem("resumeos_checkout_seen") === "true";
       } catch (_) {}
       if (!sawCheckout && isEligibleForSurvey()) {
         track(eventNames.offerObjectionClick, {

@@ -1,70 +1,330 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>OpenClaw Agent Safety Diagnostic</title>
-  <meta name="description" content="A fixed-scope $499 diagnostic for Codex, Claude, Chrome Computer Use, OpenClaw, and agent workflows before external side effects.">
-  <link rel="canonical" href="https://igorganapolsky.github.io/openclaw-agent-safety-diagnostic.html">
-  <link rel="stylesheet" href="/assets/styles.css">
-  <script defer data-domain="igorganapolsky.github.io" src="https://plausible.io/js/script.tagged-events.js"></script>
-  <script defer src="/assets/revenue-analytics.js"></script>
-</head>
-<body>
-  <header class="topbar">
-    <a class="brand" href="/">ResumeOS</a>
-    <nav>
-      <a href="/openclaw-agent-safety-diagnostic.html">OpenClaw Diagnostic</a>
-      <a href="/openclaw-mac-ai-workstation-setup/">OpenClaw Guide</a>
-      <a href="/llms.txt">LLM Docs</a>
-    </nav>
-  </header>
-  <main class="article">
-    <p class="eyebrow">Fixed-scope AI agent safety offer</p>
-    <h1>Before your agent posts, applies, spends, deletes, or messages clients, get the workflow audited.</h1>
-    <p class="price">$499</p>
-    <p class="lede">The Agent Safety Diagnostic reviews one Codex, Claude, Chrome Computer Use, OpenClaw, or MCP workflow for external-side-effect risk, stale-auth failure modes, approval gates, observability gaps, and rollback paths.</p>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      Agent Safety Diagnostic for Codex, Claude, Chrome Computer Use, and
+      OpenClaw
+    </title>
+    <meta
+      name="description"
+      content="A $499 async diagnostic for agent workflows that can post, apply, spend, delete, message clients, or ship production changes."
+    />
+    <link
+      rel="canonical"
+      href="https://igorganapolsky.github.io/openclaw-agent-safety-diagnostic.html"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Agent Safety Diagnostic" />
+    <meta
+      property="og:description"
+      content="Find the guardrail gaps before your agent posts, applies, spends, deletes, messages clients, or ships production changes."
+    />
+    <meta
+      property="og:url"
+      content="https://igorganapolsky.github.io/openclaw-agent-safety-diagnostic.html"
+    />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "Agent Safety Diagnostic",
+        "provider": { "@type": "Person", "name": "Igor Ganapolsky" },
+        "description": "Async diagnostic for Codex, Claude, Chrome Computer Use, and OpenClaw workflows that need evidence-gated guardrails before external side effects.",
+        "offers": {
+          "@type": "Offer",
+          "price": "499",
+          "priceCurrency": "USD",
+          "url": "https://buy.stripe.com/00w14neyUcXA5pL5e33sI0e"
+        }
+      }
+    </script>
+    <style>
+      body {
+        margin: 0;
+        font-family:
+          Inter,
+          ui-sans-serif,
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          sans-serif;
+        color: #111318;
+        background: #fff;
+        line-height: 1.55;
+      }
+      main {
+        max-width: 880px;
+        margin: 0 auto;
+        padding: 48px 20px 72px;
+      }
+      h1 {
+        font-size: clamp(34px, 6vw, 58px);
+        line-height: 1.04;
+        margin: 0 0 18px;
+        letter-spacing: 0;
+      }
+      h2 {
+        margin-top: 38px;
+        font-size: 25px;
+      }
+      p,
+      li {
+        font-size: 18px;
+      }
+      .lead {
+        color: #4b5563;
+        font-size: 21px;
+        max-width: 780px;
+      }
+      .button {
+        display: inline-flex;
+        min-height: 48px;
+        align-items: center;
+        justify-content: center;
+        padding: 0 18px;
+        border-radius: 6px;
+        background: #0f766e;
+        color: #fff;
+        text-decoration: none;
+        font-weight: 700;
+        margin: 4px 6px 4px 0;
+      }
+      .button.secondary {
+        background: transparent;
+        color: #0f766e;
+        border: 1px solid #0f766e;
+      }
+      .panel {
+        border: 1px solid #d8dde5;
+        border-radius: 8px;
+        background: #f6f8fb;
+        padding: 18px;
+        margin: 22px 0;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 14px;
+      }
+      .card {
+        border: 1px solid #d8dde5;
+        border-radius: 8px;
+        padding: 16px;
+      }
+      .reason-panel {
+        border: 1px solid #d8dde5;
+        border-radius: 8px;
+        padding: 18px;
+        margin: 22px 0;
+      }
+      .reason-panel h2 {
+        font-size: 22px;
+        margin: 0 0 8px;
+      }
+      .reason-panel p {
+        margin: 0 0 14px;
+        color: #4b5563;
+      }
+      .reason-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 10px;
+      }
+      .reason-button {
+        min-height: 44px;
+        border: 1px solid #d8dde5;
+        border-radius: 6px;
+        background: #fff;
+        color: #111318;
+        font: inherit;
+        font-weight: 650;
+        text-align: left;
+        padding: 10px 12px;
+        cursor: pointer;
+      }
+      .reason-button:hover {
+        border-color: #0f766e;
+        color: #0f766e;
+      }
+    </style>
+    <script
+      defer
+      data-domain="igorganapolsky.github.io"
+      src="https://plausible.io/js/script.tagged-events.js"
+    ></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-2GEM6RYXZE"
+    ></script>
+    <script defer src="/assets/revenue-analytics.js"></script>
+  </head>
+  <body>
+    <main>
+      <h1>
+        Before your agent can post, apply, spend, or ship, prove the guardrails.
+      </h1>
+      <p class="lead">
+        I review one Codex, Claude, Chrome Computer Use, or OpenClaw workflow
+        and return the exact places where it can create external side effects
+        without enough evidence, approval, logging, or rollback.
+      </p>
+      <p>
+        <a
+          class="button"
+          href="https://buy.stripe.com/00w14neyUcXA5pL5e33sI0e?client_reference_id=openclaw_agent_safety_diagnostic_primary&utm_source=openclaw_agent_safety_diagnostic&utm_medium=hero_checkout&utm_campaign=openclaw_agent_safety"
+          data-track="checkout_click"
+          data-source="openclaw_agent_safety_diagnostic"
+          data-surface="openclaw_agent_safety_diagnostic"
+          data-tier="agent_safety_diagnostic"
+          data-price="499"
+          data-placement="hero"
+          >Buy diagnostic $499</a
+        >
+        <a
+          class="button secondary"
+          href="/openclaw-agent-safety-sample.html"
+          data-track="sample_click"
+          data-source="openclaw_agent_safety_diagnostic"
+          data-surface="openclaw_agent_safety_diagnostic"
+          data-tier="agent_safety_sample"
+          data-price="0"
+          data-placement="hero"
+          >See a sample diagnostic</a
+        >
+        <a
+          class="button secondary"
+          href="/openclaw-computer-use-troubleshooting.html"
+          data-track="lead_click"
+          data-source="openclaw_agent_safety_diagnostic"
+          data-surface="openclaw_agent_safety_diagnostic"
+          data-tier="free_checklist"
+          data-placement="hero"
+          >Read the free checklist</a
+        >
+      </p>
 
-    <h2>Use This When The Failure Can Cost Money Or Reputation</h2>
-    <ul>
-      <li>Browser or Computer Use control is failing across Chrome profiles, permissions, or native messaging.</li>
-      <li>The agent can post, message, apply, spend, delete, upload files, or change cloud state.</li>
-      <li>You need evidence gates, screenshots, AX/DOM captures, event names, and rollback proof before automation runs unattended.</li>
-    </ul>
+      <div class="panel">
+        <strong>Best fit:</strong> agents that can send Upwork proposals, reply
+        in Skool, send Gmail, publish pages, change Stripe/GitHub/Railway state,
+        run Computer Use, or deploy production code. <br /><a
+          href="/openclaw-agent-safety-sample.html"
+          data-track="sample_click"
+          data-source="openclaw_agent_safety_diagnostic"
+          data-surface="openclaw_agent_safety_diagnostic"
+          data-tier="agent_safety_sample"
+          data-price="0"
+          data-placement="fit_panel"
+          >Review the redacted sample first</a
+        >.
+      </div>
+      <div class="panel">
+        Buy this when the agent can already click real money or reputation
+        buttons. Use the free checklist for setup bugs; use the diagnostic when
+        you need a spend gate, submit gate, message gate, and deploy gate before
+        another unattended run.
+      </div>
+      <div class="panel" id="diagnostic_receipt">
+        <strong>What the $499 diagnostic includes:</strong> one workflow review,
+        one side-effect inventory, one evidence-gate matrix, and one prioritized
+        patch plan. I inspect the current browser/MCP/CLI paths, identify where
+        spend, submit, message, deploy, publish, delete, or payout-recording
+        actions can happen without proof, and return the exact gates your agent
+        should enforce before the next run.
+      </div>
 
-    <h2>Deliverable</h2>
-    <ol>
-      <li>One-page risk map with the highest-risk actions and failure modes.</li>
-      <li>Concrete approval gates for posts, messages, bids, payments, deletes, and file uploads.</li>
-      <li>Instrumentation checklist for evidence files, screenshots, event names, and rollback proof.</li>
-      <li>Patch direction or runbook edits for the first unsafe gap found.</li>
-    </ol>
+      <section
+        class="reason-panel"
+        id="diagnostic_reason_panel"
+        aria-labelledby="diagnostic-not-buying-yet"
+      >
+        <h2 id="diagnostic-not-buying-yet">Not ready to buy the diagnostic?</h2>
+        <p>
+          Pick the blocker so I can tighten the offer with evidence instead of
+          guessing from bounce rate.
+        </p>
+        <div class="reason-grid">
+          <button
+            type="button"
+            class="reason-button"
+            data-track="checkout_abandon_reason"
+            data-source="openclaw_agent_safety_diagnostic"
+            data-surface="openclaw_agent_safety_diagnostic"
+            data-tier="agent_safety_diagnostic"
+            data-price="499"
+            data-placement="diagnostic_reason_panel"
+            data-reason="price_unclear"
+          >
+            Price or scope unclear
+          </button>
+          <button
+            type="button"
+            class="reason-button"
+            data-track="checkout_abandon_reason"
+            data-source="openclaw_agent_safety_diagnostic"
+            data-surface="openclaw_agent_safety_diagnostic"
+            data-tier="agent_safety_diagnostic"
+            data-price="499"
+            data-placement="diagnostic_reason_panel"
+            data-reason="need_sample"
+          >
+            Need a sample first
+          </button>
+          <button
+            type="button"
+            class="reason-button"
+            data-track="checkout_abandon_reason"
+            data-source="openclaw_agent_safety_diagnostic"
+            data-surface="openclaw_agent_safety_diagnostic"
+            data-tier="agent_safety_diagnostic"
+            data-price="499"
+            data-placement="diagnostic_reason_panel"
+            data-reason="not_urgent"
+          >
+            Not urgent yet
+          </button>
+          <button
+            type="button"
+            class="reason-button"
+            data-track="checkout_abandon_reason"
+            data-source="openclaw_agent_safety_diagnostic"
+            data-surface="openclaw_agent_safety_diagnostic"
+            data-tier="agent_safety_diagnostic"
+            data-price="499"
+            data-placement="diagnostic_reason_panel"
+            data-reason="trust_gap"
+          >
+            Need more proof
+          </button>
+        </div>
+      </section>
 
-    <p>
-      <a
-        class="button"
-        href="https://buy.stripe.com/00w14neyUcXA5pL5e33sI0e?client_reference_id=openclaw_root_agent_safety_diagnostic&amp;utm_source=openclaw_root&amp;utm_medium=diagnostic_cta&amp;utm_campaign=openclaw_agent_safety"
-        data-track="checkout_click"
-        data-surface="openclaw_root_agent_safety"
-        data-tier="agent_safety_diagnostic"
-        data-price="499"
-        data-placement="root_offer_primary"
-      >Buy diagnostic $499</a>
-      <a
-        class="button secondary"
-        href="/openclaw-agent-safety-sample.html"
-        data-track="sample_click"
-        data-surface="openclaw_root_agent_safety"
-        data-tier="agent_safety_sample"
-        data-price="0"
-        data-placement="root_offer_sample"
-      >See sample diagnostic</a>
-    </p>
+      <h2>What you get</h2>
+      <div class="grid">
+        <div class="card">
+          <strong>Side-effect map</strong><br />Every action that can spend
+          money, message a person, publish, delete, deploy, or mutate production
+          state.
+        </div>
+        <div class="card">
+          <strong>Evidence gates</strong><br />The exact proof required before
+          each action can run, including screenshots, ledger entries, CI checks,
+          or explicit approval.
+        </div>
+        <div class="card">
+          <strong>Patch plan</strong><br />A prioritized implementation plan for
+          preflight gates, dry-run modes, audit logs, and rollback controls.
+        </div>
+      </div>
 
-    <p><strong>Boundary:</strong> diagnostic only. No revenue guarantee, platform-access guarantee, CAPTCHA bypass, paywall bypass, browser safety bypass, or macOS security bypass.</p>
-  </main>
-  <footer>
-    <p>Igor Ganapolsky | iganapolsky@gmail.com</p>
-  </footer>
-</body>
+      <h2>Boundaries</h2>
+      <p>
+        No secret handling, no bypassing platform policy, no autonomous posting
+        on your behalf, and no revenue guarantee. The deliverable is a practical
+        safety review and patch plan for one workflow.
+      </p>
+    </main>
+  </body>
 </html>

@@ -1,102 +1,434 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Sample OpenClaw Agent Safety Diagnostic</title>
-  <meta name="description" content="A redacted sample deliverable for the $499 OpenClaw Agent Safety Diagnostic: side-effect map, evidence gates, findings, and patch plan.">
-  <link rel="canonical" href="https://igorganapolsky.github.io/openclaw-agent-safety-sample.html">
-  <link rel="stylesheet" href="/assets/styles.css">
-  <script defer data-domain="igorganapolsky.github.io" src="https://plausible.io/js/script.tagged-events.js"></script>
-  <script defer src="/assets/revenue-analytics.js"></script>
-</head>
-<body>
-  <header class="topbar">
-    <a class="brand" href="/">ResumeOS</a>
-    <nav>
-      <a href="/openclaw-agent-safety-diagnostic.html">OpenClaw Diagnostic</a>
-      <a href="/openclaw-mac-ai-workstation-setup/">OpenClaw Guide</a>
-      <a href="/llms.txt">LLM Docs</a>
-    </nav>
-  </header>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sample Agent Safety Diagnostic</title>
+    <meta
+      name="description"
+      content="A redacted sample of the $499 Agent Safety Diagnostic for Codex, Claude, Chrome Computer Use, OpenClaw, and Ralph Loop workflows."
+    />
+    <link
+      rel="canonical"
+      href="https://igorganapolsky.github.io/openclaw-agent-safety-sample.html"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Sample Agent Safety Diagnostic" />
+    <meta
+      property="og:description"
+      content="See the shape of the deliverable before buying the async agent safety diagnostic."
+    />
+    <meta
+      property="og:url"
+      content="https://igorganapolsky.github.io/openclaw-agent-safety-sample.html"
+    />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "CreativeWork",
+        "name": "Sample Agent Safety Diagnostic",
+        "about": "Evidence-gated safety review for agent workflows with external side effects",
+        "provider": { "@type": "Person", "name": "Igor Ganapolsky" },
+        "isPartOf": {
+          "@type": "Service",
+          "name": "Agent Safety Diagnostic",
+          "offers": {
+            "@type": "Offer",
+            "price": "499",
+            "priceCurrency": "USD",
+            "url": "https://buy.stripe.com/00w14neyUcXA5pL5e33sI0e"
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        margin: 0;
+        font-family:
+          Inter,
+          ui-sans-serif,
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          sans-serif;
+        color: #111318;
+        background: #fff;
+        line-height: 1.55;
+      }
+      main {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 48px 20px 72px;
+      }
+      h1 {
+        font-size: clamp(34px, 6vw, 56px);
+        line-height: 1.04;
+        margin: 0 0 18px;
+        letter-spacing: 0;
+      }
+      h2 {
+        margin-top: 38px;
+        font-size: 25px;
+      }
+      p,
+      li,
+      td,
+      th {
+        font-size: 17px;
+      }
+      .lead {
+        color: #4b5563;
+        font-size: 21px;
+        max-width: 820px;
+      }
+      .button {
+        display: inline-flex;
+        min-height: 48px;
+        align-items: center;
+        justify-content: center;
+        padding: 0 18px;
+        border-radius: 6px;
+        background: #0f766e;
+        color: #fff;
+        text-decoration: none;
+        font-weight: 700;
+        margin: 4px 6px 4px 0;
+      }
+      .button.secondary {
+        background: transparent;
+        color: #0f766e;
+        border: 1px solid #0f766e;
+      }
+      .panel {
+        border: 1px solid #d8dde5;
+        border-radius: 8px;
+        background: #f6f8fb;
+        padding: 18px;
+        margin: 22px 0;
+      }
+      .reason-panel {
+        border: 1px solid #d8dde5;
+        border-radius: 8px;
+        padding: 18px;
+        margin: 22px 0;
+      }
+      .reason-panel h2 {
+        font-size: 22px;
+        margin: 0 0 8px;
+      }
+      .reason-panel p {
+        margin: 0 0 14px;
+        color: #4b5563;
+      }
+      .reason-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 10px;
+      }
+      .reason-button {
+        min-height: 44px;
+        border: 1px solid #d8dde5;
+        border-radius: 6px;
+        background: #fff;
+        color: #111318;
+        font: inherit;
+        font-weight: 650;
+        text-align: left;
+        padding: 10px 12px;
+        cursor: pointer;
+      }
+      .reason-button:hover {
+        border-color: #0f766e;
+        color: #0f766e;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 16px 0 24px;
+      }
+      th,
+      td {
+        border: 1px solid #d8dde5;
+        padding: 12px;
+        text-align: left;
+        vertical-align: top;
+      }
+      th {
+        background: #f6f8fb;
+      }
+      code {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        font-size: 15px;
+        background: #f6f8fb;
+        padding: 1px 4px;
+        border-radius: 4px;
+      }
+    </style>
+    <script
+      defer
+      data-domain="igorganapolsky.github.io"
+      src="https://plausible.io/js/script.tagged-events.js"
+    ></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-2GEM6RYXZE"
+    ></script>
+    <script defer src="/assets/revenue-analytics.js"></script>
+  </head>
+  <body>
+    <main>
+      <h1>Sample agent safety diagnostic</h1>
+      <p class="lead">
+        This is a redacted example of the $499 async deliverable. It shows the
+        level of specificity: side effects, evidence gates, failure modes, and
+        the patch plan for one real workflow.
+      </p>
+      <p>
+        <a
+          class="button"
+          href="https://buy.stripe.com/00w14neyUcXA5pL5e33sI0e?client_reference_id=openclaw_agent_safety_sample_primary&utm_source=openclaw_agent_safety_sample&utm_medium=sample_checkout&utm_campaign=openclaw_agent_safety"
+          data-track="checkout_click"
+          data-source="openclaw_agent_safety_sample"
+          data-surface="openclaw_agent_safety_sample"
+          data-tier="agent_safety_diagnostic"
+          data-price="499"
+          data-placement="sample_primary"
+          >Buy diagnostic $499</a
+        >
+        <a
+          class="button secondary"
+          href="/openclaw-agent-safety-diagnostic.html"
+          data-track="lead_click"
+          data-source="openclaw_agent_safety_sample"
+          data-surface="openclaw_agent_safety_sample"
+          data-tier="agent_safety_diagnostic"
+          data-price="499"
+          data-placement="sample_back_to_offer"
+          >Back to offer details</a
+        >
+      </p>
 
-  <main class="article">
-    <p class="eyebrow">Redacted sample deliverable</p>
-    <h1>Sample agent safety diagnostic</h1>
-    <p class="lede">This is the shape of the $499 async deliverable: a concrete side-effect map, evidence gates, high-risk findings, and a patch plan for one agent workflow.</p>
+      <section class="panel" aria-labelledby="sample-scope">
+        <h2 id="sample-scope">Example workflow reviewed</h2>
+        <p>
+          <strong>Workflow:</strong> browser-driven Upwork sourcing loop using
+          Codex, Chrome CDP, local proposal inventory, and a preflight script
+          that decides whether Connects may be spent.
+        </p>
+        <p>
+          <strong>Goal:</strong> let the agent inspect jobs and prepare evidence
+          while preventing unsafe proposal submission, duplicate browser tabs,
+          stale inventory use, or unverified payout claims.
+        </p>
+      </section>
 
-    <p>
-      <a
-        class="button"
-        href="https://buy.stripe.com/00w14neyUcXA5pL5e33sI0e?client_reference_id=openclaw_agent_safety_sample_primary&amp;utm_source=openclaw_agent_safety_sample&amp;utm_medium=sample_checkout&amp;utm_campaign=openclaw_agent_safety"
-        data-track="checkout_click"
-        data-surface="openclaw_agent_safety_sample"
-        data-tier="agent_safety_diagnostic"
-        data-price="499"
-        data-placement="sample_primary"
-      >Buy diagnostic $499</a>
-      <a
-        class="button secondary"
-        href="/openclaw-agent-safety-diagnostic.html"
-        data-track="lead_click"
-        data-surface="openclaw_agent_safety_sample"
-        data-tier="agent_safety_diagnostic"
-        data-price="499"
-        data-placement="sample_back_to_offer"
-      >Back to offer details</a>
-    </p>
+      <h2>Side-effect map</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Action</th>
+            <th>Risk</th>
+            <th>Required evidence gate</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Open Upwork job detail in Chrome</td>
+            <td>
+              Low risk, but duplicate tabs degrade session state and user trust.
+            </td>
+            <td>
+              Use existing Upwork tab when present. Only open a tab with an
+              explicit <code>--open-if-missing</code> path. Log tab count and
+              duplicate URL groups.
+            </td>
+          </tr>
+          <tr>
+            <td>Click Apply or Submit Proposal</td>
+            <td>
+              Connects spend, external message, irreversible proposal history.
+            </td>
+            <td>
+              Fresh preflight must return <code>ALLOW</code>, required Connects
+              must be known, job must match the approved wedge, and the exact
+              proposal text must be staged.
+            </td>
+          </tr>
+          <tr>
+            <td>Record Upwork payout as withdrawn</td>
+            <td>
+              False revenue claim if available balance is confused with
+              completed withdrawal.
+            </td>
+            <td>
+              Require completed withdrawal screenshot or payment confirmation
+              artifact. Available balance evidence is readiness only.
+            </td>
+          </tr>
+          <tr>
+            <td>Send client or community reply</td>
+            <td>External reputation impact and possible policy breach.</td>
+            <td>
+              Require approved exact text, target identity, destination
+              URL/thread, and post-send screenshot or message ID.
+            </td>
+          </tr>
+        </tbody>
+      </table>
 
-    <aside>
-      <strong>Example workflow reviewed:</strong> a browser-driven Upwork sourcing loop using Codex, Chrome CDP, proposal inventory, and a preflight script that decides whether Connects may be spent.
-    </aside>
+      <h2>Example findings</h2>
+      <ol>
+        <li>
+          <strong>Preflight denial must be terminal.</strong> If lead inventory
+          has zero safe-to-submit candidates, the agent may inspect pages
+          read-only but must not spend Connects or submit a proposal.
+        </li>
+        <li>
+          <strong>Browser control must preserve state.</strong> A profile
+          mismatch can make the Chrome extension appear broken even while
+          another profile is healthy. The workflow should keep using
+          CDP/read-only automation and avoid profile file mutation.
+        </li>
+        <li>
+          <strong>Money claims need completed-payment evidence.</strong> A
+          funded milestone, available balance, and completed withdrawal are
+          three different states. Reports must label them separately.
+        </li>
+      </ol>
 
-    <h2>Side-effect map excerpt</h2>
-    <div class="table">
-      <div class="row">
-        <strong>Action</strong>
-        <strong>Risk</strong>
-        <strong>Required evidence gate</strong>
-        <strong>Status</strong>
-      </div>
-      <div class="row">
-        <span>Open Upwork job detail</span>
-        <span>Duplicate tabs degrade session state.</span>
-        <span>Use existing tab; only open with an explicit open-if-missing path; log duplicate URL groups.</span>
-        <span>Gate required</span>
-      </div>
-      <div class="row">
-        <span>Click Apply or Submit Proposal</span>
-        <span>Connects spend plus irreversible external proposal.</span>
-        <span>Fresh preflight must allow spend, required Connects must be known, and exact proposal text must be staged.</span>
-        <span>Hard stop</span>
-      </div>
-      <div class="row">
-        <span>Record payout as withdrawn</span>
-        <span>False revenue claim if available balance is treated as completed withdrawal.</span>
-        <span>Require completed withdrawal screenshot or payment confirmation artifact.</span>
-        <span>Hard stop</span>
-      </div>
-    </div>
+      <h2>Patch plan excerpt</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Priority</th>
+            <th>Patch</th>
+            <th>Acceptance test</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>P0</td>
+            <td>
+              Add a no-Connect controller that blocks spend, posting, payout
+              recording, and catalog publishing unless each gate has evidence.
+            </td>
+            <td>
+              Controller returns <code>allowed_count=0</code> and
+              <code>submitted_or_spent_connects=false</code> when inventory is
+              stale or unsafe.
+            </td>
+          </tr>
+          <tr>
+            <td>P0</td>
+            <td>Add a duplicate-tab audit before any Upwork browser action.</td>
+            <td>
+              Audit reports category counts and duplicate URL group count
+              without opening or closing tabs.
+            </td>
+          </tr>
+          <tr>
+            <td>P1</td>
+            <td>
+              Add an execution packet template for payout actions that
+              distinguishes readiness from completion.
+            </td>
+            <td>
+              Completion gate rejects missing or available-balance-only
+              evidence.
+            </td>
+          </tr>
+        </tbody>
+      </table>
 
-    <h2>Example findings</h2>
-    <ol>
-      <li><strong>Preflight denial must be terminal.</strong> If lead inventory has zero safe-to-submit candidates, the agent may inspect read-only pages but must not spend Connects or submit a proposal.</li>
-      <li><strong>Browser control must preserve state.</strong> A Chrome profile mismatch can make an extension appear broken while another profile is healthy. Continue with CDP/read-only automation rather than mutating browser profile files.</li>
-      <li><strong>Money claims need completed-payment evidence.</strong> Funded milestone, available balance, released funds, and completed withdrawal are separate states.</li>
-    </ol>
+      <section class="panel" aria-labelledby="sample-boundaries">
+        <h2 id="sample-boundaries">What this sample does not promise</h2>
+        <p>
+          No platform bypassing, no credential storage, no autonomous posting
+          without approval, and no revenue guarantee. The diagnostic is a safety
+          and operations review for one workflow, with a concrete patch plan you
+          can implement or hand to an engineer.
+        </p>
+      </section>
 
-    <h2>Patch plan excerpt</h2>
-    <ul class="checklist">
-      <li>Add a no-Connect controller that blocks spend, posting, payout recording, and catalog publishing unless each gate has evidence.</li>
-      <li>Add a duplicate-tab audit before every logged-in Upwork browser action.</li>
-      <li>Add an execution packet template for payout actions that distinguishes readiness from completion.</li>
-    </ul>
+      <section class="panel" aria-labelledby="sample-next-step">
+        <h2 id="sample-next-step">Use this when the agent can already act</h2>
+        <p>
+          If your agent is inside a logged-in production browser or connected
+          account, setup debugging is not enough. The diagnostic gives you a
+          side-effect map and spend, submit, message, and deploy gates before
+          the next unattended run.
+        </p>
+        <a
+          class="button"
+          href="https://buy.stripe.com/00w14neyUcXA5pL5e33sI0e?client_reference_id=openclaw_agent_safety_sample_bottom&utm_source=openclaw_agent_safety_sample&utm_medium=sample_bottom_checkout&utm_campaign=openclaw_agent_safety"
+          data-track="checkout_click"
+          data-source="openclaw_agent_safety_sample"
+          data-surface="openclaw_agent_safety_sample"
+          data-tier="agent_safety_diagnostic"
+          data-price="499"
+          data-placement="sample_bottom"
+          >Buy diagnostic $499</a
+        >
+      </section>
 
-    <p><strong>Boundary:</strong> diagnostic only. No platform bypassing, credential storage, autonomous posting without approval, or revenue guarantee.</p>
-  </main>
-
-  <footer>
-    <p>Igor Ganapolsky | iganapolsky@gmail.com</p>
-  </footer>
-</body>
+      <section class="reason-panel" aria-labelledby="sample-not-buying">
+        <h2 id="sample-not-buying">Still not buying after the sample?</h2>
+        <p>
+          Pick the blocker. This is tracked anonymously so the offer can improve
+          from actual visitor intent.
+        </p>
+        <div class="reason-grid">
+          <button
+            type="button"
+            class="reason-button"
+            data-track="checkout_abandon_reason"
+            data-surface="openclaw_agent_safety_sample"
+            data-tier="agent_safety_diagnostic"
+            data-price="499"
+            data-placement="sample_reason_panel"
+            data-reason="price_unclear"
+          >
+            Price or scope unclear
+          </button>
+          <button
+            type="button"
+            class="reason-button"
+            data-track="checkout_abandon_reason"
+            data-surface="openclaw_agent_safety_sample"
+            data-tier="agent_safety_diagnostic"
+            data-price="499"
+            data-placement="sample_reason_panel"
+            data-reason="need_sample"
+          >
+            Need a different sample
+          </button>
+          <button
+            type="button"
+            class="reason-button"
+            data-track="checkout_abandon_reason"
+            data-surface="openclaw_agent_safety_sample"
+            data-tier="agent_safety_diagnostic"
+            data-price="499"
+            data-placement="sample_reason_panel"
+            data-reason="not_urgent"
+          >
+            Useful, but not urgent
+          </button>
+          <button
+            type="button"
+            class="reason-button"
+            data-track="checkout_abandon_reason"
+            data-surface="openclaw_agent_safety_sample"
+            data-tier="agent_safety_diagnostic"
+            data-price="499"
+            data-placement="sample_reason_panel"
+            data-reason="trust_gap"
+          >
+            Need more proof
+          </button>
+        </div>
+      </section>
+    </main>
+  </body>
 </html>
