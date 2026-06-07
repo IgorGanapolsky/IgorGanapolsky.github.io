@@ -34,6 +34,10 @@
       .reason-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; }
       .reason-button { min-height: 44px; border: 1px solid #d8dde5; border-radius: 6px; background: #fff; color: #111318; font: inherit; font-weight: 650; text-align: left; padding: 10px 12px; cursor: pointer; }
       .reason-button:hover { border-color: #0f766e; color: #0f766e; }
+      .triage-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin: 16px 0; }
+      .triage-button { display: block; min-height: 78px; border: 1px solid #d8dde5; border-radius: 8px; background: #fff; color: #111318; text-decoration: none; padding: 14px; font-weight: 700; }
+      .triage-button span { display: block; color: #4b5563; font-size: 15px; font-weight: 500; margin-top: 6px; }
+      .triage-button:hover { border-color: #0f766e; color: #0f766e; }
     </style>
   </head>
   <body>
@@ -125,6 +129,44 @@
             >Buy Stripe audit $499</a
           >
         </p>
+      </section>
+      <section class="panel" id="stripe-connect-problem-triage" data-experiment="stripe_connect_root_problem_triage">
+        <h2>Which Stripe Connect failure is blocking launch?</h2>
+        <p>
+          Pick the closest problem. Each path still lands on the same $499 diagnostic, but the click tells me whether buyers care most about charge routing, refund/webhook drift, or tax-boundary risk.
+        </p>
+        <div class="triage-grid">
+          <a
+            class="triage-button"
+            href="https://buy.stripe.com/5kQ9ATduQcXA5pL35V3sI0R?client_reference_id=root_stripe_connect_triage_charge_flow&utm_source=root&utm_medium=problem_triage_checkout&utm_campaign=stripe_connect_audit"
+            data-track="checkout_click"
+            data-surface="root"
+            data-tier="stripe_connect_diagnostic"
+            data-price="499"
+            data-placement="stripe_connect_problem_triage"
+            data-problem="charge_flow"
+          >Destination charges / platform fees<span>Audit whether money routes to the right connected account with the right platform fee.</span></a>
+          <a
+            class="triage-button"
+            href="https://buy.stripe.com/5kQ9ATduQcXA5pL35V3sI0R?client_reference_id=root_stripe_connect_triage_refunds_webhooks&utm_source=root&utm_medium=problem_triage_checkout&utm_campaign=stripe_connect_audit"
+            data-track="checkout_click"
+            data-surface="root"
+            data-tier="stripe_connect_diagnostic"
+            data-price="499"
+            data-placement="stripe_connect_problem_triage"
+            data-problem="refunds_webhooks"
+          >Refunds / webhooks / reconciliation<span>Find duplicate-charge, replay, missing idempotency, and payout-reconciliation failure points.</span></a>
+          <a
+            class="triage-button"
+            href="https://buy.stripe.com/5kQ9ATduQcXA5pL35V3sI0R?client_reference_id=root_stripe_connect_triage_tax_boundary&utm_source=root&utm_medium=problem_triage_checkout&utm_campaign=stripe_connect_audit"
+            data-track="checkout_click"
+            data-surface="root"
+            data-tier="stripe_connect_diagnostic"
+            data-price="499"
+            data-placement="stripe_connect_problem_triage"
+            data-problem="merchant_of_record_tax_boundary"
+          >Merchant-of-record / tax boundary<span>Check whether platform fees, refunds, connected-account ownership, and tax assumptions match your model.</span></a>
+        </div>
       </section>
       <div class="panel">
         <strong>Agent safety is secondary:</strong> if your Codex, Claude, Chrome Computer Use, OpenClaw, or Ralph Loop workflow can spend, submit, message, deploy, or mutate production state, use the agent safety diagnostic instead.
