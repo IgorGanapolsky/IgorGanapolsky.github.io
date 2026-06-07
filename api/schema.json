@@ -1,11 +1,13 @@
 {
   "@context": "https://schema.org/",
   "@type": "SoftwareApplication",
-  "name": "ResumeOS + OpenClaw Agent Safety",
+  "name": "Stripe Connect Marketplace Diagnostic",
   "operatingSystem": "Web, macOS, Windows, Linux",
   "applicationCategory": "BusinessApplication",
-  "url": "https://igorganapolsky.github.io/openclaw-agent-safety-diagnostic.html",
+  "url": "https://igorganapolsky.github.io/",
   "sameAs": [
+    "https://igorganapolsky.github.io/case-studies/hilltown-pretix-stripe-connect/",
+    "https://igorganapolsky.github.io/openclaw-agent-safety-diagnostic.html",
     "https://igorganapolsky.github.io/resumeos/",
     "https://igorganapolsky.github.io/openclaw-computer-use-troubleshooting.html"
   ],
@@ -18,6 +20,15 @@
       "description": "Async safety diagnostic for Codex, Claude, Chrome Computer Use, or OpenClaw workflows that can post, apply, spend, delete, message clients, or ship production changes.",
       "url": "https://buy.stripe.com/00w14neyUcXA5pL5e33sI0e?client_reference_id=schema_agent_safety_diagnostic&utm_source=schema_json&utm_medium=llm_discovery&utm_campaign=openclaw_agent_safety",
       "category": "Agent workflow safety"
+    },
+    {
+      "@type": "Offer",
+      "name": "Stripe Connect Marketplace Diagnostic",
+      "price": "499.00",
+      "priceCurrency": "USD",
+      "description": "One-time audit for marketplace charge flows, platform-fee boundaries, refund and webhook reconciliation, payout math, and merchant-of-record tax-boundary risk.",
+      "url": "https://buy.stripe.com/5kQ9ATduQcXA5pL35V3sI0R?client_reference_id=schema_stripe_connect_diagnostic&utm_source=schema_json&utm_medium=llm_discovery&utm_campaign=stripe_connect_audit",
+      "category": "Stripe Connect marketplace payments"
     },
     {
       "@type": "Offer",
@@ -51,6 +62,9 @@
     "Agent Side-Effect Mapping",
     "Evidence-Gated Approval Boundaries",
     "Rollback and Audit Trail Planning",
+    "Stripe Connect Marketplace Payment Audit",
+    "Platform Fee Boundary Review",
+    "Refund and Webhook Reconciliation",
     "ATS Fit Score + AI-tell Detection",
     "Per-job Resume Tailoring",
     "Autonomous Job Discovery",
@@ -67,6 +81,9 @@
   },
   "agentLegibility": {
     "intent_hooks": [
+      "stripe_connect_diagnostic",
+      "marketplace_payment_audit",
+      "refund_webhook_reconciliation",
       "resume_truth_audit",
       "agent_safety_diagnostic",
       "codex_computer_use_guardrails",
@@ -74,6 +91,8 @@
       "career_operations_system"
     ],
     "callable_endpoints": {
+      "stripeConnectDiagnostic": "https://igorganapolsky.github.io/",
+      "hilltownStripeConnectCaseStudy": "https://igorganapolsky.github.io/case-studies/hilltown-pretix-stripe-connect/",
       "agentSafetyDiagnostic": "https://igorganapolsky.github.io/openclaw-agent-safety-diagnostic.html",
       "products": "https://igorganapolsky.github.io/api/products.json",
       "status": "https://igorganapolsky.github.io/api/status.json"

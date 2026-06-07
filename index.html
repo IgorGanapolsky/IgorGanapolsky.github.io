@@ -3,19 +3,12 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Agent Safety Diagnostic by Igor Ganapolsky</title>
+    <title>Stripe Connect Marketplace Diagnostic by Igor Ganapolsky</title>
     <meta
       name="description"
-      content="Agent safety diagnostic for Codex, Claude, Chrome Computer Use, OpenClaw, and Ralph Loop workflows that can post, apply, spend, message clients, or ship production changes."
+      content="Stripe Connect marketplace payment audit for destination charges, platform-fee boundaries, refunds, webhooks, payout reconciliation, and merchant-of-record tax-boundary risk."
     />
-    <meta
-      name="funnel-marker"
-      content="unapproved external side effect logged-in production browser"
-    />
-    <link
-      rel="canonical"
-      href="https://igorganapolsky.github.io/openclaw-agent-safety-diagnostic.html"
-    />
+    <link rel="canonical" href="https://igorganapolsky.github.io/" />
     <script
       defer
       data-domain="igorganapolsky.github.io"
@@ -27,131 +20,48 @@
     ></script>
     <script defer src="assets/revenue-analytics.js"></script>
     <style>
-      body {
-        margin: 0;
-        font-family:
-          Inter,
-          ui-sans-serif,
-          system-ui,
-          -apple-system,
-          BlinkMacSystemFont,
-          "Segoe UI",
-          sans-serif;
-        color: #111318;
-        background: #fff;
-        line-height: 1.55;
-      }
-      main {
-        max-width: 860px;
-        margin: 0 auto;
-        padding: 48px 20px 72px;
-      }
-      h1 {
-        font-size: clamp(34px, 6vw, 58px);
-        line-height: 1.04;
-        margin: 0 0 18px;
-        letter-spacing: 0;
-      }
-      p {
-        font-size: 18px;
-      }
-      .lead {
-        color: #4b5563;
-        font-size: 21px;
-        max-width: 780px;
-      }
-      .button {
-        display: inline-flex;
-        min-height: 48px;
-        align-items: center;
-        justify-content: center;
-        padding: 0 18px;
-        border-radius: 6px;
-        background: #0f766e;
-        color: #fff;
-        text-decoration: none;
-        font-weight: 700;
-        margin: 4px 6px 4px 0;
-      }
-      .button.secondary {
-        background: transparent;
-        color: #0f766e;
-        border: 1px solid #0f766e;
-      }
-      .panel {
-        border: 1px solid #d8dde5;
-        border-radius: 8px;
-        background: #f6f8fb;
-        padding: 18px;
-        margin: 22px 0;
-      }
-      .reason-panel {
-        border: 1px solid #d8dde5;
-        border-radius: 8px;
-        padding: 18px;
-        margin: 22px 0;
-      }
-      .reason-panel h2 {
-        font-size: 22px;
-        margin: 0 0 8px;
-      }
-      .reason-panel p {
-        margin: 0 0 14px;
-        color: #4b5563;
-      }
-      .reason-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-        gap: 10px;
-      }
-      .reason-button {
-        min-height: 44px;
-        border: 1px solid #d8dde5;
-        border-radius: 6px;
-        background: #fff;
-        color: #111318;
-        font: inherit;
-        font-weight: 650;
-        text-align: left;
-        padding: 10px 12px;
-        cursor: pointer;
-      }
-      .reason-button:hover {
-        border-color: #0f766e;
-        color: #0f766e;
-      }
+      body { margin: 0; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #111318; background: #fff; line-height: 1.55; }
+      main { max-width: 860px; margin: 0 auto; padding: 48px 20px 72px; }
+      h1 { font-size: clamp(34px, 6vw, 58px); line-height: 1.04; margin: 0 0 18px; letter-spacing: 0; }
+      p { font-size: 18px; }
+      .lead { color: #4b5563; font-size: 21px; max-width: 780px; }
+      .button { display: inline-flex; min-height: 48px; align-items: center; justify-content: center; padding: 0 18px; border-radius: 6px; background: #0f766e; color: #fff; text-decoration: none; font-weight: 700; margin: 4px 6px 4px 0; }
+      .button.secondary { background: transparent; color: #0f766e; border: 1px solid #0f766e; }
+      .panel { border: 1px solid #d8dde5; border-radius: 8px; background: #f6f8fb; padding: 18px; margin: 22px 0; }
+      .reason-panel { border: 1px solid #d8dde5; border-radius: 8px; padding: 18px; margin: 22px 0; }
+      .reason-panel h2 { font-size: 22px; margin: 0 0 8px; }
+      .reason-panel p { margin: 0 0 14px; color: #4b5563; }
+      .reason-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; }
+      .reason-button { min-height: 44px; border: 1px solid #d8dde5; border-radius: 6px; background: #fff; color: #111318; font: inherit; font-weight: 650; text-align: left; padding: 10px 12px; cursor: pointer; }
+      .reason-button:hover { border-color: #0f766e; color: #0f766e; }
     </style>
   </head>
   <body>
     <main>
-      <h1>
-        Before your agent can act in the real world, prove the guardrails.
-      </h1>
+      <h1>Stripe Connect marketplace payment bugs are expensive to debug after launch.</h1>
       <p class="lead">
-        I audit Codex, Claude, Chrome Computer Use, OpenClaw, and Ralph Loop
-        workflows for side effects: spending, posting, applying, emailing,
-        deleting, deploying, and messaging clients.
+        I audit destination charges, platform-fee math, refunds, webhooks, payout reconciliation, and merchant-of-record/tax-boundary risk before a marketplace ships broken money movement.
       </p>
       <p>
         <a
           class="button"
-          href="https://buy.stripe.com/00w14neyUcXA5pL5e33sI0e?client_reference_id=root_agent_safety_diagnostic&utm_source=root&utm_medium=hero_checkout&utm_campaign=openclaw_agent_safety"
+          href="https://buy.stripe.com/5kQ9ATduQcXA5pL35V3sI0R?client_reference_id=root_stripe_connect_diagnostic_hero&utm_source=root&utm_medium=hero_checkout&utm_campaign=stripe_connect_audit"
           data-track="checkout_click"
           data-surface="root"
-          data-tier="agent_safety_diagnostic"
+          data-tier="stripe_connect_diagnostic"
           data-price="499"
-          data-placement="home_topbar_openclaw_agent_safety_diagnostic"
-          >Buy diagnostic $499</a
+          data-placement="hero"
+          >Buy Stripe audit $499</a
         >
         <a
           class="button secondary"
-          href="./openclaw-agent-safety-sample.html"
-          data-track="sample_click"
+          href="./case-studies/hilltown-pretix-stripe-connect/"
+          data-track="case_study_click"
           data-surface="root"
-          data-tier="agent_safety_sample"
+          data-tier="stripe_connect_case_study"
           data-price="0"
           data-placement="hero"
-          >See a sample diagnostic</a
+          >Read Stripe Connect case study</a
         >
         <a
           class="button secondary"
@@ -165,61 +75,92 @@
         >
       </p>
       <div class="panel">
-        ResumeOS still exists for career automation, but current buyer demand is
-        agent workflow safety and evidence-gated automation. Start here if your
-        agent can touch money, client messages, Upwork, Stripe, GitHub, Railway,
-        Gmail, Skool, or production code.
+        The current paid wedge is Stripe Connect and marketplace payments, not broad AI/RAG work. Public proof is limited to verified Hilltown / Pretix / Stripe Connect milestone evidence; speculative proposals, traffic, and checkout-link reachability are not revenue.
       </div>
       <div class="panel">
-        Buy this when the workflow already runs inside a logged-in production
-        browser or connected account. The failure is not a model answer; it is
-        an unapproved external side effect. The diagnostic returns a side-effect
-        map, approval gates for spend, submit, message, and deploy actions, plus
-        a rollback and evidence checklist.
+        <strong>Payment-platform work:</strong> I am currently narrow on Stripe Connect, marketplace payout math, refunds, webhooks, and merchant-of-record/tax-boundary bugs. The public proof point is a paid Upwork Pretix + Stripe Connect engagement for Hilltown Media Group, with claims limited to verified milestone evidence.
+        <p>
+          <a
+            class="button"
+            href="./case-studies/hilltown-pretix-stripe-connect/"
+            data-track="case_study_click"
+            data-surface="root"
+            data-tier="stripe_connect_case_study"
+            data-price="0"
+            data-placement="stripe_proof_panel"
+            >Read Stripe Connect case study</a
+          >
+          <a
+            class="button secondary"
+            href="https://buy.stripe.com/5kQ9ATduQcXA5pL35V3sI0R?client_reference_id=root_stripe_connect_diagnostic&utm_source=root&utm_medium=stripe_proof_panel_checkout&utm_campaign=stripe_connect_audit"
+            data-track="checkout_click"
+            data-surface="root"
+            data-tier="stripe_connect_diagnostic"
+            data-price="499"
+            data-placement="stripe_proof_panel"
+            >Buy Stripe audit $499</a
+          >
+        </p>
+      </div>
+      <div class="panel">
+        <strong>Agent safety is secondary:</strong> if your Codex, Claude, Chrome Computer Use, OpenClaw, or Ralph Loop workflow can spend, submit, message, deploy, or mutate production state, use the agent safety diagnostic instead.
+        <p>
+          <a
+            class="button secondary"
+            href="https://buy.stripe.com/00w14neyUcXA5pL5e33sI0e?client_reference_id=root_agent_safety_secondary&utm_source=root&utm_medium=secondary_checkout&utm_campaign=openclaw_agent_safety"
+            data-track="checkout_click"
+            data-surface="root"
+            data-tier="agent_safety_diagnostic"
+            data-price="499"
+            data-placement="secondary_agent_safety"
+            >Buy agent safety diagnostic $499</a
+          >
+          <a
+            class="button secondary"
+            href="./openclaw-agent-safety-sample.html"
+            data-track="sample_click"
+            data-surface="root"
+            data-tier="agent_safety_sample"
+            data-price="0"
+            data-placement="secondary_agent_safety"
+            >See sample diagnostic</a
+          >
+        </p>
       </div>
       <section class="reason-panel" aria-labelledby="not-buying-yet">
         <h2 id="not-buying-yet">Not buying the diagnostic yet?</h2>
-        <p>
-          Pick the blocker. I use this signal to tighten the offer instead of
-          guessing from bounce rate.
-        </p>
+        <p>Pick the blocker. I use this signal to tighten the offer instead of guessing from bounce rate.</p>
         <div class="reason-grid">
           <button
             type="button"
             class="reason-button"
             data-track="checkout_abandon_reason"
             data-surface="root"
-            data-tier="agent_safety_diagnostic"
+            data-tier="stripe_connect_diagnostic"
             data-price="499"
             data-placement="root_objection_panel"
             data-reason="price_unclear"
-          >
-            Price or scope unclear
-          </button>
+          >Price or scope unclear</button>
           <button
             type="button"
             class="reason-button"
             data-track="checkout_abandon_reason"
             data-surface="root"
-            data-tier="agent_safety_diagnostic"
+            data-tier="stripe_connect_diagnostic"
             data-price="499"
             data-placement="root_objection_panel"
             data-reason="need_sample"
-          >
-            Need a sample first
-          </button>
+          >Need a sample first</button>
           <button
             type="button"
             class="reason-button"
             data-track="checkout_abandon_reason"
             data-surface="root"
-            data-tier="agent_safety_diagnostic"
+            data-tier="stripe_connect_diagnostic"
             data-price="499"
             data-placement="root_objection_panel"
             data-reason="trust_gap"
-          >
-            Need more proof
-          </button>
+          >Need more proof</button>
         </div>
       </section>
       <a

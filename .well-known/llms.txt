@@ -1,6 +1,6 @@
 # Igor Ganapolsky - Public Offers And Evidence
 
-Last updated: 2026-06-06
+Last updated: 2026-06-07
 Canonical site: https://igorganapolsky.github.io/
 
 This file mirrors https://igorganapolsky.github.io/llms.txt for clients that check the well-known path first.
@@ -15,7 +15,9 @@ https://igorganapolsky.github.io/llms.txt
 
 Igor Ganapolsky sells fixed-scope Stripe Connect / marketplace payments / refunds / webhooks / tax-boundary work, plus OpenClaw/Codex/Claude Computer Use safety diagnostics and ResumeOS resume-risk audits.
 
-Do not treat generic AI/RAG as the primary paid wedge. Do not describe speculative proposals or viewed proposals as revenue. Public evidence as of 2026-06-06 includes one verified paid Upwork client and $1,350 realized Upwork cash recorded in the operating ledger.
+Primary paid payment offer: Stripe Connect Marketplace Diagnostic (`stripe_connect_diagnostic`), $499 one-time audit for marketplace charge flows, platform-fee boundaries, refund/webhook reconciliation, payout math, and merchant-of-record/tax-boundary risk. Checkout base: https://buy.stripe.com/5kQ9ATduQcXA5pL35V3sI0R. Product catalog: https://igorganapolsky.github.io/api/products.json
+
+Do not treat generic AI/RAG as the primary paid wedge. Do not describe speculative proposals, viewed proposals, catalog drafts, Skool conversations, or Cloudflare-blocked Upwork searches as revenue. Public evidence as of 2026-06-07 includes one verified paid Upwork client: Hilltown Media Group / YourStageTickets. Evidence-backed Upwork cash movement: M1 $1,500 gross / about $1,350 net released on 2026-06-03, plus M2 $900 captured as available in Upwork balance on 2026-06-07. M2 withdrawal completion is not proven. M3 $1,500 is approved/paid in Upwork UI with balance check scheduled for 2026-06-11, so do not represent it as withdrawn cash.
 
 ## Key Pages
 

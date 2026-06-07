@@ -1,18 +1,34 @@
 {
   "status": "operational",
   "provider": "ResumeOS + OpenClaw",
-  "as_of": "2026-06-06",
+  "as_of": "2026-06-07",
   "public_surface": {
-    "storefront": "https://igorganapolsky.github.io/openclaw-agent-safety-diagnostic.html",
-    "primary_offer": "Agent Safety Diagnostic",
+    "storefront": "https://igorganapolsky.github.io/",
+    "primary_offer": "Stripe Connect Marketplace Diagnostic",
     "checkout_provider": "Stripe Payment Links"
   },
+  "commercial_focus": {
+    "primary_payment_offer": "Stripe Connect Marketplace Diagnostic",
+    "offer_id": "stripe_connect_diagnostic",
+    "price_cents": 49900,
+    "checkout_url": "https://buy.stripe.com/5kQ9ATduQcXA5pL35V3sI0R?client_reference_id=status_stripe_connect_diagnostic&utm_source=status_json&utm_medium=machine_readable&utm_campaign=stripe_connect_audit",
+    "case_study": "https://igorganapolsky.github.io/case-studies/hilltown-pretix-stripe-connect/",
+    "wedge": "Stripe Connect / marketplace payments / refunds / webhooks / tax-boundary",
+    "cash_caveat": "Do not treat viewed proposals, catalog drafts, Skool conversations, checkout-link reachability, or analytics visits as revenue.",
+    "upwork_evidence": "Hilltown is the only verified paid Upwork client in the current public record; M2 withdrawal completion is not proven."
+  },
   "metrics": {
-    "total_applications_tracked": 3858,
-    "drafts_in_queue": 3711,
+    "total_applications_tracked": 399,
+    "drafts_in_queue": 33,
     "active_agents": 1,
     "compliance_score": 1.0,
     "agent_legibility_version": "2.1"
+  },
+  "evidence": {
+    "application_tracker": "applications/job_applications/application_tracker.csv",
+    "products_catalog": "docs/api/products.json",
+    "revenue_evidence_snapshot": "reports/gtm/2026-06-07-revenue-evidence.md",
+    "last_verified_local": "2026-06-07T11:37:19Z"
   },
   "capabilities": [
     "automated_job_discovery",

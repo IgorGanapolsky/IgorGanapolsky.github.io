@@ -2,8 +2,7 @@ window.resumeOSAnalytics = (function () {
   var config = {
     plausibleDomain: "igorganapolsky.github.io",
     gaMeasurementId: "G-2GEM6RYXZE",
-    posthogKey:
-      window.RESUMEOS_POSTHOG_KEY || window.APPLYOPS_POSTHOG_KEY || "",
+    posthogKey: window.RESUMEOS_POSTHOG_KEY || window.APPLYOPS_POSTHOG_KEY || "",
     posthogHost: "https://us.i.posthog.com",
   };
   var eventNames = {
@@ -204,9 +203,7 @@ window.resumeOSAnalytics = (function () {
     }
 
     function isEligiblePath() {
-      return /^(resumeos\/?|applyops\/?)$/.test(
-        location.pathname.replace(/^\/+/, ""),
-      );
+      return /^(resumeos\/?|applyops\/?)$/.test(location.pathname.replace(/^\/+/, ""));
     }
 
     function isEligibleForSurvey() {
@@ -216,10 +213,9 @@ window.resumeOSAnalytics = (function () {
     document.addEventListener(
       "click",
       function (event) {
-        var target =
-          event.target && event.target.closest
-            ? event.target.closest("[data-track='checkout_click']")
-            : null;
+        var target = event.target && event.target.closest
+          ? event.target.closest("[data-track='checkout_click']")
+          : null;
         if (target) {
           checkoutSeen = true;
           try {
@@ -230,55 +226,57 @@ window.resumeOSAnalytics = (function () {
       true,
     );
 
-    function buildSurvey() {
+    function buildSurvey(trigger) {
       var wrap = document.createElement("aside");
       wrap.setAttribute("aria-label", "Purchase feedback");
+      wrap.dataset.surface = "exit_survey";
+      wrap.dataset.tier = "qualitative";
+      wrap.dataset.placement = "exit_survey";
+      wrap.dataset.trigger = trigger;
       wrap.style.cssText =
         "position:fixed;right:16px;bottom:16px;z-index:9999;width:min(320px,calc(100vw - 32px));background:#111827;color:#f9fafb;border:1px solid #374151;border-radius:8px;box-shadow:0 16px 40px rgba(0,0,0,.35);padding:14px;font:14px/1.4 system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif";
       wrap.innerHTML =
         '<button type="button" data-survey-close aria-label="Close feedback" style="float:right;background:transparent;border:0;color:#9ca3af;font-size:18px;line-height:1;cursor:pointer">x</button>' +
         '<strong style="display:block;margin:0 24px 8px 0;font-size:14px">Not buying today?</strong>' +
         '<div style="display:grid;gap:8px">' +
-        '<button type="button" data-reason="price_unclear">Price or scope unclear</button>' +
-        '<button type="button" data-reason="need_sample">Need a better sample</button>' +
-        '<button type="button" data-reason="not_urgent">Not urgent right now</button>' +
-        '<button type="button" data-reason="trust_gap">Need more proof first</button>' +
+        '<button type="button" data-track="checkout_abandon_reason" data-surface="exit_survey" data-tier="qualitative" data-placement="exit_survey" data-reason="price_unclear">Price or scope unclear</button>' +
+        '<button type="button" data-track="checkout_abandon_reason" data-surface="exit_survey" data-tier="qualitative" data-placement="exit_survey" data-reason="need_sample">Need a better sample</button>' +
+        '<button type="button" data-track="checkout_abandon_reason" data-surface="exit_survey" data-tier="qualitative" data-placement="exit_survey" data-reason="not_urgent">Not urgent right now</button>' +
+        '<button type="button" data-track="checkout_abandon_reason" data-surface="exit_survey" data-tier="qualitative" data-placement="exit_survey" data-reason="trust_gap">Need more proof first</button>' +
         "</div>";
-      Array.prototype.forEach.call(
-        wrap.querySelectorAll("button[data-reason]"),
-        function (btn) {
-          btn.style.cssText =
-            "text-align:left;border:1px solid #374151;background:#1f2937;color:#f9fafb;border-radius:6px;padding:8px 10px;cursor:pointer";
-          btn.addEventListener("click", function () {
-            track(eventNames.checkoutAbandonReason, {
-              reason: btn.getAttribute("data-reason"),
-              checkout_seen: checkoutSeen ? "true" : "false",
-              surface: location.pathname,
-            });
-            wrap.remove();
-          });
-        },
-      );
-      wrap
-        .querySelector("[data-survey-close]")
-        .addEventListener("click", function () {
-          track(eventNames.offerObjectionClick, {
-            action: "dismiss",
+      Array.prototype.forEach.call(wrap.querySelectorAll("button[data-reason]"), function (btn) {
+        btn.style.cssText =
+          "text-align:left;border:1px solid #374151;background:#1f2937;color:#f9fafb;border-radius:6px;padding:8px 10px;cursor:pointer";
+        btn.addEventListener("click", function () {
+          track(eventNames.checkoutAbandonReason, {
+            reason: btn.getAttribute("data-reason"),
             checkout_seen: checkoutSeen ? "true" : "false",
             surface: location.pathname,
+            survey_surface: btn.dataset.surface,
+            tier: btn.dataset.tier,
+            placement: btn.dataset.placement,
+            trigger: wrap.dataset.trigger,
           });
           wrap.remove();
         });
+      });
+      wrap.querySelector("[data-survey-close]").addEventListener("click", function () {
+        track(eventNames.offerObjectionClick, {
+          action: "dismiss",
+          checkout_seen: checkoutSeen ? "true" : "false",
+          surface: location.pathname,
+          survey_surface: wrap.dataset.surface,
+          tier: wrap.dataset.tier,
+          placement: wrap.dataset.placement,
+          trigger: wrap.dataset.trigger,
+        });
+        wrap.remove();
+      });
       return wrap;
     }
 
     function showSurvey(trigger) {
-      if (
-        !isEligibleForSurvey() ||
-        surveyShown ||
-        document.querySelector("[aria-label='Purchase feedback']")
-      )
-        return;
+      if (!isEligibleForSurvey() || surveyShown || document.querySelector("[aria-label='Purchase feedback']")) return;
       surveyShown = true;
       track(eventNames.offerObjectionClick, {
         action: "shown",
@@ -286,7 +284,7 @@ window.resumeOSAnalytics = (function () {
         checkout_seen: checkoutSeen ? "true" : "false",
         surface: location.pathname,
       });
-      document.body.appendChild(buildSurvey());
+      document.body.appendChild(buildSurvey(trigger));
     }
 
     window.setTimeout(function () {
@@ -298,9 +296,7 @@ window.resumeOSAnalytics = (function () {
     window.addEventListener("pagehide", function () {
       var sawCheckout = checkoutSeen;
       try {
-        sawCheckout =
-          sawCheckout ||
-          sessionStorage.getItem("resumeos_checkout_seen") === "true";
+        sawCheckout = sawCheckout || sessionStorage.getItem("resumeos_checkout_seen") === "true";
       } catch (_) {}
       if (!sawCheckout && isEligibleForSurvey()) {
         track(eventNames.offerObjectionClick, {
