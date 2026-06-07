@@ -149,7 +149,14 @@ window.resumeOSAnalytics = (function () {
       if (node.dataset.analyticsBound === "true") return;
       node.dataset.analyticsBound = "true";
       node.addEventListener("click", function (event) {
-        var href = node.getAttribute("href");
+        var href = node.getAttribute("href") || "";
+        var clientReferenceId;
+        if (href) {
+          clientReferenceId = new URL(
+            node.href || href,
+            location.href,
+          ).searchParams.get("client_reference_id");
+        }
         track(node.dataset.track, {
           tier: node.dataset.tier,
           price: node.dataset.price ? Number(node.dataset.price) : undefined,
@@ -157,10 +164,7 @@ window.resumeOSAnalytics = (function () {
           reason: node.dataset.reason,
           surface: node.dataset.surface || location.pathname,
           href: href,
-          client_reference_id: new URL(
-            node.href,
-            location.href,
-          ).searchParams.get("client_reference_id"),
+          client_reference_id: clientReferenceId,
         });
         if (href && shouldDelayNavigation(event, node)) {
           event.preventDefault();
