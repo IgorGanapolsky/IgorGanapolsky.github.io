@@ -161,6 +161,7 @@ window.resumeOSAnalytics = (function () {
           tier: node.dataset.tier,
           price: node.dataset.price ? Number(node.dataset.price) : undefined,
           placement: node.dataset.placement,
+          problem: node.dataset.problem,
           reason: node.dataset.reason,
           surface: node.dataset.surface || location.pathname,
           href: href,
