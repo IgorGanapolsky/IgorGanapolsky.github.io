@@ -34,6 +34,10 @@ jobs:
           grep -F "data-track=\"checkout_click\"" openclaw-mac-ai-workstation-setup/agent-safety-diagnostic.html
           grep -F "/openclaw-agent-safety-diagnostic.html" openclaw-mac-ai-workstation-setup/index.html
           grep -F "/openclaw-agent-safety-diagnostic.html" openclaw-mac-ai-workstation-setup/troubleshooting.html
+          grep -F "/openclaw-agent-safety-sample.html" index.html
+          grep -F "/openclaw-agent-safety-sample.html" openclaw-agent-safety-diagnostic.html
+          grep -F "data-track=\"sample_click\"" index.html
+          grep -F "data-track=\"checkout_click\"" openclaw-agent-safety-sample.html
           grep -F "/openclaw-agent-safety-diagnostic.html" openclaw-mac-ai-workstation-setup/quick-read.html
           grep -F "home_topbar_openclaw_agent_safety_diagnostic" index.html
 

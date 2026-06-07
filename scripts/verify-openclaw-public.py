@@ -20,6 +20,7 @@ URLS = [
     "https://igorganapolsky.github.io/openclaw-mac-ai-workstation-setup/claude-code-computer-use.html",
     "https://igorganapolsky.github.io/openclaw-mac-ai-workstation-setup/speed-to-lead.html",
     "https://igorganapolsky.github.io/openclaw-agent-safety-diagnostic.html",
+    "https://igorganapolsky.github.io/openclaw-agent-safety-sample.html",
 ]
 
 ASSET_URL = "https://igorganapolsky.github.io/assets/revenue-analytics.js"
@@ -81,6 +82,7 @@ def run_once() -> tuple[bool, list[dict[str, object]]]:
             or url.endswith("/codex-computer-use-intel-mac.html")
             or url.endswith("/claude-code-computer-use.html")
             or url.endswith("/openclaw-agent-safety-diagnostic.html")
+            or url.endswith("/openclaw-agent-safety-sample.html")
         )
         checks = {
             "has_data_surface": "data-surface=" in body,

@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sample OpenClaw Agent Safety Diagnostic</title>
+  <meta name="description" content="A redacted sample deliverable for the $499 OpenClaw Agent Safety Diagnostic: side-effect map, evidence gates, findings, and patch plan.">
+  <link rel="canonical" href="https://igorganapolsky.github.io/openclaw-agent-safety-sample.html">
+  <link rel="stylesheet" href="/assets/styles.css">
+  <script defer data-domain="igorganapolsky.github.io" src="https://plausible.io/js/script.tagged-events.js"></script>
+  <script defer src="/assets/revenue-analytics.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/">ResumeOS</a>
+    <nav>
+      <a href="/openclaw-agent-safety-diagnostic.html">OpenClaw Diagnostic</a>
+      <a href="/openclaw-mac-ai-workstation-setup/">OpenClaw Guide</a>
+      <a href="/llms.txt">LLM Docs</a>
+    </nav>
+  </header>
+
+  <main class="article">
+    <p class="eyebrow">Redacted sample deliverable</p>
+    <h1>Sample agent safety diagnostic</h1>
+    <p class="lede">This is the shape of the $499 async deliverable: a concrete side-effect map, evidence gates, high-risk findings, and a patch plan for one agent workflow.</p>
+
+    <p>
+      <a
+        class="button"
+        href="https://buy.stripe.com/00w14neyUcXA5pL5e33sI0e?client_reference_id=openclaw_agent_safety_sample_primary&amp;utm_source=openclaw_agent_safety_sample&amp;utm_medium=sample_checkout&amp;utm_campaign=openclaw_agent_safety"
+        data-track="checkout_click"
+        data-surface="openclaw_agent_safety_sample"
+        data-tier="agent_safety_diagnostic"
+        data-price="499"
+        data-placement="sample_primary"
+      >Buy diagnostic $499</a>
+      <a
+        class="button secondary"
+        href="/openclaw-agent-safety-diagnostic.html"
+        data-track="lead_click"
+        data-surface="openclaw_agent_safety_sample"
+        data-tier="agent_safety_diagnostic"
+        data-price="499"
+        data-placement="sample_back_to_offer"
+      >Back to offer details</a>
+    </p>
+
+    <aside>
+      <strong>Example workflow reviewed:</strong> a browser-driven Upwork sourcing loop using Codex, Chrome CDP, proposal inventory, and a preflight script that decides whether Connects may be spent.
+    </aside>
+
+    <h2>Side-effect map excerpt</h2>
+    <div class="table">
+      <div class="row">
+        <strong>Action</strong>
+        <strong>Risk</strong>
+        <strong>Required evidence gate</strong>
+        <strong>Status</strong>
+      </div>
+      <div class="row">
+        <span>Open Upwork job detail</span>
+        <span>Duplicate tabs degrade session state.</span>
+        <span>Use existing tab; only open with an explicit open-if-missing path; log duplicate URL groups.</span>
+        <span>Gate required</span>
+      </div>
+      <div class="row">
+        <span>Click Apply or Submit Proposal</span>
+        <span>Connects spend plus irreversible external proposal.</span>
+        <span>Fresh preflight must allow spend, required Connects must be known, and exact proposal text must be staged.</span>
+        <span>Hard stop</span>
+      </div>
+      <div class="row">
+        <span>Record payout as withdrawn</span>
+        <span>False revenue claim if available balance is treated as completed withdrawal.</span>
+        <span>Require completed withdrawal screenshot or payment confirmation artifact.</span>
+        <span>Hard stop</span>
+      </div>
+    </div>
+
+    <h2>Example findings</h2>
+    <ol>
+      <li><strong>Preflight denial must be terminal.</strong> If lead inventory has zero safe-to-submit candidates, the agent may inspect read-only pages but must not spend Connects or submit a proposal.</li>
+      <li><strong>Browser control must preserve state.</strong> A Chrome profile mismatch can make an extension appear broken while another profile is healthy. Continue with CDP/read-only automation rather than mutating browser profile files.</li>
+      <li><strong>Money claims need completed-payment evidence.</strong> Funded milestone, available balance, released funds, and completed withdrawal are separate states.</li>
+    </ol>
+
+    <h2>Patch plan excerpt</h2>
+    <ul class="checklist">
+      <li>Add a no-Connect controller that blocks spend, posting, payout recording, and catalog publishing unless each gate has evidence.</li>
+      <li>Add a duplicate-tab audit before every logged-in Upwork browser action.</li>
+      <li>Add an execution packet template for payout actions that distinguishes readiness from completion.</li>
+    </ul>
+
+    <p><strong>Boundary:</strong> diagnostic only. No platform bypassing, credential storage, autonomous posting without approval, or revenue guarantee.</p>
+  </main>
+
+  <footer>
+    <p>Igor Ganapolsky | iganapolsky@gmail.com</p>
+  </footer>
+</body>
+</html>
