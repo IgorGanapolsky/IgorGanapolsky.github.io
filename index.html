@@ -1,243 +1,134 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Stripe Connect Marketplace Diagnostic by Igor Ganapolsky</title>
-    <meta
-      name="description"
-      content="Stripe Connect marketplace payment audit for destination charges, platform-fee boundaries, refunds, webhooks, payout reconciliation, and merchant-of-record tax-boundary risk."
-    />
-    <link rel="canonical" href="https://igorganapolsky.github.io/" />
-    <script
-      defer
-      data-domain="igorganapolsky.github.io"
-      src="https://plausible.io/js/script.tagged-events.js"
-    ></script>
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-2GEM6RYXZE"
-    ></script>
-    <script defer src="assets/revenue-analytics.js"></script>
-    <style>
-      body { margin: 0; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #111318; background: #fff; line-height: 1.55; }
-      main { max-width: 860px; margin: 0 auto; padding: 48px 20px 72px; }
-      h1 { font-size: clamp(34px, 6vw, 58px); line-height: 1.04; margin: 0 0 18px; letter-spacing: 0; }
-      p { font-size: 18px; }
-      .lead { color: #4b5563; font-size: 21px; max-width: 780px; }
-      .button { display: inline-flex; min-height: 48px; align-items: center; justify-content: center; padding: 0 18px; border-radius: 6px; background: #0f766e; color: #fff; text-decoration: none; font-weight: 700; margin: 4px 6px 4px 0; }
-      .button.secondary { background: transparent; color: #0f766e; border: 1px solid #0f766e; }
-      .panel { border: 1px solid #d8dde5; border-radius: 8px; background: #f6f8fb; padding: 18px; margin: 22px 0; }
-      .reason-panel { border: 1px solid #d8dde5; border-radius: 8px; padding: 18px; margin: 22px 0; }
-      .reason-panel h2 { font-size: 22px; margin: 0 0 8px; }
-      .reason-panel p { margin: 0 0 14px; color: #4b5563; }
-      .reason-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; }
-      .reason-button { min-height: 44px; border: 1px solid #d8dde5; border-radius: 6px; background: #fff; color: #111318; font: inherit; font-weight: 650; text-align: left; padding: 10px 12px; cursor: pointer; }
-      .reason-button:hover { border-color: #0f766e; color: #0f766e; }
-      .triage-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin: 16px 0; }
-      .triage-button { display: block; min-height: 78px; border: 1px solid #d8dde5; border-radius: 8px; background: #fff; color: #111318; text-decoration: none; padding: 14px; font-weight: 700; }
-      .triage-button span { display: block; color: #4b5563; font-size: 15px; font-weight: 500; margin-top: 6px; }
-      .triage-button:hover { border-color: #0f766e; color: #0f766e; }
-    </style>
-  </head>
-  <body>
-    <main>
-      <h1>Stripe Connect marketplace payment bugs are expensive to debug after launch.</h1>
-      <p class="lead">
-        I audit destination charges, platform-fee math, refunds, webhooks, payout reconciliation, and merchant-of-record/tax-boundary risk before a marketplace ships broken money movement.
-      </p>
-      <p>
-        <a
-          class="button"
-          href="https://buy.stripe.com/5kQ9ATduQcXA5pL35V3sI0R?client_reference_id=root_stripe_connect_diagnostic_hero&utm_source=root&utm_medium=hero_checkout&utm_campaign=stripe_connect_audit"
-          data-track="checkout_click"
-          data-surface="root"
-          data-tier="stripe_connect_diagnostic"
-          data-price="499"
-          data-placement="hero"
-          >Buy Stripe audit $499</a
-        >
-        <a
-          class="button secondary"
-          href="./case-studies/hilltown-pretix-stripe-connect/"
-          data-track="case_study_click"
-          data-surface="root"
-          data-tier="stripe_connect_case_study"
-          data-price="0"
-          data-placement="hero"
-          >Read Stripe Connect case study</a
-        >
-        <a
-          class="button secondary"
-          href="./openclaw-computer-use-troubleshooting.html"
-          data-track="lead_click"
-          data-surface="root"
-          data-tier="free_checklist"
-          data-price="0"
-          data-placement="hero"
-          >Read the free Computer Use checklist</a
-        >
-      </p>
-      <div class="panel">
-        The current paid wedge is Stripe Connect and marketplace payments, not broad AI/RAG work. Public proof is limited to verified Hilltown / Pretix / Stripe Connect milestone evidence; speculative proposals, traffic, and checkout-link reachability are not revenue.
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Igor Ganapolsky — Stripe Connect integration engineering</title>
+<meta name="description" content="Stripe Connect integration engineering for marketplaces and event platforms. Senior engineer with shipped production payments work, Android, and AI/RAG depth. Book a 30-min diagnostic call." />
+<link rel="canonical" href="https://igorganapolsky.com/" />
+
+<!-- OpenGraph -->
+<meta property="og:type" content="profile" />
+<meta property="og:title" content="Igor Ganapolsky — Stripe Connect integration engineering" />
+<meta property="og:description" content="Stripe Connect integration engineering for marketplaces and event platforms. Pretix plugin shipped to Hilltown Media. Book a 30-min diagnostic call — $499." />
+<meta property="og:url" content="https://igorganapolsky.com/" />
+<meta property="og:image" content="https://igorganapolsky.com/og.png" />
+<meta property="og:site_name" content="Igor Ganapolsky" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Igor Ganapolsky — Stripe Connect integration engineering" />
+<meta name="twitter:description" content="Stripe Connect integration engineering for marketplaces and event platforms. Book a 30-min diagnostic call." />
+<meta name="twitter:image" content="https://igorganapolsky.com/og.png" />
+
+<!-- JSON-LD Person -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Igor Ganapolsky",
+  "url": "https://igorganapolsky.com/",
+  "jobTitle": "Senior Engineer — Stripe Connect, Android, AI/RAG",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Coral Springs",
+    "addressRegion": "FL",
+    "addressCountry": "US"
+  },
+  "sameAs": [
+    "https://github.com/IgorGanapolsky",
+    "https://www.linkedin.com/in/igorganapolsky/",
+    "https://x.com/IgorGanapolsky",
+    "https://thumbgate.ai/"
+  ],
+  "knowsAbout": [
+    "Stripe Connect",
+    "Marketplace payments",
+    "Android engineering",
+    "AI agents",
+    "Retrieval-Augmented Generation"
+  ]
+}
+</script>
+
+<style>
+  :root { --ink:#111318; --muted:#4b5563; --accent:#0f766e; --line:#d8dde5; --panel:#f6f8fb; }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:#fff;line-height:1.55;}
+  main{max-width:860px;margin:0 auto;padding:48px 20px 72px;}
+  header.hero{margin-bottom:36px;}
+  h1{font-size:clamp(34px,6vw,58px);line-height:1.04;margin:0 0 18px;letter-spacing:-0.01em;}
+  .lead{color:var(--muted);font-size:21px;max-width:780px;margin:0 0 24px;}
+  p{font-size:18px;}
+  .button{display:inline-flex;min-height:48px;align-items:center;justify-content:center;padding:0 20px;border-radius:6px;background:var(--accent);color:#fff;text-decoration:none;font-weight:700;margin:4px 6px 4px 0;}
+  .button.secondary{background:transparent;color:var(--accent);border:1px solid var(--accent);}
+  .panel{border:1px solid var(--line);border-radius:8px;background:var(--panel);padding:20px;margin:24px 0;}
+  h2{font-size:26px;margin:40px 0 12px;}
+  h3{font-size:18px;margin:18px 0 6px;}
+  ul{padding-left:20px;}
+  ul li{margin:6px 0;}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:16px;}
+  .card{border:1px solid var(--line);border-radius:8px;padding:18px;background:#fff;}
+  .card h3{margin-top:0;}
+  footer{margin-top:60px;padding-top:24px;border-top:1px solid var(--line);color:var(--muted);font-size:14px;}
+  a{color:var(--accent);}
+  .row-links a{margin-right:14px;}
+</style>
+</head>
+<body>
+<main>
+
+  <header class="hero">
+    <h1>Stripe Connect integration engineering</h1>
+    <p class="lead">Pretix plugin shipped to Hilltown Media. Senior engineer with Android, AI/RAG, and payments depth.</p>
+    <p>
+      <a class="button" href="https://buy.stripe.com/00w14neyUcXA5pL5e33sI0e?client_reference_id=igorcom_hero" data-cta="hero-book">Book a 30-min diagnostic call — $499</a>
+      <a class="button secondary" href="mailto:iganapolsky@gmail.com">Email Igor</a>
+    </p>
+  </header>
+
+  <section class="panel" aria-label="Proof">
+    <h2 style="margin-top:0">Case study — Hilltown Media</h2>
+    <p>$2,500 funded across M1 + M2 on Upwork. Production Stripe Connect plugin for the Pretix ticketing platform: destination charges, application_fee_amount boundary, refunds, webhook reconciliation, and Connect onboarding for event organizers.</p>
+    <p class="row-links">
+      <a href="https://github.com/IgorGanapolsky">GitHub</a>
+      <a href="https://www.linkedin.com/in/igorganapolsky/">LinkedIn</a>
+      <a href="https://thumbgate.ai/">ThumbGate</a>
+    </p>
+  </section>
+
+  <section>
+    <h2>What I work on</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Stripe Connect integration</h3>
+        <p>Destination charges, platform-fee boundaries, refunds, webhooks, payout reconciliation, and merchant-of-record tax-boundary review for marketplace and event platforms.</p>
       </div>
-      <div class="panel">
-        <strong>Payment-platform work:</strong> I am currently narrow on Stripe Connect, marketplace payout math, refunds, webhooks, and merchant-of-record/tax-boundary bugs. The public proof point is a paid Upwork Pretix + Stripe Connect engagement for Hilltown Media Group, with claims limited to verified milestone evidence.
-        <p>
-          <a
-            class="button"
-            href="./case-studies/hilltown-pretix-stripe-connect/"
-            data-track="case_study_click"
-            data-surface="root"
-            data-tier="stripe_connect_case_study"
-            data-price="0"
-            data-placement="stripe_proof_panel"
-            >Read Stripe Connect case study</a
-          >
-          <a
-            class="button secondary"
-            href="https://buy.stripe.com/5kQ9ATduQcXA5pL35V3sI0R?client_reference_id=root_stripe_connect_diagnostic&utm_source=root&utm_medium=stripe_proof_panel_checkout&utm_campaign=stripe_connect_audit"
-            data-track="checkout_click"
-            data-surface="root"
-            data-tier="stripe_connect_diagnostic"
-            data-price="499"
-            data-placement="stripe_proof_panel"
-            >Buy Stripe audit $499</a
-          >
-        </p>
+      <div class="card">
+        <h3>Android + AI</h3>
+        <p>Senior Android engineering with on-device and server-side AI: agentic flows, RAG, evaluation harnesses, and production hardening.</p>
       </div>
-      <section class="panel" id="stripe-connect-scope" data-experiment="stripe_connect_scope_panel">
-        <h2>What the $499 Stripe audit returns</h2>
-        <p>
-          You get a payment-flow map and a concise defect backlog for the places marketplace money usually breaks: destination charges, application fees, refunds, webhooks, payout reconciliation, and merchant-of-record boundary decisions.
-        </p>
-        <ul>
-          <li>Payment-flow map from checkout through connected-account payout.</li>
-          <li>refund/webhook reconciliation review for duplicate charges, replay risk, and missing idempotency.</li>
-          <li>Merchant-of-record boundary checklist covering tax, platform-fee, and connected-account ownership assumptions.</li>
-          <li>Patch backlog ranked by launch risk, with exact Stripe/Pretix/marketplace evidence to verify each fix.</li>
-        </ul>
-        <p>
-          <a
-            class="button"
-            href="https://buy.stripe.com/5kQ9ATduQcXA5pL35V3sI0R?client_reference_id=root_stripe_connect_scope_panel&utm_source=root&utm_medium=scope_panel_checkout&utm_campaign=stripe_connect_audit"
-            data-track="checkout_click"
-            data-surface="root"
-            data-tier="stripe_connect_diagnostic"
-            data-price="499"
-            data-placement="stripe_connect_scope_panel"
-            >Buy Stripe audit $499</a
-          >
-        </p>
-      </section>
-      <section class="panel" id="stripe-connect-problem-triage" data-experiment="stripe_connect_root_problem_triage">
-        <h2>Which Stripe Connect failure is blocking launch?</h2>
-        <p>
-          Pick the closest problem. Each path still lands on the same $499 diagnostic, but the click tells me whether buyers care most about charge routing, refund/webhook drift, or tax-boundary risk.
-        </p>
-        <div class="triage-grid">
-          <a
-            class="triage-button"
-            href="https://buy.stripe.com/5kQ9ATduQcXA5pL35V3sI0R?client_reference_id=root_stripe_connect_triage_charge_flow&utm_source=root&utm_medium=problem_triage_checkout&utm_campaign=stripe_connect_audit"
-            data-track="checkout_click"
-            data-surface="root"
-            data-tier="stripe_connect_diagnostic"
-            data-price="499"
-            data-placement="stripe_connect_problem_triage"
-            data-problem="charge_flow"
-          >Destination charges / platform fees<span>Audit whether money routes to the right connected account with the right platform fee.</span></a>
-          <a
-            class="triage-button"
-            href="https://buy.stripe.com/5kQ9ATduQcXA5pL35V3sI0R?client_reference_id=root_stripe_connect_triage_refunds_webhooks&utm_source=root&utm_medium=problem_triage_checkout&utm_campaign=stripe_connect_audit"
-            data-track="checkout_click"
-            data-surface="root"
-            data-tier="stripe_connect_diagnostic"
-            data-price="499"
-            data-placement="stripe_connect_problem_triage"
-            data-problem="refunds_webhooks"
-          >Refunds / webhooks / reconciliation<span>Find duplicate-charge, replay, missing idempotency, and payout-reconciliation failure points.</span></a>
-          <a
-            class="triage-button"
-            href="https://buy.stripe.com/5kQ9ATduQcXA5pL35V3sI0R?client_reference_id=root_stripe_connect_triage_tax_boundary&utm_source=root&utm_medium=problem_triage_checkout&utm_campaign=stripe_connect_audit"
-            data-track="checkout_click"
-            data-surface="root"
-            data-tier="stripe_connect_diagnostic"
-            data-price="499"
-            data-placement="stripe_connect_problem_triage"
-            data-problem="merchant_of_record_tax_boundary"
-          >Merchant-of-record / tax boundary<span>Check whether platform fees, refunds, connected-account ownership, and tax assumptions match your model.</span></a>
-        </div>
-      </section>
-      <div class="panel">
-        <strong>Agent safety is secondary:</strong> if your Codex, Claude, Chrome Computer Use, OpenClaw, or Ralph Loop workflow can spend, submit, message, deploy, or mutate production state, use the agent safety diagnostic instead.
-        <p>
-          <a
-            class="button secondary"
-            href="https://buy.stripe.com/00w14neyUcXA5pL5e33sI0e?client_reference_id=root_agent_safety_secondary&utm_source=root&utm_medium=secondary_checkout&utm_campaign=openclaw_agent_safety"
-            data-track="checkout_click"
-            data-surface="root"
-            data-tier="agent_safety_diagnostic"
-            data-price="499"
-            data-placement="secondary_agent_safety"
-            >Buy agent safety diagnostic $499</a
-          >
-        <a
-          class="button secondary"
-          href="/openclaw-agent-safety-sample.html"
-          data-track="sample_click"
-          data-surface="root"
-          data-tier="agent_safety_sample"
-          data-price="0"
-          data-placement="home_topbar_openclaw_agent_safety_diagnostic"
-          >See sample diagnostic</a
-        >
-        </p>
+      <div class="card">
+        <h3>ATS automation</h3>
+        <p>Resume OS — application throughput and tracking system for high-volume job search. Patchright + CDP-attached Chrome, evidence-based confirmation, Thompson-Sampling lane routing.</p>
       </div>
-      <section class="reason-panel" aria-labelledby="not-buying-yet">
-        <h2 id="not-buying-yet">Not buying the diagnostic yet?</h2>
-        <p>Pick the blocker. I use this signal to tighten the offer instead of guessing from bounce rate.</p>
-        <div class="reason-grid">
-          <button
-            type="button"
-            class="reason-button"
-            data-track="checkout_abandon_reason"
-            data-surface="root"
-            data-tier="stripe_connect_diagnostic"
-            data-price="499"
-            data-placement="root_objection_panel"
-            data-reason="price_unclear"
-          >Price or scope unclear</button>
-          <button
-            type="button"
-            class="reason-button"
-            data-track="checkout_abandon_reason"
-            data-surface="root"
-            data-tier="stripe_connect_diagnostic"
-            data-price="499"
-            data-placement="root_objection_panel"
-            data-reason="need_sample"
-          >Need a sample first</button>
-          <button
-            type="button"
-            class="reason-button"
-            data-track="checkout_abandon_reason"
-            data-surface="root"
-            data-tier="stripe_connect_diagnostic"
-            data-price="499"
-            data-placement="root_objection_panel"
-            data-reason="trust_gap"
-          >Need more proof</button>
-        </div>
-      </section>
-      <a
-        href="./resumeos/"
-        data-track="root_manual_click"
-        data-surface="root"
-        data-tier="snapshot"
-        data-price="49"
-        data-placement="secondary_resumeos"
-        >ResumeOS Truth Snapshot</a
-      >
-    </main>
-  </body>
+    </div>
+  </section>
+
+  <section>
+    <h2>Background</h2>
+    <ul>
+      <li>Senior engineer based in Coral Springs, FL. US citizen.</li>
+      <li>Day-rate available for Stripe Connect integration work and Android + AI contracts.</li>
+      <li>Available for full-time senior / staff roles in payments, agentic AI, or mobile.</li>
+    </ul>
+    <p><a class="button" href="https://buy.stripe.com/00w14neyUcXA5pL5e33sI0e?client_reference_id=igorcom_body" data-cta="body-book">Book the 30-min diagnostic — $499</a></p>
+  </section>
+
+  <footer>
+    <p>Igor Ganapolsky &middot; <a href="mailto:iganapolsky@gmail.com">iganapolsky@gmail.com</a> &middot; <a href="https://github.com/IgorGanapolsky">github.com/IgorGanapolsky</a></p>
+  </footer>
+
+</main>
+</body>
 </html>

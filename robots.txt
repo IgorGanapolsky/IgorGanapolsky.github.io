@@ -31,4 +31,4 @@ Disallow: /
 User-agent: cohere-ai
 Disallow: /
 
-Sitemap: https://igorganapolsky.github.io/sitemap.xml
+Sitemap: https://igorganapolsky.com/sitemap.xml
