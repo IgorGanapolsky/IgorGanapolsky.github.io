@@ -1,7 +1,7 @@
 {
   "status": "operational",
   "provider": "ResumeOS + OpenClaw",
-  "as_of": "2026-06-07",
+  "as_of": "2026-06-18",
   "public_surface": {
     "storefront": "https://igorganapolsky.github.io/",
     "primary_offer": "Stripe Connect Marketplace Diagnostic",
@@ -18,8 +18,8 @@
     "upwork_evidence": "Hilltown is the only verified paid Upwork client in the current public record; M2 withdrawal completion is not proven."
   },
   "metrics": {
-    "total_applications_tracked": 399,
-    "drafts_in_queue": 33,
+    "total_applications_tracked": 398,
+    "drafts_in_queue": 34,
     "active_agents": 1,
     "compliance_score": 1.0,
     "agent_legibility_version": "2.1"
@@ -27,8 +27,8 @@
   "evidence": {
     "application_tracker": "applications/job_applications/application_tracker.csv",
     "products_catalog": "docs/api/products.json",
-    "revenue_evidence_snapshot": "reports/gtm/2026-06-07-revenue-evidence.md",
-    "last_verified_local": "2026-06-07T11:37:19Z"
+    "revenue_evidence_snapshot": "reports/gtm/2026-06-18-revenue-evidence.md",
+    "last_verified_local": "2026-06-18T18:18:54Z"
   },
   "capabilities": [
     "automated_job_discovery",
