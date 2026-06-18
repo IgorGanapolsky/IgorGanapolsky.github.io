@@ -1,0 +1,302 @@
+{
+  ".well-known/assetlinks.json": {
+    "mtime": 1781806595.0244548,
+    "ast_hash": "c1fb56f8b8b12507ada5ca28a7531e7a",
+    "semantic_hash": ""
+  },
+  "api/products.json": {
+    "mtime": 1781806595.0247376,
+    "ast_hash": "05b05dea93db4351620e3239749c2aa7",
+    "semantic_hash": ""
+  },
+  "api/schema.json": {
+    "mtime": 1781806595.0248048,
+    "ast_hash": "edc9f07359ba81f6c5079366e0d05559",
+    "semantic_hash": ""
+  },
+  "api/status.json": {
+    "mtime": 1781806836.553192,
+    "ast_hash": "45fe2aa2817238494bd0ef4e828b9d29",
+    "semantic_hash": ""
+  },
+  "assets/revenue-analytics.js": {
+    "mtime": 1781806595.0256965,
+    "ast_hash": "2cf45f3587d99412097d7558c21dfb6d",
+    "semantic_hash": ""
+  },
+  "offers.json": {
+    "mtime": 1781806595.0268013,
+    "ast_hash": "3eebdbb24b539d9cdd745cc8360e0c5d",
+    "semantic_hash": ""
+  },
+  "openclaw-mac-ai-workstation-setup/assets/revenue-analytics.js": {
+    "mtime": 1781806595.0289688,
+    "ast_hash": "f0c45bb0ba3cd2931a7f261aacc820ee",
+    "semantic_hash": ""
+  },
+  "scripts/verify-openclaw-public.py": {
+    "mtime": 1781806595.031406,
+    "ast_hash": "492a7bc92bbb49658806a6d609a9d436",
+    "semantic_hash": ""
+  },
+  ".github/workflows/openclaw-public-smoke.yml": {
+    "mtime": 1781806595.0242836,
+    "ast_hash": "ca68cbd7c2a6d96439babbaac8baf742",
+    "semantic_hash": ""
+  },
+  ".github/workflows/pages.yml": {
+    "mtime": 1781806595.0243433,
+    "ast_hash": "8d9886b3f6429a4e67e8b5d51a2de77e",
+    "semantic_hash": ""
+  },
+  ".well-known/llms.txt": {
+    "mtime": 1781806595.0245159,
+    "ast_hash": "f2e591e27b7fbfbb4ac9cf15eac55d2b",
+    "semantic_hash": ""
+  },
+  "README.md": {
+    "mtime": 1781806595.0246596,
+    "ast_hash": "f1ab8051d1dc69d52b0cc8888f15f5c8",
+    "semantic_hash": ""
+  },
+  "app-ads.txt": {
+    "mtime": 1781806595.0248904,
+    "ast_hash": "f73d32a65e70c9270b31487c3c7cad5a",
+    "semantic_hash": ""
+  },
+  "applyops/index.html": {
+    "mtime": 1781806836.5576837,
+    "ast_hash": "5bbc2ad4eef85305ce283ab3c8c13ab2",
+    "semantic_hash": ""
+  },
+  "applyops/intake.html": {
+    "mtime": 1781806836.557979,
+    "ast_hash": "f29d914fffc375f286b061edc034bc72",
+    "semantic_hash": ""
+  },
+  "applyops/sample-truth-snapshot.html": {
+    "mtime": 1781806836.5582557,
+    "ast_hash": "9ca80405c97bae5ece8c98fa31857318",
+    "semantic_hash": ""
+  },
+  "apps/applyops-by-igor/index.html": {
+    "mtime": 1781806595.025356,
+    "ast_hash": "14218cc6141776c865d1ddcea92f5783",
+    "semantic_hash": ""
+  },
+  "case-studies/hilltown-pretix-stripe-connect/index.html": {
+    "mtime": 1781806595.0259328,
+    "ast_hash": "f0dbd0c85473539f41b231c32a304650",
+    "semantic_hash": ""
+  },
+  "go/claude.html": {
+    "mtime": 1781806595.0260305,
+    "ast_hash": "15a467aec93dfb973cec9265f02ee70b",
+    "semantic_hash": ""
+  },
+  "go/n8n.html": {
+    "mtime": 1781806595.0260878,
+    "ast_hash": "6a5e6e217df007ed1bae663cc0e5a6d0",
+    "semantic_hash": ""
+  },
+  "go/openai.html": {
+    "mtime": 1781806595.0261369,
+    "ast_hash": "b0a5e93bdfdabda2b8f03f03b8dcbe7a",
+    "semantic_hash": ""
+  },
+  "go/thumbgate-pro.html": {
+    "mtime": 1781806595.0261812,
+    "ast_hash": "01745ffd9b02ab798cfb0095eba7bee1",
+    "semantic_hash": ""
+  },
+  "go/zernio.html": {
+    "mtime": 1781806595.0262213,
+    "ast_hash": "16a806919f7173f94732dbaa6df3f1d1",
+    "semantic_hash": ""
+  },
+  "index.html": {
+    "mtime": 1781806595.0262778,
+    "ast_hash": "59787d26c9f9bdfc52c2cf60e258a4ef",
+    "semantic_hash": ""
+  },
+  "lead-magnets/qsr-ai-automation-checklist.html": {
+    "mtime": 1781806595.026361,
+    "ast_hash": "0eb7da588963bd6f39b5655bc0db0552",
+    "semantic_hash": ""
+  },
+  "llms.txt": {
+    "mtime": 1781806595.0264204,
+    "ast_hash": "bf3ae830bfd4d4a346509cce327caa37",
+    "semantic_hash": ""
+  },
+  "loom-atlassian/index.html": {
+    "mtime": 1781806595.0266304,
+    "ast_hash": "1332cd0184c4694a958790cd2aff567e",
+    "semantic_hash": ""
+  },
+  "offers/ai_phone_revenue_leak_diagnostic.html": {
+    "mtime": 1781806595.027057,
+    "ast_hash": "6da5d86716906aa8d651018fa76055e7",
+    "semantic_hash": ""
+  },
+  "offers/qsr_ai_automation_diagnostic.html": {
+    "mtime": 1781806595.027232,
+    "ast_hash": "6cb40dbb80061cf58ff165c582296932",
+    "semantic_hash": ""
+  },
+  "offers/qsr_automation_scorecard.html": {
+    "mtime": 1781806595.027488,
+    "ast_hash": "89a6b1c3aac10a71d5f2b2c80de67a7b",
+    "semantic_hash": ""
+  },
+  "offers/qsr_n8n_starter_vault.html": {
+    "mtime": 1781806595.0276887,
+    "ast_hash": "17af6e023863b19f08220563f0a14f18",
+    "semantic_hash": ""
+  },
+  "openclaw-agent-safety-diagnostic.html": {
+    "mtime": 1781806595.027912,
+    "ast_hash": "63cd399a38a1603ba7312a7bbcb682b9",
+    "semantic_hash": ""
+  },
+  "openclaw-agent-safety-sample.html": {
+    "mtime": 1781806595.0280612,
+    "ast_hash": "e0e410d2a225561d9cde90a538d98fae",
+    "semantic_hash": ""
+  },
+  "openclaw-computer-use-troubleshooting.html": {
+    "mtime": 1781806595.0281804,
+    "ast_hash": "71ee1acee965f9b61c2311f78140cd16",
+    "semantic_hash": ""
+  },
+  "openclaw-mac-ai-workstation-setup/agent-safety-diagnostic.html": {
+    "mtime": 1781806595.028736,
+    "ast_hash": "22b742d3d8a93dfdc2a6761f092927dc",
+    "semantic_hash": ""
+  },
+  "openclaw-mac-ai-workstation-setup/claude-code-computer-use.html": {
+    "mtime": 1781806595.0291348,
+    "ast_hash": "376e89b4fe5153c23ab577f4ffefd038",
+    "semantic_hash": ""
+  },
+  "openclaw-mac-ai-workstation-setup/codex-computer-use-intel-mac.html": {
+    "mtime": 1781806595.0293822,
+    "ast_hash": "986a612df342d66c29aa7aee9ed98213",
+    "semantic_hash": ""
+  },
+  "openclaw-mac-ai-workstation-setup/computer-use-plugin-unavailable.html": {
+    "mtime": 1781806595.0295758,
+    "ast_hash": "965cc3978ff7d276afe3f909dea8cc84",
+    "semantic_hash": ""
+  },
+  "openclaw-mac-ai-workstation-setup/index.html": {
+    "mtime": 1781806595.02986,
+    "ast_hash": "a6c84df3c49e770e10103f3546b433ee",
+    "semantic_hash": ""
+  },
+  "openclaw-mac-ai-workstation-setup/quick-read.html": {
+    "mtime": 1781806595.0299995,
+    "ast_hash": "797a2f785e314a6cf55a48cb908d8cad",
+    "semantic_hash": ""
+  },
+  "openclaw-mac-ai-workstation-setup/speed-to-lead.html": {
+    "mtime": 1781806595.0301442,
+    "ast_hash": "9cb42ffac93e8f7b0e98c2e037a7cf77",
+    "semantic_hash": ""
+  },
+  "openclaw-mac-ai-workstation-setup/troubleshooting.html": {
+    "mtime": 1781806595.0302637,
+    "ast_hash": "cf82ba9cdea4045b6621b210e9fc7939",
+    "semantic_hash": ""
+  },
+  "ralph-resume-os/index.html": {
+    "mtime": 1781806595.0304744,
+    "ast_hash": "152517781dcbc2a32f014562d582ec63",
+    "semantic_hash": ""
+  },
+  "resumeos/index.html": {
+    "mtime": 1781806836.5610173,
+    "ast_hash": "1b5dacb6867ad47e7c77194ee4dc8fc3",
+    "semantic_hash": ""
+  },
+  "resumeos/intake.html": {
+    "mtime": 1781806836.5615418,
+    "ast_hash": "8e57427aaab4d61ddecae8e24084931c",
+    "semantic_hash": ""
+  },
+  "resumeos/sample-truth-snapshot.html": {
+    "mtime": 1781806836.561895,
+    "ast_hash": "5eb5cd03071fc49123670d2c2abdb5af",
+    "semantic_hash": ""
+  },
+  "revenue-leak-demo/index.html": {
+    "mtime": 1781806595.0311396,
+    "ast_hash": "14e8c7fe8645eb6d22c1503733975429",
+    "semantic_hash": ""
+  },
+  "robots.txt": {
+    "mtime": 1781806595.0312238,
+    "ast_hash": "dede3cdf2202181fccc8597c3cc5fe26",
+    "semantic_hash": ""
+  },
+  "stripe-connect-marketplace-diagnostic.html": {
+    "mtime": 1781806595.0315876,
+    "ast_hash": "778469bc63e993103e36fe10475e5d8e",
+    "semantic_hash": ""
+  },
+  "thanks/index.html": {
+    "mtime": 1781806595.0318186,
+    "ast_hash": "9d44e3efa2e347b3b0df7071013c9ae3",
+    "semantic_hash": ""
+  },
+  "tools/ralph-loop-by-igor/index.html": {
+    "mtime": 1781806595.0321124,
+    "ast_hash": "5fa61f296b05a798dec3aed7f09508c1",
+    "semantic_hash": ""
+  },
+  "topics/ai-resume-ats-risk-audit.html": {
+    "mtime": 1781806595.032215,
+    "ast_hash": "07f869bfe8c642cf1267679493f223ee",
+    "semantic_hash": ""
+  },
+  "topics/best-ai-phone-ordering-tools-restaurants.html": {
+    "mtime": 1781806595.032289,
+    "ast_hash": "7b59f273d9b42c65add334af2ba46877",
+    "semantic_hash": ""
+  },
+  "topics/n8n-restaurant-automation-workflows.html": {
+    "mtime": 1781806595.0323493,
+    "ast_hash": "054478c9d36fbb4e0dd46a1efa1f8449",
+    "semantic_hash": ""
+  },
+  "topics/qsr-ai-automation-audit-checklist.html": {
+    "mtime": 1781806595.0324037,
+    "ast_hash": "c445f47c9c6eaeec903e69ca04ab757e",
+    "semantic_hash": ""
+  },
+  "topics/restaurant-ai-agent-safety-thumbgate.html": {
+    "mtime": 1781806595.0324638,
+    "ast_hash": "4f53f08cc56b79f71bc13489bf01e099",
+    "semantic_hash": ""
+  },
+  "topics/restaurant-catering-follow-up-automation.html": {
+    "mtime": 1781806595.0325243,
+    "ast_hash": "cd603fee96d48775e19aa596c44e16bb",
+    "semantic_hash": ""
+  },
+  "topics/senior-engineer-resume-truth-audit.html": {
+    "mtime": 1781806595.0325801,
+    "ast_hash": "ab94c71c2f21e61b0057020c5e518f29",
+    "semantic_hash": ""
+  },
+  "who-is-igor-ganapolsky/index.html": {
+    "mtime": 1781806595.0327957,
+    "ast_hash": "71c2acf19239ffab153e42acabe9164e",
+    "semantic_hash": ""
+  },
+  "assets/qsr-automation-flow.svg": {
+    "mtime": 1781806595.0254922,
+    "ast_hash": "75e36018524c743bfd71fbb097409523",
+    "semantic_hash": ""
+  }
+}
