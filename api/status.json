@@ -28,7 +28,7 @@
     "application_tracker": "applications/job_applications/application_tracker.csv",
     "products_catalog": "docs/api/products.json",
     "revenue_evidence_snapshot": "reports/gtm/2026-06-21-revenue-evidence.md",
-    "last_verified_local": "2026-06-21T19:25:35Z"
+    "last_verified_local": "2026-06-21T19:40:43Z"
   },
   "capabilities": [
     "automated_job_discovery",

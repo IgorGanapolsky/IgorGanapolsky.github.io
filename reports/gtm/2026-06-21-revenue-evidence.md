@@ -1,10 +1,10 @@
-# Revenue Evidence Snapshot - 2026-06-21T19:25:35+00:00
+# Revenue Evidence Snapshot - 2026-06-21T19:40:43+00:00
 
-- Revenue readiness: `blocked`
-- Can explain non-payment from analytics: `False`
-- External action state: `unverified`
-- Allowed external action count: `None`
-- Blockers: primary_offer_public_deployment_drift, no_local_funnel_events
+- Revenue readiness: `observable`
+- Can explain non-payment from analytics: `True`
+- External action state: `allowed_actions_available`
+- Allowed external action count: `1`
+- Blockers: none
 
 ## Public Storefront
 - 200 <https://igorganapolsky.github.io/> ok=True
@@ -35,11 +35,11 @@
 - `tighten_openclaw_entrypoint_message`: deployed=`False` status=`200` missing=`unapproved external side effect, logged-in production browser` <https://igorganapolsky.github.io/>
 
 ## Public Primary Offer Deployment
-- All Stripe Connect primary-offer surfaces deployed: `False`
-- Deployed surfaces: `products_json, schema_json, llms_txt, well_known_llms_txt`
+- All Stripe Connect primary-offer surfaces deployed: `True`
+- Deployed surfaces: `root, products_json, schema_json, llms_txt, well_known_llms_txt`
 - `llms_txt`: deployed=`True` status=`200` missing=`none` <https://igorganapolsky.github.io/llms.txt>
 - `products_json`: deployed=`True` status=`200` missing=`none` <https://igorganapolsky.github.io/api/products.json>
-- `root`: deployed=`False` status=`200` missing=`Stripe Connect marketplace payment bugs are expensive to debug after launch.` <https://igorganapolsky.github.io/>
+- `root`: deployed=`True` status=`200` missing=`none` <https://igorganapolsky.github.io/>
 - `schema_json`: deployed=`True` status=`200` missing=`none` <https://igorganapolsky.github.io/api/schema.json>
 - `well_known_llms_txt`: deployed=`True` status=`200` missing=`none` <https://igorganapolsky.github.io/.well-known/llms.txt>
 
@@ -91,29 +91,35 @@
 ## Recommended Next Experiment
 - Implemented experiments: `sample_to_checkout_bridge, clarify_diagnostic_scope_and_deliverables, capture_diagnostic_checkout_objections`
 - Public deployed experiments: `sample_to_checkout_bridge, clarify_diagnostic_scope_and_deliverables, capture_diagnostic_checkout_objections`
-- Experiment: `publish_stripe_connect_primary_offer_surfaces`
-- Why: The Stripe Connect primary offer exists locally or in catalog files, but it is not proven across the public root, product catalog, Schema.org, and LLM index surfaces.
-- Success metric: `public_primary_offer.all_deployed=true and all required Stripe Connect markers present on public URLs`
-- Safe action: Publish owned GitHub Pages surfaces only; do not spend Connects or post externally.
+- Experiment: `wait_for_more_evidence_or_verify_stripe_truth`
+- Why: The current evidence is insufficient to prioritize a conversion edit.
+- Success metric: `stronger analytics or Stripe object evidence`
+- Safe action: Read-only evidence refresh only.
 
 ## External Action Gates
 - Business date: `2026-06-21`
-- Controller: `reports/revenue_controls/latest_no_connect_revenue_controller.json` exists=`False`
-- State: `unverified`
-- Allowed actions: `None`
-- Blocked actions: `None`
-- Connect spend allowed: `None`
-- External side effects observed: `None`
-- Submitted or spent Connects: `None`
-- Money-truth artifacts complete: `False`
+- Controller: `reports/revenue_controls/latest_no_connect_revenue_controller.json` exists=`True`
+- State: `allowed_actions_available`
+- Allowed actions: `1`
+- Blocked actions: `4`
+- Connect spend allowed: `False`
+- External side effects observed: `False`
+- Submitted or spent Connects: `False`
+- Money-truth artifacts complete: `True`
+- First action: `repair_money_truth_artifacts`
+- First action reason: money_truth_artifacts_unverified
+- Upwork preflight: `None` fresh=`False` exit_code=`None`
+- Upwork preflight spend allowed: `False`
+- Upwork preflight side effects: submitted_or_spent=`False` external=`False`
+- Upwork preflight reason: None
 - Required artifacts:
-  - `operator_close_packet`: exists=`False` path=`reports/gtm/2026-06-21-money-today/operator-close-packet.md`
-  - `revenue_evidence_snapshot`: exists=`False` path=`reports/gtm/2026-06-21-revenue-evidence.md`
-  - `stripe_truth_readback`: exists=`False` path=`reports/gtm/2026-06-21-stripe-truth-readback.md`
+  - `operator_close_packet`: exists=`True` path=`reports/gtm/2026-06-21-money-today/operator-close-packet.md`
+  - `revenue_evidence_snapshot`: exists=`True` path=`reports/gtm/2026-06-21-revenue-evidence.md`
+  - `stripe_truth_readback`: exists=`True` path=`reports/gtm/2026-06-21-stripe-truth-readback.md`
 
 ## Local Funnel Events
-- Events: `0`
-- Latest timestamp: `None`
+- Events: `202`
+- Latest timestamp: `2026-06-21T19:37:36+00:00`
 
 ### Local Checkout Abandon Reasons
 - By reason: `none recorded`
