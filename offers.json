@@ -6,7 +6,7 @@
       "name": "ResumeOS Resume Truth Snapshot",
       "price_usd": 49,
       "payment_url": "https://buy.stripe.com/3cIaEX1M80aO9G1fSH3sI2N?client_reference_id=offers_truth_snapshot&utm_source=offers_json&utm_medium=json&utm_campaign=resumeos_truth_snapshot",
-      "landing_url": "https://igorganapolsky.github.io/resumeos/",
+      "landing_url": "https://igorganapolsky.com/resumeos/",
       "audience": "Senior software, AI, cloud, data, and platform candidates getting ignored or ghosted despite strong experience",
       "promise": "A same-day resume risk audit that flags unsupported claims, ATS readability issues, title-fit gaps, and the four weakest bullets"
     },
@@ -18,7 +18,7 @@
       "stripe_price_id": "price_1TbnaNGGBpd520QYcYsxAQUy",
       "stripe_payment_link_id": "plink_1TbnaTGGBpd520QYf45GqtOG",
       "payment_url": "https://buy.stripe.com/28E9AT9eA7Dgg4p49Z3sI30?client_reference_id=offers_ai_staffing_3_candidate_audit&utm_source=offers_json&utm_medium=json&utm_campaign=resumeos_ai_staffing_3resume",
-      "landing_url": "https://igorganapolsky.github.io/resumeos/ai-staffing.html",
+      "landing_url": "https://igorganapolsky.com/resumeos/ai-staffing.html",
       "audience": "AI staffing, technical recruiting, executive-search, and career services teams that submit senior technical candidates",
       "promise": "Three senior AI, cloud, data, or software candidate profiles audited for unsupported claims, ATS/title-fit gaps, proof gaps, and submission risk before client submission"
     },
@@ -30,7 +30,7 @@
       "stripe_price_id": "price_1TbmcdGGBpd520QYjkmjkx8h",
       "stripe_payment_link_id": "plink_1TbmciGGBpd520QYfal5XyDe",
       "payment_url": "https://buy.stripe.com/8x2dR9aiE5v805rgWL3sI2X?client_reference_id=offers_partner_paid_pilot&utm_source=offers_json&utm_medium=json&utm_campaign=resumeos_partner_pilot",
-      "landing_url": "https://igorganapolsky.github.io/resumeos/partners.html",
+      "landing_url": "https://igorganapolsky.com/resumeos/partners.html",
       "audience": "Resume-writing, staffing, career-coaching, and executive-search teams with recurring technical candidates",
       "promise": "A limited paid pilot batch of technical-candidate resume-risk audits with anonymized findings and conversion or quality recommendations"
     },
@@ -42,7 +42,7 @@
       "stripe_price_id": "price_1TbnaNGGBpd520QYcYsxAQUy",
       "stripe_payment_link_id": "plink_1TbnaTGGBpd520QYf45GqtOG",
       "payment_url": "https://buy.stripe.com/28E9AT9eA7Dgg4p49Z3sI30?client_reference_id=offers_partner_pilot_deposit&utm_source=offers_json&utm_medium=json&utm_campaign=resumeos_partner_pilot",
-      "landing_url": "https://igorganapolsky.github.io/resumeos/partners.html",
+      "landing_url": "https://igorganapolsky.com/resumeos/partners.html",
       "audience": "Resume-writing, staffing, career-coaching, and executive-search teams that want to reserve a partner pilot before paying the full $1,500",
       "promise": "$500 deposit credited toward the ResumeOS $1,500 partner paid pilot"
     },
@@ -51,7 +51,7 @@
       "name": "ResumeOS Done-For-You Sprint",
       "price_usd": 1500,
       "payment_url": "https://buy.stripe.com/9B600j4YkcXAcSdayn3sI2P?client_reference_id=offers_done_for_you_sprint&utm_source=offers_json&utm_medium=json&utm_campaign=resumeos",
-      "landing_url": "https://igorganapolsky.github.io/resumeos/",
+      "landing_url": "https://igorganapolsky.com/resumeos/",
       "audience": "Candidates who want a two-week managed job-search operations sprint",
       "promise": "Targeting review, tailored materials, submission prep, weekly strategy call, and evidence record"
     },
@@ -60,7 +60,7 @@
       "name": "Resume OS Pro",
       "price_usd": 149,
       "payment_url": "https://buy.stripe.com/3cI3cvgH26zccSd7mb3sI2O?client_reference_id=offers_resume_os_pro&utm_source=offers_json&utm_medium=json&utm_campaign=resumeos",
-      "landing_url": "https://igorganapolsky.github.io/resumeos/",
+      "landing_url": "https://igorganapolsky.com/resumeos/",
       "audience": "One candidate who wants a 30-day resume and application workspace after the audit",
       "promise": "Role-specific resume and cover-letter drafts, application tracker cleanup, response triage, and evidence-first workflow"
     },
@@ -72,7 +72,7 @@
       "stripe_price_id": "price_1TbmlhGGBpd520QYNUhyZSHu",
       "stripe_payment_link_id": "plink_1TbmlmGGBpd520QYF0C0P064",
       "payment_url": "https://buy.stripe.com/7sY00j1M80aO05r9uj3sI2Y?client_reference_id=offers_loom_atlassian_diagnostic&utm_source=offers_json&utm_medium=json&utm_campaign=loom_atlassian",
-      "landing_url": "https://igorganapolsky.github.io/loom-atlassian/",
+      "landing_url": "https://igorganapolsky.com/loom-atlassian/",
       "audience": "Teams using Loom with Atlassian Administration, Jira, Confluence, Rovo, or Guard",
       "promise": "A fixed-scope readiness review for Loom billing, seats, roles, Atlassian Admin, Rovo workflow opportunities, and AI/security guardrails"
     },
@@ -84,7 +84,7 @@
       "stripe_price_id": "price_1TbmlwGGBpd520QYveAGfG9J",
       "stripe_payment_link_id": "plink_1Tbmm4GGBpd520QY9f02qxBX",
       "payment_url": "https://buy.stripe.com/eVqcN5gH24r4bO9eOD3sI2Z?client_reference_id=offers_loom_atlassian_sprint&utm_source=offers_json&utm_medium=json&utm_campaign=loom_atlassian",
-      "landing_url": "https://igorganapolsky.github.io/loom-atlassian/",
+      "landing_url": "https://igorganapolsky.com/loom-atlassian/",
       "audience": "Small teams, agencies, founders, RevOps, CS, and software teams affected by Loom's Atlassian migration",
       "promise": "A fixed-scope implementation sprint for seat cleanup recommendations, Atlassian Admin checklist, Loom/Jira/Confluence workflow templates, Rovo guardrails, and rollout memo"
     },

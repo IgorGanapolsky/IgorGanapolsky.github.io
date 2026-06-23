@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Codex Computer Use Not Working on macOS: Real Diagnostic Checklist (2026)</title>
     <meta name="description" content="Why Codex Computer Use, OpenClaw, and Claude Code agents silently fail on macOS — and the exact commands to find the real cause. Covers permissions, plugin cache, OAuth, model routing, OpenRouter fallback, TCC, and session isolation.">
-    <link rel="canonical" href="https://igorganapolsky.github.io/openclaw-mac-ai-workstation-setup/troubleshooting.html">
+    <link rel="canonical" href="https://igorganapolsky.com/openclaw-mac-ai-workstation-setup/troubleshooting.html">
     <meta property="og:type" content="article">
     <meta property="og:title" content="Codex Computer Use Not Working on macOS: Real Diagnostic Checklist (2026)">
     <meta property="og:description" content="The six real causes for Codex Computer Use silently failing on macOS — plugin cache, TCC bundle ID, OpenRouter fallback, Apple Events posture, multiple CODEX_HOMEs, session reuse — with exact commands per cause.">
-    <meta property="og:url" content="https://igorganapolsky.github.io/openclaw-mac-ai-workstation-setup/troubleshooting.html">
+    <meta property="og:url" content="https://igorganapolsky.com/openclaw-mac-ai-workstation-setup/troubleshooting.html">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -20,9 +20,9 @@
       "datePublished": "2026-05-05",
       "dateModified": "2026-05-14",
       "inLanguage": "en",
-      "url": "https://igorganapolsky.github.io/openclaw-mac-ai-workstation-setup/troubleshooting.html",
+      "url": "https://igorganapolsky.com/openclaw-mac-ai-workstation-setup/troubleshooting.html",
       "about": ["Codex", "Computer Use", "macOS", "OpenClaw", "Claude Code", "MCP", "TCC"],
-      "mainEntityOfPage": "https://igorganapolsky.github.io/openclaw-mac-ai-workstation-setup/troubleshooting.html"
+      "mainEntityOfPage": "https://igorganapolsky.com/openclaw-mac-ai-workstation-setup/troubleshooting.html"
     }
     </script>
     <script type="application/ld+json">
@@ -107,7 +107,7 @@
       .paid-diagnostic p { margin: 8px 0 14px; }
       .paid-diagnostic ul { margin: 10px 0 16px; padding-left: 22px; font-size: 17px; }
     </style>
-  <script defer data-domain="igorganapolsky.github.io" src="https://plausible.io/js/script.tagged-events.js"></script>
+  <script defer data-domain="igorganapolsky.com" src="https://plausible.io/js/script.tagged-events.js"></script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-2GEM6RYXZE"></script>
   <script defer src="/assets/revenue-analytics.js"></script>
   </head>
@@ -187,7 +187,7 @@
 
       <div class="note" id="self-serve">
         <strong>Free self-serve bundle — one command.</strong>
-        <pre><code>curl -fsSL https://igorganapolsky.github.io/openclaw-mac-ai-workstation-setup/scripts/self-diagnose.mjs | node</code></pre>
+        <pre><code>curl -fsSL https://igorganapolsky.com/openclaw-mac-ai-workstation-setup/scripts/self-diagnose.mjs | node</code></pre>
         Read-only: runs the diagnostic commands for all six symptoms, redacts common secrets (GitHub/Stripe/OpenAI/Resend/Bearer/email patterns), and writes a single bundle to <code>~/Desktop/openclaw-diagnostic-&lt;timestamp&gt;.txt</code>. Review it yourself, or paste it into the $19 quick read for a confirmed root cause.
         <br><br>
         <span style="color:#5c6470;font-size:15px;">Note for Claude Max 5x subscribers: starting <strong>June 15, 2026</strong> your plan includes a $100/month Agent SDK credit for <code>claude -p</code> and SDK usage. A future <code>--analyze</code> flag will synthesize the bundle on that credit; today the script bundles only.</span>

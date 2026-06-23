@@ -11,19 +11,19 @@ import urllib.request
 
 
 URLS = [
-    "https://igorganapolsky.github.io/openclaw-mac-ai-workstation-setup/",
-    "https://igorganapolsky.github.io/openclaw-mac-ai-workstation-setup/troubleshooting.html",
-    "https://igorganapolsky.github.io/openclaw-mac-ai-workstation-setup/computer-use-plugin-unavailable.html",
-    "https://igorganapolsky.github.io/openclaw-mac-ai-workstation-setup/agent-safety-diagnostic.html",
-    "https://igorganapolsky.github.io/openclaw-mac-ai-workstation-setup/quick-read.html",
-    "https://igorganapolsky.github.io/openclaw-mac-ai-workstation-setup/codex-computer-use-intel-mac.html",
-    "https://igorganapolsky.github.io/openclaw-mac-ai-workstation-setup/claude-code-computer-use.html",
-    "https://igorganapolsky.github.io/openclaw-mac-ai-workstation-setup/speed-to-lead.html",
-    "https://igorganapolsky.github.io/openclaw-agent-safety-diagnostic.html",
-    "https://igorganapolsky.github.io/openclaw-agent-safety-sample.html",
+    "https://igorganapolsky.com/openclaw-mac-ai-workstation-setup/",
+    "https://igorganapolsky.com/openclaw-mac-ai-workstation-setup/troubleshooting.html",
+    "https://igorganapolsky.com/openclaw-mac-ai-workstation-setup/computer-use-plugin-unavailable.html",
+    "https://igorganapolsky.com/openclaw-mac-ai-workstation-setup/agent-safety-diagnostic.html",
+    "https://igorganapolsky.com/openclaw-mac-ai-workstation-setup/quick-read.html",
+    "https://igorganapolsky.com/openclaw-mac-ai-workstation-setup/codex-computer-use-intel-mac.html",
+    "https://igorganapolsky.com/openclaw-mac-ai-workstation-setup/claude-code-computer-use.html",
+    "https://igorganapolsky.com/openclaw-mac-ai-workstation-setup/speed-to-lead.html",
+    "https://igorganapolsky.com/openclaw-agent-safety-diagnostic.html",
+    "https://igorganapolsky.com/openclaw-agent-safety-sample.html",
 ]
 
-ASSET_URL = "https://igorganapolsky.github.io/assets/revenue-analytics.js"
+ASSET_URL = "https://igorganapolsky.com/assets/revenue-analytics.js"
 
 
 def fetch(url: str) -> tuple[str, dict[str, str | None]]:

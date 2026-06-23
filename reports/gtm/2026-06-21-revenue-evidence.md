@@ -7,17 +7,17 @@
 - Blockers: none
 
 ## Public Storefront
-- 200 <https://igorganapolsky.github.io/> ok=True
-- 200 <https://igorganapolsky.github.io/openclaw-agent-safety-diagnostic.html> ok=True
-- 200 <https://igorganapolsky.github.io/openclaw-agent-safety-sample.html> ok=True
-- 200 <https://igorganapolsky.github.io/openclaw-computer-use-troubleshooting.html> ok=True
-- 200 <https://igorganapolsky.github.io/openclaw-mac-ai-workstation-setup/troubleshooting.html> ok=True
-- 200 <https://igorganapolsky.github.io/openclaw-mac-ai-workstation-setup/computer-use-plugin-unavailable.html> ok=True
-- 200 <https://igorganapolsky.github.io/resumeos/> ok=True
-- 200 <https://igorganapolsky.github.io/applyops/> ok=True
-- 200 <https://igorganapolsky.github.io/ralph-resume-os/> ok=True
-- 200 <https://igorganapolsky.github.io/api/products.json> ok=True
-- 200 <https://igorganapolsky.github.io/thanks/> ok=True
+- 200 <https://igorganapolsky.com/> ok=True
+- 200 <https://igorganapolsky.com/openclaw-agent-safety-diagnostic.html> ok=True
+- 200 <https://igorganapolsky.com/openclaw-agent-safety-sample.html> ok=True
+- 200 <https://igorganapolsky.com/openclaw-computer-use-troubleshooting.html> ok=True
+- 200 <https://igorganapolsky.com/openclaw-mac-ai-workstation-setup/troubleshooting.html> ok=True
+- 200 <https://igorganapolsky.com/openclaw-mac-ai-workstation-setup/computer-use-plugin-unavailable.html> ok=True
+- 200 <https://igorganapolsky.com/resumeos/> ok=True
+- 200 <https://igorganapolsky.com/applyops/> ok=True
+- 200 <https://igorganapolsky.com/ralph-resume-os/> ok=True
+- 200 <https://igorganapolsky.com/api/products.json> ok=True
+- 200 <https://igorganapolsky.com/thanks/> ok=True
 
 ## Checkout Links
 - 200 <https://buy.stripe.com/00w14neyUcXA5pL5e33sI0e?client_reference_id=api_agent_safety_diagnostic&utm_source=products_api&utm_medium=catalog&utm_campaign=openclaw_agent_safety> ok=True
@@ -29,19 +29,19 @@
 ## Funnel Experiment Deployment
 - Local implemented experiments: `sample_to_checkout_bridge, clarify_diagnostic_scope_and_deliverables, capture_diagnostic_checkout_objections`
 - Public deployed experiments: `sample_to_checkout_bridge, clarify_diagnostic_scope_and_deliverables, capture_diagnostic_checkout_objections`
-- `capture_diagnostic_checkout_objections`: deployed=`True` status=`200` missing=`none` <https://igorganapolsky.github.io/openclaw-agent-safety-diagnostic.html>
-- `clarify_diagnostic_scope_and_deliverables`: deployed=`True` status=`200` missing=`none` <https://igorganapolsky.github.io/openclaw-agent-safety-diagnostic.html>
-- `sample_to_checkout_bridge`: deployed=`True` status=`200` missing=`none` <https://igorganapolsky.github.io/openclaw-agent-safety-sample.html>
-- `tighten_openclaw_entrypoint_message`: deployed=`False` status=`200` missing=`unapproved external side effect, logged-in production browser` <https://igorganapolsky.github.io/>
+- `capture_diagnostic_checkout_objections`: deployed=`True` status=`200` missing=`none` <https://igorganapolsky.com/openclaw-agent-safety-diagnostic.html>
+- `clarify_diagnostic_scope_and_deliverables`: deployed=`True` status=`200` missing=`none` <https://igorganapolsky.com/openclaw-agent-safety-diagnostic.html>
+- `sample_to_checkout_bridge`: deployed=`True` status=`200` missing=`none` <https://igorganapolsky.com/openclaw-agent-safety-sample.html>
+- `tighten_openclaw_entrypoint_message`: deployed=`False` status=`200` missing=`unapproved external side effect, logged-in production browser` <https://igorganapolsky.com/>
 
 ## Public Primary Offer Deployment
 - All Stripe Connect primary-offer surfaces deployed: `True`
 - Deployed surfaces: `root, products_json, schema_json, llms_txt, well_known_llms_txt`
-- `llms_txt`: deployed=`True` status=`200` missing=`none` <https://igorganapolsky.github.io/llms.txt>
-- `products_json`: deployed=`True` status=`200` missing=`none` <https://igorganapolsky.github.io/api/products.json>
-- `root`: deployed=`True` status=`200` missing=`none` <https://igorganapolsky.github.io/>
-- `schema_json`: deployed=`True` status=`200` missing=`none` <https://igorganapolsky.github.io/api/schema.json>
-- `well_known_llms_txt`: deployed=`True` status=`200` missing=`none` <https://igorganapolsky.github.io/.well-known/llms.txt>
+- `llms_txt`: deployed=`True` status=`200` missing=`none` <https://igorganapolsky.com/llms.txt>
+- `products_json`: deployed=`True` status=`200` missing=`none` <https://igorganapolsky.com/api/products.json>
+- `root`: deployed=`True` status=`200` missing=`none` <https://igorganapolsky.com/>
+- `schema_json`: deployed=`True` status=`200` missing=`none` <https://igorganapolsky.com/api/schema.json>
+- `well_known_llms_txt`: deployed=`True` status=`200` missing=`none` <https://igorganapolsky.com/.well-known/llms.txt>
 
 ## Analytics
 - Plausible readback configured: `True`

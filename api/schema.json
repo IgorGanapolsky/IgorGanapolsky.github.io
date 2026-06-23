@@ -4,12 +4,12 @@
   "name": "Stripe Connect Marketplace Diagnostic",
   "operatingSystem": "Web, macOS, Windows, Linux",
   "applicationCategory": "BusinessApplication",
-  "url": "https://igorganapolsky.github.io/",
+  "url": "https://igorganapolsky.com/",
   "sameAs": [
-    "https://igorganapolsky.github.io/case-studies/hilltown-pretix-stripe-connect/",
-    "https://igorganapolsky.github.io/openclaw-agent-safety-diagnostic.html",
-    "https://igorganapolsky.github.io/resumeos/",
-    "https://igorganapolsky.github.io/openclaw-computer-use-troubleshooting.html"
+    "https://igorganapolsky.com/case-studies/hilltown-pretix-stripe-connect/",
+    "https://igorganapolsky.com/openclaw-agent-safety-diagnostic.html",
+    "https://igorganapolsky.com/resumeos/",
+    "https://igorganapolsky.com/openclaw-computer-use-troubleshooting.html"
   ],
   "offers": [
     {
@@ -91,11 +91,11 @@
       "career_operations_system"
     ],
     "callable_endpoints": {
-      "stripeConnectDiagnostic": "https://igorganapolsky.github.io/",
-      "hilltownStripeConnectCaseStudy": "https://igorganapolsky.github.io/case-studies/hilltown-pretix-stripe-connect/",
-      "agentSafetyDiagnostic": "https://igorganapolsky.github.io/openclaw-agent-safety-diagnostic.html",
-      "products": "https://igorganapolsky.github.io/api/products.json",
-      "status": "https://igorganapolsky.github.io/api/status.json"
+      "stripeConnectDiagnostic": "https://igorganapolsky.com/",
+      "hilltownStripeConnectCaseStudy": "https://igorganapolsky.com/case-studies/hilltown-pretix-stripe-connect/",
+      "agentSafetyDiagnostic": "https://igorganapolsky.com/openclaw-agent-safety-diagnostic.html",
+      "products": "https://igorganapolsky.com/api/products.json",
+      "status": "https://igorganapolsky.com/api/status.json"
     }
   }
 }
