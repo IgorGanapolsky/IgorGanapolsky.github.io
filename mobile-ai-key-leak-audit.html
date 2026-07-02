@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Mobile app AI/LLM API key leak audit — Igor Ganapolsky</title>
+<meta name="description" content="Find and fix leaked LLM API keys in your iOS/Android app. A June 2026 Wake Forest study found 282 of 444 AI-powered iOS apps leaking exploitable LLM keys. Authorized audit + remediation by a mobile + production-LLM security engineer. From $750." />
+<link rel="canonical" href="https://igorganapolsky.com/mobile-ai-key-leak-audit.html" />
+
+<!-- OpenGraph -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Mobile app AI/LLM API key leak audit" />
+<meta property="og:description" content="282 of 444 AI-powered iOS apps leaked live LLM API keys (Wake Forest, June 2026). I find yours before attackers do — and fix it. Authorized audits from $750." />
+<meta property="og:url" content="https://igorganapolsky.com/mobile-ai-key-leak-audit.html" />
+<meta property="og:image" content="https://igorganapolsky.com/og.png" />
+<meta property="og:site_name" content="Igor Ganapolsky" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Mobile app AI/LLM API key leak audit" />
+<meta name="twitter:description" content="282 of 444 AI-powered iOS apps leaked live LLM API keys. I find yours and fix it. Authorized audits from $750." />
+<meta name="twitter:image" content="https://igorganapolsky.com/og.png" />
+
+<!-- JSON-LD Service (for AI-search / GEO citability) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Mobile app AI/LLM API key leak audit",
+  "provider": {
+    "@type": "Person",
+    "name": "Igor Ganapolsky",
+    "url": "https://igorganapolsky.com/",
+    "jobTitle": "Mobile + production-LLM security engineer"
+  },
+  "areaServed": "Worldwide",
+  "description": "Authorized security audit that detects leaked LLM API keys in iOS and Android apps via network-traffic analysis, confirms which are live, and remediates by moving secrets server-side behind an authenticated proxy.",
+  "offers": [
+    { "@type": "Offer", "name": "Leak Audit (one app)", "price": "750", "priceCurrency": "USD" },
+    { "@type": "Offer", "name": "Audit + Remediation", "price": "3500", "priceCurrency": "USD" },
+    { "@type": "Offer", "name": "Fleet Audit (3-8 apps)", "price": "6000", "priceCurrency": "USD" }
+  ]
+}
+</script>
+
+<style>
+  :root { --ink:#111318; --muted:#4b5563; --accent:#0f766e; --line:#d8dde5; --panel:#f6f8fb; --warn:#b91c1c; }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:#fff;line-height:1.55;}
+  main{max-width:860px;margin:0 auto;padding:48px 20px 72px;}
+  header.hero{margin-bottom:28px;}
+  h1{font-size:clamp(30px,5.5vw,50px);line-height:1.06;margin:0 0 18px;letter-spacing:-0.01em;}
+  .lead{color:var(--muted);font-size:21px;max-width:780px;margin:0 0 24px;}
+  p{font-size:18px;}
+  .button{display:inline-flex;min-height:48px;align-items:center;justify-content:center;padding:0 20px;border-radius:6px;background:var(--accent);color:#fff;text-decoration:none;font-weight:700;margin:4px 6px 4px 0;}
+  .button.secondary{background:transparent;color:var(--accent);border:1px solid var(--accent);}
+  .panel{border:1px solid var(--line);border-radius:8px;background:var(--panel);padding:20px;margin:24px 0;}
+  .stat{border-left:4px solid var(--warn);background:#fef2f2;padding:16px 18px;border-radius:6px;margin:20px 0;}
+  .stat strong{color:var(--warn);}
+  h2{font-size:26px;margin:40px 0 12px;}
+  h3{font-size:18px;margin:18px 0 6px;}
+  ul{padding-left:20px;}
+  ul li{margin:6px 0;}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:16px;}
+  .card{border:1px solid var(--line);border-radius:8px;padding:18px;background:#fff;}
+  .card h3{margin-top:0;}
+  .price{font-size:22px;font-weight:800;color:var(--accent);margin:4px 0 8px;}
+  footer{margin-top:60px;padding-top:24px;border-top:1px solid var(--line);color:var(--muted);font-size:14px;}
+  a{color:var(--accent);}
+  .row-links a{margin-right:14px;}
+  .fine{font-size:14px;color:var(--muted);}
+</style>
+</head>
+<body>
+<main>
+
+  <header class="hero">
+    <h1>Is your mobile app leaking its AI API keys?</h1>
+    <p class="lead">I find leaked LLM API keys in iOS and Android apps — and fix them — before an attacker runs up an uncapped bill on your account.</p>
+    <p>
+      <a
+        class="button"
+        href="mailto:iganapolsky@gmail.com?subject=Mobile%20AI%20key-leak%20audit%20request&amp;body=App%20name%3A%20%0AiOS%2FAndroid%2Fboth%3A%20%0AApp%20Store%20or%20Play%20link%3A%20%0AAudit%20only%2C%20or%20audit%20%2B%20fix%3A%20"
+        data-track="audit_request_click"
+        data-surface="mobile_keyleak"
+        data-tier="mobile_keyleak_audit"
+        data-price="750"
+        data-placement="hero"
+        data-cta="hero-request"
+      >Request an audit — from $750</a>
+      <a class="button secondary" href="mailto:iganapolsky@gmail.com">Email Igor</a>
+    </p>
+  </header>
+
+  <div class="stat">
+    A June 2026 <a href="https://arxiv.org/abs/2606.12212">Wake Forest University study</a> intercepted the network traffic of 444 AI-powered iOS apps and found <strong>282 leaking exploitable LLM API credentials</strong> across 10+ providers — and only <strong>28% were fixed</strong> after the researchers disclosed it. Health &amp; Fitness apps had the highest leak rate at 47%. One stolen key can burn tens of thousands of dollars in a single day.
+  </div>
+
+  <section>
+    <h2>What I check</h2>
+    <p>With your written authorization, I run the same kind of traffic analysis the study used — against your own app, no source code required — and tell you exactly where you stand:</p>
+    <ul>
+      <li>Which LLM API keys or tokens leak in your app's traffic, across OpenAI, Anthropic, Google, and 10+ providers.</li>
+      <li>Which of those keys are <em>live</em> and exploitable right now.</li>
+      <li>Which of the three known leak patterns you have: plaintext key transmission, an unauthenticated backend proxy, or a replayable token.</li>
+      <li>A prioritized, plain-English fix list — and, if you want, the fix shipped as PRs.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Offer</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Leak Audit</h3>
+        <div class="price">$750</div>
+        <p>One app. Traffic audit + a 2–4 page report of what leaks, which keys are live, and how to close each gap. 48–72h.</p>
+      </div>
+      <div class="card">
+        <h3>Audit + Remediation</h3>
+        <div class="price">$3,500</div>
+        <p>Everything above, plus I ship the fix: secrets moved server-side behind an authenticated proxy, keys rotated, spend caps added, with a before/after traffic capture proving the leak is closed.</p>
+      </div>
+      <div class="card">
+        <h3>Fleet Audit</h3>
+        <div class="price">$6,000</div>
+        <p>3–8 apps for a studio or agency, one shared proxy, provider spend-cap enforcement, and an exposure dashboard. Retainer available.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Why me</h2>
+    <p>I'm a mobile engineer who has shipped iOS and Android at consumer scale (AI features in front of millions of monthly users) <em>and</em> a production-LLM engineer <em>and</em> I do security. Most vendors hand you a PDF and leave the fix to your team. I find it and fix it on the same engagement.</p>
+    <p class="row-links">
+      <a href="https://github.com/IgorGanapolsky">GitHub</a>
+      <a href="https://www.linkedin.com/in/igorganapolsky/">LinkedIn</a>
+      <a href="https://igorganapolsky.com/">More work</a>
+    </p>
+  </section>
+
+  <section class="panel">
+    <h2 style="margin-top:0">How it stays above board</h2>
+    <p class="fine">Every engagement is <strong>authorized-only</strong>. I audit apps you own or control, under a short signed authorization-to-test that names the app — standard security-assessment practice. I never test an app I'm not authorized to test, and I never use a discovered key for anything. This page cites public research about the app category as a whole; it makes no claim about any specific app.</p>
+  </section>
+
+  <footer>
+    <p>Igor Ganapolsky &middot; <a href="mailto:iganapolsky@gmail.com">iganapolsky@gmail.com</a> &middot; <a href="https://github.com/IgorGanapolsky">github.com/IgorGanapolsky</a></p>
+  </footer>
+
+</main>
+</body>
+</html>
