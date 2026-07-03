@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>How to tell if your mobile app is leaking its LLM/AI API key (2026 guide)</title>
+<meta name="description" content="A practical guide to checking whether your iOS/Android app leaks its LLM API key: the three leak patterns, how to inspect your own app's traffic, and how to fix each. 64% of AI-powered iOS apps were found leaking keys in 2026." />
+<link rel="canonical" href="https://igorganapolsky.com/mobile-app-llm-api-key-leak-guide.html" />
+
+<meta property="og:type" content="article" />
+<meta property="og:title" content="How to tell if your mobile app is leaking its LLM/AI API key" />
+<meta property="og:description" content="The three leak patterns, how to check your own app's traffic, and how to fix each. Practical 2026 guide from a mobile + production-LLM security engineer." />
+<meta property="og:url" content="https://igorganapolsky.com/mobile-app-llm-api-key-leak-guide.html" />
+<meta property="og:image" content="https://igorganapolsky.com/og.png" />
+<meta property="og:site_name" content="Igor Ganapolsky" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="How to tell if your mobile app is leaking its LLM/AI API key" />
+<meta name="twitter:description" content="The three leak patterns, how to check your own app, and how to fix each. 2026 guide." />
+<meta name="twitter:image" content="https://igorganapolsky.com/og.png" />
+
+<!-- JSON-LD Article (GEO / AI-search citability) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "How to tell if your mobile app is leaking its LLM/AI API key",
+  "author": { "@type": "Person", "name": "Igor Ganapolsky", "url": "https://igorganapolsky.com/" },
+  "datePublished": "2026-07-03",
+  "dateModified": "2026-07-03",
+  "about": ["Mobile app security", "LLM API key leakage", "iOS security", "Android security", "AI application security"],
+  "publisher": { "@type": "Person", "name": "Igor Ganapolsky" },
+  "mainEntityOfPage": "https://igorganapolsky.com/mobile-app-llm-api-key-leak-guide.html"
+}
+</script>
+
+<style>
+  :root { --ink:#111318; --muted:#4b5563; --accent:#0f766e; --line:#d8dde5; --panel:#f6f8fb; --warn:#b91c1c; }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:#fff;line-height:1.6;}
+  main{max-width:760px;margin:0 auto;padding:48px 20px 72px;}
+  h1{font-size:clamp(28px,5vw,42px);line-height:1.1;margin:0 0 16px;letter-spacing:-0.01em;}
+  .lead{color:var(--muted);font-size:20px;margin:0 0 8px;}
+  .byline{color:var(--muted);font-size:14px;margin:0 0 28px;}
+  p{font-size:17px;}
+  h2{font-size:24px;margin:38px 0 10px;}
+  h3{font-size:19px;margin:22px 0 6px;}
+  ul,ol{padding-left:22px;} li{margin:7px 0;}
+  a{color:var(--accent);}
+  code{background:#f1f5f9;padding:1px 5px;border-radius:4px;font-size:14px;}
+  pre{background:#0f172a;color:#e2e8f0;padding:14px 16px;border-radius:8px;overflow-x:auto;font-size:13.5px;line-height:1.5;}
+  .panel{border:1px solid var(--line);border-radius:8px;background:var(--panel);padding:18px 20px;margin:26px 0;}
+  .cta{border:1px solid var(--accent);border-radius:8px;background:#f0fdfa;padding:20px;margin:30px 0;}
+  .button{display:inline-flex;min-height:46px;align-items:center;justify-content:center;padding:0 20px;border-radius:6px;background:var(--accent);color:#fff;text-decoration:none;font-weight:700;margin:6px 8px 0 0;}
+  .button.secondary{background:transparent;color:var(--accent);border:1px solid var(--accent);}
+  footer{margin-top:56px;padding-top:22px;border-top:1px solid var(--line);color:var(--muted);font-size:14px;}
+  .fine{font-size:14px;color:var(--muted);}
+</style>
+</head>
+<body>
+<main>
+
+  <article>
+  <h1>How to tell if your mobile app is leaking its LLM/AI API key</h1>
+  <p class="lead">If your iOS or Android app calls OpenAI, Anthropic, or Google directly from the device, there's a real chance the key is visible to anyone watching the traffic — and that's an uncapped bill waiting to happen.</p>
+  <p class="byline">By Igor Ganapolsky · mobile + production-LLM security engineer · updated July 2026</p>
+
+  <p>In June 2026, researchers at Wake Forest University published <a href="https://arxiv.org/abs/2606.12212">a study</a> that intercepted the network traffic of 444 AI-powered iOS apps. <strong>282 of them — 64% — were leaking exploitable LLM API credentials</strong> across ten-plus providers. Only 28% fixed it after being told. Health &amp; Fitness apps were the worst, at a 47% leak rate.</p>
+
+  <p>The reason is simple and common: to ship an AI feature quickly, a developer puts the provider API key in the app and calls the model directly from the phone. It works in testing. But a mobile app is not a trusted environment — the key ships inside the binary and rides along in the network request, where it can be read.</p>
+
+  <h2>Why a leaked key is worse than it sounds</h2>
+  <p>An exposed LLM key isn't a normal secret. It maps directly to spend. An attacker who extracts it can run their own traffic through your provider account — reselling access, mining, or just abusing it — and the first you'll hear about it is the invoice. Documented incidents have burned tens of thousands of dollars in a single day before anyone noticed. This is why it's treated as a critical-severity issue, not a hygiene nit.</p>
+
+  <h2>The three ways mobile apps leak LLM keys</h2>
+  <p>The Wake Forest study grouped the leaks into three patterns. Almost every real-world case is one of these:</p>
+
+  <h3>1. Plaintext key transmission</h3>
+  <p>The provider key is sent straight from the device, usually in an <code>Authorization: Bearer …</code> header to <code>api.openai.com</code>, <code>api.anthropic.com</code>, and so on. Anyone who can see the traffic sees the key. This is the most direct and most dangerous pattern.</p>
+
+  <h3>2. Unauthenticated backend proxy</h3>
+  <p>The team did the right first step — they moved the key to their own server. But the endpoint that forwards prompts to the model doesn't check <em>who</em> is calling it. So anyone can hit that URL directly and use your model budget without ever needing the key. This one fools people because it feels secure.</p>
+
+  <h3>3. Replayable tokens</h3>
+  <p>A session or bearer token that never expires and isn't bound to a device. If it's captured, it can be replayed indefinitely. Lower severity than the raw key, but it widens the window for everything else.</p>
+
+  <h2>How to check your own app</h2>
+  <p>You can reproduce roughly what the researchers did, on an app you own, in an afternoon. At a high level:</p>
+  <ol>
+    <li><strong>Put a proxy between the app and the internet.</strong> Tools like <code>mitmproxy</code> or Proxyman intercept HTTPS traffic on a device you control. Install the proxy's CA certificate on a test device and route the device's Wi-Fi through it.</li>
+    <li><strong>Get past certificate pinning if present.</strong> Many apps pin certificates, which rejects your proxy. On a device you own, a tool like Frida (often via <code>objection</code>) can disable pinning at runtime so you can see the traffic.</li>
+    <li><strong>Exercise the AI features and read the requests.</strong> Trigger every feature that calls a model, then scan the captured requests — headers, bodies, and query strings — for provider key formats: <code>sk-…</code> (OpenAI), <code>sk-ant-…</code> (Anthropic), <code>AIza…</code> (Google), and bearer tokens.</li>
+    <li><strong>Also grep the build.</strong> Unzip the IPA/APK and search the binary, config files, and any JavaScript bundle (React Native apps often ship keys straight in <code>main.jsbundle</code>).</li>
+  </ol>
+  <p class="fine">Do this only on an app you own or are authorized to test. Intercepting an app you don't control is a legal problem, not a research exercise.</p>
+
+  <h2>How to fix each pattern</h2>
+  <ul>
+    <li><strong>Get the key off the device.</strong> The client should never hold a provider key. Route model calls through your own backend, which holds the key server-side. This is the "zero secrets on the client" pattern.</li>
+    <li><strong>Authenticate the proxy.</strong> Your backend model endpoint must verify an authenticated app session, rate-limit per user, and refuse to forward arbitrary requests.</li>
+    <li><strong>Rotate anything that leaked, immediately,</strong> and set a hard spend cap on the provider account so any lingering exposure is bounded while you fix the root cause.</li>
+    <li><strong>Use short-lived, device-bound tokens</strong> instead of long-lived bearer tokens, and revoke on anomaly.</li>
+    <li><strong>Re-test after the fix</strong> — a fresh traffic capture that shows no key or token leaking is the proof you want on file.</li>
+  </ul>
+
+  <div class="cta">
+    <h3 style="margin-top:0">Want this checked — or fixed — for you?</h3>
+    <p>I run authorized audits of mobile apps for exactly this class of issue, and ship the fix (not just a report). There's also a pre-acquisition version for anyone buying or raising against a mobile/AI app.</p>
+    <p>
+      <a class="button" href="/mobile-ai-key-leak-audit.html">See the audit &amp; due-diligence offer</a>
+      <a class="button secondary" href="/mobile-ai-key-leak-audit-sample.html">See a sample report</a>
+    </p>
+  </div>
+
+  <p class="fine">Written by Igor Ganapolsky — a mobile engineer (iOS/Android/React Native at consumer scale) who also builds production LLM systems and does security. <a href="/mobile-ai-key-leak-audit.html">More on the audit</a>.</p>
+  </article>
+
+  <footer>
+    <p>Igor Ganapolsky &middot; <a href="mailto:iganapolsky@gmail.com">iganapolsky@gmail.com</a> &middot; <a href="https://github.com/IgorGanapolsky">github.com/IgorGanapolsky</a></p>
+  </footer>
+
+</main>
+</body>
+</html>
