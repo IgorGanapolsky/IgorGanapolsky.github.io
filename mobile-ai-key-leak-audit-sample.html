@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Sample report — Mobile & AI Security Snapshot (illustrative) — Igor Ganapolsky</title>
+<meta name="description" content="A redacted, illustrative example of the Mobile & AI Security Snapshot deliverable: how leaked LLM API keys, leak patterns, severity, and remediation are reported. Synthetic example app — not a real client." />
+<link rel="canonical" href="https://igorganapolsky.com/mobile-ai-key-leak-audit-sample.html" />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Sample report — Mobile & AI Security Snapshot (illustrative)" />
+<meta property="og:description" content="See exactly what the deliverable looks like: leaked keys, leak patterns, severity, and a prioritized fix plan. Synthetic example — not a real client." />
+<meta property="og:url" content="https://igorganapolsky.com/mobile-ai-key-leak-audit-sample.html" />
+<meta property="og:image" content="https://igorganapolsky.com/og.png" />
+<meta property="og:site_name" content="Igor Ganapolsky" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Sample report — Mobile & AI Security Snapshot (illustrative)" />
+<meta name="twitter:description" content="See exactly what the deliverable looks like. Synthetic example — not a real client." />
+<meta name="twitter:image" content="https://igorganapolsky.com/og.png" />
+
+<style>
+  :root { --ink:#111318; --muted:#4b5563; --accent:#0f766e; --line:#d8dde5; --panel:#f6f8fb; --warn:#b91c1c; --high:#c2410c; --med:#a16207; }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:#fff;line-height:1.55;}
+  main{max-width:860px;margin:0 auto;padding:48px 20px 72px;}
+  h1{font-size:clamp(28px,5vw,44px);line-height:1.08;margin:0 0 14px;letter-spacing:-0.01em;}
+  .lead{color:var(--muted);font-size:20px;margin:0 0 20px;}
+  p{font-size:17px;}
+  .button{display:inline-flex;min-height:48px;align-items:center;justify-content:center;padding:0 20px;border-radius:6px;background:var(--accent);color:#fff;text-decoration:none;font-weight:700;margin:4px 6px 4px 0;}
+  .button.secondary{background:transparent;color:var(--accent);border:1px solid var(--accent);}
+  .banner{border:1px dashed var(--accent);background:#f0fdfa;border-radius:8px;padding:14px 16px;margin:0 0 24px;font-size:15px;color:#0f5e57;}
+  .panel{border:1px solid var(--line);border-radius:8px;background:var(--panel);padding:20px;margin:22px 0;}
+  h2{font-size:24px;margin:36px 0 10px;}
+  h3{font-size:18px;margin:16px 0 6px;}
+  ul{padding-left:20px;} ul li{margin:6px 0;}
+  a{color:var(--accent);}
+  table{border-collapse:collapse;width:100%;margin:14px 0;font-size:15px;}
+  th,td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top;}
+  th{background:var(--panel);}
+  .sev{font-weight:800;white-space:nowrap;}
+  .sev.crit{color:var(--warn);} .sev.high{color:var(--high);} .sev.med{color:var(--med);}
+  code{background:#f1f5f9;padding:1px 5px;border-radius:4px;font-size:14px;}
+  .finding{border:1px solid var(--line);border-left:4px solid var(--warn);border-radius:6px;padding:16px 18px;margin:16px 0;background:#fff;}
+  .finding.high{border-left-color:var(--high);}
+  .finding .k{color:var(--muted);font-size:13px;text-transform:uppercase;letter-spacing:.04em;margin-top:10px;}
+  footer{margin-top:56px;padding-top:22px;border-top:1px solid var(--line);color:var(--muted);font-size:14px;}
+  .fine{font-size:14px;color:var(--muted);}
+</style>
+</head>
+<body>
+<main>
+
+  <div class="banner">
+    <strong>Illustrative sample.</strong> This is a synthetic example built to show the shape of the deliverable — the app, findings, and keys below are invented. It is not a real client engagement and contains no real credentials or real company data.
+  </div>
+
+  <h1>Mobile &amp; AI Security Snapshot — sample report</h1>
+  <p class="lead">Example target: <em>"NutriSnap"</em> — a fictional iOS calorie-tracking app with an AI food-photo feature. Assessment method: authorized network-traffic analysis, no source code required.</p>
+
+  <section class="panel">
+    <h2 style="margin-top:0">Executive summary</h2>
+    <p>The app transmits a live third-party LLM API key in outbound traffic and routes some model calls through an unauthenticated backend endpoint. Either issue lets an outside party spend against the provider account. Estimated exposure: uncapped provider billing until the key is rotated. <strong>Overall risk: Critical.</strong> All findings are remediable in days; a fix plan is included.</p>
+    <table>
+      <tr><th>Finding</th><th>Leak pattern</th><th>Severity</th></tr>
+      <tr><td>Live LLM API key in request headers</td><td>Plaintext key transmission</td><td class="sev crit">Critical</td></tr>
+      <tr><td>Unauthenticated model proxy endpoint</td><td>Unauthenticated backend proxy</td><td class="sev high">High</td></tr>
+      <tr><td>Long-lived bearer token, no rotation</td><td>Replayable token</td><td class="sev med">Medium</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>Findings</h2>
+
+    <div class="finding">
+      <h3 style="margin-top:0">F-1 · Live LLM API key transmitted in plaintext headers <span class="sev crit">(Critical)</span></h3>
+      <p>During normal use the app sends an LLM provider API key in an <code>Authorization</code> header directly from the device. Anyone able to observe the app's traffic (a shared network, a proxy, a jailbroken device) can read it and use it.</p>
+      <div class="k">Evidence (redacted)</div>
+      <p><code>Authorization: Bearer sk-****…****  →  api.&lt;provider&gt;.com/v1/chat/completions</code>, key confirmed live via a $0 read-only metadata call (never a billable request).</p>
+      <div class="k">Impact</div>
+      <p>Full use of your provider account on your bill. High-volume abuse can exhaust a five-figure monthly budget in under a day.</p>
+      <div class="k">Fix</div>
+      <p>Remove the key from the client entirely. Route model calls through your backend, which holds the key server-side; rotate the exposed key immediately; add a provider spend cap.</p>
+    </div>
+
+    <div class="finding high">
+      <h3 style="margin-top:0">F-2 · Unauthenticated model proxy endpoint <span class="sev high">(High)</span></h3>
+      <p>A backend route that forwards prompts to the LLM accepts requests without authenticating the caller. Even after the key moves server-side (F-1), this endpoint lets anyone use your model budget by calling it directly.</p>
+      <div class="k">Fix</div>
+      <p>Require an authenticated app session on the proxy; add per-user rate limiting and abuse monitoring; scope what the proxy will forward.</p>
+    </div>
+
+    <div class="finding">
+      <h3 style="margin-top:0">F-3 · Long-lived bearer token without rotation <span class="sev med">(Medium)</span></h3>
+      <p>A session token observed in traffic does not expire and is replayable if captured. Lower severity than the key itself, but it widens the window of any interception.</p>
+      <div class="k">Fix</div>
+      <p>Short-lived tokens with refresh; bind tokens to device/session; revoke on anomaly.</p>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2 style="margin-top:0">Remediation plan</h2>
+    <ul>
+      <li><strong>Day 0:</strong> Rotate the exposed key; set a provider spend cap so any lingering exposure is bounded.</li>
+      <li><strong>Days 1–3:</strong> Move the key server-side behind an authenticated proxy (the "Zero Secrets" pattern); remove it from the client build.</li>
+      <li><strong>Days 3–5:</strong> Add proxy auth + rate limiting; move to short-lived tokens; re-test.</li>
+      <li><strong>Re-test:</strong> A fresh traffic capture confirming no key or token leaks — the before/after proof you can show your team or an acquirer.</li>
+    </ul>
+    <p class="fine">On the Audit + Remediation and Full Due Diligence tiers, I ship these fixes as pull requests, not just recommendations.</p>
+  </section>
+
+  <section>
+    <h2>Want this run on your app?</h2>
+    <p>Every engagement is authorized-only — I audit apps you own or control, under a short signed authorization that names the app.</p>
+    <p>
+      <a class="button" href="mailto:iganapolsky@gmail.com?subject=Mobile%20AI%20key-leak%20audit%20request&amp;body=App%20name%3A%20%0AiOS%2FAndroid%2Fboth%3A%20%0AApp%20Store%20or%20Play%20link%3A%20%0AAudit%20only%2C%20or%20audit%20%2B%20fix%3A%20" data-track="sample_cta_click" data-tier="mobile_keyleak_audit">Request an audit — from $750</a>
+      <a class="button secondary" href="/mobile-ai-key-leak-audit.html">See the full offer</a>
+    </p>
+  </section>
+
+  <footer>
+    <p>Igor Ganapolsky &middot; <a href="mailto:iganapolsky@gmail.com">iganapolsky@gmail.com</a> &middot; <a href="https://github.com/IgorGanapolsky">github.com/IgorGanapolsky</a></p>
+    <p class="fine">Illustrative sample only. Synthetic example app; no real client, credentials, or company data.</p>
+  </footer>
+
+</main>
+</body>
+</html>
