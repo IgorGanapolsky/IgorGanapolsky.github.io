@@ -141,7 +141,7 @@ window.resumeOSAnalytics = (function () {
       return false;
     if (node.target && node.target !== "_self") return false;
     var href = node.getAttribute("href") || "";
-    return /^https:\/\/buy\.stripe\.com\//.test(href) || /^mailto:/.test(href);
+    return /^https:\/\/(?:buy|book)\.stripe\.com\//.test(href) || /^mailto:/.test(href);
   }
 
   function bindTrackedLinks() {
