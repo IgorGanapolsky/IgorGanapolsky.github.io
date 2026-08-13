@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>After-Hours Leak Score — $149 HVAC audit</title>
+  <style>
+    body { font-family: Georgia, serif; max-width: 640px; margin: 2rem auto; padding: 0 1rem; color: #111; }
+    h1 { font-size: 1.6rem; }
+    label { display: block; margin: 0.75rem 0 0.25rem; font-weight: 600; }
+    input[type="url"], input[type="email"], input[type="text"] { width: 100%; padding: 0.5rem; }
+    .price { font-size: 1.25rem; }
+    button { margin-top: 1rem; padding: 0.6rem 1rem; font-size: 1rem; }
+    .consent { margin-top: 1rem; }
+  </style>
+</head>
+<body>
+  <h1>After-Hours Leak Score for HVAC and plumbing shops</h1>
+  <p class="price"><strong>$149</strong> written recovery plan. Instant. No founder labor.</p>
+  <p>Paste a public shop URL. Get a 0–100 Leak Score in seconds. Pay $149 for the token-gated after-hours recovery plan generated from that score.</p>
+  <form id="ahls-form" method="post" action="https://ahls.vercel.app/ahls/checkout">
+    <label for="shopUrl">Public shop URL</label>
+    <input id="shopUrl" name="shopUrl" type="url" required placeholder="https://your-hvac-shop.example" />
+    <label for="companyName">Shop name (optional)</label>
+    <input id="companyName" name="companyName" type="text" placeholder="Shop name" />
+    <label for="email">Email for the paid plan</label>
+    <input id="email" name="email" type="email" required placeholder="owner@shop.example" />
+    <div class="consent">
+      <label>
+        <input id="consent" name="consent" type="checkbox" required />
+        I consent to a public-page After-Hours Leak Score and a $149 one-time checkout for the written plan.
+      </label>
+    </div>
+    <button type="submit">Pay $149 — get the after-hours plan</button>
+  </form>
+  <p>SKU RECEP-001-AUDIT. HVAC after-hours only. $149 is not discounted.</p>
+</body>
+</html>
