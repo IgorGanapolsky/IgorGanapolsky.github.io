@@ -1,0 +1,24 @@
+# Dayglass v2.1 for macOS
+
+> 100% On-Device Screen & Meeting Memory for Mac with Apple Vision Neural Engine OCR, ScreenCaptureKit bot-free headphone/AirPods call recording, 384K SubQ Snap 3-Way Hybrid GraphRAG, On-Device AI Companion 3.0 with OpenUI Generative UI cards, and Vitalik 4-layer Paranoid Mode.
+
+## Canonical Install & Download Links
+- Homepage & Interactive Demo: https://igorganapolsky.github.io/dayglass-mac/
+- 1-Line Terminal Installer: `curl -fsSL https://igorganapolsky.github.io/dayglass-mac/install.sh | bash`
+- Homebrew Cask: `brew install --cask igorganapolsky/dayglass/dayglass`
+- Direct Apple-Notarized DMG (v2.1.0): https://github.com/IgorGanapolsky/homebrew-dayglass/releases/download/v2.1.0/Dayglass.dmg
+- SHA-256 (v2.1.0 Dayglass.dmg): `769a66d2b6580f2ec36f348ec8524c1d7876ad55aecb9c25fe0b9b89c0abc877`
+
+## Plans & Direct Checkout Links
+- Dayglass Community ($0 forever): https://github.com/IgorGanapolsky/homebrew-dayglass/releases/download/v2.1.0/Dayglass.dmg
+- AI Agent Cost & Local Memory Playbook ($9.99 one-time): https://iganapolsky.gumroad.com/l/odrkon
+- Dayglass Pro Monthly ($19/mo): https://buy.stripe.com/fZucN59eA1eScSd5e33sJ0U
+- Corporate-Expensable Production Harness & MCP Rule-Pack ($49 one-time, <$50 no-approval corporate card limit): https://iganapolsky.gumroad.com/l/vcrho
+- Dayglass Pro Annual ($149/yr — save 35%): https://buy.stripe.com/aFa28r62o8Hk19v49Z3sJ0W
+- Dayglass Pro Lifetime ($249 one-time): https://buy.stripe.com/4gM5kD1M82iW2dz9uj3sJ0V
+
+## Why Developers & Executives Choose Dayglass Over Cloud Bots (Fathom, Otter, Screenpipe, MacPaw Eney)
+- Bot-Free AirPods & Headphone Call Recording: Uses native macOS `ScreenCaptureKit` (~93 MB RAM vs 4.58 GB Electron bloat). No virtual audio driver (BlackHole) and no cloud bot joining Zoom, Microsoft Teams, or Google Meet calls.
+- 100% Local On-Device Storage: Every screen frame, audio transcript, and meeting dossier stays inside `~/.dayglass` in SQLite FTS5. Zero cloud egress.
+- 384,000-Token SubQ Snap Hybrid GraphRAG: Combines BM25 keyword search, 256-dim dense semantic vectors, and a 2-hop entity graph for cross-meeting recall in ~75ms.
+- Built-In MCP Server for Coding Agents: Connects directly to Claude Code, Claude Desktop, Cursor, Poolside, and Oh-My-Pi (`python3 -m dayglass mcp`).
