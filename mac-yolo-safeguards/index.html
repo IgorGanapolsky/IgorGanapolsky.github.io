@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mac YOLO Safeguards — Native macOS Liquid Glass HUD & 11-Tool MCP Server for AI Coding Agents</title>
+  <meta name="description" content="172 KB native Swift macOS menu bar HUD + 11-tool MCP server that reclaims 47+ GiB of hidden AI agent bloat (/private/tmp/claude-*), reaps zombie MCPs, and caps frontier LLM token spend." />
+  <style>
+    :root { --bg: #0d0b18; --card: #17132b; --border: #33295a; --text: #f5f3ff; --muted: #a79ec7; --accent: #8b5cf6; --green: #10b981; }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif; background: radial-gradient(circle at top, #1e163b 0%, var(--bg) 60%); color: var(--text); line-height: 1.55; }
+    .wrap { max-width: 960px; margin: 0 auto; padding: 48px 24px 80px; }
+    .badge { display: inline-block; padding: 6px 14px; border-radius: 999px; background: rgba(139,92,246,0.18); border: 1px solid var(--border); color: #c4b5fd; font-size: 13px; font-weight: 600; }
+    h1 { font-size: clamp(32px, 5vw, 52px); line-height: 1.1; margin: 16px 0; letter-spacing: -0.02em; }
+    p.lead { font-size: 19px; color: var(--muted); max-width: 760px; margin-bottom: 28px; }
+    .cta-row { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 28px; }
+    .btn { display: inline-block; padding: 14px 22px; border-radius: 12px; font-weight: 600; text-decoration: none; font-size: 15px; transition: transform 0.12s ease; }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-green { background: var(--green); color: #052e16; }
+    .btn-outline { background: var(--card); color: var(--text); border: 1px solid var(--border); }
+    pre.brew { background: #090712; border: 1px solid var(--border); padding: 14px 18px; border-radius: 10px; overflow-x: auto; font-family: "SF Mono", Menlo, monospace; font-size: 14px; color: #ddd6fe; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; margin-top: 36px; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 22px; }
+    .card h3 { margin: 0 0 8px; font-size: 18px; }
+    .price { font-size: 28px; font-weight: 700; color: #ddd6fe; margin: 8px 0 12px; }
+    .card p { color: var(--muted); font-size: 14px; margin: 0 0 16px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <span class="badge">Apple Notarized v1.0.0 • Developer ID Signed (9GMM26JC5X) • macOS 14+</span>
+    <h1>Mac YOLO Safeguards</h1>
+    <p class="lead">The 172 KB native Swift Liquid Glass menu bar HUD &amp; 11-tool MCP server built for unattended AI coding agents (Claude Code, Cursor, Codex, Gemini, Ollama). Reclaims 47+ GiB of hidden <code>/private/tmp/claude-*</code> scratch bloat, reaps zombie MCP daemons, and enforces a hard $10/mo frontier token ceiling.</p>
+    <div class="cta-row">
+      <a class="btn btn-green" href="https://iganapolsky.gumroad.com/l/nllmvb">Buy Mac YOLO Pro Suite — $49</a>
+      <a class="btn btn-primary" href="https://github.com/IgorGanapolsky/mac-yolo-safeguards/releases/download/v1.0.0/MacYoloSafeguards-1.0.0.dmg">Download Notarized DMG (v1.0.0)</a>
+      <a class="btn btn-outline" href="https://iganapolsky.gumroad.com/l/odrkon">Self-Serve Playbook — $9.99</a>
+      <a class="btn btn-outline" href="https://github.com/IgorGanapolsky/mac-yolo-safeguards/releases/tag/v1.0.0">GitHub Release &amp; SHA-256</a>
+    </div>
+    <pre class="brew">brew install --cask igorganapolsky/tap/mac-yolo-safeguards</pre>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Agent Safeguards Playbook</h3>
+        <div class="price">$9.99</div>
+        <p>Self-serve runbook + launchd &amp; MCP configuration templates for solo macOS AI builders.</p>
+        <a class="btn btn-outline" href="https://iganapolsky.gumroad.com/l/odrkon">Instant Download →</a>
+      </div>
+      <div class="card">
+        <h3>Mac YOLO Pro &amp; Corporate Kit</h3>
+        <div class="price">$49</div>
+        <p>Full Mac YOLO Pro native suite + 40 PreToolUse gates &amp; DPO/AKV multi-agent configs (under $50 corporate card threshold).</p>
+        <a class="btn btn-green" href="https://iganapolsky.gumroad.com/l/nllmvb">Get Pro Suite ($49) →</a>
+      </div>
+      <div class="card">
+        <h3>48-Hour Fleet Diagnostic</h3>
+        <div class="price">$499</div>
+        <p>Custom audit of your team's MCP servers, token bleed, and runaway agent loops with a tailored remediation PR.</p>
+        <a class="btn btn-primary" href="https://buy.stripe.com/9B69ATbmI4r4aK5eOD3sI3k">Book Diagnostic ($499) →</a>
+      </div>
+      <div class="card">
+        <h3>AI Agent Hardening Sprint</h3>
+        <div class="price">$1,500</div>
+        <p>Hands-on implementation of PreToolUse interdiction, local/cloud routing, and CI/CD regression gates.</p>
+        <a class="btn btn-outline" href="https://buy.stripe.com/4gM28r1M8g9M3hD0XN3sI38">Start Sprint ($1,500) →</a>
+      </div>
+      <div class="card">
+        <h3>Enterprise Partner Pilot</h3>
+        <div class="price">$3,000</div>
+        <p>30-day dedicated multi-agent governance, telemetry, and macOS fleet deployment for engineering orgs.</p>
+        <a class="btn btn-outline" href="https://buy.stripe.com/fZucN5bmI8HkbO98qf3sI3j">Launch Pilot ($3,000) →</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
